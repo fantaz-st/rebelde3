@@ -1,0 +1,147 @@
+.btn {
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+  color: var(--color--content--perssian-blue);
+  transition: color 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.btnInner {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  border: max(1px, 0.1rem) solid;
+  transition: border-color 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.btnTxtWrap {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1;
+  z-index: 2;
+}
+
+.btnTxt {
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.top {
+  position: relative;
+}
+
+.bot {
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+}
+
+.btnBg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transition: background-color 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86), border-color 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+@media (hover: hover) {
+  .btn:hover .btnTxt {
+    transform: translateY(-100%);
+  }
+
+  .btn:hover {
+    transition-delay: 0.12s;
+  }
+
+  .btn:not(:hover) {
+    transition-delay: 0s;
+  }
+}
+
+/* sizes */
+
+.lg .btnInner {
+  padding: 2rem 3.2rem;
+  font-size: 1.6rem;
+}
+
+.sm .btnInner {
+  padding: 1.2rem 2.2rem;
+  font-size: 1.4rem;
+}
+
+/* variants */
+
+.primary {
+  color: var(--color--content--white);
+}
+
+.primary .btnInner {
+  border-color: var(--color--content--perssian-blue);
+}
+
+.primary .btnBg {
+  background-color: var(--color--content--perssian-blue);
+}
+
+@media (hover: hover) {
+  .primary:hover {
+    color: var(--color--content--perssian-blue);
+  }
+  .primary:hover .btnBg {
+    background-color: var(--color--content--white);
+  }
+}
+
+.white {
+  color: var(--color--content--perssian-blue);
+}
+
+.white .btnInner {
+  border-color: var(--color--content--white);
+}
+
+.white .btnBg {
+  background-color: var(--color--content--white);
+}
+
+@media (hover: hover) {
+  .white:hover {
+    color: var(--color--content--white);
+  }
+  .white:hover .btnInner {
+    border-color: #ffffff1a;
+  }
+  .white:hover .btnBg {
+    background-color: var(--color--content--perssian-blue);
+  }
+}
+
+.ghost {
+  color: var(--color--content--perssian-blue);
+}
+
+.ghost .btnBg {
+  background-color: transparent;
+}
+
+@media (hover: hover) {
+  .ghost:hover {
+    color: var(--color--content--white);
+  }
+
+  .ghost:hover .btnInner {
+    border-color: var(--color--content--perssian-blue);
+  }
+  .ghost:hover .btnBg {
+    background-color: var(--color--content--perssian-blue);
+  }
+}

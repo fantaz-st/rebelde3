@@ -1,0 +1,285 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  color: var(--color--content--white);
+  transition: transform 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  will-change: transform;
+  isolation: isolate;
+}
+
+.isHidden {
+  transform: translateY(-110%);
+}
+
+.onOpenNav {
+  transform: translateY(0) !important;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent);
+  opacity: 0;
+  transition: opacity 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  filter: blur(1.4rem);
+  z-index: 0;
+}
+
+.onScroll .overlay {
+  opacity: 0.8;
+}
+
+.inner {
+  padding: 2.2rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.wrap {
+  padding-inline: 2.4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  column-gap: 6rem;
+}
+
+/* MENU */
+
+.menu {
+  display: flex;
+  justify-content: center;
+}
+
+.menuList {
+  display: flex;
+  gap: clamp(2rem, 4vw, 6rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menuLink {
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.menuLink:focus-visible,
+.cta:focus-visible,
+.ham:focus-visible,
+.mobileLink:focus-visible,
+.mobileCta:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 6px;
+}
+
+/* FLIP TEXT */
+
+.flip {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.flipTop,
+.flipBottom {
+  display: block;
+  height: 1em;
+  white-space: nowrap;
+  transition: transform 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.flipBottom {
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+}
+
+.menuLink:hover .flipTop,
+.menuLink:hover .flipBottom,
+.cta:hover .flipTop,
+.cta:hover .flipBottom {
+  transform: translateY(-100%);
+}
+
+/* CTA */
+
+.cta {
+  position: relative;
+  display: inline-flex;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+
+.ctaInner {
+  padding: 1.1rem 1.8rem;
+  position: relative;
+  z-index: 2;
+}
+
+.ctaBg {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.12);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.cta:hover .ctaBg {
+  transform: scaleX(1);
+}
+
+/* HAMBURGER */
+
+.ham {
+  display: none;
+  width: 5.2rem;
+  height: 5.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: none;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.ham span {
+  position: absolute;
+  left: 50%;
+  width: 1.8rem;
+  height: 2px;
+  background: currentColor;
+  transform: translateX(-50%);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.ham span:nth-child(1) {
+  top: 45%;
+}
+
+.ham span:nth-child(2) {
+  top: 50%;
+}
+
+.ham span:nth-child(3) {
+  top: 55%;
+}
+
+.active span:nth-child(1) {
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.active span:nth-child(3) {
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+/* MOBILE NAV */
+
+.mobile {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.mobileOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobileInner {
+  height: 100%;
+  padding: 10rem 2.4rem 3.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(12px);
+}
+
+.mobileList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2.2rem;
+}
+
+.mobileLink {
+  display: inline-flex;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.mobileCta {
+  display: inline-flex;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.8rem;
+  padding: 1.4rem 1.8rem;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* BACKDROP CLICK AREA */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  border: 0;
+  padding: 0;
+  transition: opacity 0.35s ease;
+}
+
+.backdropOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* MOBILE */
+
+@media (max-width: 991px) {
+  .menu {
+    display: none;
+  }
+
+  .ham {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 992px) {
+  .mobile,
+  .backdrop {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .overlay,
+  .flipTop,
+  .flipBottom,
+  .ctaBg,
+  .mobile,
+  .backdrop {
+    transition: none !important;
+  }
+}

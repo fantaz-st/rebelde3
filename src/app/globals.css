@@ -1,33 +1,37 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  box-sizing: border-box;
+  font-size: 62.5%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
-html,
 body {
-  max-width: 100vw;
+  margin: 0;
+  min-height: 100%;
+  font-family: var(--fonts--body);
+  color: var(--color--content--white);
+  background-color: var(--background--brown-100);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.8rem;
+  line-height: 1.4;
   overflow-x: hidden;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+svg {
+  display: block;
 }
 
 a {
@@ -35,8 +39,110 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+:root {
+  --background--brown-100: #2b231f;
+  --background--brown-10: #f2ebe3;
+  --background--brown-20: #e6d9cd;
+  --background--brown-30: #a89d95;
+  --background--brown-80: #846845;
+  --color--content--perssian-blue: #003357;
+
+  --color--content--white: #ffffff;
+  --color--content--white-80: rgba(255, 255, 255, 0.8);
+
+  --fonts--body: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --fonts--button: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --fonts--h5: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --container--width: min(100vw, var(--container--max-width));
+  --container--padding: 6rem;
+  --container--column: 16;
+  --container--column-gap: 2rem;
+
+  --padding-container: 4rem;
+
+  --nav-link-open: 1;
+  --nav-dropdown-open: 0;
+  --nav-dropdown-toggle-open: 0;
+
+  --tab-active: 1;
+
+  --control: 1;
+  --inputType-custom: 1;
+
+  --vertical: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container--width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container--padding);
+  padding-right: var(--container--padding);
+}
+
+@media only screen and (max-width: 991px) {
+  .container {
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
   }
+}
+
+.grid {
+  display: grid;
+  column-gap: var(--container--column-gap);
 }

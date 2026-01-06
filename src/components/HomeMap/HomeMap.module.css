@@ -1,0 +1,457 @@
+.mapWrap {
+  position: relative;
+  z-index: 2;
+}
+
+.map {
+  background-color: var(--background--brown-10);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container--width);
+  margin: 0 auto;
+  padding: 0 var(--container--padding);
+}
+
+.mapText {
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 16rem;
+  position: relative;
+  max-width: 50vw;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 0 0 4rem;
+  color: var(--color--content--perssian-blue);
+}
+
+.desc {
+  color: var(--color--content--perssian-blue);
+}
+
+.cta {
+  margin-top: 4rem;
+}
+
+.mapInner {
+  display: flex;
+  flex-direction: column;
+  /* min-height: 100vh; */
+  padding-bottom: min(4rem, 3.7037vh);
+}
+
+.mapHead {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3.2rem 0;
+  position: relative;
+  min-height: 0;
+}
+
+.mapImg {
+  width: 90vmax;
+  margin: auto 0;
+  position: relative;
+  min-height: 0;
+}
+
+.mapImgInner {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.imgDefault {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mapOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.location {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.locationList {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.locationItem {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.locationMap {
+  z-index: 1;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.4s;
+}
+
+.active .locationMap {
+  opacity: 1;
+}
+
+.mapLayer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.imgContain {
+  object-fit: contain;
+}
+
+.imgCover {
+  object-fit: cover;
+}
+
+/* Desktop map pins */
+.locationIc {
+  z-index: 2;
+  border: max(1.5px, 0.15rem) solid var(--background--brown-20);
+  background-color: var(--background--brown-10);
+  color: var(--background--brown-80);
+  cursor: pointer;
+  border-radius: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  position: absolute;
+  pointer-events: auto;
+  transition: color 0.4s, border-color 0.4s, box-shadow 0.4s, background-color 0.4s;
+}
+
+.locationIcInner {
+  width: min(2.4rem, 2.2vh);
+  height: min(2.4rem, 2.2vh);
+}
+
+.locationItem .locationIc {
+  position: absolute;
+}
+
+.clone {
+  transform: scale(2);
+}
+
+.locationIcBg {
+  background-color: var(--background--brown-80);
+  opacity: 0;
+  border-radius: 50%;
+  width: 140%;
+  height: 140%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  clip-path: circle(2% at 50% 50%);
+  transition: clip-path 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86), opacity 0.45s;
+}
+
+.active .locationIc {
+  color: var(--background--brown-10);
+  border-color: var(--background--brown-80);
+  background-color: var(--background--brown-80);
+  box-shadow: 0 1.5rem 2rem #84684580;
+}
+
+/* Mobile maps stack */
+.mobileMaps {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: none;
+}
+
+.mobileMapItem {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.mobileMapItem.active {
+  opacity: 1;
+}
+
+/* Cards (desktop grid + mobile swiper) */
+.destin {
+  width: 100%;
+  margin-top: auto;
+}
+
+.destinGrid {
+  width: 100%;
+  height: min(33.2rem, 30.7407vh);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  height: 100%;
+  position: relative;
+  text-decoration: none;
+  display: block;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  color: var(--color--content--white);
+  cursor: pointer;
+}
+
+.cardInner {
+  width: 100%;
+  height: 100%;
+  /* padding: 3.2rem; */
+
+  position: relative;
+  z-index: 2;
+}
+
+.cardThumb {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  transform: scale(1);
+  transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .cardThumb {
+  transform: scale(1.08);
+}
+
+.cardThumbOverlay {
+  background-image: linear-gradient(0deg, #000000b3, #0000);
+  width: 100%;
+  height: 54.2%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Desktop card: pin in top-left (not on mobile) */
+.cardPin {
+  z-index: 3;
+  position: relative;
+}
+
+.pinBox {
+  position: relative;
+  border: max(1.5px, 0.15rem) solid var(--background--brown-20);
+  background-color: var(--background--brown-10);
+  color: var(--background--brown-80);
+  border-radius: 0.2rem;
+  padding: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pinBoxInner {
+  width: min(2.4rem, 2.2vh);
+  height: min(2.4rem, 2.2vh);
+  position: relative;
+  z-index: 2;
+}
+
+.pinWave {
+  position: absolute;
+  inset: -30%;
+  border-radius: 50%;
+  background-color: var(--background--brown-80);
+  opacity: 0;
+  clip-path: circle(2% at 50% 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: clip-path 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86), opacity 0.45s;
+}
+
+.active .pinBox {
+  background-color: var(--background--brown-80);
+  border-color: var(--background--brown-80);
+  color: var(--background--brown-10);
+  box-shadow: 0 1.5rem 2rem #84684580;
+}
+
+.active .pinWave {
+  opacity: 1;
+  clip-path: circle(100% at 50% 50%);
+}
+
+/* Mobile card: number in top-left */
+.cardNum {
+  z-index: 3;
+  position: absolute;
+  top: 2.4rem;
+  left: 2.4rem;
+
+  text-transform: uppercase;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.cardInfo {
+  z-index: 3;
+  position: absolute;
+  pointer-events: none;
+  bottom: 1.8rem;
+  left: 1.8rem;
+}
+
+.cardLabel {
+  margin-bottom: 1.2rem;
+}
+
+.cardTitle {
+  line-height: 1.05;
+}
+
+/* Swipe to explore */
+.fullMapCard {
+  cursor: default;
+}
+
+.fullMapTitle {
+  color: var(--color--content--perssian-blue);
+
+  margin: 0;
+}
+
+/* Swiper */
+.swiper {
+  width: 100%;
+  height: min(33.2rem, 30.7407vh);
+  overflow: visible;
+}
+
+.swiperSlide {
+  height: 100%;
+  width: min(34rem, 78vw);
+}
+
+:global(.swiper-wrapper) {
+  align-items: stretch;
+}
+
+.mapGradient {
+  background-image: linear-gradient(0deg, var(--background--brown-10), #f2ebe300);
+  pointer-events: none;
+  width: 100%;
+  height: 14rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+@media (max-width: 991px) {
+  .container {
+    padding: 0;
+  }
+
+  .mapHead {
+    padding: 2.4rem 0;
+    margin-left: calc(-1 * var(--container--padding));
+    margin-right: calc(-1 * var(--container--padding));
+  }
+
+  .mapImg {
+    width: 100vw;
+    height: 52vh;
+    margin: 0 auto;
+  }
+
+  .mapImgInner {
+    display: none;
+  }
+
+  .mapOverlay {
+    display: none;
+  }
+
+  .mobileMaps {
+    display: block;
+  }
+
+  .swiper {
+    padding: 0 1rem;
+    height: min(28rem, 26vh);
+  }
+
+  .swiperSlide {
+    width: min(30rem, 76vw);
+  }
+
+  .cardPin {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .cardInner {
+    /* padding: 2.2rem; */
+  }
+  .mapText {
+    max-width: 100vw;
+    margin-top: 8rem;
+    padding: 0 4rem;
+  }
+
+  .cardNum {
+    top: 1.8rem;
+    left: 1.8rem;
+  }
+
+  .cardLabel {
+    display: none;
+  }
+
+  .swiper {
+    height: min(26rem, 24vh);
+  }
+
+  .swiperSlide {
+    width: min(28rem, 78vw);
+  }
+
+  .mapImg {
+    height: 50vh;
+  }
+
+  .mapGradient {
+    left: calc(-1 * var(--container--padding));
+    width: calc(100% + (var(--container--padding) * 2));
+  }
+}
