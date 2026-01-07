@@ -11,17 +11,17 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function HomeHero() {
   const wrapRef = useRef(null);
-  const imgWrapRef = useRef(null);
+  const backgroundRef = useRef(null);
   const blurRef = useRef(null);
   const backdropRef = useRef(null);
   const textRef = useRef(null);
 
   useGSAP(
     () => {
-      gsap.set(imgWrapRef.current, { scale: 1 });
+      gsap.set(backgroundRef.current, { scale: 1 });
       gsap.set(blurRef.current, { autoAlpha: 0 });
-      gsap.set(textRef.current, { autoAlpha: 1 });
       gsap.set(backdropRef.current, { autoAlpha: 0 });
+      gsap.set(textRef.current, { autoAlpha: 1 });
 
       gsap
         .timeline({
@@ -34,7 +34,7 @@ export default function HomeHero() {
             invalidateOnRefresh: true,
           },
         })
-        .to(imgWrapRef.current, { scale: 1.08 }, 0)
+        .to(backgroundRef.current, { scale: 1.08 }, 0)
         .to(blurRef.current, { autoAlpha: 1 }, 0)
         .to(backdropRef.current, { autoAlpha: 1 }, 0)
         .to(textRef.current, { autoAlpha: 0 }, 0);
@@ -43,47 +43,21 @@ export default function HomeHero() {
   );
 
   return (
-    <div ref={wrapRef} className={classes.homeHeroWrap}>
-      <section className={classes.homeHero}>
-        <div className={classes.homeHeroInner}>
-          <div className={classes.homeHeroBg}>
-            <div className={classes.homeHeroBgItem}>
-              <div ref={imgWrapRef} className={classes.homeHeroBgItemInner}>
-                <Image className={classes.heroImg} fill loading="eager" alt="" sizes="(max-width: 3840px) 100vw, 3840px" src="/images/hero-1.jpg" priority />
-                <div ref={blurRef} className={classes.homeHeroBgBlurLayer} aria-hidden="true">
-                  <Image className={classes.heroImg} fill loading="eager" alt="" sizes="(max-width: 3840px) 100vw, 3840px" src="/images/hero-1.jpg" priority />
-                </div>
-              </div>
-            </div>
+    <section ref={wrapRef} className={classes.container}>
+      <div ref={backgroundRef} className={classes.background}>
+        <Image className={classes.img} fill priority loading="eager" alt="" sizes="(max-width: 3840px) 100vw, 3840px" src="/images/hero-1.jpg" />
 
-            <div className={classes.homeHeroBgOverlay}>
-              <div className={classes.homeHeroBgOverlayTop} />
-              <div className={classes.homeHeroCloneBgOverlayInner}>
-                <div className={classes.homeHeroCloneBgOverlay} />
-              </div>
-            </div>
-
-            <div ref={backdropRef} className={classes.homeHeroBackdrop} />
-          </div>
-
-          <div className={classes.homeHeroMain}>
-            <div className={`container grid ${classes.fullH}`}>
-              <div ref={textRef} className={classes.homeHeroText}>
-                <div className={classes.homeHeroTitle}>
-                  <h1>Your Private Adriatic Escape</h1>
-                </div>
-                <div className={classes.homeHeroDesc}>
-                  <h4>Set your own rhythm aboard Felix 37 — private day trips and charters from Split to Hvar, Vis, the Blue Cave, and hidden bays</h4>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div ref={blurRef} className={classes.blur} aria-hidden="true">
+          <Image className={classes.img} fill priority loading="eager" alt="" sizes="(max-width: 3840px) 100vw, 3840px" src="/images/hero-1.jpg" />
         </div>
 
-        <div className={classes.homeHomeInnerEmptyBlock} />
-      </section>
+        <div ref={backdropRef} className={classes.backdrop} aria-hidden="true" />
+      </div>
 
-      <div className={classes.homeHomeEmptyBlock} />
-    </div>
+      <div ref={textRef} className={classes.text}>
+        <h1 className={classes.title}>Your Private Adriatic Escape</h1>
+        <h4 className={classes.subtitle}>Set your own rhythm aboard Felix 37 — private day trips and charters from Split to Hvar, Vis, the Blue Cave, and hidden bays</h4>
+      </div>
+    </section>
   );
 }

@@ -1,111 +1,85 @@
-.homeGalleryWrap {
+.wrap {
   position: relative;
   z-index: 2;
   width: 100%;
 }
 
-.homeGallery {
-  position: relative;
-  width: 100%;
-}
-
-.galleryShell {
-  position: relative;
-  width: 100%;
-}
-
-/* This container covers the full viewport height */
-.homeGalleryStick {
+.stick {
   position: relative;
   height: 100vh;
   display: grid;
-  place-items: center; /* This now works because children have height */
+  place-items: center;
   pointer-events: none;
   z-index: 10;
 }
 
-.homeGalleryText {
+.headingStack {
   width: 100%;
   max-width: 98rem;
   margin-inline: auto;
   padding-inline: 2.4rem;
-}
-
-/* STACKING TECHNIQUE: Using CSS Grid to overlap children */
-.headingStack {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   place-items: center;
-  width: 100%;
 }
 
 .heading {
   grid-area: 1 / 1;
-  display: block;
   text-align: center;
   color: rgba(255, 255, 255, 0.92);
   mix-blend-mode: difference;
-
-  visibility: hidden;
   opacity: 0;
+  visibility: hidden;
 }
 
-.homeGalleryMain {
+.main {
   position: relative;
   z-index: 2;
   width: 100vw;
   left: 50%;
   transform: translateX(-50%);
-
-  /* height: 300vh; */
-  margin-left: 0;
 }
 
-.galleryStage {
+.stage {
   position: relative;
   width: 100%;
   height: 300vh;
-  /* height: clamp(160rem, 220rem, 260rem); */
 }
 
-.homeGalleryMainCol {
+.col {
   position: absolute;
   inset: 0;
 }
 
-.homeGalleryList {
+.list {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.homeGalleryItem {
+.item {
   position: absolute;
   left: 33%;
   top: 30%;
   transform-origin: 50% 30%;
 }
 
-.homeGalleryItemImg,
-.homeGalleryItemImgInner {
+.imgInner {
   width: 100%;
   height: 100%;
-}
-
-.homeGalleryItemImgInner {
   overflow: hidden;
   border-radius: 1.2rem;
 }
 
-.galleryImg {
+.img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* Item placements */
+/* START (collage) placements */
 .startItem:nth-child(1) {
   width: 54rem;
   height: 40.5rem;
@@ -132,7 +106,8 @@
   transform: translate(-50%, -50%) translate(-10.5rem, 29.5rem) rotate(-5deg);
 }
 
-.end .homeGalleryList {
+/* END (measure) grid */
+.end .list {
   width: 100%;
   max-width: var(--container--width, 1440px);
   margin-inline: auto;
@@ -143,6 +118,9 @@
   height: 100%;
   align-content: start;
   padding-top: 34vh;
+
+  grid-auto-rows: 1px;
+  grid-template-rows: 1px;
 }
 
 .endItem {
@@ -150,12 +128,13 @@
   left: auto;
   top: auto;
   transform: none;
+  grid-row: 1;
 }
+
 .endItem:nth-child(1) {
   width: 54rem;
   height: 40.5rem;
   grid-column: 1/6;
-  grid-row: 1/1;
   justify-self: end;
 }
 .endItem:nth-child(2) {
@@ -163,14 +142,12 @@
   height: 57.6rem;
   margin-top: -12.3rem;
   grid-column: 11/14;
-  grid-row: 1/1;
 }
 .endItem:nth-child(3) {
   width: 43.2rem;
   height: 52.3rem;
   margin-top: 76.4rem;
   grid-column: 1/4;
-  grid-row: 1/1;
   justify-self: end;
 }
 .endItem:nth-child(4) {
@@ -178,7 +155,7 @@
   height: 42rem;
   margin-top: 79rem;
   grid-column: 13/16;
-  grid-row: 1/1;
+  justify-self: start;
   margin-left: 4rem;
 }
 .endItem:nth-child(5) {
@@ -186,7 +163,6 @@
   height: 75.6rem;
   margin-top: 100rem;
   grid-column: 6/12;
-  grid-row: 1/1;
   justify-self: center;
 }
 
@@ -196,20 +172,22 @@
   visibility: hidden;
 }
 
-.homeGalleryMainCol.start {
+.start {
   opacity: 0;
   transform: translate3d(0, 55vh, 0);
   will-change: transform, opacity;
 }
 
-/* Responsive Queries */
+/* TABLET (<= 991px) */
 @media only screen and (max-width: 991px) {
-  .galleryStage {
+  .stage {
     height: 150rem;
   }
-  .end .homeGalleryList {
+
+  .end .list {
     padding-inline: 2.4rem;
   }
+
   .startItem:nth-child(1),
   .endItem:nth-child(1) {
     width: 27.3rem;
@@ -237,11 +215,74 @@
   }
 }
 
+/* MOBILE (<= 767px) — Webflow end targets */
 @media only screen and (max-width: 767px) {
-  .galleryStage {
+  .stage {
     height: 110rem;
   }
-  .end .homeGalleryList {
+
+  .end .list {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .startItem:nth-child(1),
+  .endItem:nth-child(1) {
+    width: 16rem;
+    height: 11.3rem;
+  }
+  .startItem:nth-child(2),
+  .endItem:nth-child(2) {
+    width: 18.3rem;
+    height: 13.2rem;
+  }
+  .startItem:nth-child(3),
+  .endItem:nth-child(3) {
+    width: 13.5rem;
+    height: 16.5rem;
+  }
+  .startItem:nth-child(4),
+  .endItem:nth-child(4) {
+    width: 20.8rem;
+    height: 15rem;
+  }
+  .startItem:nth-child(5),
+  .endItem:nth-child(5) {
+    width: 15.1rem;
+    height: 17.5rem;
+  }
+
+  .endItem:nth-child(1) {
+    grid-column: 1/2;
+    margin-top: 0;
+    justify-self: start;
+    margin-left: 0;
+  }
+
+  .endItem:nth-child(2) {
+    grid-column: 3/4;
+    margin-top: -7.7rem;
+    justify-self: start;
+    margin-left: 0;
+  }
+
+  .endItem:nth-child(3) {
+    grid-column: 1/1;
+    margin-top: 25rem;
+    justify-self: end;
+    margin-left: 0;
+  }
+
+  .endItem:nth-child(4) {
+    grid-column: 4/4;
+    margin-top: 18.3rem;
+    justify-self: start;
+    margin-left: 0;
+  }
+
+  .endItem:nth-child(5) {
+    grid-column: 2/3;
+    margin-top: 47.4rem;
+    justify-self: center;
+    margin-left: 0;
   }
 }

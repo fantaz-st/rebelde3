@@ -1,46 +1,30 @@
-.homeHeroWrap {
-  z-index: 1;
-  position: relative;
-}
-
-.homeHero {
-  width: 100%;
+.container {
+  position: sticky;
+  top: 0;
   height: 100vh;
-  position: sticky;
-  top: 0;
-}
-
-.homeHeroInner {
   width: 100%;
-  height: 100%;
-  margin-bottom: -400vh;
-  position: sticky;
-  top: 0;
-}
-
-.homeHeroBg {
   z-index: 1;
-  width: 100%;
-  height: 100%;
+  overflow: hidden;
+}
+
+.background {
   position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.homeHeroBgItem {
-  width: 100%;
-  height: 100%;
-}
-
-.homeHeroBgItemInner {
-  width: 100vw;
-  height: 100%;
-  position: relative;
+  inset: 0;
   transform: scale(1);
   will-change: transform;
 }
 
-.homeHeroBgBlurLayer {
+.img {
+  object-fit: cover;
+  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  height: 100%;
+  max-width: none;
+  object-position: 50% 100%;
+}
+
+.blur {
   position: absolute;
   inset: 0;
   opacity: 0;
@@ -51,118 +35,63 @@
   will-change: opacity;
 }
 
-.heroImg {
-  object-fit: cover;
-  width: 100%;
-  min-width: 100%;
-  min-height: 100%;
-  height: 100%;
-  max-width: none;
-  object-position: 50% 100%;
-}
-
-.homeHeroBgOverlay {
-  pointer-events: none;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  display: none;
-}
-
-.homeHeroBgOverlayTop {
-  background-image: linear-gradient(#00000080, #00000080), linear-gradient(#034e84, #034e8400);
-  width: 100%;
-  min-height: 20vh;
-}
-
-.homeHeroCloneBgOverlayInner {
-  opacity: 0.5;
-  width: 100%;
-  height: 100vh;
-}
-
-.homeHeroCloneBgOverlay {
-  background-image: linear-gradient(#000, #0000);
-  width: 100%;
-  height: 50%;
-}
-
-.homeHeroBackdrop {
-  z-index: 1;
-  pointer-events: none;
-  width: 100%;
-  height: 100%;
+.backdrop {
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background-image: linear-gradient(0deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 50%);
   opacity: 0;
   will-change: opacity;
 }
 
-.homeHeroMain {
-  z-index: 2;
-  width: 100%;
-  height: 100vh;
+.text {
   position: relative;
-}
-
-.fullH {
+  z-index: 2;
   height: 100%;
-}
-
-.homeHeroText {
-  text-align: center;
-  flex-flow: column;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  display: flex;
-  height: 100%;
-  grid-column: 1 / -1;
+  align-content: stretch;
   will-change: opacity;
+  text-align: center;
 }
 
-.homeHeroTitle {
-  color: var(--color--content--white);
-  margin-bottom: 4rem;
+.title {
+  margin: 0 0 4rem;
   max-width: 50vw;
-}
-
-.homeHeroDesc {
   color: var(--color--content--white);
+}
+
+.subtitle {
+  margin: 0;
   max-width: 72rem;
-}
-
-.homeHomeInnerEmptyBlock {
-  height: 20vh;
-}
-
-.homeHomeEmptyBlock {
-  height: 20vh;
+  color: var(--color--content--white);
 }
 
 @media only screen and (max-width: 991px) {
-  .homeHeroTitle {
+  .title {
     max-width: 100%;
   }
 
-  .homeHeroDesc {
+  .subtitle {
     max-width: 52rem;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .homeHeroDesc {
+  .subtitle {
     max-width: none;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .homeHeroBgItemInner,
-  .homeHeroBgBlurLayer,
-  .homeHeroBackdrop,
-  .homeHeroText {
+  .background,
+  .blur,
+  .backdrop,
+  .text {
     transition: none !important;
   }
 }

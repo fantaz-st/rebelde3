@@ -12,10 +12,10 @@ export default function HomeGallery() {
   const wrapRef = useRef(null);
   const stickRef = useRef(null);
   const stageRef = useRef(null);
+  const mainRef = useRef(null);
   const startColRef = useRef(null);
   const h1Ref = useRef(null);
   const h2Ref = useRef(null);
-  const homeGalleryMainRef = useRef(null);
 
   const startItemRefs = useRef([]);
   const endItemRefs = useRef([]);
@@ -36,22 +36,15 @@ export default function HomeGallery() {
       const wrap = wrapRef.current;
       const stick = stickRef.current;
       const stage = stageRef.current;
+      const main = mainRef.current;
       const startCol = startColRef.current;
-      const homeGalleryMain = homeGalleryMainRef.current;
 
-      if (!wrap || !stick || !stage || !startCol || !homeGalleryMain) return;
+      if (!wrap || !stick || !stage || !main || !startCol) return;
 
-      const killById = (id) => {
-        const t = ScrollTrigger.getById(id);
-        if (t) t.kill(true);
-      };
+      const kill = (id) => ScrollTrigger.getById(id)?.kill(true);
 
-      const applyOverlap = () => {
-        gsap.set(homeGalleryMain, { marginTop: -stage.offsetHeight });
-      };
-
-      const measurePairs = () => {
-        return items
+      const measurePairs = () =>
+        items
           .map((_, i) => {
             const startEl = startItemRefs.current[i];
             const endEl = endItemRefs.current[i];
@@ -74,14 +67,18 @@ export default function HomeGallery() {
             };
           })
           .filter(Boolean);
-      };
 
-      const buildText = () => {
-        killById("gallery-text");
+      const build = () => {
+        kill("gallery-text");
+        kill("gallery-images");
+
+        gsap.set(main, { marginTop: -stage.offsetHeight });
 
         gsap.set([h1Ref.current, h2Ref.current], { autoAlpha: 0 });
 
-        const tl = gsap.timeline({
+        gsap.set(startCol, { autoAlpha: 1, y: 0 });
+
+        const textTl = gsap.timeline({
           defaults: { ease: "none" },
           scrollTrigger: {
             id: "gallery-text",
@@ -97,19 +94,7 @@ export default function HomeGallery() {
           },
         });
 
-        tl.to(h1Ref.current, { autoAlpha: 1, duration: 0.12 }, 0.08)
-          .to(h1Ref.current, { autoAlpha: 1, duration: 0.28 }, 0.2)
-          .to(h1Ref.current, { autoAlpha: 0, duration: 0.12 }, 0.48)
-          .to({}, { duration: 0.12 }, 0.6)
-          .to(h2Ref.current, { autoAlpha: 1, duration: 0.12 }, 0.72)
-          .to(h2Ref.current, { autoAlpha: 1, duration: 0.28 }, 0.84)
-          .to(h2Ref.current, { autoAlpha: 0, duration: 0.12 }, 1.15);
-
-        return tl;
-      };
-
-      const buildImages = () => {
-        killById("gallery-images");
+        textTl.to(h1Ref.current, { autoAlpha: 1, duration: 0.12 }, 0.08).to(h1Ref.current, { autoAlpha: 0, duration: 0.12 }, 0.48).to(h2Ref.current, { autoAlpha: 1, duration: 0.12 }, 0.72).to(h2Ref.current, { autoAlpha: 0, duration: 0.12 }, 1.15);
 
         const pairs = measurePairs();
 
@@ -123,13 +108,11 @@ export default function HomeGallery() {
           });
         });
 
-        gsap.set(startCol, { y: 0, autoAlpha: 1 });
-
-        const tl = gsap.timeline({
+        const imgTl = gsap.timeline({
           defaults: { ease: "none" },
           scrollTrigger: {
             id: "gallery-images",
-            trigger: homeGalleryMain,
+            trigger: main,
             start: "10% 50%",
             end: "+=50%",
             scrub: true,
@@ -139,84 +122,65 @@ export default function HomeGallery() {
         });
 
         pairs.forEach(({ startEl, x, y, sx, sy }) => {
-          tl.to(startEl, { x, y, scaleX: sx, scaleY: sy, rotation: 0, duration: 1 }, 0);
+          imgTl.to(startEl, { x, y, scaleX: sx, scaleY: sy, rotation: 0, duration: 1 }, 0);
         });
-
-        return tl;
       };
 
-      const rebuild = () => {
-        applyOverlap();
-        buildText();
-        buildImages();
-      };
+      build();
 
-      rebuild();
-
-      const onRefreshInit = () => rebuild();
+      const onRefreshInit = () => build();
       ScrollTrigger.addEventListener("refreshInit", onRefreshInit);
       ScrollTrigger.refresh();
 
       return () => {
         ScrollTrigger.removeEventListener("refreshInit", onRefreshInit);
-        killById("gallery-text");
-        killById("gallery-images");
+        kill("gallery-text");
+        kill("gallery-images");
       };
     },
     { scope: wrapRef, dependencies: [items] }
   );
 
   return (
-    <div ref={wrapRef} className={classes.homeGalleryWrap}>
-      <section className={classes.homeGallery}>
-        <div className={`container ${classes.galleryShell}`}>
-          <div ref={stickRef} className={classes.homeGalleryStick}>
-            <div className={classes.homeGalleryText}>
-              <div className={classes.headingStack}>
-                <h3 ref={h1Ref} className={classes.heading}>
-                  We craft experiences where the sea is a companion, not a destination.
-                </h3>
+    <section ref={wrapRef} className={classes.wrap}>
+      <div ref={stickRef} className={classes.stick}>
+        <div className={classes.headingStack}>
+          <h3 ref={h1Ref} className={classes.heading}>
+            We craft experiences where the sea is a companion, not a destination.
+          </h3>
+          <h3 ref={h2Ref} className={classes.heading}>
+            Every journey is personal. Every wave, a new memory.
+          </h3>
+        </div>
+      </div>
 
-                <h3 ref={h2Ref} className={classes.heading}>
-                  Every journey is personal. Every wave, a new memory.
-                </h3>
-              </div>
+      <div ref={mainRef} className={classes.main}>
+        <div ref={stageRef} className={classes.stage}>
+          <div ref={startColRef} className={`${classes.col} ${classes.start}`}>
+            <div className={classes.list}>
+              {items.map((it, i) => (
+                <div key={it.id} ref={(el) => (startItemRefs.current[i] = el)} className={`${classes.item} ${classes.startItem}`}>
+                  <div className={classes.imgInner}>
+                    <img src={it.src} alt={it.alt} className={classes.img} />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div ref={homeGalleryMainRef} className={classes.homeGalleryMain}>
-            <div ref={stageRef} className={classes.galleryStage}>
-              <div ref={startColRef} className={`${classes.homeGalleryMainCol} ${classes.start}`}>
-                <div className={classes.homeGalleryList}>
-                  {items.map((it, i) => (
-                    <div key={it.id} ref={(el) => (startItemRefs.current[i] = el)} className={`${classes.homeGalleryItem} ${classes.startItem}`}>
-                      <div className={classes.homeGalleryItemImg}>
-                        <div className={classes.homeGalleryItemImgInner}>
-                          <img src={it.src} alt={it.alt} className={classes.galleryImg} />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+          <div className={`${classes.col} ${classes.end} ${classes.measureOnly}`} aria-hidden="true">
+            <div className={classes.list}>
+              {items.map((it, i) => (
+                <div key={`${it.id}-end`} ref={(el) => (endItemRefs.current[i] = el)} className={`${classes.item} ${classes.endItem}`}>
+                  <div className={classes.imgInner}>
+                    <img src={it.src} alt="" className={classes.img} />
+                  </div>
                 </div>
-              </div>
-
-              <div className={`${classes.homeGalleryMainCol} ${classes.end} ${classes.measureOnly}`} aria-hidden="true">
-                <div className={classes.homeGalleryList}>
-                  {items.map((it, i) => (
-                    <div key={`${it.id}-end`} ref={(el) => (endItemRefs.current[i] = el)} className={`${classes.homeGalleryItem} ${classes.endItem}`}>
-                      <div className={classes.homeGalleryItemImg}>
-                        <div className={classes.homeGalleryItemImgInner}>
-                          <img src={it.src} alt="" className={classes.galleryImg} />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
