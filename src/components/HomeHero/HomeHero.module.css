@@ -144,7 +144,7 @@
 
 @media only screen and (max-width: 991px) {
   .homeHeroTitle {
-    margin-bottom: 2.8rem;
+    max-width: 100%;
   }
 
   .homeHeroDesc {

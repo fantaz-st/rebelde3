@@ -1,136 +1,135 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState, useLayoutEffect } from "react";
 import Link from "next/link";
+import { gsap } from "gsap";
+import { CustomEase } from "gsap/CustomEase";
 import classes from "./Header.module.css";
-import Button from "../Button/Button";
+import AnimatedLink from "../AnimatedLink/AnimatedLink";
 import Logo from "../Logo/Logo";
 import pageLinks from "../settings/pageLinks";
+import Button from "../Button/Button";
 
-export default function Header({ tone = "dark", scrollThreshold = 10 }) {
-  const lastYRef = useRef(0);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [navOpen, setNavOpen] = useState(false);
-  const [isHidden, setIsHidden] = useState(false);
+export default function Header() {
+  const SHADOW_THRESHOLD = 300;
 
-  useEffect(() => {
-    let raf = 0;
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [isShadowVisible, setIsShadowVisible] = useState(false);
 
-    const onScroll = () => {
-      if (raf) return;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuActive, setIsMenuActive] = useState(false);
 
-      raf = window.requestAnimationFrame(() => {
-        raf = 0;
-
-        const y = window.scrollY || 0;
-
-        const nextIsScrolled = y > scrollThreshold;
-        setIsScrolled((prev) => (prev === nextIsScrolled ? prev : nextIsScrolled));
-
-        if (navOpen || y <= scrollThreshold) {
-          setIsHidden((prev) => (prev === false ? prev : false));
-          lastYRef.current = y;
-          return;
-        }
-
-        const delta = y - lastYRef.current;
-
-        if (Math.abs(delta) < 8) {
-          lastYRef.current = y;
-          return;
-        }
-
-        const nextIsHidden = delta > 0;
-        setIsHidden((prev) => (prev === nextIsHidden ? prev : nextIsHidden));
-        lastYRef.current = y;
-      });
-    };
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      if (raf) window.cancelAnimationFrame(raf);
-    };
-  }, [navOpen, scrollThreshold]);
+  const prevScrollYRef = useRef(0);
+  const overlayRef = useRef(null);
+  const panelRef = useRef(null);
+  const listRef = useRef(null);
+  const menuTlRef = useRef(null);
 
   useEffect(() => {
-    if (!navOpen) return;
+    prevScrollYRef.current = window.scrollY || 0;
 
-    const onKeyDown = (e) => {
-      if (e.key === "Escape") setNavOpen(false);
+    const updateOnScroll = () => {
+      const y = window.scrollY || 0;
+
+      if (y <= 0) {
+        setIsHeaderVisible(true);
+      } else {
+        setIsHeaderVisible(y < prevScrollYRef.current);
+      }
+
+      setIsShadowVisible(y > SHADOW_THRESHOLD);
+
+      prevScrollYRef.current = y;
     };
 
-    const prevOverflow = document.documentElement.style.overflow;
-    document.documentElement.style.overflow = "hidden";
+    updateOnScroll();
+    window.addEventListener("scroll", updateOnScroll, { passive: true });
 
-    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("scroll", updateOnScroll);
+  }, []);
 
-    return () => {
-      window.removeEventListener("keydown", onKeyDown);
-      document.documentElement.style.overflow = prevOverflow;
-    };
-  }, [navOpen]);
+  useLayoutEffect(() => {
+    gsap.registerPlugin(CustomEase);
 
-  const headerClassName = [classes.header, tone === "light" ? classes.onLight : classes.onDark, isScrolled && classes.onScroll, navOpen && classes.onOpenNav, isHidden && classes.isHidden].filter(Boolean).join(" ");
+    CustomEase.create("hop", "M0,0 C0.29,0 0.348,0.05 0.422,0.134 0.494,0.217 0.484,0.355 0.5,0.5 0.518,0.662 0.515,0.793 0.596,0.876 0.701,0.983 0.72,0.987 1,1");
+
+    if (!overlayRef.current || !panelRef.current || !listRef.current) return;
+
+    menuTlRef.current = gsap
+      .timeline({ paused: true })
+      .to(overlayRef.current, { opacity: 0.45, duration: 0.3, ease: "power2.out" })
+      .to(panelRef.current, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "hop" }, "-=0.1")
+      .from(Array.from(listRef.current.children), { y: 24, opacity: 0, stagger: 0.07, duration: 0.35, ease: "power2.out" }, "-=0.1");
+
+    menuTlRef.current.eventCallback("onComplete", () => setIsMenuActive(true));
+    menuTlRef.current.eventCallback("onReverseComplete", () => setIsMenuActive(false));
+  }, []);
+
+  useEffect(() => {
+    if (!menuTlRef.current) return;
+    isMenuOpen ? menuTlRef.current.play() : menuTlRef.current.reverse();
+  }, [isMenuOpen]);
+
+  const isDarkUi = isMenuOpen || isMenuActive;
+
+  const headerClassName = [classes.header, isHeaderVisible ? classes.visible : classes.hidden, isMenuActive && classes.menuActive, isShadowVisible && classes.scrolled].filter(Boolean).join(" ");
+
+  const burgerButtonClassName = [classes.hamburgerBtn, classes[isDarkUi ? "dark" : "light"]].join(" ");
+  const burgerIconClassName = [classes.hamburger, isMenuOpen && classes.open].filter(Boolean).join(" ");
 
   return (
-    <header className={headerClassName}>
-      <div className={classes.overlay} aria-hidden="true" />
-      <div className={classes.inner}>
-        <div className={classes.wrap}>
-          <div className={classes.grid}>
-            <Link href="/" className={classes.logo} aria-label="Home">
-              <Logo />
+    <>
+      <header className={headerClassName}>
+        <div className={classes.shadow} aria-hidden="true" />
+
+        <div className={classes.container}>
+          <div className={classes.logo}>
+            <Link href="/" aria-label="Rebelde Boats home">
+              <Logo variant={isDarkUi ? "blue" : "white"} />
             </Link>
+          </div>
 
-            <nav className={classes.menu} aria-label="Primary">
-              <ul className={classes.menuList}>
-                {pageLinks.map((item) => (
-                  <li key={item.label} className={classes.menuItem}>
-                    <Link href={item.href} className={classes.menuLink}>
-                      <span className={classes.flip}>
-                        <span className={classes.flipTop}>{item.label}</span>
-                        <span className={classes.flipBottom}>{item.label}</span>
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+          <nav className={classes.nav}>
+            {pageLinks.map(({ href, label }) => (
+              <div key={href} className={classes.navItem}>
+                <AnimatedLink href={href}>{label.toUpperCase()}</AnimatedLink>
+              </div>
+            ))}
+          </nav>
 
+          <div className={classes.desktopButton}>
             <Button href="/contact" variant="white" size="sm">
               GET IN TOUCH
             </Button>
-
-            <button type="button" aria-label="Toggle menu" aria-expanded={navOpen} aria-controls="mobile-nav" className={`${classes.ham} ${navOpen ? classes.active : ""}`} onClick={() => setNavOpen((v) => !v)}>
-              <span />
-              <span />
-              <span />
-            </button>
           </div>
-        </div>
-      </div>
 
-      <div className={`${classes.mobile} ${navOpen ? classes.mobileOpen : ""}`} id="mobile-nav" role="dialog" aria-modal="true" aria-label="Menu">
-        <div className={classes.mobileInner}>
-          <ul className={classes.mobileList}>
-            {pageLinks.map((item) => (
-              <li key={item.label} className={classes.mobileItem}>
-                <Link href={item.href} className={classes.mobileLink} onClick={() => setNavOpen(false)}>
-                  {item.label}
+          <button className={burgerButtonClassName} onClick={() => setIsMenuOpen((prev) => !prev)} aria-label="Toggle menu" aria-expanded={isMenuOpen}>
+            <p>{isMenuOpen ? "Close" : "Menu"}</p>
+
+            <div className={burgerIconClassName}>
+              <span />
+              <span />
+              <span />
+            </div>
+          </button>
+        </div>
+      </header>
+
+      <div ref={overlayRef} className={`${classes.overlay} ${isMenuOpen ? classes.overlayOpen : ""}`} onClick={() => setIsMenuOpen(false)} />
+
+      <div ref={panelRef} className={`${classes.menu} ${isMenuOpen ? classes.menuOpen : ""}`}>
+        <nav>
+          <ul ref={listRef} className={classes.navList}>
+            {pageLinks.map(({ href, label }) => (
+              <li key={href}>
+                <Link href={href} onClick={() => setIsMenuOpen(false)}>
+                  <h2>{label}</h2>
                 </Link>
               </li>
             ))}
           </ul>
-          <Link href="/contact" className={classes.mobileCta} onClick={() => setNavOpen(false)}>
-            GET IN TOUCH
-          </Link>
-        </div>
+        </nav>
       </div>
-
-      <button type="button" className={`${classes.backdrop} ${navOpen ? classes.backdropOpen : ""}`} aria-label="Close menu" onClick={() => setNavOpen(false)} />
-    </header>
+    </>
   );
 }

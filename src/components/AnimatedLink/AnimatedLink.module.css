@@ -1,0 +1,25 @@
+.flip {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.flipTop,
+.flipBottom {
+  display: block;
+  height: 1em;
+  white-space: nowrap;
+  transition: transform 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.flipBottom {
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+}
+
+.menuLink:hover .flipTop,
+.menuLink:hover .flipBottom {
+  transform: translateY(-100%);
+}
