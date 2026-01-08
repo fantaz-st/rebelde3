@@ -99,7 +99,8 @@
   .row {
     flex-direction: column;
     gap: 4rem;
-    padding: 7rem 0;
+    padding: 0;
+    margin: -7rem 0;
   }
 
   .flip {

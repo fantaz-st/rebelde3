@@ -12,10 +12,10 @@ export default function HomeGallery() {
   const wrapRef = useRef(null);
   const stickRef = useRef(null);
   const stageRef = useRef(null);
-  const mainRef = useRef(null);
   const startColRef = useRef(null);
   const h1Ref = useRef(null);
   const h2Ref = useRef(null);
+  const mainRef = useRef(null);
 
   const startItemRefs = useRef([]);
   const endItemRefs = useRef([]);
@@ -36,12 +36,16 @@ export default function HomeGallery() {
       const wrap = wrapRef.current;
       const stick = stickRef.current;
       const stage = stageRef.current;
-      const main = mainRef.current;
       const startCol = startColRef.current;
+      const main = mainRef.current;
 
-      if (!wrap || !stick || !stage || !main || !startCol) return;
+      if (!wrap || !stick || !stage || !startCol || !main) return;
 
-      const kill = (id) => ScrollTrigger.getById(id)?.kill(true);
+      const killById = (id) => ScrollTrigger.getById(id)?.kill(true);
+
+      const applyOverlap = () => {
+        gsap.set(main, { marginTop: -stage.offsetHeight });
+      };
 
       const measurePairs = () =>
         items
@@ -68,17 +72,12 @@ export default function HomeGallery() {
           })
           .filter(Boolean);
 
-      const build = () => {
-        kill("gallery-text");
-        kill("gallery-images");
-
-        gsap.set(main, { marginTop: -stage.offsetHeight });
+      const buildText = () => {
+        killById("gallery-text");
 
         gsap.set([h1Ref.current, h2Ref.current], { autoAlpha: 0 });
 
-        gsap.set(startCol, { autoAlpha: 1, y: 0 });
-
-        const textTl = gsap.timeline({
+        const tl = gsap.timeline({
           defaults: { ease: "none" },
           scrollTrigger: {
             id: "gallery-text",
@@ -94,27 +93,42 @@ export default function HomeGallery() {
           },
         });
 
-        textTl.to(h1Ref.current, { autoAlpha: 1, duration: 0.12 }, 0.08).to(h1Ref.current, { autoAlpha: 0, duration: 0.12 }, 0.48).to(h2Ref.current, { autoAlpha: 1, duration: 0.12 }, 0.72).to(h2Ref.current, { autoAlpha: 0, duration: 0.12 }, 1.15);
+        tl.to(h1Ref.current, { autoAlpha: 1, duration: 0.12 }, 0.08)
+          .to(h1Ref.current, { autoAlpha: 1, duration: 0.28 }, 0.2)
+          .to(h1Ref.current, { autoAlpha: 0, duration: 0.12 }, 0.48)
+          .to({}, { duration: 0.12 }, 0.6)
+          .to(h2Ref.current, { autoAlpha: 1, duration: 0.12 }, 0.72)
+          .to(h2Ref.current, { autoAlpha: 1, duration: 0.28 }, 0.84)
+          .to(h2Ref.current, { autoAlpha: 0, duration: 0.12 }, 1.15);
+
+        return tl;
+      };
+
+      const buildImages = () => {
+        killById("gallery-images");
 
         const pairs = measurePairs();
 
-        pairs.forEach(({ startEl }) => {
+        pairs.forEach(({ startEl }, i) => {
           gsap.set(startEl, {
             x: 0,
             y: 0,
             scaleX: 1,
             scaleY: 1,
             transformOrigin: "50% 50%",
+            zIndex: i,
           });
         });
 
-        const imgTl = gsap.timeline({
+        gsap.set(startCol, { y: 0, autoAlpha: 1 });
+
+        const tl = gsap.timeline({
           defaults: { ease: "none" },
           scrollTrigger: {
             id: "gallery-images",
             trigger: main,
-            start: "10% 50%",
-            end: "+=50%",
+            start: "20% 60%",
+            end: "+=20%",
             scrub: true,
             invalidateOnRefresh: true,
             refreshPriority: 1,
@@ -122,20 +136,28 @@ export default function HomeGallery() {
         });
 
         pairs.forEach(({ startEl, x, y, sx, sy }) => {
-          imgTl.to(startEl, { x, y, scaleX: sx, scaleY: sy, rotation: 0, duration: 1 }, 0);
+          tl.to(startEl, { x, y, scaleX: sx, scaleY: sy, rotation: 0, duration: 1 }, 0);
         });
+
+        return tl;
       };
 
-      build();
+      const rebuild = () => {
+        applyOverlap();
+        buildText();
+        buildImages();
+      };
 
-      const onRefreshInit = () => build();
+      rebuild();
+
+      const onRefreshInit = () => rebuild();
       ScrollTrigger.addEventListener("refreshInit", onRefreshInit);
       ScrollTrigger.refresh();
 
       return () => {
         ScrollTrigger.removeEventListener("refreshInit", onRefreshInit);
-        kill("gallery-text");
-        kill("gallery-images");
+        killById("gallery-text");
+        killById("gallery-images");
       };
     },
     { scope: wrapRef, dependencies: [items] }
@@ -143,40 +165,42 @@ export default function HomeGallery() {
 
   return (
     <section ref={wrapRef} className={classes.wrap}>
-      <div ref={stickRef} className={classes.stick}>
-        <div className={classes.headingStack}>
-          <h3 ref={h1Ref} className={classes.heading}>
-            We craft experiences where the sea is a companion, not a destination.
-          </h3>
-          <h3 ref={h2Ref} className={classes.heading}>
-            Every journey is personal. Every wave, a new memory.
-          </h3>
-        </div>
-      </div>
-
-      <div ref={mainRef} className={classes.main}>
-        <div ref={stageRef} className={classes.stage}>
-          <div ref={startColRef} className={`${classes.col} ${classes.start}`}>
-            <div className={classes.list}>
-              {items.map((it, i) => (
-                <div key={it.id} ref={(el) => (startItemRefs.current[i] = el)} className={`${classes.item} ${classes.startItem}`}>
-                  <div className={classes.imgInner}>
-                    <img src={it.src} alt={it.alt} className={classes.img} />
-                  </div>
-                </div>
-              ))}
-            </div>
+      <div className={`container ${classes.shell}`}>
+        <div ref={stickRef} className={classes.stick}>
+          <div className={classes.headingStack}>
+            <h3 ref={h1Ref} className={classes.heading}>
+              We craft experiences where the sea is a companion, not a destination.
+            </h3>
+            <h3 ref={h2Ref} className={classes.heading}>
+              Every journey is personal. Every wave, a new memory.
+            </h3>
           </div>
+        </div>
 
-          <div className={`${classes.col} ${classes.end} ${classes.measureOnly}`} aria-hidden="true">
-            <div className={classes.list}>
-              {items.map((it, i) => (
-                <div key={`${it.id}-end`} ref={(el) => (endItemRefs.current[i] = el)} className={`${classes.item} ${classes.endItem}`}>
-                  <div className={classes.imgInner}>
-                    <img src={it.src} alt="" className={classes.img} />
+        <div ref={mainRef} className={classes.main}>
+          <div ref={stageRef} className={classes.stage}>
+            <div ref={startColRef} className={`${classes.col} ${classes.start}`}>
+              <div className={classes.list}>
+                {items.map((it, i) => (
+                  <div key={it.id} ref={(el) => (startItemRefs.current[i] = el)} className={`${classes.item} ${classes.startItem}`}>
+                    <div className={classes.inner}>
+                      <img src={it.src} alt={it.alt} className={classes.img} />
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            <div className={`${classes.col} ${classes.end} ${classes.measureOnly}`} aria-hidden="true">
+              <div className={classes.list}>
+                {items.map((it, i) => (
+                  <div key={`${it.id}-end`} ref={(el) => (endItemRefs.current[i] = el)} className={`${classes.item} ${classes.endItem}`}>
+                    <div className={classes.inner}>
+                      <img src={it.src} alt="" className={classes.img} />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

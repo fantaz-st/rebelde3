@@ -4,6 +4,11 @@
   width: 100%;
 }
 
+.shell {
+  position: relative;
+  width: 100%;
+}
+
 .stick {
   position: relative;
   height: 100vh;
@@ -65,7 +70,7 @@
   transform-origin: 50% 30%;
 }
 
-.imgInner {
+.inner {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -79,7 +84,7 @@
   display: block;
 }
 
-/* START (collage) placements */
+/* start stack placements */
 .startItem:nth-child(1) {
   width: 54rem;
   height: 40.5rem;
@@ -106,7 +111,7 @@
   transform: translate(-50%, -50%) translate(-10.5rem, 29.5rem) rotate(-5deg);
 }
 
-/* END (measure) grid */
+/* end layout used only for measurement */
 .end .list {
   width: 100%;
   max-width: var(--container--width, 1440px);
@@ -118,9 +123,6 @@
   height: 100%;
   align-content: start;
   padding-top: 34vh;
-
-  grid-auto-rows: 1px;
-  grid-template-rows: 1px;
 }
 
 .endItem {
@@ -128,13 +130,13 @@
   left: auto;
   top: auto;
   transform: none;
-  grid-row: 1;
 }
 
 .endItem:nth-child(1) {
   width: 54rem;
   height: 40.5rem;
   grid-column: 1/6;
+  grid-row: 1/1;
   justify-self: end;
 }
 .endItem:nth-child(2) {
@@ -142,12 +144,14 @@
   height: 57.6rem;
   margin-top: -12.3rem;
   grid-column: 11/14;
+  grid-row: 1/1;
 }
 .endItem:nth-child(3) {
   width: 43.2rem;
   height: 52.3rem;
   margin-top: 76.4rem;
   grid-column: 1/4;
+  grid-row: 1/1;
   justify-self: end;
 }
 .endItem:nth-child(4) {
@@ -155,7 +159,7 @@
   height: 42rem;
   margin-top: 79rem;
   grid-column: 13/16;
-  justify-self: start;
+  grid-row: 1/1;
   margin-left: 4rem;
 }
 .endItem:nth-child(5) {
@@ -163,6 +167,7 @@
   height: 75.6rem;
   margin-top: 100rem;
   grid-column: 6/12;
+  grid-row: 1/1;
   justify-self: center;
 }
 
@@ -172,13 +177,14 @@
   visibility: hidden;
 }
 
+/* initial “comes from bottom” state (matches your working version) */
 .start {
   opacity: 0;
   transform: translate3d(0, 55vh, 0);
   will-change: transform, opacity;
 }
 
-/* TABLET (<= 991px) */
+/* responsive */
 @media only screen and (max-width: 991px) {
   .stage {
     height: 150rem;
@@ -215,7 +221,6 @@
   }
 }
 
-/* MOBILE (<= 767px) — Webflow end targets */
 @media only screen and (max-width: 767px) {
   .stage {
     height: 110rem;
@@ -223,66 +228,5 @@
 
   .end .list {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .startItem:nth-child(1),
-  .endItem:nth-child(1) {
-    width: 16rem;
-    height: 11.3rem;
-  }
-  .startItem:nth-child(2),
-  .endItem:nth-child(2) {
-    width: 18.3rem;
-    height: 13.2rem;
-  }
-  .startItem:nth-child(3),
-  .endItem:nth-child(3) {
-    width: 13.5rem;
-    height: 16.5rem;
-  }
-  .startItem:nth-child(4),
-  .endItem:nth-child(4) {
-    width: 20.8rem;
-    height: 15rem;
-  }
-  .startItem:nth-child(5),
-  .endItem:nth-child(5) {
-    width: 15.1rem;
-    height: 17.5rem;
-  }
-
-  .endItem:nth-child(1) {
-    grid-column: 1/2;
-    margin-top: 0;
-    justify-self: start;
-    margin-left: 0;
-  }
-
-  .endItem:nth-child(2) {
-    grid-column: 3/4;
-    margin-top: -7.7rem;
-    justify-self: start;
-    margin-left: 0;
-  }
-
-  .endItem:nth-child(3) {
-    grid-column: 1/1;
-    margin-top: 25rem;
-    justify-self: end;
-    margin-left: 0;
-  }
-
-  .endItem:nth-child(4) {
-    grid-column: 4/4;
-    margin-top: 18.3rem;
-    justify-self: start;
-    margin-left: 0;
-  }
-
-  .endItem:nth-child(5) {
-    grid-column: 2/3;
-    margin-top: 47.4rem;
-    justify-self: center;
-    margin-left: 0;
   }
 }
