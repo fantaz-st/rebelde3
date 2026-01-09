@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function SmoothScroll({ children }) {
   useEffect(() => {
+    ScrollTrigger.normalizeScroll(true); // enable
     const update = () => ScrollTrigger.update();
     ScrollTrigger.addEventListener("refresh", update);
     ScrollTrigger.refresh();
