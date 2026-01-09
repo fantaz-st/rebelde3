@@ -18,7 +18,22 @@ export default function HomeHero() {
 
   useGSAP(
     () => {
-      ScrollTrigger.config({ ignoreMobileResize: true });
+      ScrollTrigger.config({
+        ignoreMobileResize: true,
+        autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
+      });
+
+      const setVh = () => {
+        const h = window.visualViewport?.height ?? window.innerHeight;
+        document.documentElement.style.setProperty("--vh", `${h * 0.01}px`);
+      };
+
+      setVh();
+
+      const vv = window.visualViewport;
+      vv?.addEventListener("resize", setVh);
+      vv?.addEventListener("scroll", setVh);
+      window.addEventListener("orientationchange", setVh);
 
       gsap.set(backgroundRef.current, { scale: 1, transformOrigin: "50% 50%" });
       gsap.set(blurRef.current, { autoAlpha: 0 });
@@ -30,7 +45,7 @@ export default function HomeHero() {
         scrollTrigger: {
           trigger: wrapRef.current,
           start: "top top",
-          end: () => `+=${window.innerHeight}`,
+          end: () => `+=${wrapRef.current?.offsetHeight || window.innerHeight}`,
           scrub: true,
           invalidateOnRefresh: true,
         },
@@ -41,6 +56,9 @@ export default function HomeHero() {
       return () => {
         tl.scrollTrigger?.kill();
         tl.kill();
+        vv?.removeEventListener("resize", setVh);
+        vv?.removeEventListener("scroll", setVh);
+        window.removeEventListener("orientationchange", setVh);
       };
     },
     { scope: wrapRef }
