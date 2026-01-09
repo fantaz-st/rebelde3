@@ -1,7 +1,7 @@
 .container {
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: 100svh;
   width: 100%;
   z-index: 1;
   overflow: hidden;

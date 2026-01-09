@@ -33,7 +33,11 @@ function MobileCard({ slide, index }) {
       <div className={[classes.card, classes.fullMapCard, isActive ? classes.active : ""].join(" ")}>
         <div className={classes.cardInner}>
           <div className={classes.cardInfo}>
-            <h2 className={classes.fullMapTitle}>Swipe to explore →</h2>
+            <h2 className={classes.fullMapTitle}>
+              Swipe
+              <br />
+              to explore →
+            </h2>
           </div>
         </div>
       </div>

@@ -29,7 +29,8 @@ export default function HomeHero() {
           scrollTrigger: {
             trigger: wrapRef.current,
             start: "top top",
-            end: () => "+=" + window.innerHeight * 1.2,
+            end: () => "+=100%",
+            // end: () => "+=" + window.innerHeight * 1.2,
             scrub: true,
             invalidateOnRefresh: true,
           },

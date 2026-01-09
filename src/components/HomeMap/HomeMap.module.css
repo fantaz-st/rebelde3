@@ -346,7 +346,7 @@
 
 .fullMapTitle {
   color: var(--color--content--perssian-blue);
-
+  line-height: 1.2;
   margin: 0;
 }
 

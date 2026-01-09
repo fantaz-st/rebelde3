@@ -44,7 +44,7 @@ export default function HomeGallery() {
       const killById = (id) => ScrollTrigger.getById(id)?.kill(true);
 
       const applyOverlap = () => {
-        gsap.set(main, { marginTop: -stage.offsetHeight });
+        gsap.set(main, { marginTop: "-300vh" });
       };
 
       const measurePairs = () =>
@@ -164,7 +164,7 @@ export default function HomeGallery() {
   );
 
   return (
-    <section ref={wrapRef} className={classes.wrap}>
+    <section id="home-gallery" ref={wrapRef} className={classes.wrap}>
       <div className={`container ${classes.shell}`}>
         <div ref={stickRef} className={classes.stick}>
           <div className={classes.headingStack}>
