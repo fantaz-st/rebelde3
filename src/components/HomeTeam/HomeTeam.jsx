@@ -62,11 +62,11 @@ export default function HomeTeam() {
           );
         })}
 
-        {/* <div data-reveal-pin="1" className={classes.thumb}>
+        <div data-reveal-pin="1" className={classes.thumb}>
           <div data-reveal-pin-inner="1" className={classes.thumbInner}>
             <Image src="/images/team/team-main.jpg" alt="" fill sizes="100vw" className={classes.thumbImg} />
           </div>
-        </div> */}
+        </div>
       </div>
     </section>
   );
