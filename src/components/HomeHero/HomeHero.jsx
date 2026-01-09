@@ -44,22 +44,20 @@ export default function HomeHero() {
   );
 
   return (
-    <section className={classes.container}>
-      <div className={classes.wrapper} ref={wrapRef}>
-        <div ref={backgroundRef} className={classes.background}>
+    <section ref={wrapRef} className={classes.container}>
+      <div ref={backgroundRef} className={classes.background}>
+        <Image className={classes.img} fill priority loading="eager" alt="" sizes="(max-width: 3840px) 100vw, 3840px" src="/images/hero-1.jpg" />
+
+        <div ref={blurRef} className={classes.blur} aria-hidden="true">
           <Image className={classes.img} fill priority loading="eager" alt="" sizes="(max-width: 3840px) 100vw, 3840px" src="/images/hero-1.jpg" />
-
-          <div ref={blurRef} className={classes.blur} aria-hidden="true">
-            <Image className={classes.img} fill priority loading="eager" alt="" sizes="(max-width: 3840px) 100vw, 3840px" src="/images/hero-1.jpg" />
-          </div>
-
-          <div ref={backdropRef} className={classes.backdrop} aria-hidden="true" />
         </div>
 
-        <div ref={textRef} className={classes.text}>
-          <h1 className={classes.title}>Your Private Adriatic Escape</h1>
-          <h4 className={classes.subtitle}>Set your own rhythm aboard Felix 37 — private day trips and charters from Split to Hvar, Vis, the Blue Cave, and hidden bays</h4>
-        </div>
+        <div ref={backdropRef} className={classes.backdrop} aria-hidden="true" />
+      </div>
+
+      <div ref={textRef} className={classes.text}>
+        <h1 className={classes.title}>Your Private Adriatic Escape</h1>
+        <h4 className={classes.subtitle}>Set your own rhythm aboard Felix 37 — private day trips and charters from Split to Hvar, Vis, the Blue Cave, and hidden bays</h4>
       </div>
     </section>
   );

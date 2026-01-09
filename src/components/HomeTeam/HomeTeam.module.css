@@ -3,7 +3,8 @@
   background: var(--background--brown-10);
   color: #003357;
   padding: 20rem 26rem 26rem;
-  z-index: 1;
+  z-index: 3;
+  position: relative;
 }
 
 .inner {
