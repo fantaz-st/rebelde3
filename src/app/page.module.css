@@ -1,67 +1,77 @@
 .bodyInner {
+  flex-flow: column;
   width: 100%;
-  min-height: 100%;
-  display: block;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
 }
 
 .main {
-  position: relative;
   z-index: 2;
-  width: 100%;
+  flex: 1;
+  position: relative;
 }
 
 .mainInner {
-  min-height: 100%;
-  display: block;
+  flex-flow: column;
+  min-height: 100vh;
+  display: flex;
 }
 
 .mainContent {
-  position: relative;
   z-index: 1;
-  width: 100%;
-  display: block;
+  flex-flow: column;
+  flex: 1;
+  display: flex;
+  position: relative;
 }
 
 .homeHeroWrap {
-  position: relative;
   z-index: 1;
+  position: relative;
 }
 
 .homeGalleryWrap {
-  position: relative;
   z-index: 2;
+  margin-top: -100vh;
+  padding-top: 100vh;
+  position: relative;
 }
 
 .homeMapWrap {
-  position: relative;
   z-index: 2;
+  /* margin-top: -100vh; */
+  position: relative;
   height: 100vh;
 }
 
 .homeYachtWrap {
-  position: relative;
   z-index: 1;
+  margin-top: -0.1rem;
+  padding-top: 0.1rem;
+  position: relative;
 }
 
 .homeTeamWrap {
-  position: relative;
   z-index: 3;
   background-color: var(--background--brown-10);
+  position: relative;
 }
 
 .homeJournalWrap {
-  position: relative;
   z-index: 2;
   width: 100%;
-  display: block;
+  display: flex;
+  position: relative;
 }
 
 .homeArticleWrap {
-  position: relative;
   z-index: 3;
   background-color: var(--color--content--white);
+  margin-top: -0.1rem;
+  position: relative;
 }
 
 .homeHeroCloneWrap {
-  position: relative;
+  margin-top: -0.2rem;
 }

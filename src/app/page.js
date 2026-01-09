@@ -1,5 +1,6 @@
 import classes from "./page.module.css";
 import Header from "@/components/Header/Header";
+
 import Footer from "@/components/Footer/Footer";
 import HomeHero from "@/components/HomeHero/HomeHero";
 import HomeGallery from "@/components/HomeGallery/HomeGallery";
@@ -21,7 +22,7 @@ export default function Home() {
 
           <Footer />
 
-          <div className={classes.homeHeroCloneWrap} />
+          <div className={classes.homeHeroCloneWrap}>{/* <HomeHeroClone /> */}</div>
         </div>
       </main>
     </div>
