@@ -43,10 +43,6 @@ export default function HomeGallery() {
 
       const killById = (id) => ScrollTrigger.getById(id)?.kill(true);
 
-      const applyOverlap = () => {
-        gsap.set(main, { marginTop: "-300vh" });
-      };
-
       const measurePairs = () =>
         items
           .map((_, i) => {
@@ -143,7 +139,6 @@ export default function HomeGallery() {
       };
 
       const rebuild = () => {
-        applyOverlap();
         buildText();
         buildImages();
       };
