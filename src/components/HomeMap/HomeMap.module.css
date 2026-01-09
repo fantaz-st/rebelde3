@@ -4,7 +4,7 @@
 }
 
 .map {
-  background-color: var(--background--brown-10);
+  background-color: var(--bg-brown-10);
   position: relative;
   overflow: hidden;
 }
@@ -30,11 +30,11 @@
 
 .title {
   margin: 0 0 4rem;
-  color: var(--color--content--perssian-blue);
+  color: var(--brand-persian-blue);
 }
 
 .desc {
-  color: var(--color--content--perssian-blue);
+  color: var(--brand-persian-blue);
 }
 
 .cta {
@@ -135,9 +135,9 @@
 /* Desktop map pins */
 .locationIc {
   z-index: 2;
-  border: max(1.5px, 0.15rem) solid var(--background--brown-20);
-  background-color: var(--background--brown-10);
-  color: var(--background--brown-80);
+  border: max(1.5px, 0.15rem) solid var(--bg-brown-20);
+  background-color: var(--bg-brown-10);
+  color: var(--bg-brown-80);
   cursor: pointer;
   border-radius: 0.2rem;
   display: flex;
@@ -163,7 +163,7 @@
 }
 
 .locationIcBg {
-  background-color: var(--background--brown-80);
+  background-color: var(--bg-brown-80);
   opacity: 0;
   border-radius: 50%;
   width: 140%;
@@ -177,9 +177,9 @@
 }
 
 .active .locationIc {
-  color: var(--background--brown-10);
-  border-color: var(--background--brown-80);
-  background-color: var(--background--brown-80);
+  color: var(--bg-brown-10);
+  border-color: var(--bg-brown-80);
+  background-color: var(--bg-brown-80);
   box-shadow: 0 1.5rem 2rem #84684580;
 }
 
@@ -223,7 +223,7 @@
   display: block;
   border-radius: 0.8rem;
   overflow: hidden;
-  color: var(--color--content--white);
+  color: var(--text-white);
   cursor: pointer;
 }
 
@@ -268,9 +268,9 @@
 
 .pinBox {
   position: relative;
-  border: max(1.5px, 0.15rem) solid var(--background--brown-20);
-  background-color: var(--background--brown-10);
-  color: var(--background--brown-80);
+  border: max(1.5px, 0.15rem) solid var(--bg-brown-20);
+  background-color: var(--bg-brown-10);
+  color: var(--bg-brown-80);
   border-radius: 0.2rem;
   padding: 1rem;
   display: inline-flex;
@@ -290,7 +290,7 @@
   position: absolute;
   inset: -30%;
   border-radius: 50%;
-  background-color: var(--background--brown-80);
+  background-color: var(--bg-brown-80);
   opacity: 0;
   clip-path: circle(2% at 50% 50%);
   display: flex;
@@ -300,9 +300,9 @@
 }
 
 .active .pinBox {
-  background-color: var(--background--brown-80);
-  border-color: var(--background--brown-80);
-  color: var(--background--brown-10);
+  background-color: var(--bg-brown-80);
+  border-color: var(--bg-brown-80);
+  color: var(--bg-brown-10);
   box-shadow: 0 1.5rem 2rem #84684580;
 }
 
@@ -345,7 +345,7 @@
 }
 
 .fullMapTitle {
-  color: var(--color--content--perssian-blue);
+  color: var(--brand-persian-blue);
   line-height: 1.2;
   margin: 0;
 }
@@ -367,7 +367,7 @@
 }
 
 .mapGradient {
-  background-image: linear-gradient(0deg, var(--background--brown-10), #f2ebe300);
+  background-image: linear-gradient(0deg, var(--bg-brown-10), #f2ebe300);
   pointer-events: none;
   width: 100%;
   height: 14rem;

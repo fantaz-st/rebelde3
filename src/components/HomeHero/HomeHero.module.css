@@ -62,13 +62,13 @@
 .title {
   margin: 0 0 4rem;
   max-width: 50vw;
-  color: var(--color--content--white);
+  color: var(--text-white);
 }
 
 .subtitle {
   margin: 0;
   max-width: 72rem;
-  color: var(--color--content--white);
+  color: var(--text-white);
 }
 
 @media only screen and (max-width: 991px) {

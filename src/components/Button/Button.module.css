@@ -7,7 +7,7 @@
   padding: 0;
   font-family: inherit;
   -webkit-tap-highlight-color: transparent;
-  color: var(--color--content--perssian-blue);
+  color: var(--brand-persian-blue);
   transition: color 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
@@ -81,52 +81,52 @@
 /* variants */
 
 .primary {
-  color: var(--color--content--white);
+  color: var(--text-white);
 }
 
 .primary .btnInner {
-  border-color: var(--color--content--perssian-blue);
+  border-color: var(--brand-persian-blue);
 }
 
 .primary .btnBg {
-  background-color: var(--color--content--perssian-blue);
+  background-color: var(--brand-persian-blue);
 }
 
 @media (hover: hover) {
   .primary:hover {
-    color: var(--color--content--perssian-blue);
+    color: var(--brand-persian-blue);
   }
   .primary:hover .btnBg {
-    background-color: var(--color--content--white);
+    background-color: var(--text-white);
   }
 }
 
 .white {
-  color: var(--color--content--perssian-blue);
+  color: var(--brand-persian-blue);
 }
 
 .white .btnInner {
-  border-color: var(--color--content--white);
+  border-color: var(--text-white);
 }
 
 .white .btnBg {
-  background-color: var(--color--content--white);
+  background-color: var(--text-white);
 }
 
 @media (hover: hover) {
   .white:hover {
-    color: var(--color--content--white);
+    color: var(--text-white);
   }
   .white:hover .btnInner {
     border-color: #ffffff1a;
   }
   .white:hover .btnBg {
-    background-color: var(--color--content--perssian-blue);
+    background-color: var(--brand-persian-blue);
   }
 }
 
 .ghost {
-  color: var(--color--content--perssian-blue);
+  color: var(--brand-persian-blue);
 }
 
 .ghost .btnBg {
@@ -135,13 +135,13 @@
 
 @media (hover: hover) {
   .ghost:hover {
-    color: var(--color--content--white);
+    color: var(--text-white);
   }
 
   .ghost:hover .btnInner {
-    border-color: var(--color--content--perssian-blue);
+    border-color: var(--brand-persian-blue);
   }
   .ghost:hover .btnBg {
-    background-color: var(--color--content--perssian-blue);
+    background-color: var(--brand-persian-blue);
   }
 }

@@ -2,7 +2,7 @@
 
 /* Base body text */
 body {
-  font-family: var(--fonts--body);
+  font-family: var(--fonts-body);
   font-size: 1.8rem;
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
@@ -10,6 +10,7 @@ body {
 }
 
 /* Headings */
+
 h1 {
   font-size: 12rem;
   line-height: 1;

@@ -1,8 +1,30 @@
+:root {
+  --bg-brown-100: #2b231f;
+  --bg-brown-80: #846845;
+  --bg-brown-30: #a89d95;
+  --bg-brown-20: #e6d9cd;
+  --bg-brown-10: #f2ebe3;
+
+  --text-white: #ffffff;
+  --text-white-80: rgba(255, 255, 255, 0.8);
+  --brand-persian-blue: #003357;
+
+  --container--max-width: 1440px;
+  --container--width: min(100%, var(--container--max-width));
+  --container--padding: 6rem;
+  --container--column-gap: 2rem;
+
+  /* Bridge: typography.css expects these */
+  --fonts--body: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fonts--button: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fonts--h5: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
 html {
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
   box-sizing: border-box;
   font-size: 62.5%;
+  text-size-adjust: 100%;
+  font-family: var(--fonts-body);
 }
 
 *,
@@ -14,20 +36,22 @@ html {
 body {
   margin: 0;
   min-height: 100%;
-  font-family: var(--fonts--body);
-  color: var(--color--content--white);
-  background-color: var(--background--brown-100);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 1.8rem;
-  line-height: 1.4;
-  overflow-x: hidden;
+  color: var(--text-white);
+  background-color: var(--bg-brown-100);
 }
+
 html,
 body {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+@supports not (overflow: clip) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
 }
 
 img {
@@ -87,10 +111,10 @@ fieldset {
   border: 0;
   margin: 0;
   padding: 0;
+  min-inline-size: 0;
 }
 
 legend {
-  border: 0;
   padding: 0;
 }
 
@@ -98,53 +122,16 @@ textarea {
   resize: vertical;
 }
 
-:root {
-  --background--brown-100: #2b231f;
-  --background--brown-10: #f2ebe3;
-  --background--brown-20: #e6d9cd;
-  --background--brown-30: #a89d95;
-  --background--brown-80: #846845;
-  --color--content--perssian-blue: #003357;
-
-  --color--content--white: #ffffff;
-  --color--content--white-80: rgba(255, 255, 255, 0.8);
-
-  --fonts--body: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --fonts--button: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --fonts--h5: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-
-  --container--width: min(100vw, var(--container--max-width));
-  --container--padding: 6rem;
-  --container--column: 16;
-  --container--column-gap: 2rem;
-
-  --padding-container: 4rem;
-
-  --nav-link-open: 1;
-  --nav-dropdown-open: 0;
-  --nav-dropdown-toggle-open: 0;
-
-  --tab-active: 1;
-
-  --control: 1;
-  --inputType-custom: 1;
-
-  --vertical: 1;
-}
-
 .container {
   width: 100%;
   max-width: var(--container--width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--container--padding);
-  padding-right: var(--container--padding);
+  margin-inline: auto;
+  padding-inline: var(--container--padding);
 }
 
 @media only screen and (max-width: 991px) {
-  .container {
-    padding-left: 2.4rem;
-    padding-right: 2.4rem;
+  :root {
+    --container--padding: 2.4rem;
   }
 }
 
