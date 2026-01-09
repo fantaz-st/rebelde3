@@ -15,7 +15,7 @@ export default function Home() {
         <div className={classes.mainInner}>
           <div className={classes.mainContent}>
             <HomeHero />
-            <HomeGallery />
+            {/* <HomeGallery /> */}
             <HomeMap />
             <HomeTeam />
           </div>

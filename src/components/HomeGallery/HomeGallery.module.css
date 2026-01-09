@@ -2,15 +2,6 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  margin-top: -100vh;
-  padding-top: 100vh;
-}
-
-@supports (height: 100svh) {
-  .wrap {
-    margin-top: -100svh;
-    padding-top: 100svh;
-  }
 }
 
 .shell {
@@ -25,12 +16,6 @@
   place-items: center;
   pointer-events: none;
   z-index: 10;
-}
-
-@supports (height: 100svh) {
-  .stick {
-    height: 100svh;
-  }
 }
 
 .headingStack {
@@ -192,16 +177,11 @@
   visibility: hidden;
 }
 
+/* initial “comes from bottom” state (matches your working version) */
 .start {
   opacity: 0;
   transform: translate3d(0, 55vh, 0);
   will-change: transform, opacity;
-}
-
-@supports (height: 100svh) {
-  .start {
-    transform: translate3d(0, 55svh, 0);
-  }
 }
 
 /* responsive */
