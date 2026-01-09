@@ -18,27 +18,30 @@ export default function HomeHero() {
 
   useGSAP(
     () => {
-      gsap.set(backgroundRef.current, { scale: 1 });
+      ScrollTrigger.config({ ignoreMobileResize: true });
+
+      gsap.set(backgroundRef.current, { scale: 1, transformOrigin: "50% 50%" });
       gsap.set(blurRef.current, { autoAlpha: 0 });
       gsap.set(backdropRef.current, { autoAlpha: 0 });
       gsap.set(textRef.current, { autoAlpha: 1 });
 
-      gsap
-        .timeline({
-          defaults: { ease: "none" },
-          scrollTrigger: {
-            trigger: wrapRef.current,
-            start: "top top",
-            end: () => "+=100%",
-            // end: () => "+=" + window.innerHeight * 1.2,
-            scrub: true,
-            invalidateOnRefresh: true,
-          },
-        })
-        .to(backgroundRef.current, { scale: 1.08 }, 0)
-        .to(blurRef.current, { autoAlpha: 1 }, 0)
-        .to(backdropRef.current, { autoAlpha: 1 }, 0)
-        .to(textRef.current, { autoAlpha: 0 }, 0);
+      const tl = gsap.timeline({
+        defaults: { ease: "none" },
+        scrollTrigger: {
+          trigger: wrapRef.current,
+          start: "top top",
+          end: () => `+=${window.innerHeight}`,
+          scrub: true,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      tl.to(backgroundRef.current, { scale: 1.08 }, 0).to(blurRef.current, { autoAlpha: 1 }, 0).to(backdropRef.current, { autoAlpha: 1 }, 0).to(textRef.current, { autoAlpha: 0 }, 0);
+
+      return () => {
+        tl.scrollTrigger?.kill();
+        tl.kill();
+      };
     },
     { scope: wrapRef }
   );
@@ -46,10 +49,10 @@ export default function HomeHero() {
   return (
     <section ref={wrapRef} className={classes.container}>
       <div ref={backgroundRef} className={classes.background}>
-        <Image className={classes.img} fill priority loading="eager" alt="" sizes="(max-width: 3840px) 100vw, 3840px" src="/images/hero-1.jpg" />
+        <Image className={classes.img} fill priority loading="eager" alt="" sizes="100vw" src="/images/hero-1.jpg" />
 
         <div ref={blurRef} className={classes.blur} aria-hidden="true">
-          <Image className={classes.img} fill priority loading="eager" alt="" sizes="(max-width: 3840px) 100vw, 3840px" src="/images/hero-1.jpg" />
+          <Image className={classes.img} fill priority loading="eager" alt="" sizes="100vw" src="/images/hero-1.jpg" />
         </div>
 
         <div ref={backdropRef} className={classes.backdrop} aria-hidden="true" />
