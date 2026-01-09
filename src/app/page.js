@@ -10,7 +10,7 @@ import HomeMap from "@/components/HomeMap/HomeMap";
 export default function Home() {
   return (
     <div className={classes.bodyInner}>
-      <Header tone="dark" />
+      {/* <Header tone="dark" /> */}
       <main className={classes.main}>
         <div className={classes.mainInner}>
           <div className={classes.mainContent}>
