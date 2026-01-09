@@ -14,17 +14,15 @@
   --container--padding: 6rem;
   --container--column-gap: 2rem;
 
-  /* Bridge: typography.css expects these */
-  --fonts--body: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --fonts--button: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --fonts--h5: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fonts--body: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fonts--button: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fonts--h5: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 html {
   box-sizing: border-box;
   font-size: 62.5%;
   text-size-adjust: 100%;
-  font-family: var(--fonts-body);
 }
 
 *,
