@@ -12,6 +12,8 @@ export default function useRevealPinImages(scopeRef, opts = {}) {
       const scope = scopeRef?.current;
       if (!scope) return;
 
+      const scroller = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot");
+
       const {
         selector = '[data-reveal-pin="1"]',
         startInset = "inset(14% 50% 14% 50% round 8rem)",
@@ -61,6 +63,7 @@ export default function useRevealPinImages(scopeRef, opts = {}) {
             defaults: { ease: "none" },
             scrollTrigger: {
               id: idReveal,
+              scroller,
               trigger: block,
               start: revealStart,
               end: revealEnd,
@@ -76,6 +79,7 @@ export default function useRevealPinImages(scopeRef, opts = {}) {
             defaults: { ease: "none" },
             scrollTrigger: {
               id: idPin,
+              scroller,
               trigger: block,
               start: pinStart,
               end: () => `+=${window.innerHeight * pinDistanceVH}`,
@@ -89,7 +93,7 @@ export default function useRevealPinImages(scopeRef, opts = {}) {
           .to(img, { scale: imgScaleTo, transformOrigin: "top", duration: 1 });
       });
 
-      ScrollTrigger.refresh();
+      requestAnimationFrame(() => ScrollTrigger.refresh());
 
       return () => {
         blocks.forEach((_, index) => {

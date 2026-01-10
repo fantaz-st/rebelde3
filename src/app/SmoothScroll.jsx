@@ -1,21 +1,22 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function SmoothScroll({ children }) {
   const scrollerRef = useRef(null);
   const contentRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     const scroller = scrollerRef.current;
     const content = contentRef.current;
 
-    ScrollTrigger.defaults({ scroller });
+    window.__RBD_SCROLLER__ = scroller;
 
     const lenis = new Lenis({
       wrapper: scroller,
@@ -25,28 +26,25 @@ export default function SmoothScroll({ children }) {
       smoothTouch: false,
     });
 
-    ScrollTrigger.scrollerProxy(scroller, {
-      scrollTop(value) {
-        if (arguments.length) lenis.scrollTo(value, { immediate: true });
-        return lenis.scroll;
-      },
-      getBoundingClientRect() {
-        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-      },
+    const onLenisScroll = () => ScrollTrigger.update();
+    lenis.on("scroll", onLenisScroll);
+
+    const tick = (time) => {
+      lenis.raf(time * 1000);
+    };
+
+    gsap.ticker.add(tick);
+    gsap.ticker.lagSmoothing(0);
+
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
     });
 
-    lenis.on("scroll", ScrollTrigger.update);
-
-    const raf = (time) => {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    };
-    requestAnimationFrame(raf);
-
-    ScrollTrigger.refresh();
-
     return () => {
+      gsap.ticker.remove(tick);
+      lenis.off("scroll", onLenisScroll);
       lenis.destroy();
+      if (window.__RBD_SCROLLER__ === scroller) delete window.__RBD_SCROLLER__;
     };
   }, []);
 

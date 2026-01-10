@@ -11,7 +11,6 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function HomeHero() {
   const wrapRef = useRef(null);
-  const stickRef = useRef(null);
   const backgroundRef = useRef(null);
   const blurRef = useRef(null);
   const backdropRef = useRef(null);
@@ -19,6 +18,9 @@ export default function HomeHero() {
 
   useGSAP(
     () => {
+      const scroller = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot");
+      if (!scroller || !wrapRef.current) return;
+
       gsap.set(backgroundRef.current, { scale: 1 });
       gsap.set(blurRef.current, { autoAlpha: 0 });
       gsap.set(backdropRef.current, { autoAlpha: 0 });
@@ -29,9 +31,9 @@ export default function HomeHero() {
           defaults: { ease: "none" },
           scrollTrigger: {
             trigger: wrapRef.current,
-            scroller: document.querySelector(".scrollRoot"),
+            scroller,
             start: "top top",
-            end: "bottom top",
+            end: "+=80%",
             scrub: true,
             invalidateOnRefresh: true,
           },
@@ -46,7 +48,7 @@ export default function HomeHero() {
 
   return (
     <section ref={wrapRef} className={classes.wrap}>
-      <div ref={stickRef} className={classes.stick}>
+      <div className={classes.inner}>
         <div ref={backgroundRef} className={classes.background}>
           <Image className={classes.img} fill priority alt="" sizes="100vw" src="/images/hero-1.jpg" />
 
@@ -62,6 +64,8 @@ export default function HomeHero() {
           <h4 className={classes.subtitle}>Set your own rhythm aboard Felix 37 — private day trips and charters from Split to Hvar, Vis, the Blue Cave, and hidden bays</h4>
         </div>
       </div>
+
+      <div className={classes.spacer} aria-hidden="true" />
     </section>
   );
 }

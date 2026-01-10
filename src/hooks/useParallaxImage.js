@@ -12,7 +12,14 @@ export default function useParallaxImage(scopeRef, opts = {}) {
       const scope = scopeRef?.current;
       if (!scope) return;
 
+      const scroller = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot");
+
       const { blockSelector = '[data-team-block="1"]', innerSelector = '[data-team-media-inner="1"]', fromScale = 1.6, fromYPercent = -10, toScale = 1, toYPercent = 20, start = "top bottom", end = "bottom top" } = opts;
+
+      const killById = (id) => {
+        const t = ScrollTrigger.getById(id);
+        if (t) t.kill(true);
+      };
 
       const blocks = gsap.utils.toArray(scope.querySelectorAll(blockSelector));
 
@@ -20,14 +27,22 @@ export default function useParallaxImage(scopeRef, opts = {}) {
         const inner = block.querySelector(innerSelector);
         if (!inner) return;
 
-        gsap.set(inner, { scale: fromScale, yPercent: fromYPercent, willChange: "transform" });
+        const id = `team-parallax-${index}`;
+        killById(id);
+
+        gsap.set(inner, {
+          scale: fromScale,
+          yPercent: fromYPercent,
+          willChange: "transform",
+        });
 
         gsap.to(inner, {
           scale: toScale,
           yPercent: toYPercent,
           ease: "none",
           scrollTrigger: {
-            id: `team-parallax-${index}`,
+            id,
+            scroller,
             trigger: block,
             start,
             end,
@@ -37,12 +52,11 @@ export default function useParallaxImage(scopeRef, opts = {}) {
         });
       });
 
-      ScrollTrigger.refresh();
+      requestAnimationFrame(() => ScrollTrigger.refresh());
 
       return () => {
         blocks.forEach((_, index) => {
-          const t = ScrollTrigger.getById(`team-parallax-${index}`);
-          if (t) t.kill(true);
+          killById(`team-parallax-${index}`);
         });
       };
     },

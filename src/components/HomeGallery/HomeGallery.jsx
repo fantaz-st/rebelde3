@@ -33,13 +33,15 @@ export default function HomeGallery() {
 
   useGSAP(
     () => {
+      const scroller = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot");
+
       const wrap = wrapRef.current;
       const stick = stickRef.current;
       const stage = stageRef.current;
       const startCol = startColRef.current;
       const main = mainRef.current;
 
-      if (!wrap || !stick || !stage || !startCol || !main) return;
+      if (!scroller || !wrap || !stick || !stage || !startCol || !main) return;
 
       const killById = (id) => ScrollTrigger.getById(id)?.kill(true);
 
@@ -81,6 +83,7 @@ export default function HomeGallery() {
           defaults: { ease: "none" },
           scrollTrigger: {
             id: "gallery-text",
+            scroller,
             trigger: wrap,
             start: "top top",
             end: "+=300%",
@@ -126,6 +129,7 @@ export default function HomeGallery() {
           defaults: { ease: "none" },
           scrollTrigger: {
             id: "gallery-images",
+            scroller,
             trigger: main,
             start: "20% 60%",
             end: "+=20%",
@@ -152,7 +156,10 @@ export default function HomeGallery() {
 
       const onRefreshInit = () => rebuild();
       ScrollTrigger.addEventListener("refreshInit", onRefreshInit);
-      ScrollTrigger.refresh();
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
 
       return () => {
         ScrollTrigger.removeEventListener("refreshInit", onRefreshInit);

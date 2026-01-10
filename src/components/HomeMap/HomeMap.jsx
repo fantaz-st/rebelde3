@@ -11,7 +11,7 @@ import classes from "./HomeMap.module.css";
 import Button from "../Button/Button";
 import items from "./items";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 function PinIcon() {
   return (
@@ -103,19 +103,29 @@ export default function HomeMap() {
 
   useGSAP(
     () => {
+      const scroller = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot");
       const el = wrapRef.current;
-      if (!el) return;
+      if (!scroller || !el) return;
 
-      gsap
-        .timeline({
+      const mapImg = el.querySelector(`.${classes.mapImg}`);
+      if (!mapImg) return;
+
+      gsap.fromTo(
+        mapImg,
+        { autoAlpha: 0, scale: 1.4 },
+        {
+          autoAlpha: 1,
+          scale: 1,
           scrollTrigger: {
             trigger: el,
-            start: "top bottom",
+            scroller,
+            start: "top 85%",
             end: "top top",
             scrub: true,
+            invalidateOnRefresh: true,
           },
-        })
-        .fromTo(el.querySelector(`.${classes.mapImg}`), { autoAlpha: 0, scale: 1.4 }, { autoAlpha: 1, scale: 1 });
+        }
+      );
     },
     { scope: wrapRef }
   );
