@@ -1,0 +1,17 @@
+.dummyDark,
+.dummyLight {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 4rem;
+}
+
+.dummyDark {
+  background: #111;
+}
+
+.dummyLight {
+  background: #bfbfbf;
+  color: #111;
+}

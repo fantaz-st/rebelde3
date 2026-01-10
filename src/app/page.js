@@ -15,14 +15,21 @@ export default function Home() {
         <div className={classes.mainInner}>
           <div className={classes.mainContent}>
             <HomeHero />
-            <HomeGallery />
-            <HomeMap />
-            <HomeTeam />
+
+            <section className={classes.dummyDark}>
+              <h2>Dummy Section 1</h2>
+            </section>
+
+            <section className={classes.dummyLight}>
+              <h2>Dummy Section 2</h2>
+            </section>
+
+            <section className={classes.dummyDark}>
+              <h2>Dummy Section 3</h2>
+            </section>
           </div>
 
           <Footer />
-
-          <div className={classes.homeHeroCloneWrap}>{/* <HomeHeroClone /> */}</div>
         </div>
       </main>
     </div>

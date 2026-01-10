@@ -38,13 +38,6 @@ body {
   background-color: var(--bg-brown-100);
 }
 
-html,
-body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: clip;
-}
-
 @supports not (overflow: clip) {
   html,
   body {
@@ -52,6 +45,11 @@ body {
   }
 }
 
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
 img {
   max-width: 100%;
   height: auto;
@@ -136,4 +134,11 @@ textarea {
 .grid {
   display: grid;
   column-gap: var(--container--column-gap);
+}
+
+.scrollRoot {
+  height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
