@@ -1,9 +1,15 @@
-.container {
+.wrap {
+  position: relative;
+  height: 260dvh;
+  width: 100%;
+  z-index: 1;
+}
+
+.stick {
   position: sticky;
   top: 0;
   height: 100dvh;
   width: 100%;
-  z-index: 1;
   overflow: hidden;
 }
 
@@ -51,10 +57,8 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  align-content: stretch;
   will-change: opacity;
   text-align: center;
 }
@@ -75,7 +79,6 @@
   .title {
     max-width: 100%;
   }
-
   .subtitle {
     max-width: 52rem;
   }
@@ -84,14 +87,5 @@
 @media only screen and (max-width: 767px) {
   .subtitle {
     max-width: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .background,
-  .blur,
-  .backdrop,
-  .text {
-    transition: none !important;
   }
 }
