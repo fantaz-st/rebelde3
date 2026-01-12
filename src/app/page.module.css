@@ -1,17 +1,53 @@
-.dummyDark,
-.dummyLight {
-  height: 100vh;
+.bodyInner {
+  flex-flow: column;
   width: 100%;
-  display: grid;
-  place-items: center;
-  font-size: 4rem;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
 }
 
-.dummyDark {
-  background: #111;
+.main {
+  z-index: 2;
+  flex: 1;
+  position: relative;
 }
 
-.dummyLight {
-  background: #bfbfbf;
-  color: #111;
+.mainInner {
+  flex-flow: column;
+  min-height: 100vh;
+  display: flex;
+}
+
+.mainContent {
+  z-index: 1;
+  flex-flow: column;
+  flex: 1;
+  display: flex;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  :global(html),
+  :global(body) {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  :global(body) {
+    overscroll-behavior-y: none;
+    overscroll-behavior-x: none;
+    position: fixed;
+  }
+
+  .bodyInner {
+    overscroll-behavior: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 }

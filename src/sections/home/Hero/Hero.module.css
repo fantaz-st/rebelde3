@@ -1,0 +1,152 @@
+.wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+}
+
+.inner {
+  contain: paint;
+  width: 100%;
+  height: 100%;
+  position: sticky;
+  top: 0;
+  margin-bottom: -300vh;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.bgItem {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.img {
+  object-fit: cover;
+  object-position: 50% 100%;
+}
+
+.backdrop {
+  z-index: 2;
+  pointer-events: none;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 55%);
+  width: 100%;
+  height: 200%;
+  position: absolute;
+  inset: 0;
+}
+
+.blur {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.blur .img {
+  transform: scale(1.05);
+  filter: blur(18px);
+}
+.main {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100vh;
+}
+
+.containerGrid {
+  width: 100%;
+  height: 100%;
+  padding-inline: 2.4rem;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 2rem;
+  align-items: center;
+}
+
+.text {
+  grid-column: 4 / -4;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleWrap {
+  margin-bottom: 4rem;
+}
+
+.title {
+  margin: 0;
+}
+
+.descWrap {
+  width: 100%;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+.innerEmptyBlock {
+  height: 120vh;
+}
+
+.outerEmptyBlock {
+  height: 100vh;
+}
+
+@media (max-width: 767px) {
+  .hero {
+    height: 100svh;
+  }
+
+  .inner {
+    margin-bottom: -300svh;
+  }
+
+  .main {
+    height: 100svh;
+  }
+
+  .containerGrid {
+    padding-inline: 2rem;
+    column-gap: 1.6rem;
+  }
+
+  .text {
+    grid-column: 2 / -2;
+  }
+
+  .titleWrap {
+    margin-bottom: 2.8rem;
+  }
+
+  .subtitle {
+    max-width: none;
+  }
+
+  .innerEmptyBlock {
+    height: 120svh;
+  }
+
+  .outerEmptyBlock {
+    height: 50svh;
+  }
+}

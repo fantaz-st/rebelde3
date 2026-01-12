@@ -13,8 +13,6 @@ export default function HomeGallery() {
   const stickRef = useRef(null);
   const stageRef = useRef(null);
   const startColRef = useRef(null);
-  const h1Ref = useRef(null);
-  const h2Ref = useRef(null);
   const mainRef = useRef(null);
 
   const startItemRefs = useRef([]);
@@ -45,10 +43,6 @@ export default function HomeGallery() {
 
       const killById = (id) => ScrollTrigger.getById(id)?.kill(true);
 
-      const applyOverlap = () => {
-        gsap.set(main, { marginTop: "-300vh" });
-      };
-
       const measurePairs = () =>
         items
           .map((_, i) => {
@@ -77,7 +71,20 @@ export default function HomeGallery() {
       const buildText = () => {
         killById("gallery-text");
 
-        gsap.set([h1Ref.current, h2Ref.current], { autoAlpha: 0 });
+        const headings = gsap.utils.toArray(`.${classes.heading}`, stick);
+        gsap.set(headings, { autoAlpha: 0, y: 30, scale: 1.04 });
+
+        const count = headings.length || 0;
+        if (!count) return null;
+
+        const enter = 0.14;
+        const hold = 0.18;
+        const exit = 0.14;
+
+        const total = count === 1 ? enter + hold : (count - 1) * (enter + hold + exit) + (enter + hold);
+        const tEnter = enter / total;
+        const tHold = hold / total;
+        const tExit = exit / total;
 
         const tl = gsap.timeline({
           defaults: { ease: "none" },
@@ -85,24 +92,33 @@ export default function HomeGallery() {
             id: "gallery-text",
             scroller,
             trigger: wrap,
-            start: "top top",
+
+            start: "top -60%",
             end: "+=300%",
+
             scrub: true,
             pin: stick,
-            pinSpacing: true,
+            pinSpacing: false,
             anticipatePin: 1,
             invalidateOnRefresh: true,
             refreshPriority: 2,
           },
         });
 
-        tl.to(h1Ref.current, { autoAlpha: 1, duration: 0.12 }, 0.08)
-          .to(h1Ref.current, { autoAlpha: 1, duration: 0.28 }, 0.2)
-          .to(h1Ref.current, { autoAlpha: 0, duration: 0.12 }, 0.48)
-          .to({}, { duration: 0.12 }, 0.6)
-          .to(h2Ref.current, { autoAlpha: 1, duration: 0.12 }, 0.72)
-          .to(h2Ref.current, { autoAlpha: 1, duration: 0.28 }, 0.84)
-          .to(h2Ref.current, { autoAlpha: 0, duration: 0.12 }, 1.15);
+        let t = 0;
+
+        headings.forEach((el, i) => {
+          tl.to(el, { autoAlpha: 1, y: 0, scale: 1, duration: tEnter }, t);
+          t += tEnter;
+
+          tl.to(el, { autoAlpha: 1, y: 0, scale: 1, duration: tHold }, t);
+          t += tHold;
+
+          if (i !== headings.length - 1) {
+            tl.to(el, { autoAlpha: 0, y: -30, scale: 0.96, duration: tExit }, t);
+            t += tExit;
+          }
+        });
 
         return tl;
       };
@@ -123,31 +139,34 @@ export default function HomeGallery() {
           });
         });
 
-        gsap.set(startCol, { y: 0, autoAlpha: 1 });
+        gsap.set(startCol, { y: "55vh", autoAlpha: 0 });
 
         const tl = gsap.timeline({
           defaults: { ease: "none" },
           scrollTrigger: {
             id: "gallery-images",
             scroller,
-            trigger: main,
-            start: "20% 60%",
-            end: "+=20%",
+            trigger: wrap,
+
+            start: "top -60%",
+            end: "+=300%",
+
             scrub: true,
             invalidateOnRefresh: true,
             refreshPriority: 1,
           },
         });
 
+        tl.to(startCol, { y: 0, autoAlpha: 1, duration: 0.18 }, 0);
+
         pairs.forEach(({ startEl, x, y, sx, sy }) => {
-          tl.to(startEl, { x, y, scaleX: sx, scaleY: sy, rotation: 0, duration: 1 }, 0);
+          tl.to(startEl, { x, y, scaleX: sx, scaleY: sy, rotation: 0, duration: 1 }, 0.06);
         });
 
         return tl;
       };
 
       const rebuild = () => {
-        applyOverlap();
         buildText();
         buildImages();
       };
@@ -175,12 +194,8 @@ export default function HomeGallery() {
       <div className={`container ${classes.shell}`}>
         <div ref={stickRef} className={classes.stick}>
           <div className={classes.headingStack}>
-            <h3 ref={h1Ref} className={classes.heading}>
-              We craft experiences where the sea is a companion, not a destination.
-            </h3>
-            <h3 ref={h2Ref} className={classes.heading}>
-              Every journey is personal. Every wave, a new memory.
-            </h3>
+            <h3 className={classes.heading}>We craft experiences where the sea is a companion, not a destination.</h3>
+            <h3 className={classes.heading}>Every journey is personal. Every wave, a new memory.</h3>
           </div>
         </div>
 
