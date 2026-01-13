@@ -1,6 +1,9 @@
 .mapWrap {
   position: relative;
   z-index: 2;
+  /* do not remove negative margin - it is used to stick to previous section
+ */
+  margin-top: -130vh;
 }
 
 .map {

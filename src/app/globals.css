@@ -9,7 +9,7 @@
   --text-white-80: rgba(255, 255, 255, 0.8);
   --brand-persian-blue: #003357;
 
-  --container--max-width: 1440px;
+  --container--max-width: 1920px;
   --container--width: min(100%, var(--container--max-width));
   --container--padding: 6rem;
   --container--column-gap: 2rem;
