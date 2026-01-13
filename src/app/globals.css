@@ -137,8 +137,9 @@ textarea {
 }
 
 .scrollRoot {
-  height: 100dvh;
+  height: 100svh;
   overflow-y: auto;
-  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
+  touch-action: pan-y;
 }
