@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react";
 import { Swiper, SwiperSlide, useSwiperSlide } from "swiper/react";
 import "swiper/css";
 import classes from "./Map.module.css";
-import items from "@/components/settings/map";
+import items from "@/settings/map";
 import Button from "@/components/Button/Button";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -172,7 +172,7 @@ export default function Map() {
             <div className={classes.mapHead}>
               <div className={classes.mapImg}>
                 <div className={classes.mapImgInner}>
-                  <Image src="/images/map/home-map.png" alt="" width={1920} height={1138} className={classes.imgDefault} sizes="90vmax" priority={false} />
+                  <Image src="/images/map2/full-map.png" alt="" width={1920} height={1138} className={classes.imgDefault} sizes="90vmax" priority={false} />
                 </div>
 
                 <div className={classes.mapOverlay}>

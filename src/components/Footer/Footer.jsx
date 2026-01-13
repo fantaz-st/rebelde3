@@ -9,7 +9,7 @@ import { useGSAP } from "@gsap/react";
 import classes from "./Footer.module.css";
 import horizontalLoop from "@/helpers/horizontalHelper";
 import Button from "../Button/Button";
-import items from "../settings/footer-marquee";
+import items from "../../settings/footer-marquee";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 

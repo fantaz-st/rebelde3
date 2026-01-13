@@ -2,7 +2,7 @@
   width: 100%;
   background: var(--bg-brown-10);
   color: var(--brand-persian-blue);
-  padding: 20rem 26rem 26rem;
+  padding: 20rem 26rem 0rem;
   z-index: 3;
   position: relative;
 }

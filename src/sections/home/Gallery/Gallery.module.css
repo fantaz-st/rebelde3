@@ -126,7 +126,7 @@
 .endList {
   --padding-inline: calc(var(--container--padding, 6rem) - var(--container--column-gap, 2rem));
   position: relative;
-  width: min(100%, var(--container--max-width, 1440px));
+  width: min(100%, var(--container--max-width, 1920px));
   margin: 0 auto;
   padding-inline: var(--padding-inline);
   padding-block: 0;

@@ -7,7 +7,7 @@ import { CustomEase } from "gsap/CustomEase";
 import classes from "./Header.module.css";
 import AnimatedLink from "../AnimatedLink/AnimatedLink";
 import Logo from "../Logo/Logo";
-import pageLinks from "../settings/pageLinks";
+import pageLinks from "../../settings/pageLinks";
 import Button from "../Button/Button";
 
 export default function Header() {
@@ -24,12 +24,16 @@ export default function Header() {
   const panelRef = useRef(null);
   const listRef = useRef(null);
   const menuTlRef = useRef(null);
-
   useEffect(() => {
-    prevScrollYRef.current = window.scrollY || 0;
+    const scrollerEl = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot");
+    const scroller = scrollerEl || window;
+
+    const getY = () => (scroller === window ? window.scrollY || 0 : scroller.scrollTop || 0);
+
+    prevScrollYRef.current = getY();
 
     const updateOnScroll = () => {
-      const y = window.scrollY || 0;
+      const y = getY();
 
       if (y <= 0) {
         setIsHeaderVisible(true);
@@ -38,14 +42,14 @@ export default function Header() {
       }
 
       setIsShadowVisible(y > SHADOW_THRESHOLD);
-
       prevScrollYRef.current = y;
     };
 
     updateOnScroll();
-    window.addEventListener("scroll", updateOnScroll, { passive: true });
 
-    return () => window.removeEventListener("scroll", updateOnScroll);
+    scroller.addEventListener("scroll", updateOnScroll, { passive: true });
+
+    return () => scroller.removeEventListener("scroll", updateOnScroll);
   }, []);
 
   useLayoutEffect(() => {

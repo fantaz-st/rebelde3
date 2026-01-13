@@ -1,0 +1,207 @@
+.wrap {
+  position: relative;
+  z-index: 3;
+  background-color: var(--background--brown-10);
+}
+
+.blockEmpty {
+  height: 100vh;
+}
+
+.team {
+  position: sticky;
+  bottom: 0;
+  padding-top: 16.8rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20rem;
+  width: 100%;
+  margin-bottom: 30rem;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+}
+
+.grid {
+  --padding-inline: calc(var(--container--padding, 6rem) - var(--container--column-gap, 2rem));
+  width: min(100%, var(--container--max-width, 1920px));
+  margin: 0 auto;
+  padding-inline: var(--padding-inline);
+
+  display: grid;
+  grid-template-columns: repeat(16, minmax(1px, 1fr));
+  column-gap: var(--container--column-gap, 2rem);
+  grid-auto-rows: auto;
+  align-content: start;
+}
+
+.media {
+  position: relative;
+}
+
+.mediaInner {
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+.haveMargin {
+  margin-top: 8rem;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.text {
+  align-self: center;
+}
+
+.title {
+  margin: 0 0 4rem;
+  color: var(--brand-persian-blue);
+  font-size: 1.8rem;
+  line-height: 1.4;
+}
+
+.desc {
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.4;
+}
+
+/* === DESKTOP GRID-AREAS (from original Webflow #w-node rules) === */
+
+/* Item 1 */
+.item1ImgA {
+  grid-area: 1 / 1 / 3 / 8;
+}
+
+.item1Text {
+  grid-area: 1 / 9 / 2 / 14;
+}
+
+.item1ImgB {
+  grid-area: 2 / 7 / 4 / 17;
+}
+
+/* Item 2 */
+.item2Img {
+  grid-area: 1 / 1 / 3 / 8;
+}
+
+.item2Text {
+  grid-area: 1 / 9 / 2 / 14;
+}
+
+/* Item 3 */
+.item3Img {
+  grid-area: 1 / 9 / 3 / 16;
+}
+
+.item3Text {
+  grid-area: 1 / 3 / 2 / 8;
+}
+
+/* Thumb */
+.thumb {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.thumbInner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.thumbImg {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* ====== <= 991px (tablet) ====== */
+@media (max-width: 991px) {
+  .team {
+    padding-top: 12rem;
+  }
+
+  .list {
+    row-gap: 18rem;
+  }
+
+  .grid {
+    padding-inline: 3.2rem;
+    column-gap: 2rem;
+  }
+
+  .item1Text,
+  .item2Text,
+  .item3Text {
+    grid-area: auto;
+  }
+
+  .item1ImgA,
+  .item1ImgB,
+  .item2Img,
+  .item3Img {
+    grid-area: auto;
+  }
+
+  .grid {
+    grid-template-columns: repeat(8, minmax(1px, 1fr));
+  }
+}
+
+/* ====== <= 767px (mobile) ====== */
+@media (max-width: 767px) {
+  .team {
+    position: relative;
+    bottom: auto;
+    padding-top: 8rem;
+  }
+
+  .blockEmpty {
+    display: none;
+  }
+
+  .list {
+    row-gap: 15rem;
+    margin-bottom: 20rem;
+  }
+
+  .grid {
+    padding-inline: 2.4rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 1.6rem;
+  }
+
+  .haveMargin {
+    margin-top: 6rem;
+  }
+
+  .thumb {
+    height: auto;
+  }
+
+  .thumbInner {
+    overflow: hidden;
+    height: 70vh;
+    position: relative;
+  }
+}
+
+@media (max-width: 479px) {
+  .grid {
+    padding-inline: 1.8rem;
+  }
+}
