@@ -9,6 +9,7 @@ import { useGSAP } from "@gsap/react";
 import classes from "./Footer.module.css";
 import horizontalLoop from "@/helpers/horizontalHelper";
 import Button from "../Button/Button";
+import items from "../settings/footer-marquee";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -17,27 +18,6 @@ export default function Footer() {
   const bgRef = useRef(null);
   const railRef = useRef(null);
   const itemRefs = useRef([]);
-
-  const items = useMemo(
-    () => [
-      { id: 1, src: "/images/footer/image-1.jpg", title: "Raja Ampat", alt: "" },
-      { id: 2, src: "/images/footer/image-2.jpg", title: "Raja Ampat", alt: "" },
-      { id: 3, src: "/images/footer/image-3.jpeg", title: "Raja Ampat", alt: "" },
-      { id: 4, src: "/images/footer/image-4.jpeg", title: "Raja Ampat", alt: "" },
-      { id: 5, src: "/images/footer/image-5.jpg", title: "Raja Ampat", alt: "" },
-      { id: 6, src: "/images/footer/image-6.jpg", title: "Raja Ampat", alt: "" },
-      { id: 7, src: "/images/footer/image-7.jpg", title: "Raja Ampat", alt: "" },
-      { id: 8, src: "/images/footer/image-8.jpg", title: "Raja Ampat", alt: "" },
-      { id: 9, src: "/images/footer/image-9.jpg", title: "Raja Ampat", alt: "" },
-      { id: 10, src: "/images/footer/image-10.jpg", title: "Raja Ampat", alt: "" },
-      { id: 11, src: "/images/footer/image-11.jpg", title: "Raja Ampat", alt: "" },
-      { id: 12, src: "/images/footer/image-12.jpg", title: "Raja Ampat", alt: "" },
-      { id: 13, src: "/images/footer/image-13.jpg", title: "Raja Ampat", alt: "" },
-      { id: 14, src: "/images/footer/image-14.jpg", title: "Raja Ampat", alt: "" },
-      { id: 15, src: "/images/footer/image-15.jpg", title: "Raja Ampat", alt: "" },
-    ],
-    []
-  );
 
   useGSAP(
     () => {
@@ -79,12 +59,12 @@ export default function Footer() {
 
       <div className={classes.cta}>
         <div className={`container ${classes.ctaInner}`}>
-          <h2 className={classes.ctaTitle}>Embark On Your Next Adventure</h2>
+          <h2 className={classes.ctaTitle}>Want to make it special?</h2>
           <Button href="/contact" variant="white" size="lg">
             GET IN TOUCH
           </Button>
 
-          <p className={classes.ctaSub}>Send us a request and we’ll be in touch shortly.</p>
+          <p className={classes.ctaSub}>Reach out and let us turn your time in Split into something truly special.</p>
         </div>
       </div>
 
@@ -104,40 +84,28 @@ export default function Footer() {
         <div className={`container ${classes.mainInner}`}>
           <div className={classes.mainGrid}>
             <div className={classes.mainCol}>
-              <div className={classes.label}>CONTACT</div>
+              <div className={classes.label}>Get in touch</div>
               <div className={classes.links}>
-                <Link className={classes.link} href="/contact">
-                  Get in touch
-                </Link>
-                <a className={classes.link} href="mailto:info@yourdomain.com">
-                  info@yourdomain.com
+                <a className={`${classes.link} ${classes.larger}`} href="mailto:rebeldeboats@gmail.com">
+                  rebeldeboats@gmail.com
                 </a>
               </div>
             </div>
 
             <div className={`${classes.mainCol} ${classes.center}`}>
-              <div className={classes.label}>EXPLORE</div>
-              <div className={classes.links}>
-                <Link className={classes.link} href="/bespoke-expeditions">
-                  Expeditions
-                </Link>
-                <Link className={classes.link} href="/the-yacht">
-                  The yacht
-                </Link>
-                <Link className={classes.link} href="/our-story">
-                  Our story
-                </Link>
-              </div>
+              <div className={classes.label}>Rebelde Boats</div>
+              <span className={classes.larger}>REBELDE d.o.o.</span>
+
+              <span className={classes.larger}>OIB 99723002621</span>
+
+              <span className={classes.larger}>VINKOVAČKA 45, 21000 SPLIT</span>
             </div>
 
             <div className={`${classes.mainCol} ${classes.right}`}>
-              <div className={classes.label}>FOLLOW</div>
+              <div className={classes.label}>Chat with us on WhatsApp</div>
               <div className={classes.links}>
-                <a className={classes.link} href="#" target="_blank" rel="noreferrer">
-                  Instagram
-                </a>
-                <a className={classes.link} href="#" target="_blank" rel="noreferrer">
-                  YouTube
+                <a className={`${classes.link} ${classes.larger}`} target="_blank" href="https://wa.me/385997973959" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+                  +385 99 797 3959
                 </a>
               </div>
             </div>
@@ -149,16 +117,28 @@ export default function Footer() {
             <div className={classes.copyright}>
               <span>© {new Date().getFullYear()}</span>
               <span className={classes.dot}>·</span>
-              <span>RBD</span>
+              <span>
+                Rebelde Boats
+                <br />
+                designed & developed by <a href="mailto:cbabic.st@gmail.com">fantaz</a>
+              </span>
             </div>
 
             <div className={classes.legal}>
-              <Link className={classes.botLink} href="/privacy-policy">
-                Privacy
+              <Link className={classes.botLink} href="/our-boat">
+                Our Boat
               </Link>
               <span className={classes.dot}>·</span>
-              <Link className={classes.botLink} href="/terms">
-                Terms
+              <Link className={classes.botLink} href="/our-tours">
+                Our Tours
+              </Link>
+              <span className={classes.dot}>·</span>
+              <Link className={classes.botLink} href="/faq">
+                FAQ-s
+              </Link>
+              <span className={classes.dot}>·</span>
+              <Link className={classes.botLink} href="/contact">
+                Contact
               </Link>
             </div>
 
