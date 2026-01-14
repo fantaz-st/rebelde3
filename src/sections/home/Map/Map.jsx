@@ -208,7 +208,7 @@ export default function Map() {
                 <div className={classes.mobileMaps}>
                   <div className={[classes.mobileMapItem, mobileActive === 0 ? classes.active : ""].join(" ")}>
                     <div className={classes.mapLayer}>
-                      <Image src="/images/map/full-map-mb.png" alt="" fill className={classes.imgContain} sizes="100vw" />
+                      <Image src="/images/map2/full-map-mobile.png" alt="" fill className={classes.imgContain} sizes="100vw" />
                     </div>
                   </div>
 
