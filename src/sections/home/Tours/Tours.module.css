@@ -3,6 +3,7 @@
   z-index: 2;
   background-color: var(--bg-brown-10);
   overflow: hidden;
+  margin-top: -130vh;
 }
 
 .container {
@@ -80,7 +81,8 @@
   }
 
   .text {
-    padding: 0 2.4rem;
+    padding: 0 1rem;
+    grid-column: 1/-1;
   }
 
   .slide {
