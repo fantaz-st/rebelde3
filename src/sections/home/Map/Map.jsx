@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react";
 import { Swiper, SwiperSlide, useSwiperSlide } from "swiper/react";
 import "swiper/css";
 import classes from "./Map.module.css";
-import items from "@/settings/map";
+import items from "@/settings/tours";
 import Button from "@/components/Button/Button";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);

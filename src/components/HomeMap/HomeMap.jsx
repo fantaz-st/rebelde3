@@ -7,9 +7,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { Swiper, SwiperSlide, useSwiperSlide } from "swiper/react";
 import "swiper/css";
-import classes from "./HomeMap.module.css";
-import Button from "../Button/Button";
-import items from "./items";
+import classes from "./Map.module.css";
+import items from "@/settings/tours";
+import Button from "@/components/Button/Button";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -63,7 +63,7 @@ function MobileCard({ slide, index }) {
   );
 }
 
-export default function HomeMap() {
+export default function Map() {
   const wrapRef = useRef(null);
   const swiperRef = useRef(null);
 
@@ -172,7 +172,7 @@ export default function HomeMap() {
             <div className={classes.mapHead}>
               <div className={classes.mapImg}>
                 <div className={classes.mapImgInner}>
-                  <Image src="/images/map/home-map.png" alt="" width={1920} height={1138} className={classes.imgDefault} sizes="90vmax" priority={false} />
+                  <Image src="/images/map2/full-map.png" alt="" width={1920} height={1138} className={classes.imgDefault} sizes="90vmax" priority={false} />
                 </div>
 
                 <div className={classes.mapOverlay}>
@@ -208,7 +208,7 @@ export default function HomeMap() {
                 <div className={classes.mobileMaps}>
                   <div className={[classes.mobileMapItem, mobileActive === 0 ? classes.active : ""].join(" ")}>
                     <div className={classes.mapLayer}>
-                      <Image src="/images/map/full-map-mb.png" alt="" fill className={classes.imgContain} sizes="100vw" />
+                      <Image src="/images/map2/full-map-mobile.png" alt="" fill className={classes.imgContain} sizes="100vw" />
                     </div>
                   </div>
 

@@ -6,6 +6,7 @@ import Gallery from "@/sections/home/Gallery/Gallery";
 import Map from "@/sections/home/Map/Map";
 import HomeTeam from "@/components/HomeTeam/HomeTeam";
 import Team from "@/sections/home/Team/Team";
+import Tours from "@/sections/home/Tours/Tours";
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
           <div className={classes.mainContent}>
             <Hero />
             <Gallery />
-            <Map />
+            <Tours />
             {/* <Team /> */}
             <HomeTeam />
           </div>

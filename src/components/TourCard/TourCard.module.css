@@ -1,0 +1,92 @@
+.card {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: var(--card-h, 50rem);
+  border-radius: 0.8rem;
+  overflow: hidden;
+  text-decoration: none;
+  background-color: var(--brand-persian-blue);
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 3.2rem 2.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.kicker {
+  color: var(--text-white);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1.2rem;
+  line-height: 1;
+  opacity: 0.92;
+}
+
+.headline {
+  margin-top: auto;
+  color: var(--text-white);
+  font-size: 2.2rem;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  max-width: 28ch;
+  text-wrap: balance;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.img {
+  object-fit: cover;
+  transform: scale(1.1);
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.45;
+  background-image: linear-gradient(0deg, #000, #0000 50%, #000);
+}
+
+@media (hover: hover) {
+  .card:hover .img {
+    transform: scale(1.1);
+    filter: contrast(120%);
+  }
+}
+
+.card:focus-visible {
+  outline: 3px solid rgba(0, 0, 0, 0.35);
+  outline-offset: 6px;
+}
+
+@media (max-width: 991px) {
+  .inner {
+    padding: 3rem 2.6rem;
+  }
+
+  .headline {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .inner {
+    padding: 2.8rem 2.4rem;
+  }
+
+  .headline {
+    font-size: 2rem;
+  }
+}
