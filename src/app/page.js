@@ -3,8 +3,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import Hero from "@/sections/home/Hero/Hero";
 import Gallery from "@/sections/home/Gallery/Gallery";
-import Map from "@/sections/home/Map/Map";
-import HomeTeam from "@/components/HomeTeam/HomeTeam";
+
 import Team from "@/sections/home/Team/Team";
 import Tours from "@/sections/home/Tours/Tours";
 
@@ -18,8 +17,7 @@ export default function Home() {
             <Hero />
             <Gallery />
             <Tours />
-            {/* <Team /> */}
-            <HomeTeam />
+            <Team />
           </div>
           <Footer />
         </div>

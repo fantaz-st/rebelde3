@@ -69,6 +69,7 @@ export default function useRevealPinImages(scopeRef, opts = {}) {
               end: revealEnd,
               scrub: true,
               invalidateOnRefresh: true,
+              markers: true,
             },
           })
           .fromTo(inner, { clipPath: startInset, WebkitClipPath: startInset }, { clipPath: midInset, WebkitClipPath: midInset, duration: 1 }, 0)

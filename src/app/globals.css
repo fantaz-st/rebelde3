@@ -13,6 +13,7 @@
   --container--width: min(100%, var(--container--max-width));
   --container--padding: 6rem;
   --container--column-gap: 2rem;
+  --container--column: 16;
 
   --fonts--body: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
   --fonts--button: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -137,8 +138,7 @@ textarea {
   width: 100%;
   max-width: var(--container--width);
   margin-inline: auto;
-  padding-inline: var(--container--padding);
-
+  padding-inline: calc(var(--container--padding) - var(--container--column-gap));
   display: grid;
   grid-template-columns: repeat(16, minmax(0, 1fr));
   column-gap: var(--container--column-gap);
