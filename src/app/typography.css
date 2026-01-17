@@ -56,7 +56,7 @@ p {
   }
 
   h3 {
-    font-size: 3.2rem;
+    font-size: 3.6rem;
   }
 
   h4 {
@@ -71,11 +71,14 @@ p {
   }
 
   h3 {
-    font-size: 2.6rem;
+    font-size: 3.6rem;
   }
   h4 {
     font-size: 2rem;
     line-height: 1;
+  }
+  p {
+    font-size: 1.4rem;
   }
 }
 
@@ -88,7 +91,7 @@ p {
     font-size: 3.4rem;
   }
 
-  h3 {
+  /*  h3 {
     font-size: 2.2rem;
-  }
+  } */
 }

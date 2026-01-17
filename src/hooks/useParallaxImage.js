@@ -12,9 +12,9 @@ export default function useParallaxImage(scopeRef, opts = {}) {
       const scope = scopeRef?.current;
       if (!scope) return;
 
-      const scroller = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot");
+      const scroller = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot") || window;
 
-      const { blockSelector = '[data-team-block="1"]', innerSelector = '[data-team-media-inner="1"]', fromScale = 1.6, fromYPercent = -10, toScale = 1, toYPercent = 20, start = "top bottom", end = "bottom top" } = opts;
+      const { blockSelector = "[data-parallax-block]", innerSelector = "[data-parallax-inner]", fromScale = 1.15, fromYPercent = -20, toScale = 1, toYPercent = 12, start = "top bottom", end = "bottom top" } = opts;
 
       const killById = (id) => {
         const t = ScrollTrigger.getById(id);
@@ -25,39 +25,39 @@ export default function useParallaxImage(scopeRef, opts = {}) {
 
       blocks.forEach((block, index) => {
         const inner = block.querySelector(innerSelector);
-        if (!inner) return;
+        const img = inner?.querySelector("img");
+        if (!inner || !img) return;
 
         const id = `team-parallax-${index}`;
         killById(id);
 
-        gsap.set(inner, {
-          scale: fromScale,
-          yPercent: fromYPercent,
-          willChange: "transform",
-        });
+        gsap.set(inner, { overflow: "hidden" });
+        gsap.set(img, { willChange: "transform" });
 
-        gsap.to(inner, {
-          scale: toScale,
-          yPercent: toYPercent,
-          ease: "none",
-          scrollTrigger: {
-            id,
-            scroller,
-            trigger: block,
-            start,
-            end,
-            scrub: true,
-            invalidateOnRefresh: true,
-          },
-        });
+        gsap.fromTo(
+          img,
+          { scale: fromScale, yPercent: fromYPercent, transformOrigin: "center" },
+          {
+            scale: toScale,
+            yPercent: toYPercent,
+            ease: "none",
+            scrollTrigger: {
+              id,
+              scroller,
+              trigger: block,
+              start,
+              end,
+              scrub: true,
+              invalidateOnRefresh: true,
+            },
+          }
+        );
       });
 
       requestAnimationFrame(() => ScrollTrigger.refresh());
 
       return () => {
-        blocks.forEach((_, index) => {
-          killById(`team-parallax-${index}`);
-        });
+        blocks.forEach((_, index) => killById(`team-parallax-${index}`));
       };
     },
     { scope: scopeRef }

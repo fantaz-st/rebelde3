@@ -25,7 +25,10 @@ export default function useRevealPinImages(scopeRef, opts = {}) {
         revealEnd = "top top",
         pinStart = "top top",
         pinDistanceVH = 1.3,
+        mobileMax = 767,
       } = opts;
+
+      const isMobile = typeof window !== "undefined" && window.innerWidth <= mobileMax;
 
       const killById = (id) => {
         const t = ScrollTrigger.getById(id);
@@ -37,14 +40,36 @@ export default function useRevealPinImages(scopeRef, opts = {}) {
       blocks.forEach((block, index) => {
         const inner = block.querySelector('[data-reveal-pin-inner="1"]') || block;
         const img = block.querySelector("img");
-
         if (!inner || !img) return;
 
         const idReveal = `reveal-pin-reveal-${index}`;
         const idPin = `reveal-pin-pin-${index}`;
+        const idMobile = `reveal-pin-mobile-${index}`;
 
         killById(idReveal);
         killById(idPin);
+        killById(idMobile);
+
+        if (isMobile) {
+          gsap.set(img, { scale: 1.1, yPercent: -6, willChange: "transform" });
+
+          gsap.to(img, {
+            scale: 1,
+            yPercent: 6,
+            ease: "none",
+            scrollTrigger: {
+              id: idMobile,
+              scroller,
+              trigger: block,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+              invalidateOnRefresh: true,
+            },
+          });
+
+          return;
+        }
 
         gsap.set(inner, {
           clipPath: startInset,
@@ -69,7 +94,6 @@ export default function useRevealPinImages(scopeRef, opts = {}) {
               end: revealEnd,
               scrub: true,
               invalidateOnRefresh: true,
-              markers: true,
             },
           })
           .fromTo(inner, { clipPath: startInset, WebkitClipPath: startInset }, { clipPath: midInset, WebkitClipPath: midInset, duration: 1 }, 0)
@@ -100,6 +124,7 @@ export default function useRevealPinImages(scopeRef, opts = {}) {
         blocks.forEach((_, index) => {
           killById(`reveal-pin-reveal-${index}`);
           killById(`reveal-pin-pin-${index}`);
+          killById(`reveal-pin-mobile-${index}`);
         });
       };
     },
