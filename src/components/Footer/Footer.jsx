@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
@@ -16,7 +16,6 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 export default function Footer() {
   const wrapRef = useRef(null);
   const bgRef = useRef(null);
-  const railRef = useRef(null);
   const itemRefs = useRef([]);
 
   useGSAP(
@@ -41,7 +40,7 @@ export default function Footer() {
 
       const els = itemRefs.current.filter(Boolean);
       if (els.length) {
-        const loop = horizontalLoop(els, {
+        horizontalLoop(els, {
           repeat: -1,
           speed: 0.8,
           paused: false,
@@ -49,7 +48,7 @@ export default function Footer() {
         });
       }
     },
-    { scope: wrapRef, dependencies: [items] }
+    { scope: wrapRef, dependencies: [items] },
   );
 
   return (
@@ -63,13 +62,12 @@ export default function Footer() {
           <Button href="/contact" variant="white" size="lg">
             GET IN TOUCH
           </Button>
-
           <p className={classes.ctaSub}>Reach out and let us turn your time in Split into something truly special.</p>
         </div>
       </div>
 
       <div className={classes.railWrap} aria-hidden="true">
-        <div ref={railRef} className={classes.rail}>
+        <div className={classes.rail}>
           {items.map((it, i) => (
             <div key={it.id} ref={(el) => (itemRefs.current[i] = el)} className={classes.railItem}>
               <div className={classes.railItemInner}>
@@ -82,7 +80,7 @@ export default function Footer() {
 
       <div className={classes.main}>
         <div className={`container ${classes.mainInner}`}>
-          <div className={classes.mainGrid}>
+          <div className={classes.mainFlex}>
             <div className={classes.mainCol}>
               <div className={classes.label}>Get in touch</div>
               <div className={classes.links}>
@@ -95,9 +93,7 @@ export default function Footer() {
             <div className={`${classes.mainCol} ${classes.center}`}>
               <div className={classes.label}>Rebelde Boats</div>
               <span className={classes.larger}>REBELDE d.o.o.</span>
-
               <span className={classes.larger}>OIB 99723002621</span>
-
               <span className={classes.larger}>VINKOVAČKA 45, 21000 SPLIT</span>
             </div>
 
