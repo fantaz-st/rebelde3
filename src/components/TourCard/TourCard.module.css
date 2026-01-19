@@ -1,55 +1,67 @@
-.card {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: var(--card-h, 50rem);
-  border-radius: 0.8rem;
-  overflow: hidden;
-  text-decoration: none;
-  background-color: var(--brand-persian-blue);
-}
-
 .inner {
-  position: relative;
-  z-index: 2;
+  z-index: 1;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 100%;
   height: 100%;
   padding: 3.2rem 2.8rem;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  position: relative;
+  background-color: var(--brand-persian-blue);
+  box-sizing: border-box;
+}
+
+.link {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
 }
 
 .kicker {
-  color: var(--text-white);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-size: 1.2rem;
-  line-height: 1;
-  opacity: 0.92;
+  z-index: 2;
+  filter: brightness(1000%);
+  height: 3.4rem;
+  position: relative;
 }
 
 .headline {
+  position: relative;
   margin-top: auto;
   color: var(--text-white);
-  font-size: 2.2rem;
+  /* font-size: 2.2rem; */
   line-height: 1.2;
   font-weight: 500;
   letter-spacing: -0.02em;
   max-width: 28ch;
   text-wrap: balance;
+  box-sizing: border-box;
+  z-index: 2;
 }
 
 .bg {
-  position: absolute;
-  inset: 0;
   z-index: 1;
+  width: 100%;
+  height: 100%;
+  transition:
+    filter 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86),
+    transform 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition-delay: 0s, 0.15s, 0.15s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
 }
 
 .img {
   object-fit: cover;
   transform: scale(1.1);
-  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition:
+    transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
 .overlay {
@@ -76,9 +88,9 @@
     padding: 3rem 2.6rem;
   }
 
-  .headline {
+  /*  .headline {
     font-size: 2.1rem;
-  }
+  } */
 }
 
 @media (max-width: 767px) {

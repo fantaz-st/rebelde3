@@ -162,7 +162,7 @@ textarea {
 /* Swiper image focus effect (mobile) */
 @media (max-width: 991px) {
   .swiper-slide [data-swipe-img] {
-    transform: translateY(1.2rem) scale(1.1);
+    transform: translateY(1.2rem) scale(1.5);
     transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     will-change: transform;
   }
