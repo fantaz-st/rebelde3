@@ -20,6 +20,7 @@ export default function Footer() {
 
   useGSAP(
     () => {
+      const scroller = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot") || window;
       if (!wrapRef.current) return;
 
       if (bgRef.current) {
@@ -29,6 +30,8 @@ export default function Footer() {
           backgroundPosition: "0px -220px",
           ease: "none",
           scrollTrigger: {
+            scroller: scroller === window ? undefined : scroller,
+
             trigger: wrapRef.current,
             start: "top bottom",
             end: "bottom top",
@@ -79,72 +82,61 @@ export default function Footer() {
       </div>
 
       <div className={classes.main}>
-        <div className={`container ${classes.mainInner}`}>
-          <div className={classes.mainFlex}>
-            <div className={classes.mainCol}>
-              <div className={classes.label}>Get in touch</div>
-              <div className={classes.links}>
-                <a className={`${classes.link} ${classes.larger}`} href="mailto:rebeldeboats@gmail.com">
-                  rebeldeboats@gmail.com
-                </a>
-              </div>
+        <div className={classes.top}>
+          <div className={`container ${classes.topInner}`}>
+            <div className={`${classes.column} ${classes.left} `}>
+              <h5 className={classes.label}>Chat with us on WhatsApp</h5>
+
+              <a className={`${classes.link} ${classes.larger}`} target="_blank" href="https://wa.me/385997973959" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+                <h4>+385 99 797 3959</h4>
+              </a>
             </div>
 
-            <div className={`${classes.mainCol} ${classes.center}`}>
-              <div className={classes.label}>Rebelde Boats</div>
-              <span className={classes.larger}>REBELDE d.o.o.</span>
-              <span className={classes.larger}>OIB 99723002621</span>
-              <span className={classes.larger}>VINKOVAČKA 45, 21000 SPLIT</span>
+            <div className={`${classes.column} ${classes.center}`}>
+              <p className={`${classes.label} font-alternate`}>Rebelde Boats</p>
+              <p className={classes.larger}>REBELDE d.o.o.</p>
+              <p className={classes.larger}>OIB: 99723002621</p>
+              <p className={classes.larger}>Vnkovačka 45, 21000 SPLIT</p>
             </div>
 
-            <div className={`${classes.mainCol} ${classes.right}`}>
-              <div className={classes.label}>Chat with us on WhatsApp</div>
-              <div className={classes.links}>
-                <a className={`${classes.link} ${classes.larger}`} target="_blank" href="https://wa.me/385997973959" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-                  +385 99 797 3959
-                </a>
-              </div>
+            <div className={`${classes.column} ${classes.right}`}>
+              <h5 className={classes.label}>Get in touch</h5>
+              <a className={`${classes.link} ${classes.larger}`} href="mailto:rebeldeboats@gmail.com">
+                <h4>rebeldeboats@gmail.com</h4>
+              </a>
             </div>
           </div>
         </div>
 
         <div className={classes.bot}>
           <div className={`container ${classes.botInner}`}>
-            <div className={classes.copyright}>
-              <span>© {new Date().getFullYear()}</span>
-              <span className={classes.dot}>·</span>
-              <span>
-                Rebelde Boats
-                <br />
+            <div className={`${classes.column} ${classes.left}`}>
+              <div className={classes.copyright}>
+                <span>© {new Date().getFullYear()}</span>
+                <span className={classes.dot}>·</span>
+                <span>Rebelde Boats</span>
+              </div>
+            </div>
+            <div className={`${classes.column} ${classes.center}`}>
+              <div className={classes.links}>
+                <Link className={classes.botLink} href="/our-boat">
+                  Our Boat
+                </Link>
+                <Link className={classes.botLink} href="/our-tours">
+                  Our Tours
+                </Link>
+                <Link className={classes.botLink} href="/faq">
+                  FAQ-s
+                </Link>
+                <Link className={classes.botLink} href="/contact">
+                  Contact
+                </Link>
+              </div>
+            </div>
+            <div className={`${classes.column} ${classes.right}`}>
+              <div className={classes.columnInner}>
                 designed & developed by <a href="mailto:cbabic.st@gmail.com">fantaz</a>
-              </span>
-            </div>
-
-            <div className={classes.legal}>
-              <Link className={classes.botLink} href="/our-boat">
-                Our Boat
-              </Link>
-              <span className={classes.dot}>·</span>
-              <Link className={classes.botLink} href="/our-tours">
-                Our Tours
-              </Link>
-              <span className={classes.dot}>·</span>
-              <Link className={classes.botLink} href="/faq">
-                FAQ-s
-              </Link>
-              <span className={classes.dot}>·</span>
-              <Link className={classes.botLink} href="/contact">
-                Contact
-              </Link>
-            </div>
-
-            <div className={classes.socials}>
-              <a className={classes.botLink} href="#" target="_blank" rel="noreferrer">
-                IG
-              </a>
-              <a className={classes.botLink} href="#" target="_blank" rel="noreferrer">
-                YT
-              </a>
+              </div>
             </div>
           </div>
         </div>
