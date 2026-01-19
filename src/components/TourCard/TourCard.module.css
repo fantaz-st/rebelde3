@@ -1,3 +1,17 @@
+.card {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card:focus-visible {
+  outline: 3px solid rgba(0, 0, 0, 0.35);
+  outline-offset: 6px;
+}
+
 .inner {
   z-index: 1;
   flex-flow: column;
@@ -12,15 +26,6 @@
   box-sizing: border-box;
 }
 
-.link {
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0%;
-  left: 0%;
-}
-
 .kicker {
   z-index: 2;
   filter: brightness(1000%);
@@ -32,7 +37,6 @@
   position: relative;
   margin-top: auto;
   color: var(--text-white);
-  /* font-size: 2.2rem; */
   line-height: 1.2;
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -40,6 +44,7 @@
   text-wrap: balance;
   box-sizing: border-box;
   z-index: 2;
+  transition: transform 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
 .bg {
@@ -49,7 +54,7 @@
   transition:
     filter 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86),
     transform 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-  transition-delay: 0s, 0.15s, 0.15s;
+  transition-delay: 0s, 0.15s;
   position: absolute;
   top: 0;
   left: 0;
@@ -69,28 +74,33 @@
   inset: 0;
   opacity: 0.45;
   background-image: linear-gradient(0deg, #000, #0000 50%, #000);
+  transition: opacity 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
 @media (hover: hover) {
+  .card:hover .bg {
+    filter: brightness(0.95);
+    transform: scale(1.02);
+  }
+
   .card:hover .img {
-    transform: scale(1.1);
+    transform: scale(1.15);
     filter: contrast(120%);
   }
-}
 
-.card:focus-visible {
-  outline: 3px solid rgba(0, 0, 0, 0.35);
-  outline-offset: 6px;
+  .card:hover .overlay {
+    opacity: 0.52;
+  }
+
+  .card:hover .headline {
+    transform: translateY(-0.4rem);
+  }
 }
 
 @media (max-width: 991px) {
   .inner {
     padding: 3rem 2.6rem;
   }
-
-  /*  .headline {
-    font-size: 2.1rem;
-  } */
 }
 
 @media (max-width: 767px) {

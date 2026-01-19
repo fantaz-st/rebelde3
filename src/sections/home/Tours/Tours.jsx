@@ -51,7 +51,12 @@ export default function Tours() {
           <p className={classes.desc}>No two days on the Adriatic should ever be the same. Choose your path — hidden coves, sunlit harbors, secret beaches. We design each journey around you, your pace, your spirit.</p>
         </header>
 
-        <Swiper className={classes.swiper} slidesPerView={mobile ? 1.1 : 4} spaceBetween={small ? 12 : 16} speed={450}>
+        <Swiper className={classes.swiper} slidesPerView={mobile ? 1.2 : 4} spaceBetween={small ? 12 : 16} speed={450}>
+          <SwiperSlide key="null-tour-slide" className={classes.nullSlide}>
+            <div className={classes.inner}>
+              <h3>Swipe to explore →</h3>
+            </div>
+          </SwiperSlide>
           {tours.map((t) => (
             <SwiperSlide key={t.key} className={classes.slide}>
               <TourCard href={t.href} imageSrc={t.imageSrc} kicker={t.kicker} title={t.title} />
