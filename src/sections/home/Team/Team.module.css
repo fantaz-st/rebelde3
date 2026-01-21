@@ -100,27 +100,6 @@
   align-self: end;
 }
 
-/* Thumb */
-.thumb {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.thumbInner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  will-change: clip-path;
-}
-
-.thumbImg {
-  object-fit: cover;
-  object-position: 50% 50%;
-  will-change: transform;
-}
-
 /* <= 991px (tablet) */
 @media (max-width: 991px) {
   .team {
@@ -240,19 +219,5 @@
 
   .item3Img {
     grid-area: 2 / 1 / 4 / -1;
-  }
-
-  .thumb {
-    height: auto;
-  }
-
-  .thumbInner {
-    height: 70vh;
-  }
-}
-
-@media (max-width: 479px) {
-  .thumbInner {
-    height: 62vh;
   }
 }

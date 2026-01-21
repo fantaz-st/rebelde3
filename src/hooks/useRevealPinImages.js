@@ -113,6 +113,7 @@ export default function useRevealPinImages(scopeRef, opts = {}) {
               pinSpacing: true,
               anticipatePin: 1,
               invalidateOnRefresh: true,
+              markers: true,
             },
           })
           .to(img, { scale: imgScaleTo, transformOrigin: "top", duration: 1 });
@@ -128,6 +129,6 @@ export default function useRevealPinImages(scopeRef, opts = {}) {
         });
       };
     },
-    { scope: scopeRef }
+    { scope: scopeRef },
   );
 }

@@ -1,0 +1,36 @@
+.tall {
+  position: relative;
+  width: 100%;
+  height: 300vh;
+  display: block;
+  content: "";
+}
+
+.wrap {
+  margin-top: -300vh;
+  background: var(--bg-brown-10);
+}
+
+.sticky {
+  position: sticky;
+  bottom: 0;
+}
+
+.container {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.inner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  will-change: clip-path;
+}
+
+.img {
+  object-fit: cover;
+  will-change: transform;
+}

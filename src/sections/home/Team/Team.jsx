@@ -1,34 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
 import classes from "./Team.module.css";
 import items from "@/settings/team";
-import useRevealPinImages from "@/hooks/useRevealPinImages";
-import useParallaxImage from "@/hooks/useParallaxImage";
 
 export default function Team() {
-  const wrapRef = useRef(null);
-
-  useParallaxImage(wrapRef, {
-    blockSelector: "[data-parallax-block]",
-    innerSelector: "[data-parallax-inner]",
-    fromScale: 1.15,
-    fromYPercent: -10,
-    toScale: 1,
-    toYPercent: 20,
-  });
-
-  useRevealPinImages(wrapRef, {
-    revealStart: "top bottom",
-    revealEnd: "top top",
-    pinStart: "top top",
-    pinDistanceVH: 1.3,
-    mobileMax: 767,
-  });
-
   return (
-    <div className={classes.wrap} ref={wrapRef}>
+    <div className={classes.wrap}>
       <div className={classes.blockEmpty} aria-hidden="true" />
 
       <section className={classes.team}>
@@ -83,12 +61,6 @@ export default function Team() {
               </div>
             </div>
           </article>
-        </div>
-
-        <div className={classes.thumb}>
-          <div className={classes.thumbInner} data-reveal-pin="1">
-            <Image data-reveal-pin-inner="1" src="/images/team2/team-main.jpeg" alt="" fill sizes="100vw" className={classes.thumbImg} />
-          </div>
         </div>
       </section>
     </div>
