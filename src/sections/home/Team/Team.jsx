@@ -35,19 +35,22 @@ export default function Team() {
       const img = root.querySelector("img[data-team-thumb-img]");
       if (!thumb || !inner || !img) return;
 
-      const scroller = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot") || window;
+      const scrollerEl = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot");
+      const scroller = scrollerEl || window;
+      const scrollerOpt = scroller === window ? undefined : scroller;
 
       const mm = gsap.matchMedia();
-      let tl;
 
       mm.add("(min-width: 992px)", () => {
+        gsap.set(inner, { willChange: "clip-path" });
+
         const fs = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
         const r8 = (8 / 10) * fs;
 
-        tl = gsap.timeline({
+        const tl = gsap.timeline({
           scrollTrigger: {
-            scroller,
             trigger: thumb,
+            scroller: scrollerOpt,
             start: "top bottom",
             end: () => `bottom+=${window.innerHeight * 1.3} bottom`,
             scrub: true,
@@ -60,9 +63,38 @@ export default function Team() {
         requestAnimationFrame(() => ScrollTrigger.refresh());
 
         return () => {
-          tl?.scrollTrigger?.kill();
-          tl?.kill();
-          tl = null;
+          tl.scrollTrigger?.kill();
+          tl.kill();
+        };
+      });
+
+      mm.add("(max-width: 991px)", () => {
+        gsap.set(inner, { clipPath: "inset(0% 0% 0% 0% round 0px)", willChange: "transform" });
+        gsap.set(img, { willChange: "transform" });
+
+        const st = gsap.fromTo(
+          img,
+          { scale: 1.4, yPercent: -20, transformOrigin: "center" },
+          {
+            scale: 1,
+            yPercent: 12,
+            ease: "none",
+            scrollTrigger: {
+              trigger: thumb,
+              scroller: scrollerOpt,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+              invalidateOnRefresh: true,
+            },
+          },
+        );
+
+        requestAnimationFrame(() => ScrollTrigger.refresh());
+
+        return () => {
+          st.scrollTrigger?.kill();
+          st.kill();
         };
       });
 
@@ -128,7 +160,7 @@ export default function Team() {
             </div>
           </article>
 
-          <div className={`full width ${classes.thumb}`} data-team-thumb>
+          <div className={`full-width ${classes.thumb}`} data-team-thumb>
             <div className={classes.thumbInner} data-team-thumb-inner>
               <Image data-team-thumb-img src="/images/team2/team-main.jpeg" alt="" fill sizes="100vw" className={classes.thumbImg} priority onLoadingComplete={() => ScrollTrigger.refresh()} />
             </div>
