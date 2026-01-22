@@ -1,0 +1,33 @@
+:root {
+  --bg-brown-100: #2b231f;
+  --bg-brown-80: #846845;
+  --bg-brown-30: #a89d95;
+  --bg-brown-20: #e6d9cd;
+  --bg-brown-10: #f2ebe3;
+
+  --text-white: #ffffff;
+  --text-white-80: rgba(255, 255, 255, 0.8);
+  --brand-persian-blue: #003357;
+
+  --fonts--body: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fonts--button: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fonts--h5: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+  color: var(--text-white);
+  background-color: var(--bg-brown-100);
+  font-family: var(--fonts--body);
+}
+
+.font-alternate {
+  font-family: var(--font-display);
+}
+
+.scrollRoot {
+  height: 100svh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
+  touch-action: pan-y;
+}

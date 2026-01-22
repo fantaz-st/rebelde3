@@ -1,6 +1,9 @@
 import { Inter, DM_Serif_Display } from "next/font/google";
-import "./globals.css";
-import "./typography.css";
+import "./styles/reset.css";
+import "./styles/globals.css";
+import "./styles/typography.css";
+import "./styles/grid.css";
+import "./styles/swiper.css";
 import SmoothScroll from "./SmoothScroll";
 
 export const metadata = {

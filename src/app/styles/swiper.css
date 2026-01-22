@@ -1,0 +1,37 @@
+/* swiper.css */
+
+/* Swiper image focus effect (tablet + mobile) */
+@media (max-width: 991px) {
+  .swiper-slide [data-swipe-img] {
+    transform: translateY(1.2rem) scale(1.5);
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
+  }
+
+  .swiper-slide-prev [data-swipe-img],
+  .swiper-slide-next [data-swipe-img] {
+    transform: translateY(0.7rem) scale(1.06);
+  }
+
+  .swiper-slide-active [data-swipe-img] {
+    transform: translateY(0) scale(1);
+  }
+
+  .swiper-slide [data-swipe-kicker],
+  .swiper-slide [data-swipe-title] {
+    opacity: 0.72;
+    transition: opacity 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .swiper-slide-prev [data-swipe-kicker],
+  .swiper-slide-prev [data-swipe-title],
+  .swiper-slide-next [data-swipe-kicker],
+  .swiper-slide-next [data-swipe-title] {
+    opacity: 0.82;
+  }
+
+  .swiper-slide-active [data-swipe-kicker],
+  .swiper-slide-active [data-swipe-title] {
+    opacity: 1;
+  }
+}
