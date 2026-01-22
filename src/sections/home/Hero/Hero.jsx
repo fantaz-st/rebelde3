@@ -44,7 +44,7 @@ export default function Hero() {
         .to(backdropRef.current, { autoAlpha: 1 }, 0)
         .to(textRef.current, { autoAlpha: 0 }, 0);
     },
-    { scope: wrapRef }
+    { scope: wrapRef },
   );
 
   return (
@@ -64,7 +64,7 @@ export default function Hero() {
           </div>
 
           <div className={classes.main}>
-            <div className={classes.containerGrid}>
+            <div className={`container grid ${classes.grid}`}>
               <div ref={textRef} className={classes.text}>
                 <h1 className={classes.title}>Your Private Adriatic Escape</h1>
                 <h4 className={classes.subtitle}>Set your own rhythm aboard Felix 37 – private day trips and charters from Split to Hvar, Vis, the Blue Cave, and hidden bays</h4>

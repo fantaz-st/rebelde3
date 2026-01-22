@@ -5,6 +5,7 @@ import Hero from "@/sections/home/Hero/Hero";
 import Gallery from "@/sections/home/Gallery/Gallery";
 import Team from "@/sections/home/Team/Team";
 import Tours from "@/sections/home/Tours/Tours";
+import GridVisualizer from "@/components/GridVisualizer/GridVisualizer";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
             <Team />
           </div>
           <Footer />
+          {/* <GridVisualizer /> */}
         </div>
       </main>
     </div>

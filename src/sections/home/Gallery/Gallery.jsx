@@ -174,7 +174,7 @@ export default function Gallery() {
         });
       }
     },
-    { scope: wrapRef }
+    { scope: wrapRef },
   );
 
   return (
@@ -183,12 +183,14 @@ export default function Gallery() {
 
       <div className={classes.stick} ref={stickRef}>
         <div className={classes.stickInner}>
-          <div className={classes.textInner} ref={textInnerRef}>
-            <div className={classes.textItem} ref={(el) => (textItemRefs.current[0] = el)}>
-              <h3 className={classes.heading}>We craft experiences where the sea is a companion, not a destination.</h3>
-            </div>
-            <div className={classes.textItem} ref={(el) => (textItemRefs.current[1] = el)}>
-              <h3 className={classes.heading}>Every journey is personal. Every wave, a new memory.</h3>
+          <div className="container">
+            <div className={classes.textInner} ref={textInnerRef}>
+              <div className={classes.textItem} ref={(el) => (textItemRefs.current[0] = el)}>
+                <h3 className={classes.heading}>We craft experiences where the sea is a companion, not a destination.</h3>
+              </div>
+              <div className={classes.textItem} ref={(el) => (textItemRefs.current[1] = el)}>
+                <h3 className={classes.heading}>Every journey is personal. Every wave, a new memory.</h3>
+              </div>
             </div>
           </div>
         </div>
@@ -208,7 +210,7 @@ export default function Gallery() {
             </div>
 
             <div className={classes.endCol}>
-              <div className={classes.endList}>
+              <div className={`grid ${classes.endList}`}>
                 {items.map((it, i) => (
                   <div key={`${it.id}-end`} ref={(el) => (endItemRefs.current[i] = el)} className={`${classes.item} ${classes.end}`}>
                     <div className={classes.itemInner}>

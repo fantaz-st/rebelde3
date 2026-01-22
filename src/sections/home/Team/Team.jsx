@@ -77,7 +77,7 @@ export default function Team() {
 
       <section className={classes.team}>
         <div className={classes.list}>
-          <article className={classes.item}>
+          <article className={`container ${classes.item}`}>
             <div className={`grid ${classes.gridInner}`}>
               <div className={`${classes.media} ${classes.item1ImgA}`} data-parallax-block>
                 <div className={classes.mediaInner} data-parallax-inner>
@@ -98,7 +98,7 @@ export default function Team() {
             </div>
           </article>
 
-          <article className={classes.item}>
+          <article className={`container ${classes.item}`}>
             <div className={`grid ${classes.gridInner}`}>
               <div className={`${classes.media} ${classes.item2Img}`} data-parallax-block>
                 <div className={classes.mediaInner} data-parallax-inner>
@@ -113,7 +113,7 @@ export default function Team() {
             </div>
           </article>
 
-          <article className={classes.item}>
+          <article className={`container ${classes.item}`}>
             <div className={`grid ${classes.gridInner}`}>
               <div className={`${classes.media} ${classes.item3Img}`} data-parallax-block>
                 <div className={classes.mediaInner} data-parallax-inner>
@@ -128,7 +128,7 @@ export default function Team() {
             </div>
           </article>
 
-          <div className={classes.thumb} data-team-thumb>
+          <div className={`full width ${classes.thumb}`} data-team-thumb>
             <div className={classes.thumbInner} data-team-thumb-inner>
               <Image data-team-thumb-img src="/images/team2/team-main.jpeg" alt="" fill sizes="100vw" className={classes.thumbImg} priority onLoadingComplete={() => ScrollTrigger.refresh()} />
             </div>

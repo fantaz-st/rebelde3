@@ -27,11 +27,6 @@
   display: flex;
 }
 
-.gridInner {
-  grid-auto-rows: auto;
-  padding: 0;
-}
-
 .media {
   position: relative;
   min-width: 0;
@@ -148,10 +143,6 @@
     margin-bottom: 3.2rem;
   }
 
-  .gridInner {
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-  }
-
   .item1ImgA {
     grid-column: 6 / -2;
     align-self: start;
@@ -219,10 +210,6 @@
   .haveMargin {
     margin-top: 0;
     margin-bottom: 4rem;
-  }
-
-  .gridInner {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .item1Text {

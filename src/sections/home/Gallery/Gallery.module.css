@@ -26,9 +26,7 @@
 }
 
 .stickInner {
-  --padding-inline: calc(var(--container--padding, 6rem) - var(--container--column-gap, 2rem));
-  width: min(100%, var(--container--max-width, 1440px));
-  padding-inline: var(--padding-inline);
+  width: 100%;
 }
 
 .text {
@@ -124,25 +122,12 @@
 }
 
 .endList {
-  --padding-inline: calc(var(--container--padding, 6rem) - var(--container--column-gap, 2rem));
-  position: relative;
-  width: min(100%, var(--container--max-width, 1920px));
-  margin: 0 auto;
-  padding-inline: var(--padding-inline);
-  padding-block: 0;
-  display: grid;
-  grid-template-columns: repeat(16, minmax(1px, 1fr));
-  column-gap: var(--container--column-gap, 2rem);
   align-content: start;
   opacity: 0;
 }
 
 @media (max-width: 991px) {
   .stickInner {
-    padding: 0 3.2rem;
-  }
-
-  .endList {
     padding: 0 3.2rem;
   }
 
@@ -164,12 +149,6 @@
     padding: 0 2.4rem;
   }
 
-  .endList {
-    padding: 0 2.4rem;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    column-gap: 1.6rem;
-  }
-
   .heading {
     max-width: none;
   }
@@ -181,10 +160,6 @@
 
 @media (max-width: 479px) {
   .stickInner {
-    padding: 0 1.8rem;
-  }
-
-  .endList {
     padding: 0 1.8rem;
   }
 }
