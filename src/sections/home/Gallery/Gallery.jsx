@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import items from "@/settings/gallery";
 import classes from "./Gallery.module.css";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -203,7 +204,7 @@ export default function Gallery() {
               {items.map((it, i) => (
                 <div key={it.id} ref={(el) => (startItemRefs.current[i] = el)} className={`${classes.item} ${classes.start}`}>
                   <div className={classes.itemInner}>
-                    <img src={it.src} alt={it.alt || ""} className={classes.img} />
+                    <Image src={it.src} alt={it.alt || ""} className={classes.img} fill />
                   </div>
                 </div>
               ))}
