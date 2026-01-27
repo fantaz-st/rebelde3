@@ -22,7 +22,10 @@
   padding: 4rem;
   width: 100%;
   margin-inline: auto;
-  transition: background 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .shadow {
@@ -35,7 +38,9 @@
   filter: blur(1.4rem);
   z-index: -1;
 }
-
+.scrolled {
+  backdrop-filter: blur(1.2rem);
+}
 .scrolled .shadow {
   opacity: 0.8;
 }
@@ -93,7 +98,9 @@
   height: 2px;
   background: currentColor;
   border-radius: 10px;
-  transition: transform 0.3s 0.3s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s 0.3s;
+  transition:
+    transform 0.3s 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+    opacity 0.3s 0.3s;
 }
 .hamburger.open span:nth-child(1) {
   transform: translateY(6px) rotate(45deg);

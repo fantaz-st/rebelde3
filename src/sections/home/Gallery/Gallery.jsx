@@ -51,7 +51,7 @@ export default function Gallery() {
         },
       });
 
-      textItems.forEach((el, i) => {
+      /* textItems.forEach((el, i) => {
         const isLast = i === textItems.length - 1;
 
         tlShowText.fromTo(el, { autoAlpha: 0, y: "3rem", scale: 1.04 }, { autoAlpha: 1, y: "0rem", scale: 1, duration: 1 }, i * 2);
@@ -59,6 +59,13 @@ export default function Gallery() {
         if (!isLast) {
           tlShowText.to(el, { autoAlpha: 0, y: "-3rem", scale: 0.96, duration: 1 }, i * 2 + 1);
         }
+      }); */
+      textItems.forEach((el, i) => {
+        const inAt = i * 2;
+        const outAt = i * 2 + 1;
+
+        tlShowText.fromTo(el, { autoAlpha: 0, y: "3rem", scale: 1.04 }, { autoAlpha: 1, y: "0rem", scale: 1, duration: 1 }, inAt);
+        tlShowText.to(el, { autoAlpha: 0, y: "-3rem", scale: 0.96, duration: 1 }, outAt);
       });
 
       gsap
@@ -215,7 +222,7 @@ export default function Gallery() {
                 {items.map((it, i) => (
                   <div key={`${it.id}-end`} ref={(el) => (endItemRefs.current[i] = el)} className={`${classes.item} ${classes.end}`}>
                     <div className={classes.itemInner}>
-                      <img src={it.src} alt={it.alt || ""} className={classes.img} />
+                      <Image src={it.src} alt={it.alt || ""} className={classes.img} fill />
                     </div>
                   </div>
                 ))}
