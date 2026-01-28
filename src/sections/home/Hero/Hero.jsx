@@ -53,11 +53,11 @@ export default function Hero() {
         <div className={classes.inner}>
           <div ref={backgroundRef} className={classes.bg}>
             <div className={classes.bgItem}>
-              <Image className={classes.img} fill priority alt="" sizes="100vw" src="/images/rebelde boats felix 37 hero.png" />
+              <Image className={classes.img} fill priority alt="" sizes="100vw" src="/images/hero-main.jpg" />
             </div>
 
             <div ref={blurRef} className={classes.blur} aria-hidden="true">
-              <Image className={classes.img} fill priority alt="" sizes="100vw" src="/images/rebelde boats felix 37 hero.png" />
+              <Image className={classes.img} fill priority alt="" sizes="100vw" src="/images/hero-main.jpg" />
             </div>
 
             <div ref={backdropRef} className={classes.backdrop} aria-hidden="true" />
