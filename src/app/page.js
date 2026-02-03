@@ -6,6 +6,7 @@ import Gallery from "@/sections/home/Gallery/Gallery";
 import Team from "@/sections/home/Team/Team";
 import Tours from "@/sections/home/Tours/Tours";
 import Testimonials from "@/sections/home/Testimonials/Testimonials";
+import Loader from "@/components/Loader/Loader";
 // import GridVisualizer from "@/components/GridVisualizer/GridVisualizer";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <main className={classes.main}>
         <div className={classes.mainInner}>
           <div className={classes.mainContent}>
+            <Loader />
             <Hero />
             <Gallery />
             <Tours />

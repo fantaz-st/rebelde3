@@ -49,15 +49,15 @@ export default function Hero() {
 
   return (
     <div className={classes.wrap} ref={wrapRef}>
-      <section className={classes.hero}>
+      <section className={classes.hero} data-hero>
         <div className={classes.inner}>
           <div ref={backgroundRef} className={classes.bg}>
             <div className={classes.bgItem}>
-              <Image className={classes.img} fill priority alt="" sizes="100vw" src="/images/hero-main.jpg" />
+              <Image className={classes.img} fill priority alt="" sizes="100vw" src="/images/blu.png" />
             </div>
 
             <div ref={blurRef} className={classes.blur} aria-hidden="true">
-              <Image className={classes.img} fill priority alt="" sizes="100vw" src="/images/hero-main.jpg" />
+              <Image className={classes.img} fill priority alt="" sizes="100vw" src="/images/blu.png" />
             </div>
 
             <div ref={backdropRef} className={classes.backdrop} aria-hidden="true" />
@@ -65,7 +65,7 @@ export default function Hero() {
 
           <div className={classes.main}>
             <div className={`container grid ${classes.grid}`}>
-              <div ref={textRef} className={classes.text}>
+              <div ref={textRef} className={classes.text} data-hero-content>
                 <h1 className={classes.title}>Your Private Adriatic Escape</h1>
                 <h4 className={classes.subtitle}>Set your own rhythm aboard Felix 37 – private day trips and charters from Split to Hvar, Vis, the Blue Cave, and hidden bays</h4>
               </div>

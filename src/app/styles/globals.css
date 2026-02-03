@@ -31,3 +31,26 @@ body {
   overscroll-behavior: none;
   touch-action: pan-y;
 }
+
+html.is-loading,
+html.is-loading body {
+  overflow: hidden;
+  height: 100%;
+  touch-action: none;
+}
+
+html.is-loading .scrollRoot {
+  overflow: hidden !important;
+  height: 100svh;
+  touch-action: none;
+}
+
+html.is-loading .header {
+  transform: translateY(-110%) !important;
+  pointer-events: none !important;
+}
+
+html.is-loading .hamburgerBtn {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}

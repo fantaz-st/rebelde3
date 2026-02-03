@@ -1,0 +1,121 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+
+  isolation: isolate;
+}
+
+.loaderInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.loaderLogo {
+  opacity: 0;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9;
+}
+
+.loaderLogoFront {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.loaderLogoBack {
+  z-index: 1;
+  opacity: 0.5;
+  position: relative;
+}
+
+.logoText {
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  font-size: 3rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.92);
+  display: inline-block;
+}
+
+.loaderNoise {
+  z-index: 3;
+  opacity: 0.3;
+  filter: invert() contrast(200%) brightness(90%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  background-position: 0 0;
+  background-size: auto;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.loaderBg {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.loaderBgMain {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.loaderBgInner {
+  z-index: 1;
+  flex-flow: column;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.loaderBgHero {
+  width: 100%;
+  position: relative;
+  flex: none;
+}
+.loaderBgHero > span {
+  display: block;
+  width: 100%;
+}
+
+.loaderBgMain,
+.loaderBgHero {
+  background-image: linear-gradient(180deg, #0b7fcf 0%, #2fa3e6 35%, #7fc9f2 65%, #d9f1ff 100%);
+}
+
+.bot {
+  margin-top: -0.2rem;
+  overflow: hidden;
+}
+
+.curtain {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.loaderBgInner,
+.loaderBgMain,
+.curtain {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
