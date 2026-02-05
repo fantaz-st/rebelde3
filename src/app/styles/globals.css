@@ -34,7 +34,7 @@ body {
 
 html.is-loading,
 html.is-loading body {
-  overflow: hidden;
+  overflow: hidden !important;
   height: 100%;
   touch-action: none;
 }

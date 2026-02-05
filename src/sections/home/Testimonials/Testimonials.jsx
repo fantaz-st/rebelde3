@@ -74,11 +74,7 @@ export default function Testimonials() {
     <section className={classes.wrap} ref={rootRef}>
       <div className={`container ${classes.inner}`}>
         <div className={classes.header}>
-          <h2 className={classes.title}>
-            Happy users
-            <br />
-            feedback
-          </h2>
+          <h2 className={classes.title}>Happy users feedback</h2>
         </div>
 
         <div className={`grid ${classes.grid}`} ref={pinRef}>

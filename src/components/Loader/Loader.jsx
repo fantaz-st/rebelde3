@@ -5,116 +5,134 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import classes from "./Loader.module.css";
-import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Loader() {
   const wrapRef = useRef(null);
-  const innerRef = useRef(null);
+
+  const bgMainRef = useRef(null);
+  const bgInnerRef = useRef(null);
+  const curtainRef = useRef(null);
 
   const logoRef = useRef(null);
   const logoFrontRef = useRef(null);
   const logoBackRef = useRef(null);
 
-  const bgMainRef = useRef(null);
-  const bgInnerRef = useRef(null);
   const noiseRef = useRef(null);
 
   useGSAP(
     () => {
       const wrap = wrapRef.current;
-      const inner = innerRef.current;
+
+      const bgMain = bgMainRef.current;
+      const bgInner = bgInnerRef.current;
+      const curtain = curtainRef.current;
 
       const logo = logoRef.current;
       const logoFront = logoFrontRef.current;
       const logoBack = logoBackRef.current;
 
-      const bgMain = bgMainRef.current;
-      const bgInner = bgInnerRef.current;
       const noise = noiseRef.current;
 
-      if (!wrap || !inner || !logo || !logoFront || !logoBack || !bgMain || !bgInner || !noise) return;
+      if (!wrap || !bgMain || !bgInner || !curtain || !logo || !logoFront || !logoBack || !noise) return;
 
-      const debug = typeof window !== "undefined" && window.__RBD_LOADER_DEBUG__ === true;
-      //   const isLoaded = sessionStorage.getItem("isLoaded") === "true";
-      const isLoaded = false;
-      if (!debug && isLoaded) {
-        wrap.remove();
-        return;
-      }
+      if (wrap.dataset.playing === "1") return;
+      wrap.dataset.playing = "1";
 
-      gsap.set(wrap, { autoAlpha: 1 });
-      gsap.set([logoFront, logoBack], { yPercent: 100 });
-      gsap.set(logo, { autoAlpha: 1, yPercent: 0, scale: 1 });
-      gsap.set(bgMain, { scale: 2, autoAlpha: 1 });
-      gsap.set(bgInner, { y: 0, scale: 1 /*  filter: "brightness(120%)" */ });
-      gsap.set(noise, { autoAlpha: 0.3 });
+      const waitImg = (img) =>
+        img.complete
+          ? Promise.resolve()
+          : new Promise((res) => {
+              img.addEventListener("load", res, { once: true });
+              img.addEventListener("error", res, { once: true });
+            });
 
-      gsap.set(logoFront, { clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" });
-
-      const tlFirst = gsap.timeline({ paused: true, defaults: { ease: "none" } });
-      tlFirst.to([logoFront, logoBack], { yPercent: 0, duration: 0.5, stagger: 0.05, ease: "power1.inOut" });
-
-      const tlProg = gsap.timeline({ paused: true, defaults: { ease: "none" } });
-      tlProg.to(logoFront, { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" }).to(bgMain, { autoAlpha: 0, scale: 1 }, 0).to(bgInner, { scale: 1.5 }, 0);
-
-      const tlLoadDone = gsap.timeline({ paused: true });
-      tlLoadDone.to(logo, { scale: 0.7, yPercent: -300, autoAlpha: 0, duration: 0.5 }, 0);
-
-      const computeBgShift = () => {
+      const computeShift = () => {
         const h = bgInner.getBoundingClientRect().height;
         const vh = window.innerHeight;
         return (h - vh) * -1;
       };
 
-      tlLoadDone.to(bgInner, { y: computeBgShift(), scale: 1, duration: 2.2 }, 0).to(noise, { autoAlpha: 0, duration: 1 }, 0).to(wrap, { autoAlpha: 0 });
+      const play = async () => {
+        document.documentElement.classList.add("is-loading");
 
-      const tlLoading = gsap.timeline({ paused: true });
-      tlLoading
-        .to(tlFirst, { duration: tlFirst.totalDuration(), progress: 1, ease: "none" })
-        .to(tlProg, { duration: tlProg.totalDuration() * 3.5, progress: 1, ease: "circ.in" })
-        .to(tlLoadDone, { duration: tlLoadDone.totalDuration(), progress: 1, ease: "power2.inOut" }, ">=-.2");
+        await waitImg(curtain);
+        await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
 
-      const tlMaster = gsap.timeline({
-        paused: true,
-        onComplete: () => {
-          sessionStorage.setItem("isLoaded", "true");
-          wrap.remove();
-          ScrollTrigger.refresh(true);
-        },
-      });
+        const SHIFT = computeShift();
 
-      tlMaster.to(tlLoading, { duration: tlLoading.totalDuration(), progress: 1, ease: "none" });
+        gsap.set(wrap, { autoAlpha: 1 });
+        gsap.set(bgMain, { autoAlpha: 1, scale: 2, transformOrigin: "50% 50%" });
+        gsap.set(bgInner, { y: 0, scale: 1, transformOrigin: "50% 0%" });
+        gsap.set(curtain, { scale: 1.5, yPercent: 0, transformOrigin: "50% 50%" });
 
-      tlMaster.play(0);
+        gsap.set(logo, { autoAlpha: 1 });
+        gsap.set([logoFront, logoBack], { yPercent: 120 });
+        gsap.set(logoFront, { clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" });
+
+        gsap.set(noise, { autoAlpha: 0.28 });
+
+        const tl = gsap.timeline({
+          defaults: { ease: "power2.inOut" },
+          onComplete: () => {
+            document.documentElement.classList.remove("is-loading");
+            wrap.dataset.playing = "0";
+            wrap.remove();
+            ScrollTrigger.refresh(true);
+          },
+        });
+
+        if (window.__RBD_SLOW__) tl.timeScale(0.25);
+
+        tl.addLabel("in", 0);
+        tl.addLabel("prog", 0.65);
+        tl.addLabel("reveal", 1.2);
+
+        tl.to([logoFront, logoBack], { yPercent: 0, duration: 0.65, stagger: 0.06, ease: "power3.out" }, "in+=0.05");
+
+        tl.to(bgMain, { autoAlpha: 0, scale: 1, duration: 1.25, ease: "power2.inOut" }, "prog");
+        tl.to(logoFront, { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)", duration: 1.25, ease: "power2.inOut" }, "prog");
+        tl.to(bgInner, { scale: 1.05, duration: 1.25, ease: "power2.inOut" }, "prog");
+
+        tl.to(bgInner, { y: SHIFT, scale: 1, duration: 2.2, ease: "power3.inOut" }, "reveal");
+        tl.to(curtain, { scale: 1, duration: 2.2, ease: "power3.inOut" }, "reveal");
+
+        tl.to(logo, { y: -24, autoAlpha: 0, duration: 0.55, ease: "power2.inOut" }, "prog+=1.05");
+        tl.to(noise, { autoAlpha: 0, duration: 0.9, ease: "power1.out" }, "reveal+=1.2");
+        tl.to(wrap, { autoAlpha: 0, duration: 0.35, ease: "power1.out" }, "reveal+=2.05");
+      };
+
+      play();
     },
     { scope: wrapRef },
   );
 
   return (
     <div ref={wrapRef} className={classes.loader} aria-hidden="true">
-      <div ref={innerRef} className={classes.loaderInner}>
-        <div ref={logoRef} className={classes.loaderLogo}>
-          <div ref={logoFrontRef} className={classes.loaderLogoFront}>
+      <div className={classes.bg}>
+        <div ref={bgMainRef} className={classes.bgMain} />
+
+        <div ref={bgInnerRef} className={classes.bgInner}>
+          <div className={classes.top} />
+          <div className={classes.bot}>
+            <img ref={curtainRef} src="/images/hero-tall2.png" alt="" className={classes.curtain} />
+          </div>
+        </div>
+      </div>
+
+      <div ref={logoRef} className={classes.logo}>
+        <div className={classes.logoClip}>
+          <div ref={logoBackRef} className={`${classes.logoLayer} ${classes.logoBack}`}>
             <span className={classes.logoText}>REBELDE BOATS</span>
           </div>
-          <div ref={logoBackRef} className={classes.loaderLogoBack}>
+          <div ref={logoFrontRef} className={classes.logoLayer}>
             <span className={classes.logoText}>REBELDE BOATS</span>
           </div>
         </div>
       </div>
 
-      <div ref={noiseRef} className={classes.loaderNoise} />
-
-      <div className={classes.loaderBg}>
-        <div ref={bgMainRef} className={classes.loaderBgMain} />
-        <div ref={bgInnerRef} className={classes.loaderBgInner}>
-          <div className={classes.loaderBgHero}>
-            <Image src="/images/blu.png" alt="" width={1920} height={2600} priority className={classes.curtain} sizes="100vw" />
-          </div>
-        </div>
-      </div>
+      <div ref={noiseRef} className={classes.noise} />
     </div>
   );
 }
