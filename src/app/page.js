@@ -1,6 +1,4 @@
 import classes from "./page.module.css";
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
 import Hero from "@/sections/home/Hero/Hero";
 import Gallery from "@/sections/home/Gallery/Gallery";
 import Team from "@/sections/home/Team/Team";
@@ -12,10 +10,9 @@ import Loader from "@/components/Loader/Loader";
 export default function Home() {
   return (
     <div className={classes.bodyInner}>
-      <Header />
       <main className={classes.main}>
         <div className={classes.mainInner}>
-          <div className={classes.mainContent}>
+          <div className={classes.mainContent} data-home>
             <Loader />
             <Hero />
             <Gallery />
@@ -23,7 +20,6 @@ export default function Home() {
             <Team />
             <Testimonials />
           </div>
-          <Footer />
           {/* <GridVisualizer /> */}
         </div>
       </main>

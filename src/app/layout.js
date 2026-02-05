@@ -5,6 +5,8 @@ import "./styles/typography.css";
 import "./styles/grid.css";
 import "./styles/swiper.css";
 import SmoothScroll from "./SmoothScroll";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 export const metadata = {
   title: "Rebelde Boats | Split Island-Hopping Day Trips & Exclusive Charters",
@@ -33,7 +35,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${dmSerif.variable}`}>
       <body>
-        <SmoothScroll>{children}</SmoothScroll>
+        <SmoothScroll>
+          <Header />
+          {children}
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

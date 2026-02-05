@@ -109,7 +109,7 @@ export default function Loader() {
   );
 
   return (
-    <div ref={wrapRef} className={classes.loader} aria-hidden="true">
+    <div ref={wrapRef} className={classes.loader} aria-hidden="true" data-loader>
       <div className={classes.bg}>
         <div ref={bgMainRef} className={classes.bgMain} />
 

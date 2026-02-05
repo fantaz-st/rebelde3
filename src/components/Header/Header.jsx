@@ -83,7 +83,7 @@ export default function Header() {
 
   return (
     <>
-      <header className={headerClassName}>
+      <header className={headerClassName} data-header>
         <div className={classes.shadow} aria-hidden="true" />
 
         <div className={classes.container}>

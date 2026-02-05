@@ -32,6 +32,19 @@ body {
   touch-action: pan-y;
 }
 
+/* --------------------------------------------
+   Initial header hide (homepage only, no JS)
+   Requires: Loader root has [data-loader]
+   Uses :has() (Chrome/Safari; Firefox may lag)
+-------------------------------------------- */
+html:has([data-home] [data-loader]) [data-header] {
+  transform: translateY(-110%) !important;
+  pointer-events: none !important;
+}
+
+/* --------------------------------------------
+   Loading state (when Loader adds is-loading)
+-------------------------------------------- */
 html.is-loading,
 html.is-loading body {
   overflow: hidden !important;
@@ -45,12 +58,7 @@ html.is-loading .scrollRoot {
   touch-action: none;
 }
 
-html.is-loading .header {
+html.is-loading [data-header] {
   transform: translateY(-110%) !important;
-  pointer-events: none !important;
-}
-
-html.is-loading .hamburgerBtn {
-  opacity: 0 !important;
   pointer-events: none !important;
 }

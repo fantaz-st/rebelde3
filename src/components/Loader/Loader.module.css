@@ -3,8 +3,8 @@
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  visibility: visible;
   isolation: isolate;
 }
 
@@ -59,6 +59,14 @@
   z-index: 20;
   pointer-events: none;
   will-change: opacity, transform;
+  opacity: 0;
+  transform: translateZ(0);
+}
+
+.logoLayer {
+  grid-area: 1 / 1;
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 .logoClip {
@@ -70,12 +78,6 @@
   place-items: center;
   overflow: hidden;
   line-height: 1;
-}
-
-.logoLayer {
-  grid-area: 1 / 1;
-  will-change: transform, opacity;
-  transform: translateZ(0);
 }
 
 .logoBack {
