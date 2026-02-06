@@ -1,0 +1,108 @@
+.section {
+  position: relative;
+  height: 500vh;
+  overflow: clip;
+  background: var(--bg-brown-10);
+  scroll-margin-top: -200vh;
+}
+
+.pin {
+  position: relative;
+  height: 100vh;
+  background: var(--bg-brown-10);
+}
+
+.centerRow {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.gridViewport {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateZ(0);
+}
+
+.grid {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(32vh, 1fr));
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.25rem;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+.tile {
+  overflow: clip;
+  border-radius: 0.9rem;
+}
+
+.img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imgTop {
+  object-position: 50% 0%;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  margin-inline: auto;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.text {
+  pointer-events: auto;
+
+  grid-column: 4 / -4;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  will-change: transform, opacity;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  margin: 0 0 3.2rem;
+  text-wrap: balance;
+}
+
+.desc {
+  margin: 0 0 3.2rem;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(28vh, 1fr));
+  }
+  .text {
+    padding: 0 1rem;
+    grid-column: 1/-1;
+  }
+}
