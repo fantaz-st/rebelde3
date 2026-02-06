@@ -37,9 +37,16 @@ export default function Boat() {
       const scroller = scrollerEl || window;
       const scrollerOpt = scroller === window ? undefined : scroller;
 
-      gsap.set(grid, { transformOrigin: "50% 50%", force3D: true });
-      gsap.set(text, { autoAlpha: 0, yPercent: 28, force3D: true });
-      gsap.set(scrim, { autoAlpha: 0 });
+      const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+      const computed = scrollerOpt ? getComputedStyle(scrollerEl) : null;
+      const pinType = scrollerOpt && computed && computed.transform !== "none" ? "transform" : "fixed";
+
+      const snapPx = gsap.utils.snap(0.5);
+
+      gsap.set(grid, { transformOrigin: "50% 50%", force3D: true, willChange: "transform" });
+      gsap.set(text, { autoAlpha: 0, yPercent: 28, force3D: true, willChange: "transform,opacity" });
+      gsap.set(scrim, { autoAlpha: 0, willChange: "opacity" });
 
       const applyStartState = () => {
         gsap.set(grid, { clearProps: "transform" });
@@ -69,17 +76,46 @@ export default function Boat() {
           trigger: section,
           start: "top top",
           end: "bottom top",
-          scrub: 0.6,
+          scrub: isMobile ? true : 0.6,
           pin: pinEl,
           pinSpacing: true,
           anticipatePin: 1,
           scroller: scrollerOpt,
+          pinType,
           invalidateOnRefresh: true,
           onRefreshInit: applyStartState,
         },
       });
 
-      tl.to(grid, { x: 0, y: 0, scale: 1, rotate: -6 }, 0).to(scrim, { autoAlpha: 0.75 }, "-=0.75").to(text, { autoAlpha: 1, yPercent: 0 }, "-=0.5");
+      tl.to(
+        grid,
+        {
+          x: 0,
+          y: 0,
+          scale: 1,
+          rotate: -6,
+          modifiers: {
+            x: (v) => `${snapPx(parseFloat(v))}px`,
+            y: (v) => `${snapPx(parseFloat(v))}px`,
+          },
+        },
+        0,
+      )
+        .to(
+          scrim,
+          {
+            autoAlpha: 0.55,
+          },
+          0,
+        )
+        .to(
+          text,
+          {
+            autoAlpha: 1,
+            yPercent: 0,
+          },
+          0.12,
+        );
 
       return () => {
         tl.kill();
