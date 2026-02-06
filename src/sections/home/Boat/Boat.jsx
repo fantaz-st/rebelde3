@@ -8,6 +8,7 @@ import classes from "./Boat.module.css";
 import Button from "@/components/Button/Button";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 const images = ["/images/boat/boat2.jpg", "/images/boat/boat3.jpg", "/images/boat/boat4.jpg", "/images/boat/boat5.jpg", "/images/boat/boat1.jpg", "/images/boat/boat6.jpg", "/images/boat/boat7.jpg", "/images/boat/boat2.jpg", "/images/boat/boat3.jpg"];
 
@@ -78,31 +79,7 @@ export default function Boat() {
         },
       });
 
-      tl.to(
-        grid,
-        {
-          x: 0,
-          y: 0,
-          scale: 1,
-          rotate: -6,
-        },
-        0,
-      )
-        .to(
-          scrim,
-          {
-            autoAlpha: 0.75,
-          },
-          0,
-        )
-        .to(
-          text,
-          {
-            autoAlpha: 1,
-            yPercent: 0,
-          },
-          0,
-        );
+      tl.to(grid, { x: 0, y: 0, scale: 1, rotate: -6 }, 0).to(scrim, { autoAlpha: 0.75 }, "-=0.75").to(text, { autoAlpha: 1, yPercent: 0 }, "-=0.5");
 
       return () => {
         tl.kill();

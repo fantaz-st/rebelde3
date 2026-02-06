@@ -8,7 +8,7 @@
 
 .pin {
   position: relative;
-  height: 100vh;
+  height: 100svh;
   background: var(--bg-brown-10);
 }
 
@@ -20,7 +20,7 @@
 }
 
 .gridViewport {
-  height: 100%;
+  height: 100svh;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -95,6 +95,12 @@
 
 .desc {
   margin: 0 0 3.2rem;
+}
+
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(32svh, 1fr));
+  }
 }
 
 @media (max-width: 640px) {

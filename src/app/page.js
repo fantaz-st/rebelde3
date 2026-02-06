@@ -14,7 +14,7 @@ export default function Home() {
       <main className={classes.main}>
         <div className={classes.mainInner}>
           <div className={classes.mainContent} data-home>
-            <Loader />
+            {/* <Loader /> */}
             <Hero />
             <Gallery />
             <Tours />
