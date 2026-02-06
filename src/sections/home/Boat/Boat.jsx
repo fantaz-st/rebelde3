@@ -6,80 +6,72 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import classes from "./Boat.module.css";
 import Button from "@/components/Button/Button";
+import Image from "next/image";
+import images from "@/settings/boatImages";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
-ScrollTrigger.config({ ignoreMobileResize: true });
-
-const images = ["/images/boat/boat2.jpg", "/images/boat/boat3.jpg", "/images/boat/boat4.jpg", "/images/boat/boat5.jpg", "/images/boat/boat1.jpg", "/images/boat/boat6.jpg", "/images/boat/boat7.jpg", "/images/boat/boat2.jpg", "/images/boat/boat3.jpg"];
 
 export default function Boat() {
   const sectionRef = useRef(null);
-  const pinRef = useRef(null);
-  const gridRef = useRef(null);
-  const scrimRef = useRef(null);
-  const textRef = useRef(null);
 
   useGSAP(
     () => {
       const section = sectionRef.current;
-      const pinEl = pinRef.current;
-      const grid = gridRef.current;
-      const scrim = scrimRef.current;
-      const text = textRef.current;
-      if (!section || !pinEl || !grid || !scrim || !text) return;
 
       const scrollerEl = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot") || window;
       const scrollerOpt = scrollerEl === window ? undefined : scrollerEl;
 
-      gsap.set(grid, { transformOrigin: "50% 50%", force3D: true });
-      gsap.set(scrim, { autoAlpha: 0 });
-      gsap.set(text, { autoAlpha: 0, yPercent: 20, force3D: true });
+      console.log(sectionRef.current.getBoundingClientRect());
 
-      const tl = gsap.timeline({ defaults: { ease: "none" } });
-
-      tl.fromTo(grid, { scale: 3.1, rotate: 0 }, { scale: 1, rotate: -6 }, 0).fromTo(grid, { "--gap": "0px", "--pad": "0px" }, { "--gap": "0.6vw", "--pad": "0.6vw" }, 0).to(scrim, { autoAlpha: 0.55 }, 0).to(text, { autoAlpha: 1, yPercent: 0 }, 0.12);
-
-      const st = ScrollTrigger.create({
-        trigger: section,
-        start: "top top",
-        end: "+=400%",
-        scrub: true,
-        pin: pinEl,
-        pinSpacing: true,
-        anticipatePin: 1,
-        scroller: scrollerOpt,
-        invalidateOnRefresh: true,
-        animation: tl,
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          scroller: scrollerOpt,
+          trigger: section,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 0.5,
+          markers: true,
+        },
       });
 
-      return () => {
-        st.kill();
-        tl.kill();
-      };
+      tl.to("[data-scale]", {
+        scale: 0.51,
+        duration: 10,
+      });
+
+      tl.to('[data-zoom-type="side"], [data-zoom-type="main"]', {
+        clipPath: "inset(10px round 10px)",
+        ease: "power4.out",
+        duration: 10,
+      });
     },
     { scope: sectionRef },
   );
 
   return (
-    <section ref={sectionRef} className={classes.section} id="boat">
-      <div ref={pinRef} className={classes.pin}>
-        <div className={classes.stage}>
-          <div ref={gridRef} className={classes.grid} aria-hidden="true">
-            {images.map((src, i) => (
-              <div key={src + i} className={classes.tile}>
-                <img src={src} alt="" className={classes.img} />
+    <section className={classes.section} id="boat" ref={sectionRef}>
+      <div className={classes.inner}>
+        <div className={classes.grid} data-scale>
+          <div className={classes.top} data-section="top">
+            {images.top.map((img, idx) => (
+              <div key={`top-${idx}`} className={classes.imageWrapper} style={{ ...img.position }}>
+                <Image data-zoom-type={img.type} src={img.src} alt="img desc" fill sizes="(max-width: 640px) 1080px, 100vw" className={classes.image} priority={false} />
               </div>
             ))}
           </div>
-
-          <div ref={scrimRef} className={classes.scrim} aria-hidden="true" />
-
-          <div className={`grid ${classes.overlay}`}>
-            <div ref={textRef} className={classes.text}>
-              <h2 className={classes.title}>Built for Good Living.</h2>
-              <p className={classes.desc}>Comfort you can sink into. Performance that carries you farther. Space designed for shared smiles, spontaneous dives, and long, slow lunches under the sun. Buenaventura isn&apos;t just a boat — it&apos;s your floating sanctuary.</p>
-              <Button>Explore the boat</Button>
-            </div>
+          <div className={classes.center} data-section="center">
+            {images.center.map((img, idx) => (
+              <div key={`center-${idx}`} className={classes.imageWrapper} style={{ ...img.position }}>
+                <Image data-zoom-type={img.type} src={img.src} alt="img desc" fill sizes="(max-width: 640px) 1080px, 100vw" className={classes.image} priority={img.type === "main"} />
+              </div>
+            ))}
+          </div>
+          <div className={classes.bottom} data-section="bottom">
+            {images.bottom.map((img, idx) => (
+              <div key={`bottom-${idx}`} className={classes.imageWrapper} style={{ ...img.position }}>
+                <Image data-zoom-type={img.type} src={img.src} alt="img desc" fill sizes="(max-width: 640px) 1080px, 100vw" className={classes.image} priority={false} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
