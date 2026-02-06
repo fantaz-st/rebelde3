@@ -8,8 +8,9 @@ import classes from "./Boat.module.css";
 import Button from "@/components/Button/Button";
 import Image from "next/image";
 import images from "@/settings/boatImages";
+import { CustomEase } from "gsap/all";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(ScrollTrigger, CustomEase, useGSAP);
 
 export default function Boat() {
   const sectionRef = useRef(null);
@@ -24,6 +25,8 @@ export default function Boat() {
       const scrim = scrimRef.current;
       const text = textRef.current;
       if (!section || !grid || !scrim || !text) return;
+
+      CustomEase.create("slowStart", "M0,0 C0,0 0.226,-0.006 0.549,0.145 0.754,0.242 1,1.019 1,1.019");
 
       const scrollerEl = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot") || window;
       const scrollerOpt = scrollerEl === window ? undefined : scrollerEl;
@@ -47,6 +50,7 @@ export default function Boat() {
         grid,
         {
           scale: 0.51,
+          duration: 10,
         },
         0,
       )
@@ -57,6 +61,7 @@ export default function Boat() {
           },
           0,
         )
+
         .to(
           scrim,
           {
