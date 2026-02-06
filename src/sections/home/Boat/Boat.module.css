@@ -6,8 +6,8 @@
 
 .inner {
   position: sticky;
-  top: 0;
   height: 150svh;
+  top: 0;
   overflow: hidden;
 }
 
@@ -15,37 +15,28 @@
   position: relative;
   height: 100svh;
   width: 100vw;
-  transform-origin: 50% 50%;
   will-change: transform;
 }
 
 .top,
-.center,
 .bottom {
   position: absolute;
   height: 100svh;
   width: 100vw;
-  left: 0;
 }
-
 .top {
   bottom: 100%;
 }
-
-.center {
-  top: 0;
-}
-
 .bottom {
   top: 100%;
 }
 
 .imageWrapper {
   position: absolute;
-  height: 100svh;
+  height: 100vh;
   width: 100vw;
-  will-change: clip-path;
-  overflow: hidden;
+
+  aspect-ratio: 16/9;
 }
 
 .image {
