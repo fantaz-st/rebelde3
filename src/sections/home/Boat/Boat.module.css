@@ -8,6 +8,7 @@
   position: sticky;
   top: 0;
   height: 120vh;
+  overflow: hidden;
 }
 
 .grid {
