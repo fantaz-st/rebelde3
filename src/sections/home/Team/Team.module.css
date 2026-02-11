@@ -164,11 +164,17 @@
     margin-bottom: 5rem;
   }
 
-  .haveMargin {
-    margin-top: 0;
-    margin-bottom: 4rem;
+  .items {
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
+    padding: 0;
+    grid-column-gap: 0;
+    grid-row-gap: 6rem;
+    padding: 0 2rem;
   }
-
+  .item:nth-child(2n) {
+    margin: 0;
+  }
   .thumbInner {
     aspect-ratio: 4/3;
   }
