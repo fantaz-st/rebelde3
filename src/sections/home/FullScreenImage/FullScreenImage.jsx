@@ -10,58 +10,49 @@ import classes from "./FullScreenImage.module.css";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function FullScreenImage() {
-  const wrapRef = useRef(null);
+  const containerRef = useRef(null);
+  const imgWrapperRef = useRef(null);
+  const pinRef = useRef(null);
+  const imgRef = useRef(null);
 
   useGSAP(
     () => {
-      const root = wrapRef.current;
-      if (!root) return;
-
-      const inner = root.querySelector("[data-fsi-inner]");
-      const img = root.querySelector("img[data-fsi-img]");
-      if (!inner || !img) return;
-
       const scroller = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot") || window;
-      const pinType = scroller === window ? "fixed" : "transform";
 
-      const mm = gsap.matchMedia();
-      let tl;
+      const fs = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+      const r8 = (8 / 10) * fs;
 
-      mm.add("(min-width: 992px)", () => {
-        tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: root,
-            scroller,
-            pin: true,
-            pinType,
-            start: "top top",
-            end: () => `+=${window.innerHeight * 1.3}`,
-            scrub: true,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-          },
-        });
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          scroller,
+          pin: true,
 
-        tl.fromTo(inner, { clipPath: "inset(14% 37.35% 14% 37.35% round 80px)" }, { clipPath: "inset(-15% -15% -15% -15% round 0px)", ease: "none" }).fromTo(img, { scale: 1.2, transformOrigin: "top" }, { scale: 1, ease: "none" }, 0);
-
-        requestAnimationFrame(() => ScrollTrigger.refresh());
-
-        return () => {
-          tl?.scrollTrigger?.kill();
-          tl?.kill();
-          tl = null;
-        };
+          start: "top top",
+          end: "500%",
+          // end: () => `bottom+=${window.innerHeight * 1.3} bottom`,
+          scrub: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          markers: true,
+        },
       });
+      /* gsap.set(imgWrapperRef.current, {
+        clipPath: `inset(14% 37.35% 14% 37.35% round ${r8}px)`,
+        WebkitClipPath: `inset(14% 37.35% 14% 37.35% round ${r8}px)`,
+      }); */
 
-      return () => mm.revert();
+      tl.fromTo(imgWrapperRef.current, { clipPath: `inset(14% 37.35% 14% 37.35% round ${r8}px)` }, { clipPath: "inset(-15% -15% -15% -15% round 0px)", ease: "none" }).fromTo(imgRef.current, { scale: 1.2, transformOrigin: "top" }, { scale: 1, ease: "none" }, 0);
     },
-    { scope: wrapRef },
+    { scope: containerRef },
   );
 
   return (
-    <section className={classes.wrap} ref={wrapRef}>
-      <div className={classes.inner} data-fsi-inner>
-        <Image data-fsi-img src="/images/team2/team-main.jpeg" alt="" fill sizes="100vw" className={classes.img} priority onLoadingComplete={() => ScrollTrigger.refresh()} />
+    <section className={classes.container} ref={containerRef}>
+      <div className={classes.pin} ref={pinRef}>
+        <div className={classes.imgWrapper} ref={imgWrapperRef}>
+          <Image ref={imgRef} src="/images/team2/team-main.jpeg" alt="" fill sizes="100vw" className={classes.img} priority />
+        </div>
       </div>
     </section>
   );
