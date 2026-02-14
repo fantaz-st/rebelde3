@@ -87,7 +87,7 @@ export default function Team() {
               scrub: true,
               invalidateOnRefresh: true,
             },
-          },
+          }
         );
 
         requestAnimationFrame(() => ScrollTrigger.refresh());
@@ -100,7 +100,7 @@ export default function Team() {
 
       return () => mm.revert();
     },
-    { scope: wrapRef },
+    { scope: wrapRef }
   );
 
   return (
@@ -129,7 +129,7 @@ export default function Team() {
 
         <div className={`full-width ${classes.thumb}`} data-team-thumb>
           <div className={classes.thumbInner} data-team-thumb-inner>
-            <Image data-team-thumb-img src="/images/team2/team-main.jpeg" alt="" fill sizes="100vw" className={classes.thumbImg} priority onLoad={() => ScrollTrigger.refresh()} />
+            <Image data-team-thumb-img src="/images/team/team-main.jpeg" alt="" fill sizes="100vw" className={classes.thumbImg} priority onLoad={() => ScrollTrigger.refresh()} />
           </div>
         </div>
       </section>

@@ -105,7 +105,7 @@ export default function Loader() {
 
       play();
     },
-    { scope: wrapRef },
+    { scope: wrapRef }
   );
 
   return (
