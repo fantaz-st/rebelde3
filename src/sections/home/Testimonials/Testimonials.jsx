@@ -41,12 +41,13 @@ export default function Testimonials() {
             scrollTrigger: {
               trigger: pin,
               scroller: scrollerOpt,
-              start: "10% top",
+              start: "top 20%",
               end: () => `+=${getDelta()}`,
               pin: inner,
               scrub: true,
               anticipatePin: 1,
               invalidateOnRefresh: true,
+              markers: true,
             },
           })
           .fromTo(list, { y: 0 }, { y: () => -getDelta(), ease: "none" });
@@ -128,7 +129,11 @@ export default function Testimonials() {
         </div>
 
         <div className={classes.buttonWrap}>
-          <Button href="https://www.tripadvisor.com/Attraction_Review-g295370-d28042808-Reviews-Rebelde_Boats-Split_Split_Dalmatia_County_Dalmatia.html" variant="primary" size="lg">
+          <Button
+            href="https://www.tripadvisor.com/Attraction_Review-g295370-d28042808-Reviews-Rebelde_Boats-Split_Split_Dalmatia_County_Dalmatia.html"
+            variant="primary"
+            size="lg"
+          >
             Read more Testimonials
           </Button>
         </div>

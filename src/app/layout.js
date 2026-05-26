@@ -1,4 +1,4 @@
-import { Inter, DM_Serif_Display } from "next/font/google";
+import { Inter, Fraunces } from "next/font/google";
 import "./styles/reset.css";
 import "./styles/globals.css";
 import "./styles/typography.css";
@@ -17,6 +17,7 @@ export const metadata = {
 export const viewport = {
   themeColor: "#ffffff",
 };
+
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
@@ -24,16 +25,17 @@ const inter = Inter({
   display: "swap",
 });
 
-const dmSerif = DM_Serif_Display({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: "400",
+  weight: "variable", // ← this, instead of an array
+  axes: ["opsz"],
   variable: "--font-display",
   display: "swap",
 });
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${dmSerif.variable}`}>
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <body>
         <SmoothScroll>
           <Header />

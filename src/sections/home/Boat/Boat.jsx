@@ -117,7 +117,10 @@ export default function Boat() {
         <div className={`grid ${classes.overlay}`}>
           <div ref={textRef} className={classes.text}>
             <h2 className={classes.title}>Built for Good Living.</h2>
-            <p className={classes.desc}>Comfort you can sink into. Performance that carries you farther. Space designed for shared smiles, spontaneous dives, and long, slow lunches under the sun. Buenaventura isn&apos;t just a boat — it&apos;s your floating sanctuary.</p>
+            <p className={classes.desc}>
+              Comfort you can sink into. Performance that carries you farther. Space designed for shared smiles, spontaneous dives, and long, slow lunches under the sun.
+              Buenaventura isn&apos;t just a boat — it&apos;s your floating sanctuary.
+            </p>
             <Button>Explore the boat</Button>
           </div>
         </div>
