@@ -10,7 +10,7 @@ import Logo from "../Logo/Logo";
 import pageLinks from "../../settings/pageLinks";
 import Button from "../Button/Button";
 
-export default function Header() {
+export default function Header({ variant = "white" }) {
   const SHADOW_THRESHOLD = 300;
 
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
@@ -24,6 +24,7 @@ export default function Header() {
   const panelRef = useRef(null);
   const listRef = useRef(null);
   const menuTlRef = useRef(null);
+
   useEffect(() => {
     const scrollerEl = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot");
     const scroller = scrollerEl || window;
@@ -74,9 +75,26 @@ export default function Header() {
     isMenuOpen ? menuTlRef.current.play() : menuTlRef.current.reverse();
   }, [isMenuOpen]);
 
-  const isDarkUi = isMenuOpen || isMenuActive;
+  // Color logic:
+  // - Menu open/active => always dark UI (because the menu panel is white)
+  // - variant="blue" (inner pages):
+  //     at top => dark UI (blue on cream/light bg)
+  //     scrolled => light UI (the dark shadow makes white legible)
+  // - variant="white" (home):
+  //     always light UI (white-on-image hero); when menu opens, dark UI takes over
+  const isDarkUi =
+    isMenuOpen ||
+    isMenuActive ||
+    (variant === "blue" && !isShadowVisible);
 
-  const headerClassName = [classes.header, isHeaderVisible ? classes.visible : classes.hidden, isMenuActive && classes.menuActive, isShadowVisible && classes.scrolled].filter(Boolean).join(" ");
+  const headerClassName = [
+    classes.header,
+    isHeaderVisible ? classes.visible : classes.hidden,
+    isMenuActive && classes.menuActive,
+    isShadowVisible && classes.scrolled,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   const burgerButtonClassName = [classes.hamburgerBtn, classes[isDarkUi ? "dark" : "light"]].join(" ");
   const burgerIconClassName = [classes.hamburger, isMenuOpen && classes.open].filter(Boolean).join(" ");
@@ -93,7 +111,7 @@ export default function Header() {
             </Link>
           </div>
 
-          <nav className={classes.nav}>
+          <nav className={`${classes.nav} ${classes[isDarkUi ? "dark" : "light"]}`}>
             {pageLinks.map(({ href, label }) => (
               <div key={href} className={classes.navItem}>
                 <AnimatedLink href={href}>{label.toUpperCase()}</AnimatedLink>
@@ -102,12 +120,17 @@ export default function Header() {
           </nav>
 
           <div className={classes.desktopButton}>
-            <Button href="/contact" variant="white" size="sm">
+            <Button href="/contact" variant={isDarkUi ? "blue" : "white"} size="sm">
               GET IN TOUCH
             </Button>
           </div>
 
-          <button className={burgerButtonClassName} onClick={() => setIsMenuOpen((prev) => !prev)} aria-label="Toggle menu" aria-expanded={isMenuOpen}>
+          <button
+            className={burgerButtonClassName}
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+          >
             <p>{isMenuOpen ? "Close" : "Menu"}</p>
 
             <div className={burgerIconClassName}>
@@ -119,7 +142,11 @@ export default function Header() {
         </div>
       </header>
 
-      <div ref={overlayRef} className={`${classes.overlay} ${isMenuOpen ? classes.overlayOpen : ""}`} onClick={() => setIsMenuOpen(false)} />
+      <div
+        ref={overlayRef}
+        className={`${classes.overlay} ${isMenuOpen ? classes.overlayOpen : ""}`}
+        onClick={() => setIsMenuOpen(false)}
+      />
 
       <div ref={panelRef} className={`${classes.menu} ${isMenuOpen ? classes.menuOpen : ""}`}>
         <nav>

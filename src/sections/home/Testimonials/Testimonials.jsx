@@ -47,7 +47,6 @@ export default function Testimonials() {
               scrub: true,
               anticipatePin: 1,
               invalidateOnRefresh: true,
-              markers: true,
             },
           })
           .fromTo(list, { y: 0 }, { y: () => -getDelta(), ease: "none" });

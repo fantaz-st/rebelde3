@@ -2,11 +2,11 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import TourCard from "@/components/TourCard/TourCard";
 import "swiper/css";
 import classes from "./Tours.module.css";
-import TourCard from "@/components/TourCard/TourCard";
-import Button from "@/components/Button/Button";
 import items from "@/settings/tours";
+
 
 function useBreakpoints() {
   const [bp, setBp] = useState({ mobile: false, small: false });
@@ -36,10 +36,10 @@ export default function Tours() {
   const tours = useMemo(() => {
     return items.map((it) => ({
       key: it.key,
-      href: "/bespoke-expeditions",
+      href: "/bespoke-tours/" +'#'+ it.key,
       imageSrc: it.thumb,
       kicker: it.kicker,
-      title: it.title,
+      title: it.label,
     }));
   }, []);
 

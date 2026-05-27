@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <body>
         <SmoothScroll>
-          <Header />
+          <Header variant="white" />
           {children}
           <Footer />
         </SmoothScroll>

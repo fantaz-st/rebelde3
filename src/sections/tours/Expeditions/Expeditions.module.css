@@ -1,0 +1,433 @@
+.wrap {
+  position: relative;
+  z-index: 2;
+  background-color: var(--bg-brown-10);
+}
+
+.emptyTop {
+  height: 8rem;
+}
+
+.list {
+  position: relative;
+}
+
+/* ---- Single expedition ---- */
+.item {
+  padding-bottom: 16rem;
+  position: relative;
+}
+
+.item:last-child {
+  padding-bottom: 6rem;
+}
+
+.itemSpacer {
+  height: 0;
+}
+
+.sc {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/* ---- Hero thumb (sticky-ish, full bleed, with clip-path reveal) ---- */
+.thumbStick {
+  position: relative;
+  z-index: 0;
+}
+
+.thumb {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.thumbInner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  will-change: clip-path;
+  transform: translateZ(0);
+}
+
+.thumbImg {
+  object-fit: cover;
+  will-change: transform;
+}
+
+.thumbTxt {
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  pointer-events: auto;
+  will-change: transform;
+}
+
+.thumbHeading {
+  margin: 0;
+  color: #fff;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+/* ---- Content grid below the hero ---- */
+.content {
+  position: relative;
+  z-index: 2;
+  padding-top: 8rem;
+}
+
+.grid {
+  width: 100%;
+  align-items: start;
+  row-gap: 0;
+}
+
+/* Sub heading (intro paragraph) */
+.sub {
+  grid-column: 4 / 8;
+  grid-row: 1;
+  margin-top: 24.6rem;
+  margin-bottom: 12rem;
+}
+
+.subHeading {
+  margin: 0;
+  color: var(--brand-persian-blue);
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: 0.01em;
+}
+
+/* Main (tall) image — right column, spans 2 rows */
+.mainImg {
+  grid-column: 10 / -2;
+  grid-row: 1 / 3;
+  position: relative;
+  height: 88.7rem;
+  margin-top: 20.6rem;
+}
+
+.mainImgInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  will-change: transform;
+}
+
+/* Sub image — left column, below the sub heading */
+.subImg {
+  grid-column: 4 / 8;
+  grid-row: 2;
+  position: relative;
+  height: 58rem;
+}
+
+.subImgInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  will-change: transform;
+}
+
+/* CTA row — image + text */
+.cta {
+  grid-column: 4 / -3;
+  grid-row: 3;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8rem;
+  margin-top: 30rem;
+  margin-bottom: 30rem;
+}
+
+.ctaImg {
+  position: relative;
+  flex: 1 1 auto;
+  height: 51.7rem;
+  max-width: 64rem;
+}
+
+.ctaImgInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.ctaContent {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ctaText {
+  margin: 0 0 4rem;
+  color: var(--brand-persian-blue);
+  line-height: 1.4;
+}
+
+/* Explore swiper */
+.explore {
+  grid-column: 5 / -2;
+  grid-row: 4;
+  position: relative;
+}
+
+.exploreControl {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 4rem;
+}
+
+.exploreControlItem {
+  border: 1px solid rgba(12, 12, 12, 0.2);
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.8rem;
+  height: 3.8rem;
+  background: transparent;
+  color: var(--brand-persian-blue);
+  cursor: pointer;
+  transition:
+    background-color 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86),
+    color 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86),
+    border-color 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.exploreControlItem svg {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.exploreControlItem:hover {
+  color: #fff;
+  background-color: rgba(0, 51, 87, 0.9);
+}
+
+.exploreControlItem.disabled {
+  pointer-events: none;
+  color: #b0b4b6;
+  background-color: rgba(39, 38, 37, 0.1);
+  border-color: rgba(223, 225, 225, 0.1);
+}
+
+.exploreMain {
+  margin-left: -10rem;
+  margin-right: -10rem;
+  overflow: hidden;
+  -webkit-mask: linear-gradient(90deg, transparent, #fff 10rem calc(100% - 10rem), transparent);
+  mask: linear-gradient(90deg, transparent, #fff 10rem calc(100% - 10rem), transparent);
+}
+
+.exploreSwiper {
+  padding-left: 10rem !important;
+  padding-right: 10rem !important;
+  width: 100%;
+}
+
+.exploreSlide {
+  width: 38rem !important;
+  flex: none;
+}
+
+.exploreItemImg {
+  position: relative;
+  width: 100%;
+  height: 36.6rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  margin-bottom: 2.8rem;
+}
+
+.exploreItemTxt {
+  color: var(--brand-persian-blue);
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+
+.img {
+  object-fit: cover;
+}
+
+/* ============= Tablet ============= */
+@media (max-width: 991px) {
+  .item {
+    padding-bottom: 12rem;
+  }
+
+  .thumb {
+    height: 80vh;
+  }
+
+  .content {
+    padding-top: 6rem;
+  }
+
+  .sub {
+    grid-column: 2 / 5;
+    grid-row: 1;
+    margin-top: 8rem;
+    margin-bottom: 0;
+  }
+
+  .mainImg {
+    grid-column: 6 / -2;
+    grid-row: 1;
+    align-self: start;
+    height: auto;
+    aspect-ratio: 3/4;
+    margin-top: 0;
+  }
+
+  .subImg {
+    grid-column: 2 / 5;
+    grid-row: 2;
+    margin-top: 8rem;
+    height: auto;
+    aspect-ratio: 4/5;
+  }
+
+  .cta {
+    grid-column: 2 / -2;
+    grid-row: 3;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4rem;
+    margin-top: 12rem;
+    margin-bottom: 12rem;
+  }
+
+  .ctaImg {
+    max-width: none;
+    height: auto;
+    aspect-ratio: 16/10;
+  }
+
+  .explore {
+    grid-column: 1 / -1;
+  }
+
+  .exploreMain {
+    margin-left: -4rem;
+    margin-right: -4rem;
+  }
+
+  .exploreSwiper {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+  }
+
+  .exploreSlide {
+    width: 30rem !important;
+  }
+
+  .exploreItemImg {
+    height: 28rem;
+  }
+}
+
+/* ============= Mobile ============= */
+@media (max-width: 767px) {
+  .item {
+    padding-bottom: 8rem;
+  }
+
+  .thumb {
+    height: 70svh;
+  }
+
+  .thumbHeading {
+    padding: 0 2rem;
+  }
+
+  .content {
+    padding-top: 4rem;
+  }
+
+  .sub {
+    grid-column: 1 / -1;
+    margin-top: 4rem;
+    padding: 0 2rem;
+  }
+
+  .mainImg {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 6rem;
+    padding: 0 2rem;
+    aspect-ratio: 4/5;
+  }
+
+  .subImg {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin-top: 4rem;
+    padding: 0 2rem;
+    aspect-ratio: 3/4;
+  }
+
+  .cta {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    padding: 0 2rem;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+    gap: 3rem;
+  }
+
+  .ctaText {
+    margin-bottom: 2.4rem;
+  }
+
+  .explore {
+    grid-row: 5;
+  }
+
+  .exploreMain {
+    margin-left: -2rem;
+    margin-right: -2rem;
+    -webkit-mask: none;
+    mask: none;
+  }
+
+  .exploreSwiper {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  .exploreSlide {
+    width: 24rem !important;
+  }
+
+  .exploreItemImg {
+    height: 22rem;
+    margin-bottom: 2rem;
+  }
+
+  .exploreControl {
+    padding: 0 2rem;
+    margin-bottom: 3rem;
+  }
+}

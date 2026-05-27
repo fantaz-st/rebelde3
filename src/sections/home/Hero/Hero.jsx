@@ -67,7 +67,7 @@ export default function Hero() {
             <div className={`container grid ${classes.grid}`}>
               <div ref={textRef} className={classes.text} data-hero-content>
                 <h1 className={classes.title}>Your Private Adriatic Escape</h1>
-                <h4 className={classes.subtitle}>Set your own rhythm aboard Felix 37 – private day trips and charters from Split to Hvar, Vis, the Blue Cave, and hidden bays</h4>
+                <h4 className={classes.subtitle}>Discover the Adriatic through private experiences crafted around you.</h4>
               </div>
             </div>
           </div>

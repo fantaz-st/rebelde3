@@ -3,7 +3,7 @@
 /* Base body text */
 body {
   font-family: var(--font-body);
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   line-height: 1.4;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
@@ -27,7 +27,7 @@ h1 {
 }
 
 h2 {
-  font-size: 10rem;
+  font-size: 8rem;
   line-height: 0.95;
   font-weight: 400;
   letter-spacing: -0.035em;
@@ -52,7 +52,7 @@ h4 {
 /* Paragraphs */
 p {
   font-family: var(--font-body);
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   line-height: 1.6;
   font-weight: 400;
   letter-spacing: -0.005em;
