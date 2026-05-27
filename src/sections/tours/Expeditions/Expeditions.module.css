@@ -46,6 +46,16 @@
   width: 100%;
   overflow: hidden;
 }
+.thumbInner::after{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  content: "";
+  background-color: rgba(0,0,0,0.3);
+  pointer-events: none;
+}
 
 .thumbInner {
   position: absolute;
@@ -95,7 +105,7 @@
 .sub {
   grid-column: 4 / 8;
   grid-row: 1;
-  margin-top: 24.6rem;
+  margin-top: 6rem;
   margin-bottom: 12rem;
 }
 
@@ -115,6 +125,8 @@
   height: 88.7rem;
   margin-top: 20.6rem;
 }
+
+
 
 .mainImgInner {
   position: relative;
@@ -151,8 +163,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 8rem;
-  margin-top: 30rem;
-  margin-bottom: 30rem;
+  margin-top: 15rem;
+  margin-bottom: 15rem;
 }
 
 .ctaImg {
@@ -430,4 +442,28 @@
     padding: 0 2rem;
     margin-bottom: 3rem;
   }
+}
+
+
+/* Add these rules to Expeditions.module.css */
+
+.exploreSlideLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: zoom-in;
+}
+
+.exploreSlideLink:focus-visible {
+  outline: 2px solid var(--brand-persian-blue);
+  outline-offset: 4px;
+  border-radius: 0.8rem;
+}
+
+.exploreItemImg {
+  transition: transform 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.exploreSlideLink:hover .exploreItemImg {
+  transform: scale(1.02);
 }

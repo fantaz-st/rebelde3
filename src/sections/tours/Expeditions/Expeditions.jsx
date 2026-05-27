@@ -11,7 +11,7 @@ export default function Expeditions() {
 
       <div className={classes.list}>
         {items.map((item, i) => (
-          <ExpeditionItem key={item.key} item={item} index={i} isLast={i === items.length - 1} />
+          <ExpeditionItem key={item.key} item={item} index={i} isLast={i === items.length - 1} enableMobileReveal={true} />
         ))}
       </div>
     </div>

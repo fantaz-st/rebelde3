@@ -61,7 +61,7 @@ const items = [
     kicker: "Full day - 5 islands!",
     thumb: "/images/tours/cave.jpg",
 
-    hero: "/images/tours/blue-cave/main-thumb.jpg",
+    hero: "/images/tours/blue-cave/hero.jpg",
     intro:
       "An unforgettable full-day Adriatic adventure combining dramatic coastal scenery, hidden caves, remote islands, and some of Croatia's clearest waters.",
     mainImg: "/images/tours/blue-cave/large-thumb.jpg",
@@ -71,24 +71,68 @@ const items = [
       "Journey across the open Adriatic to discover the legendary Blue Cave, where sunlight transforms the sea into glowing shades of blue hidden beneath towering cliffs. Beyond the cave, the day unfolds through remote islands, secret swimming spots, charming fishing villages, and untouched bays accessible only by boat. Designed for guests who want to experience the Adriatic beyond the ordinary, this route combines exploration, relaxation, and breathtaking scenery in a single day.",
     gallery: [
       {
-        src: "/images/tours/blue-cave/gallery-1.jpg",
-        caption: "Entering the glowing blue light of the famous sea cave",
+        src: "/images/tours/blue-cave/gallery/rebelde boats five islands tour 01.jpeg",
+        caption: "Approaching the green shores of Biševo island",
       },
       {
-        src: "/images/tours/blue-cave/gallery-2.jpg",
-        caption: "Exploring remote islands across the Adriatic",
+        src: "/images/tours/blue-cave/gallery/rebelde boats five islands tour 02.jpg",
+        caption: "Towering cliffs guarding the entrance to the famous sea cave",
       },
       {
-        src: "/images/tours/blue-cave/gallery-3.jpg",
-        caption: "Swimming in secluded bays with crystal-clear water",
+        src: "/images/tours/blue-cave/gallery/rebelde boats five islands tour 03.jpg",
+        caption: "Inside the Blue Cave — where sunlight turns the sea electric blue",
       },
       {
-        src: "/images/tours/blue-cave/gallery-4.jpg",
-        caption: "Authentic coastal villages frozen in time",
+        src: "/images/tours/blue-cave/gallery/rebelde boats five islands tour 04.jpg",
+        caption: "Gliding through the long stone tunnel of the submarine pen",
       },
       {
-        src: "/images/tours/blue-cave/gallery-5.jpg",
-        caption: "Open-sea cruising through Croatia's island archipelago",
+        src: "/images/tours/blue-cave/gallery/rebelde boats five islands tour 05.jpg",
+        caption: "Squeezing through Pritiščina's dramatic rocky gateway on Vis",
+      },
+      {
+        src: "/images/tours/blue-cave/gallery/rebelde boats five islands tour 06.jpg",
+        caption: "Stiniva cove from above — a hidden beach walled by limestone cliffs",
+      },
+      {
+        src: "/images/tours/blue-cave/gallery/rebelde boats five islands tour 07.jpg",
+        caption: "Light pouring into a quiet cavern on the Adriatic coast",
+      },
+      {
+        src: "/images/tours/blue-cave/gallery/rebelde boats five islands tour 08.jpg",
+        caption: "Anchoring in the turquoise lagoon of Budikovac island",
+      },
+      {
+        src: "/images/tours/blue-cave/gallery/rebelde boats five islands tour 09.jpeg",
+        caption: "Floating weightless in some of the clearest water in the Mediterranean",
+      },
+      {
+        src: "/images/tours/blue-cave/gallery/rebelde boats five islands tour 10.jpg",
+        caption: "Sunlight dancing across glass-clear shallows",
+      },
+      {
+        src: "/images/tours/blue-cave/gallery/rebelde boats five islands tour 11.jpg",
+        caption: "Pulling into Komiža — the old fishing town of Vis",
+      },
+      {
+        src: "/images/tours/blue-cave/gallery/rebelde boats five islands tour 12.jpeg",
+        caption: "Hvar harbor and the Pakleni archipelago seen from above",
+      },
+      {
+        src: "/images/tours/blue-cave/gallery/rebelde boats five islands tour 13.jpg",
+        caption: "Palm fronds against the Dalmatian summer sky",
+      },
+      {
+        src: "/images/tours/blue-cave/gallery/rebelde boats five islands tour 14.jpg",
+        caption: "Wandering the timeworn stone alleys of Vis old town",
+      },
+      {
+        src: "/images/tours/blue-cave/gallery/rebelde boats five islands tour 15.jpg",
+        caption: "Strolling the palm-lined waterfront after a day on the water",
+      },
+      {
+        src: "/images/tours/blue-cave/gallery/rebelde boats five islands tour 16.jpg",
+        caption: 'Sailing into Hvar with the \"Fortica\" Fortress watching from above',
       },
     ],
   },
@@ -98,65 +142,114 @@ const items = [
     label: "Hvar & Pakleni Islands Experience",
 
     kicker: "Most sought after!",
-    thumb: "/images/tours/pakleni.jpg",
+    thumb: "/images/tours/hvar-pakleni/hero.jpg",
 
-    hero: "/images/tours/hvar/main-thumb.jpg",
+    hero: "/images/tours/hvar-pakleni/main-thumb.jpg",
     intro:
       "A timeless journey to Croatia's most iconic island, paired with the hidden coves and crystal lagoons of the Pakleni archipelago.",
-    mainImg: "/images/tours/hvar/large-thumb.jpg",
-    subImg: "/images/tours/hvar/small-thumb.jpg",
-    ctaImg: "/images/tours/hvar/cta-thumb.jpg",
+    mainImg: "/images/tours/hvar-pakleni/large-thumb.jpg",
+    subImg: "/images/tours/hvar-pakleni/small-thumb.jpg",
+    ctaImg: "/images/tours/hvar-pakleni/cta-thumb.jpg",
     ctaText:
       "Explore the vibrant atmosphere of Hvar Town before escaping into the tranquility of the Pakleni Islands, where pine-covered shores, secluded anchorages, and clear turquoise waters create the perfect Adriatic setting. Whether you prefer swimming in quiet bays, discovering beach bars tucked into hidden coves, or simply enjoying the coastline from the deck, this experience blends elegance, relaxation, and island adventure.",
     gallery: [
       {
-        src: "/images/tours/hvar/gallery-1.jpg",
-        caption: "Arriving beneath the historic skyline of Hvar Town",
+        src: "/images/tours/hvar-pakleni/gallery/rebelde boats hvar pakleni tour 01.jpg",
+        caption: "Arriving at Hvar town beneath the watchful Spanish Fortress",
       },
       {
-        src: "/images/tours/hvar/gallery-2.jpg",
-        caption: "Crystal-clear anchorages around the Pakleni Islands",
+        src: "/images/tours/hvar-pakleni/gallery/rebelde boats hvar pakleni tour 02.jpeg",
+        caption: "Hvar's historic waterfront from the deck — a postcard come to life",
       },
       {
-        src: "/images/tours/hvar/gallery-3.jpg",
-        caption: "Relaxing seaside moments away from the crowds",
+        src: "/images/tours/hvar-pakleni/gallery/rebelde boats hvar pakleni tour 09.jpg",
+        caption: "Wandering Hvar's old town square in the warm afternoon light",
       },
       {
-        src: "/images/tours/hvar/gallery-4.jpg",
-        caption: "Sunset cruising along the Adriatic coastline",
+        src: "/images/tours/hvar-pakleni/gallery/rebelde boats hvar pakleni tour 10.jpg",
+        caption: "A waterfront table with Hvar's rooftops as the view",
       },
+      {
+        src: "/images/tours/hvar-pakleni/gallery/rebelde boats hvar pakleni tour 03.jpg",
+        caption: "A drink with a view at Hula Hula — the island's legendary sunset bar",
+      },
+      {
+        src: "/images/tours/hvar-pakleni/gallery/rebelde boats hvar pakleni tour 04.jpeg",
+        caption: "The dramatic limestone arch of Red Rocks rising from turquoise water",
+      },
+      {
+        src: "/images/tours/hvar-pakleni/gallery/rebelde boats hvar pakleni tour 05.jpg",
+        caption: "Sailing into Palmižana — the heart of the Pakleni archipelago",
+      },
+      {
+        src: "/images/tours/hvar-pakleni/gallery/rebelde boats hvar pakleni tour 06.jpg",
+        caption: "Pine-fringed coves and emerald shallows of the Pakleni islands",
+      },
+      {
+        src: "/images/tours/hvar-pakleni/gallery/rebelde boats hvar pakleni tour 07.jpg",
+        caption: "Anchoring among the boats in a sheltered Pakleni bay",
+      },
+      {
+        src: "/images/tours/hvar-pakleni/gallery/rebelde boats hvar pakleni tour 08.jpg",
+        caption: "The long, low-lying shape of St. Klement seen from above",
+      },
+      
     ],
   },
 
   {
-    key: "hvar-golden-horn",
-    label: "Bol, Hvar & Golden Horn Coastal Journey",
+    key: "bol-hvar-pakleni",
+    label: "Bol, Hvar & Pakleni islands Coastal Journey",
     kicker: "Really popular!",
     thumb: "/images/tours/zlatni-rat.jpg",
 
-    hero: "/images/tours/golden-horn/main-thumb.jpg",
+    hero: "/images/tours/bol-hvar-pakleni/main-thumb.jpg",
     intro:
       "A refined island-hopping experience combining the elegance of Hvar with the natural beauty of Croatia's most iconic beach.",
-    mainImg: "/images/tours/golden-horn/large-thumb.jpg",
-    subImg: "/images/tours/golden-horn/small-thumb.jpg",
-    ctaImg: "/images/tours/golden-horn/cta-thumb.jpg",
+    mainImg: "/images/tours/bol-hvar-pakleni/large-thumb.jpg",
+    subImg: "/images/tours/bol-hvar-pakleni/small-thumb.jpeg",
+    ctaImg: "/images/tours/bol-hvar-pakleni/cta-thumb.jpg",
     ctaText:
       "Cruise between the vibrant energy of Hvar and the stunning coastline of Brač, home to the famous Golden Horn beach. Along the way, discover hidden coves, swim in crystal-clear Adriatic waters, and enjoy panoramic coastal scenery shaped by centuries of wind and sea. From lively waterfront promenades to peaceful anchorages beneath dramatic cliffs, this journey captures the perfect balance between exploration, relaxation, and Mediterranean elegance.",
     gallery: [
       {
-        src: "/images/tours/golden-horn/gallery-1.jpg",
+        src: "/images/tours/bol-hvar-pakleni/gallery/rebelde boats bol hvar pakleni tour 01.jpg",
         caption: "The iconic shape of Zlatni Rat stretching into the sea",
       },
       {
-        src: "/images/tours/golden-horn/gallery-2.jpg",
+        src: "/images/tours/bol-hvar-pakleni/gallery/rebelde boats bol hvar pakleni tour 02.jpg",
         caption: "Private swimming stops along Brač's hidden coastline",
       },
       {
-        src: "/images/tours/golden-horn/gallery-3.jpg",
+        src: "/images/tours/bol-hvar-pakleni/gallery/rebelde boats bol hvar pakleni tour 03.jpg",
         caption: "Exploring the lively waterfronts of Hvar Island",
       },
       {
-        src: "/images/tours/golden-horn/gallery-4.jpg",
+        src: "/images/tours/bol-hvar-pakleni/gallery/rebelde boats bol hvar pakleni tour 04.jpg",
+        caption: "Relaxed Adriatic cruising beneath the summer sun",
+      },
+      {
+        src: "/images/tours/bol-hvar-pakleni/gallery/rebelde boats bol hvar pakleni tour 05.jpg",
+        caption: "The iconic shape of Zlatni Rat stretching into the sea",
+      },
+      {
+        src: "/images/tours/bol-hvar-pakleni/gallery/rebelde boats bol hvar pakleni tour 06.jpg",
+        caption: "Private swimming stops along Brač's hidden coastline",
+      },
+      {
+        src: "/images/tours/bol-hvar-pakleni/gallery/rebelde boats bol hvar pakleni tour 07.jpg",
+        caption: "Exploring the lively waterfronts of Hvar Island",
+      },
+      {
+        src: "/images/tours/bol-hvar-pakleni/gallery/rebelde boats bol hvar pakleni tour 08.jpg",
+        caption: "Relaxed Adriatic cruising beneath the summer sun",
+      },
+      {
+        src: "/images/tours/bol-hvar-pakleni/gallery/rebelde boats bol hvar pakleni tour 09.jpg",
+        caption: "Exploring the lively waterfronts of Hvar Island",
+      },
+      {
+        src: "/images/tours/bol-hvar-pakleni/gallery/rebelde boats bol hvar pakleni tour 10.jpg",
         caption: "Relaxed Adriatic cruising beneath the summer sun",
       },
     ],

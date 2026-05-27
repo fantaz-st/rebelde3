@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -9,6 +9,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import Button from "@/components/Button/Button";
 import useParallaxImage from "@/hooks/useParallaxImage";
 import classes from "./Expeditions.module.css";
@@ -22,6 +24,7 @@ export default function ExpeditionItem({ item, index, isLast }) {
   const thumbTxtRef = useRef(null);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const galleryRef = useRef(null);
 
   // Parallax on all secondary images
   useParallaxImage(rootRef, {
@@ -36,8 +39,7 @@ export default function ExpeditionItem({ item, index, isLast }) {
   });
 
   // Sticky thumb reveal: clip-path inset opens up + title scales up as the
-  // hero image scrolls into view. Same pattern as FullScreenImage but tied
-  // to the thumb's own viewport entry.
+  // hero image scrolls into view.
   useGSAP(
     () => {
       const root = rootRef.current;
@@ -96,6 +98,37 @@ export default function ExpeditionItem({ item, index, isLast }) {
     { scope: rootRef },
   );
 
+  // Fancybox: bind a lightbox scoped to this tour's gallery only.
+  // Using a per-item group name (`gallery-${item.key}`) keeps galleries
+  // isolated so clicking a Hvar image doesn't include Blue Cave images.
+  useEffect(() => {
+    const container = galleryRef.current;
+    if (!container) return;
+
+    const groupName = `gallery-${item.key}`;
+
+    Fancybox.bind(container, `[data-fancybox="${groupName}"]`, {
+      Thumbs: { type: "modern" },
+      Toolbar: {
+        display: {
+          left: ["infobar"],
+          middle: [],
+          right: ["slideshow", "thumbs", "close"],
+        },
+      },
+      Carousel: {
+        infinite: true,
+      },
+    });
+
+    return () => {
+      Fancybox.unbind(container);
+      Fancybox.close();
+    };
+  }, [item.key]);
+
+  const galleryGroup = `gallery-${item.key}`;
+
   return (
     <section className={classes.item} ref={rootRef}>
       <div id={item.key} className={classes.sc}>
@@ -104,7 +137,7 @@ export default function ExpeditionItem({ item, index, isLast }) {
           <div className={classes.thumb} ref={thumbRef} data-parallax-block>
             <div className={classes.thumbInner} ref={thumbInnerRef} data-parallax-inner>
               <Image
-                src={item.thumb}
+                src={item.hero}
                 alt=""
                 fill
                 sizes="100vw"
@@ -205,7 +238,8 @@ export default function ExpeditionItem({ item, index, isLast }) {
                 </button>
               </div>
 
-              <div className={classes.exploreMain}>
+              {/* Fancybox container — scoped to this tour's gallery */}
+              <div className={classes.exploreMain} ref={galleryRef}>
                 <Swiper
                   modules={[Navigation]}
                   slidesPerView="auto"
@@ -239,10 +273,24 @@ export default function ExpeditionItem({ item, index, isLast }) {
                 >
                   {item.gallery.map((g, i) => (
                     <SwiperSlide key={i} className={classes.exploreSlide}>
-                      <div className={classes.exploreItemImg}>
-                        <Image src={g.src} alt={g.caption} fill sizes="(max-width: 767px) 80vw, 30vw" className={classes.img} />
-                      </div>
-                      <div className={classes.exploreItemTxt}>{g.caption}</div>
+                      <a
+                        href={g.src}
+                        data-fancybox={galleryGroup}
+                        data-caption={g.caption}
+                        className={classes.exploreSlideLink}
+                        aria-label={`Open image: ${g.caption}`}
+                      >
+                        <div className={classes.exploreItemImg}>
+                          <Image
+                            src={g.src}
+                            alt={g.caption}
+                            fill
+                            sizes="(max-width: 767px) 80vw, 30vw"
+                            className={classes.img}
+                          />
+                        </div>
+                        <div className={classes.exploreItemTxt}>{g.caption}</div>
+                      </a>
                     </SwiperSlide>
                   ))}
                 </Swiper>
