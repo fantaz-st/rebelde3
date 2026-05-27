@@ -1,6 +1,7 @@
-import Expeditions from "@/sections/tours/Expeditions/Expeditions"
-import Tours from "@/sections/tours/Tours/Tours"
-import ToursHero from "@/sections/tours/ToursHero/ToursHero"
+import Expeditions from "@/sections/tours/Expeditions/Expeditions";
+import Tours from "@/sections/tours/Tours/Tours";
+import ToursHero from "@/sections/tours/ToursHero/ToursHero";
+import Facts from "@/sections/tours/Facts/Facts";
 
 const BespokeTours = () => {
   return (
@@ -8,6 +9,7 @@ const BespokeTours = () => {
       <ToursHero/>
       <Tours/>
       <Expeditions/>
+      <Facts/>
     </div>
   )
 }
