@@ -10,10 +10,10 @@ const items = [
 
     // ----- detail page -----
     label: "Blue Lagoon & Three Islands Escape",
-    hero: "/images/tours/lagoon/large-thumb.jpeg",
+    hero: "/images/tours/lagoon/krknjasi-1.jpeg",
     intro:
       "A relaxed Adriatic journey through crystal-clear lagoons, secluded bays, and charming island villages just beyond the Split coastline.",
-    mainImg: "/images/tours/lagoon/large-thumb.jpeg",
+    mainImg: "/images/tours/lagoon/large-thumb.jpg",
     subImg: "/images/tours/lagoon/gallery/rebelde boats three islands tour 07.jpg",
     ctaImg: "/images/tours/lagoon/cta-thumb.jpg",
     ctaText:
