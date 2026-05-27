@@ -17,7 +17,7 @@ import classes from "./Expeditions.module.css";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-export default function ExpeditionItem({ item, index, isLast }) {
+export default function ExpeditionItem({ item, index, isLast, enableMobileReveal = false }) {
   const rootRef = useRef(null);
   const thumbRef = useRef(null);
   const thumbInnerRef = useRef(null);
@@ -55,9 +55,10 @@ export default function ExpeditionItem({ item, index, isLast }) {
       const fs = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
       const r12 = (12 / 10) * fs;
 
-      const mm = gsap.matchMedia();
-
-      mm.add("(min-width: 768px)", () => {
+      // Build a reveal timeline with custom inset values.
+      // Desktop uses a tight horizontal frame (37.35% inset).
+      // Mobile uses a more modest inset since the viewport is narrower.
+      const buildReveal = (horizontalInset, verticalInset, titleScaleFrom) => {
         gsap.set(inner, { willChange: "clip-path" });
 
         const tl = gsap
@@ -74,11 +75,11 @@ export default function ExpeditionItem({ item, index, isLast }) {
           })
           .fromTo(
             inner,
-            { clipPath: `inset(14% 37.35% 14% 37.35% round ${r12}px)` },
+            { clipPath: `inset(${verticalInset}% ${horizontalInset}% ${verticalInset}% ${horizontalInset}% round ${r12}px)` },
             { clipPath: "inset(0% 0% 0% 0% round 0px)" },
             0,
           )
-          .fromTo(txt, { scale: 0.6, transformOrigin: "top" }, { scale: 1, transformOrigin: "top" }, 0.1);
+          .fromTo(txt, { scale: titleScaleFrom, transformOrigin: "top" }, { scale: 1, transformOrigin: "top" }, 0.1);
 
         requestAnimationFrame(() => ScrollTrigger.refresh());
 
@@ -86,21 +87,29 @@ export default function ExpeditionItem({ item, index, isLast }) {
           tl.scrollTrigger?.kill();
           tl.kill();
         };
-      });
+      };
 
-      mm.add("(max-width: 767px)", () => {
-        gsap.set(inner, { clearProps: "clipPath" });
-        gsap.set(txt, { clearProps: "scale,transformOrigin" });
-      });
+      const mm = gsap.matchMedia();
+
+      mm.add("(min-width: 768px)", () => buildReveal(37.35, 14, 0.6));
+
+      if (enableMobileReveal) {
+        // Toned-down inset for mobile: 12% horizontal instead of 37.35% so
+        // the framed image is still legible on small screens.
+        mm.add("(max-width: 767px)", () => buildReveal(12, 10, 0.75));
+      } else {
+        mm.add("(max-width: 767px)", () => {
+          gsap.set(inner, { clearProps: "clipPath" });
+          gsap.set(txt, { clearProps: "scale,transformOrigin" });
+        });
+      }
 
       return () => mm.revert();
     },
-    { scope: rootRef },
+    { scope: rootRef, dependencies: [enableMobileReveal] },
   );
 
   // Fancybox: bind a lightbox scoped to this tour's gallery only.
-  // Using a per-item group name (`gallery-${item.key}`) keeps galleries
-  // isolated so clicking a Hvar image doesn't include Blue Cave images.
   useEffect(() => {
     const container = galleryRef.current;
     if (!container) return;
@@ -238,7 +247,6 @@ export default function ExpeditionItem({ item, index, isLast }) {
                 </button>
               </div>
 
-              {/* Fancybox container — scoped to this tour's gallery */}
               <div className={classes.exploreMain} ref={galleryRef}>
                 <Swiper
                   modules={[Navigation]}

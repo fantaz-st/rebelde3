@@ -149,11 +149,11 @@
 /* <= 767px — full stack */
 @media (max-width: 767px) {
   .wrap {
-    padding-block: 6rem 6rem;
+    padding-block: 12rem 2rem;
   }
 
   .content {
-    padding: 0 2rem;
+    padding: 0rem;
     margin-bottom: 3rem;
   }
 
@@ -166,19 +166,19 @@
   }
 
   .list {
-    gap: 2rem;
+    display: none;
   }
 
   .mediaSmall {
     grid-column: 1 / -1;
-    padding: 0 2rem;
+    /* padding: 0 2rem; */
     margin-bottom: 2rem;
     aspect-ratio: 16 / 10;
   }
 
   .mediaLarge {
     grid-column: 1 / -1;
-    padding: 0 2rem;
+    /* padding: 0 2rem; */
     aspect-ratio: 3 / 4;
   }
 }
