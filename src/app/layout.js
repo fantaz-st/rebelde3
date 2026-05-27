@@ -7,6 +7,7 @@ import "./styles/swiper.css";
 import SmoothScroll from "./SmoothScroll";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton/WhatsAppButton";
 
 export const metadata = {
   title: "Rebelde Boats | Split Island-Hopping Day Trips & Exclusive Charters",
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </SmoothScroll>
+          <WhatsAppButton/>
       </body>
     </html>
   );

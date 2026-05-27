@@ -1,0 +1,59 @@
+.container {
+  text-decoration: none;
+  padding: 10px 12px;
+  color: #fff;
+  background-color: #25d366;
+  border-radius: 25px 30px 5px 25px;
+  z-index: 100;
+  animation: whatsapp-animation 0.5s ease-in-out;
+  box-shadow: 1px 2px 5px 2px rgba(30, 30, 30, 0.3);
+  transition: all 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.container:hover {
+  background-color: #128c7e;
+  color: #fff;
+}
+
+.container .icon {
+  height: 40px;
+  width: auto;
+  /* height: auto; */
+}
+.container p {
+  font-size: 1.7rem;
+}
+
+@keyframes whatsapp-animation {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .container p {
+    display: none;
+  }
+
+  .container {
+    border-radius: 20px 20px 5px 20px;
+    bottom: 2rem;
+    right: 1rem;
+  }
+}
