@@ -1,0 +1,334 @@
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  color: #191919;
+}
+
+/* Honeypot — visually hidden but still in DOM for bots */
+.honey {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* Two-column grid for top fields */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3rem;
+  row-gap: 0;
+  margin-bottom: 2rem;
+}
+
+/* ===== Field wrapper ===== */
+.field {
+  position: relative;
+  padding-top: 2.4rem;
+  padding-bottom: 1rem;
+  min-width: 0;
+}
+
+.fieldFull {
+  grid-column: 1 / -1;
+}
+
+.fieldTextarea {
+  margin-bottom: 2rem;
+}
+
+/* ===== Input + textarea base ===== */
+.input {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  color: #191919;
+  padding: 0.8rem 0;
+  outline: none;
+  font-family: inherit;
+}
+
+.input::placeholder {
+  color: rgba(25, 25, 25, 0.6);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 12rem;
+  white-space: pre-wrap;
+}
+
+.textarea::placeholder {
+  white-space: pre-line;
+  line-height: 1.5;
+}
+
+/* ===== Animated underline ===== */
+.line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.6rem;
+  height: 1px;
+  background: rgba(25, 25, 25, 0.2);
+  overflow: hidden;
+  display: block;
+}
+
+.lineInner {
+  position: absolute;
+  inset: 0;
+  background: #191919;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  display: block;
+}
+
+.field:focus-within .lineInner,
+.field:hover .lineInner {
+  transform: scaleX(1);
+}
+
+/* ===== Error ===== */
+.error {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 1.3rem;
+  color: #c93838;
+}
+
+.formError {
+  margin: 1rem 0;
+  padding: 1.2rem 1.6rem;
+  background: #fbeaea;
+  border-radius: 0.6rem;
+  font-size: 1.4rem;
+  color: #c93838;
+}
+
+/* ===== Custom dropdown ===== */
+.dropdownToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+  gap: 1.2rem;
+}
+
+.dropdownPlaceholder {
+  color: rgba(25, 25, 25, 0.6);
+}
+
+.dropdownValue {
+  color: #191919;
+}
+
+.dropdownIcon {
+  width: 2rem;
+  height: 2rem;
+  color: rgba(25, 25, 25, 0.6);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.dropdownIconOpen {
+  transform: rotate(180deg);
+}
+
+.dropdownList {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 0.6rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.18);
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0;
+  z-index: 10;
+  max-height: 28rem;
+  overflow-y: auto;
+}
+
+.dropdownOption {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  padding: 1.2rem 1.6rem;
+  font: inherit;
+  font-size: 1.6rem;
+  color: #191919;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdownOption:hover,
+.dropdownOption:focus-visible {
+  background-color: rgba(25, 25, 25, 0.06);
+  outline: none;
+}
+
+.dropdownOptionActive {
+  background-color: rgba(0, 51, 87, 0.08);
+  font-weight: 500;
+}
+
+/* ===== Referral checkboxes ===== */
+.referralBlock {
+  border-top: 1px solid rgba(25, 25, 25, 0.12);
+  padding-top: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.referralLabel {
+  margin: 0 0 1.8rem;
+  font-size: 1.5rem;
+  color: var(--brand-persian-blue);
+  font-weight: 500;
+}
+
+.referralGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem 3rem;
+}
+
+.referralOpt {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #191919;
+}
+
+.referralCheckbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.referralBox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 1px solid rgba(25, 25, 25, 0.4);
+  border-radius: 0.3rem;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.referralCheck {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.referralBoxChecked {
+  background-color: var(--brand-persian-blue);
+  border-color: var(--brand-persian-blue);
+}
+
+.referralBoxChecked .referralCheck {
+  opacity: 1;
+}
+
+.referralCheckbox:focus-visible + .referralBox {
+  outline: 2px solid var(--brand-persian-blue);
+  outline-offset: 2px;
+}
+
+.referralText {
+  user-select: none;
+}
+
+/* ===== Submit ===== */
+.submitBtn {
+  width: 100%;
+  padding: 2rem;
+  background-color: var(--brand-persian-blue);
+  color: #fff;
+  border: 0;
+  border-radius: 0.6rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background-color: rgba(0, 51, 87, 0.85);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.footnote {
+  margin: 2rem 0 0;
+  text-align: center;
+  font-size: 1.3rem;
+  color: rgba(25, 25, 25, 0.6);
+}
+
+.footnote a {
+  color: var(--brand-persian-blue);
+  text-decoration: underline;
+}
+
+/* ===== Success state ===== */
+.successBox {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.successTitle {
+  margin: 0 0 1.4rem;
+  color: var(--brand-persian-blue);
+  font-size: 3rem;
+}
+
+.successText {
+  margin: 0;
+  font-size: 1.7rem;
+  color: rgba(25, 25, 25, 0.75);
+  line-height: 1.5;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 1rem;
+  }
+
+  .referralGrid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .submitBtn {
+    padding: 1.6rem;
+  }
+}

@@ -2,13 +2,13 @@ const facts = [
   {
     key: "private-charter",
     title: "Truly Private, Truly Yours",
-    desc: "Every Rebelde charter is fully private — no shared groups, no fixed routes. The boat, the captain, and the day are yours alone, shaped around your pace, your group, and what you want to discover.",
+    desc: "Every Rebelde tour is fully private — no shared groups, no fixed routes. The boat, the captain, and the day are yours alone, shaped around your pace, your group, and what you want to discover.",
     img: "/images/facts/private.jpg",
   },
   {
     key: "the-boat",
     title: "Built for Comfort on the Open Sea",
-    desc: "Buenaventura is a 36-foot custom-built speedboat with twin engines, a shaded cabin, sun pads, an onboard fridge, and a freshwater shower — designed to keep you comfortable from sunrise until long after sunset.",
+    desc: "Buenaventura is a 37-foot custom-built speedboat with a 500-horsepower engine, a shaded cabin, an oversized sundeck, an onboard fridge, a restroom and a freshwater shower — designed to keep you comfortable from sunrise until long after sunset.",
     img: "/images/facts/boat.jpg",
   },
   {
