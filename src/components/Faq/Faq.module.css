@@ -1,0 +1,237 @@
+.wrap {
+  position: relative;
+  width: 100%;
+  background-color: var(--bg-brown-10);
+  padding: 18rem 0 12rem;
+  min-height: 100vh;
+}
+
+/* ===== Header ===== */
+.head {
+  margin-bottom: 8rem;
+}
+
+.title {
+  margin: 0 0 2rem;
+  color: var(--brand-persian-blue);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 52ch;
+  color: var(--brand-persian-blue);
+  opacity: 0.7;
+  line-height: 1.5;
+  font-size: 1.8rem;
+}
+
+/* ===== Grid: TOC left + content right ===== */
+.grid {
+  width: 100%;
+  align-items: start;
+}
+
+/* LEFT: TOC */
+.toc {
+  grid-column: 1 / 6;
+  min-width: 0;
+}
+
+.tocInner {
+  position: relative;
+  display: block;
+  padding: 2rem 0;
+  /* Reserve space on the left for the pin column */
+  padding-left: 3rem;
+}
+
+/* Pin indicator — absolutely overlays the link list so its track is
+   always exactly the same height as the links (no fragile height math). */
+.tocActive {
+  position: absolute;
+  left: 0;
+  top: 2rem;
+  bottom: 2rem;
+  width: 1.8rem;
+  pointer-events: none;
+}
+
+.tocActiveInner {
+  display: grid;
+  grid-template-columns: auto;
+  height: 100%;
+  /* grid-template-rows is set inline and animates */
+  transition: grid-template-rows 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.tocActiveEmpty {
+  min-height: 0;
+}
+
+.tocActiveMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.tocActiveIc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  color: var(--brand-persian-blue);
+}
+
+.tocActiveIc svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* The links */
+.tocList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.tocItem {
+  position: relative;
+  display: block;
+  opacity: 0.3;
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--brand-persian-blue);
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.8rem;
+  transition: opacity 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.tocItem:hover {
+  opacity: 0.6;
+}
+
+.tocItemActive {
+  opacity: 1;
+}
+
+/* ===== Text-flip animation on TOC links ===== */
+.flip {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.flipTop,
+.flipBottom {
+  display: block;
+  height: 1em;
+  white-space: nowrap;
+  transition: transform 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.flipBottom {
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+}
+
+.tocItem:hover .flipTop,
+.tocItem:hover .flipBottom {
+  transform: translateY(-100%);
+}
+
+/* RIGHT: content */
+.content {
+  grid-column: 7 / -1;
+  min-width: 0;
+}
+
+.section {
+  scroll-margin-top: 12rem;
+  padding-bottom: 8rem;
+}
+
+.section:last-child {
+  padding-bottom: 0;
+}
+
+.sectionTitle {
+  margin: 0 0 3.2rem;
+  color: var(--brand-persian-blue);
+  font-size: 5.6rem;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.qaList {
+  display: flex;
+  flex-direction: column;
+  gap: 3.4rem;
+}
+
+.qa {
+  max-width: 60ch;
+}
+
+.question {
+  margin: 0 0 1rem;
+  color: var(--brand-persian-blue);
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.answer {
+  margin: 0;
+  color: var(--brand-persian-blue);
+  opacity: 0.8;
+  line-height: 1.55;
+  font-size: 1.6rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 991px) {
+  .sectionTitle {
+    font-size: 4rem;
+  }
+
+  /* Hide the sticky TOC below the original's breakpoint */
+  .toc {
+    display: none;
+  }
+
+  .content {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrap {
+    padding: 12rem 0 8rem;
+  }
+
+  .head {
+    margin-bottom: 5rem;
+  }
+
+  .subtitle {
+    font-size: 1.6rem;
+  }
+
+  .sectionTitle {
+    font-size: 3.2rem;
+    margin-bottom: 2.8rem;
+  }
+
+  .question {
+    font-size: 2rem;
+  }
+}

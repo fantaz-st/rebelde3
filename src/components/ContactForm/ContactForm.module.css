@@ -332,3 +332,114 @@
     padding: 1.6rem;
   }
 }
+
+
+
+/* === Add these rules to your existing ContactForm.module.css === */
+
+/* Phone field wrapper — the library renders its own input, so we override its styles */
+.fieldPhone :global(.react-international-phone-input-container) {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: transparent;
+}
+
+/* The country selector button (flag + chevron) */
+.fieldPhone :global(.react-international-phone-country-selector-button) {
+  border: 0;
+  background: transparent;
+  padding: 0.8rem 0.6rem 0.8rem 0;
+  margin: 0;
+  height: auto;
+  border-radius: 0;
+}
+
+.fieldPhone :global(.react-international-phone-country-selector-button:hover) {
+  background: transparent;
+}
+
+.fieldPhone :global(.react-international-phone-country-selector-button__button-content) {
+  gap: 0.4rem;
+}
+
+.fieldPhone :global(.react-international-phone-country-selector-button__flag-emoji) {
+  margin: 0;
+  width: 2rem;
+  height: 1.5rem;
+}
+
+.fieldPhone :global(.react-international-phone-country-selector-button__dropdown-arrow) {
+  margin-left: 0.2rem;
+  color: rgba(25, 25, 25, 0.6);
+  border-top-color: currentColor;
+}
+
+/* The number input */
+.fieldPhone :global(.react-international-phone-input) {
+  flex: 1;
+  border: 0;
+  background: transparent;
+  padding: 0.8rem 0 0.8rem 0.8rem;
+  font: inherit;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  color: #191919;
+  outline: none;
+  height: auto;
+  font-family: inherit;
+  border-radius: 0;
+}
+
+.fieldPhone :global(.react-international-phone-input::placeholder) {
+  color: rgba(25, 25, 25, 0.6);
+}
+
+/* Country dropdown panel */
+.fieldPhone :global(.react-international-phone-country-selector-dropdown) {
+  background: #fff;
+  border-radius: 0.6rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.18);
+  border: 0;
+  padding: 0.4rem 0;
+  max-height: 28rem;
+  font: inherit;
+  font-size: 1.5rem;
+  z-index: 20;
+  margin-top: 0.4rem;
+}
+
+.fieldPhone :global(.react-international-phone-country-selector-dropdown__list-item) {
+  padding: 1rem 1.4rem;
+  font: inherit;
+  font-size: 1.5rem;
+  color: #191919;
+}
+
+.fieldPhone :global(.react-international-phone-country-selector-dropdown__list-item:hover) {
+  background-color: rgba(25, 25, 25, 0.06);
+}
+
+.fieldPhone :global(.react-international-phone-country-selector-dropdown__list-item--selected) {
+  background-color: rgba(0, 51, 87, 0.08);
+}
+
+.fieldPhone :global(.react-international-phone-country-selector-dropdown__list-item-country-name) {
+  font-size: 1.5rem;
+}
+
+.fieldPhone :global(.react-international-phone-country-selector-dropdown__list-item-dial-code) {
+  font-size: 1.4rem;
+  color: rgba(25, 25, 25, 0.6);
+}
+
+/* Search input inside the dropdown (if enabled) */
+.fieldPhone :global(.react-international-phone-country-selector-dropdown__search-input) {
+  font: inherit;
+  font-size: 1.5rem;
+  padding: 0.8rem 1.2rem;
+}
+.fieldPhone :global(.react-international-phone-country-selector-dropdown) {
+  overscroll-behavior: contain;
+}
+ 

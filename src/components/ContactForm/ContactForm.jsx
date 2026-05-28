@@ -2,6 +2,8 @@
 
 import { useActionState, useEffect, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
+import { PhoneInput } from "react-international-phone";
+import "react-international-phone/style.css";
 import { sendInquiry } from "@/app/actions/sendInquiry";
 import { interestedInOptions, referralSources } from "@/settings/contactForm";
 import classes from "./ContactForm.module.css";
@@ -22,24 +24,36 @@ export default function ContactForm() {
   const formRef = useRef(null);
   const [sourceUrl, setSourceUrl] = useState("");
 
-  // Capture current URL after mount (avoids hydration mismatch)
   useEffect(() => {
     setSourceUrl(window.location.href);
   }, []);
 
-  // Reset form on success
+  // Phone state (E.164 format)
+  const [phone, setPhone] = useState("");
+
+  // Dropdown
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [interestedIn, setInterestedIn] = useState("");
+  const dropdownRef = useRef(null);
+
+  // Multi-checkbox
+  const [referrals, setReferrals] = useState([]);
+
+  const toggleReferral = (value) => {
+    setReferrals((curr) =>
+      curr.includes(value) ? curr.filter((v) => v !== value) : [...curr, value]
+    );
+  };
+
+  // Reset on success
   useEffect(() => {
     if (state.status === "success" && formRef.current) {
       formRef.current.reset();
       setInterestedIn("");
       setReferrals([]);
+      setPhone("");
     }
   }, [state.status]);
-
-  // Custom dropdown state
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [interestedIn, setInterestedIn] = useState("");
-  const dropdownRef = useRef(null);
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -53,15 +67,6 @@ export default function ContactForm() {
     return () => document.removeEventListener("mousedown", onDocClick);
   }, [dropdownOpen]);
 
-  // Multi-checkbox state for "How did you hear"
-  const [referrals, setReferrals] = useState([]);
-  const toggleReferral = (value) => {
-    setReferrals((curr) =>
-      curr.includes(value) ? curr.filter((v) => v !== value) : [...curr, value]
-    );
-  };
-
-  // Success view
   if (state.status === "success") {
     return (
       <div className={classes.successBox} role="status">
@@ -76,7 +81,7 @@ export default function ContactForm() {
 
   return (
     <form ref={formRef} action={formAction} className={classes.form} noValidate>
-      {/* Honeypot — hidden field bots fill in */}
+      {/* Honeypot */}
       <input
         type="text"
         name="honey"
@@ -86,7 +91,6 @@ export default function ContactForm() {
         aria-hidden="true"
       />
 
-      {/* Source URL — for tracking which page the inquiry came from */}
       <input type="hidden" name="sourceUrl" value={sourceUrl} readOnly />
 
       <div className={classes.grid}>
@@ -128,17 +132,21 @@ export default function ContactForm() {
           {state.errors?.email && <span className={classes.error}>{state.errors.email}</span>}
         </div>
 
-        {/* Phone */}
-        <div className={classes.field}>
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
+        {/* Phone — international input with flag dropdown */}
+        <div className={`${classes.field} ${classes.fieldPhone}`} data-lenis-prevent>
+          <PhoneInput
+            defaultCountry="hr"
+            value={phone}
+            onChange={(value) => setPhone(value)}
             placeholder="Phone number"
-            autoComplete="tel"
-            maxLength={256}
-            className={classes.input}
+            inputProps={{
+              autoComplete: "tel",
+              maxLength: 30,
+            }}
+            className={classes.phoneInput}
           />
+          {/* Hidden field so the value submits with the form */}
+          <input type="hidden" name="phone" value={phone} />
           <span className={classes.line} aria-hidden="true">
             <span className={classes.lineInner} />
           </span>
@@ -148,9 +156,7 @@ export default function ContactForm() {
         <div className={classes.field} ref={dropdownRef}>
           <button
             type="button"
-            className={`${classes.input} ${classes.dropdownToggle} ${
-              interestedIn ? classes.dropdownFilled : ""
-            }`}
+            className={`${classes.input} ${classes.dropdownToggle}`}
             onClick={() => setDropdownOpen((v) => !v)}
             aria-haspopup="listbox"
             aria-expanded={dropdownOpen}
@@ -170,7 +176,6 @@ export default function ContactForm() {
               />
             </svg>
           </button>
-          {/* Hidden input so the value submits with the form */}
           <input type="hidden" name="interestedIn" value={interestedIn} />
           <span className={classes.line} aria-hidden="true">
             <span className={classes.lineInner} />
@@ -201,12 +206,14 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* Message textarea */}
+      {/* Message */}
       <div className={`${classes.field} ${classes.fieldFull} ${classes.fieldTextarea}`}>
         <textarea
           name="message"
           id="message"
-          placeholder={"Your message\nWhen you prefer to travel\nNumber of guests\nRegions you're curious about\nAny specific interests or themes"}
+          placeholder={
+            "Your message\nWhen you prefer to travel\nNumber of guests\nRegions you're curious about\nAny specific interests or themes"
+          }
           maxLength={5000}
           rows={6}
           required
@@ -219,7 +226,7 @@ export default function ContactForm() {
         {state.errors?.message && <span className={classes.error}>{state.errors.message}</span>}
       </div>
 
-      {/* How did you hear */}
+      {/* Referral */}
       <div className={classes.referralBlock}>
         <p className={classes.referralLabel}>How did you hear about us?</p>
         <div className={classes.referralGrid}>
@@ -253,7 +260,6 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* Form-level error */}
       {state.status === "error" && state.message && (
         <p className={classes.formError} role="alert">
           {state.message}
