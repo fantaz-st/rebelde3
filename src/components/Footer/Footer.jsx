@@ -119,11 +119,11 @@ export default function Footer() {
             </div>
             <div className={`${classes.column} ${classes.center}`}>
               <div className={classes.links}>
-                <Link className={classes.botLink} href="/our-boat">
-                  Our Boat
+                <Link className={classes.botLink} href="/the-boat">
+                  The Boat
                 </Link>
-                <Link className={classes.botLink} href="/our-tours">
-                  Our Tours
+                <Link className={classes.botLink} href="/bespoke-tours">
+                  Bespoke Tours
                 </Link>
                 <Link className={classes.botLink} href="/faq">
                   FAQ-s

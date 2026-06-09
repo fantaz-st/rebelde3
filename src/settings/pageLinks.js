@@ -1,6 +1,6 @@
 const pageLinks = [
   { href: "/", label: "Home" },
-  { href: "/our-boat", label: "Our Boat" },
+  { href: "/the-boat", label: "The Boat" },
   { href: "/bespoke-tours", label: "Bespoke Tours" },
   { href: "/faq", label: "FAQ-s" },
   { href: "/contact", label: "Contact" },
