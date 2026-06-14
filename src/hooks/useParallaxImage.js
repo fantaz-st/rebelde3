@@ -3,10 +3,15 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useId } from "react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function useParallaxImage(scopeRef, opts = {}) {
+  // useId gives a stable, unique prefix per component instance —
+  // prevents multiple instances from killing each other's ScrollTriggers
+  const uid = useId();
+
   useGSAP(
     () => {
       const scope = scopeRef?.current;
@@ -14,52 +19,57 @@ export default function useParallaxImage(scopeRef, opts = {}) {
 
       const scroller = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot") || window;
 
-      const { blockSelector = "[data-parallax-block]", innerSelector = "[data-parallax-inner]", fromScale = 1.15, fromYPercent = -20, toScale = 1, toYPercent = 12, start = "top bottom", end = "bottom top" } = opts;
-
-      const killById = (id) => {
-        const t = ScrollTrigger.getById(id);
-        if (t) t.kill(true);
-      };
+      const {
+        blockSelector = "[data-parallax-block]",
+        innerSelector = "[data-parallax-inner]",
+        fromScale     = 1.15,
+        fromYPercent  = -20,
+        toScale       = 1,
+        toYPercent    = 12,
+        start         = "top bottom",
+        end           = "bottom top",
+      } = opts;
 
       const blocks = gsap.utils.toArray(scope.querySelectorAll(blockSelector));
 
-      blocks.forEach((block, index) => {
+      const triggers = blocks.map((block, index) => {
         const inner = block.querySelector(innerSelector);
-        const img = inner?.querySelector("img");
-        if (!inner || !img) return;
+        const img   = inner?.querySelector("img");
+        if (!inner || !img) return null;
 
-        const id = `team-parallax-${index}`;
-        killById(id);
+        const id = `parallax-${uid}-${index}`;
 
         gsap.set(inner, { overflow: "hidden" });
-        gsap.set(img, { willChange: "transform" });
 
-        gsap.fromTo(
+        return gsap.fromTo(
           img,
           { scale: fromScale, yPercent: fromYPercent, transformOrigin: "center" },
           {
-            scale: toScale,
+            scale:    toScale,
             yPercent: toYPercent,
-            ease: "none",
+            ease:     "none",
             scrollTrigger: {
               id,
               scroller,
-              trigger: block,
+              trigger:             block,
               start,
               end,
-              scrub: true,
+              scrub:               true,
               invalidateOnRefresh: true,
             },
-          }
+          },
         );
-      });
+      }).filter(Boolean);
 
       requestAnimationFrame(() => ScrollTrigger.refresh());
 
       return () => {
-        blocks.forEach((_, index) => killById(`team-parallax-${index}`));
+        triggers.forEach((t) => {
+          t.scrollTrigger?.kill();
+          t.kill();
+        });
       };
     },
-    { scope: scopeRef }
+    { scope: scopeRef },
   );
 }

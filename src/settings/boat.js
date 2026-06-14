@@ -1,6 +1,6 @@
 export const boatHero = {
   title: "The Boat",
-  hero: "/images/boat/hero.jpg",
+  hero: "/images/boat/felix 37 drone shot 1.jpg",
   desc: "Meet Buenaventura — our Felix 37, custom-built for the Adriatic. Fast enough to reach the outer islands in comfort, spacious enough to make the journey the best part of the day.",
   sub: "From the shaded helm to the extra-large sundeck, every detail is built around one idea: that a day on the water should feel effortless from the first dock line to the last sunset.",
 };

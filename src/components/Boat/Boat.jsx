@@ -14,12 +14,15 @@ import SectionNav from "@/components/SectionNav/SectionNav";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Boat() {
-  const wrapRef        = useRef(null);
-  const heroRef        = useRef(null);
+  const wrapRef         = useRef(null);
+  const heroRef         = useRef(null);
+  const heroBgRef       = useRef(null);
+  const heroTextRef     = useRef(null);
   const sectionsWrapRef = useRef(null);
 
   const sections = boatSections.map((s) => ({ id: s.key, label: s.label }));
 
+  // Hero image parallax
   useParallaxImage(heroRef, {
     blockSelector: "[data-parallax-block]",
     innerSelector: "[data-parallax-inner]",
@@ -31,12 +34,47 @@ export default function Boat() {
     end:           "bottom top",
   });
 
+  // Hero bg: blue → white, text: white → blue, driven by scroll
+  useGSAP(
+    () => {
+      const scroller    = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot") || window;
+      const scrollerOpt = scroller === window ? undefined : scroller;
+
+      const bg   = heroBgRef.current;
+      const text = heroTextRef.current;
+      const hero = heroRef.current;
+      if (!bg || !text || !hero) return;
+
+      gsap.timeline({
+        defaults: { ease: "none" },
+        scrollTrigger: {
+          trigger:             hero,
+          scroller:            scrollerOpt,
+          start:               "top top",
+          end:                 "bottom top",
+          scrub:               true,
+          invalidateOnRefresh: true,
+        },
+      })
+        .fromTo(bg,   { backgroundColor: "#003357" }, { backgroundColor: "#ffffff" }, 0)
+        .fromTo(text, { color: "#ffffff" },            { color: "#003357" },           0);
+    },
+    { scope: wrapRef },
+  );
+
   return (
     <div className={classes.wrap} ref={wrapRef}>
 
       {/* ── HERO ── */}
-      <section className={classes.hero} ref={heroRef} aria-label="The Boat — Felix 37 Buenaventura">
-        <div className={`container grid ${classes.heroGrid}`}>
+      <section
+        className={classes.hero}
+        ref={heroRef}
+        aria-label="The Boat — Felix 37 Buenaventura"
+      >
+        {/* Scroll-animated background panel */}
+        <div className={classes.heroBg} ref={heroBgRef} aria-hidden="true" />
+
+        <div className={`container grid ${classes.heroGrid}`} ref={heroTextRef}>
           <div className={classes.heroThumb} data-parallax-block>
             <div className={classes.heroThumbInner} data-parallax-inner>
               <Image
@@ -63,8 +101,6 @@ export default function Boat() {
 
       {/* ── NAV + SECTIONS ── */}
       <div className={`container grid ${classes.body}`}>
-
-        {/* SectionNav in left column — pins itself to sectionsWrapRef */}
         <SectionNav
           sections={sections}
           containerRef={sectionsWrapRef}
@@ -72,7 +108,6 @@ export default function Boat() {
           variant="rail"
         />
 
-        {/* Sections (right column) */}
         <div className={classes.sections} ref={sectionsWrapRef}>
           {boatSections.map((section, i) => (
             <BoatSection
