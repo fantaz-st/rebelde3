@@ -19,7 +19,6 @@
 
 .title {
   margin: 0;
-
   color: var(--brand-persian-blue);
 }
 
@@ -57,14 +56,13 @@
 .list {
   display: flex;
   flex-direction: column;
-  will-change: transform;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
-  border-top: 1px solid rgba(12, 12, 12, 0.12);
+  border-top: 1px solid var(--border-subtle);
   padding: 3.2rem 0;
 }
 
@@ -81,6 +79,9 @@
   line-height: 1.18;
   letter-spacing: -0.02em;
   color: var(--brand-persian-blue);
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-style: normal;
 }
 
 .meta {
@@ -91,13 +92,14 @@
 
 .name {
   font-weight: 700;
+  font-style: normal;
   color: var(--brand-persian-blue);
 }
 
 .stars {
   display: flex;
   gap: 0.4rem;
-  color: #ffb400;
+  color: var(--color-star);
 }
 
 .media {
@@ -111,7 +113,7 @@
   position: absolute;
   inset: 0;
   object-fit: cover;
-  border-radius: 2.8rem;
+  border-radius: var(--radius-lg);
 }
 
 .badge {
@@ -120,16 +122,20 @@
   bottom: -4rem;
   width: 22rem;
   padding: 2.2rem;
-  border-radius: 1.8rem;
-  background: rgba(0, 0, 0, 0.45);
+  border-radius: var(--radius-md);
+  background: var(--overlay-dark-45);
   backdrop-filter: blur(10px);
-  color: #fff;
+  color: var(--text-white);
   text-align: center;
 }
 
 .score {
-  color: #e4ed64;
-  margin-bottom: 1.2rem;
+  color: var(--color-score);
+  margin: 0 0 1.2rem;
+  font-size: 4.2rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  line-height: 1;
 }
 
 .avatars {
@@ -147,20 +153,14 @@
   position: relative;
 }
 
-.avatar:nth-child(1) {
-  transform: translateX(15px);
-}
-.avatar:nth-child(2) {
-  transform: translateY(-5px);
-}
-.avatar:nth-child(3) {
-  transform: translateX(-15px);
-}
+.avatar:nth-child(1) { transform: translateX(15px); }
+.avatar:nth-child(2) { transform: translateY(-5px); }
+.avatar:nth-child(3) { transform: translateX(-15px); }
 
 .badgeStars {
   font-size: 1.6rem;
   letter-spacing: 0.16em;
-  color: #ffb400;
+  color: var(--color-star);
 }
 
 .badgeNote {
@@ -177,18 +177,10 @@
 }
 
 @media (max-width: 1200px) {
-  .left {
-    grid-column: 2 / 11;
-  }
-  .right {
-    grid-column: 11 / -2;
-  }
-  .viewport {
-    height: 100vh;
-  }
-  .media {
-    height: 62vh;
-  }
+  .left     { grid-column: 2 / 11; }
+  .right    { grid-column: 11 / -2; }
+  .viewport { height: 100vh; }
+  .media    { height: 62vh; }
 }
 
 @media (max-width: 991px) {
@@ -220,7 +212,6 @@
 
   .list {
     transform: none;
-    will-change: auto;
   }
 
   .media {
@@ -237,11 +228,11 @@
 
 @media (max-width: 767px) {
   .media {
-    border-radius: 2.2rem;
+    border-radius: var(--radius-lg);
   }
 
   .image {
-    border-radius: 2.2rem;
+    border-radius: var(--radius-lg);
   }
 
   .badge {
@@ -252,5 +243,9 @@
   .avatar {
     width: 4.6rem;
     height: 4.6rem;
+  }
+
+  .quote {
+    font-size: 2rem;
   }
 }

@@ -8,7 +8,7 @@
   font-family: inherit;
   -webkit-tap-highlight-color: transparent;
   color: var(--brand-persian-blue);
-  transition: color 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: color var(--transition-fast);
 }
 
 .btnInner {
@@ -16,10 +16,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.4rem;
+  border-radius: var(--radius-xs);
   overflow: hidden;
   border: max(1px, 0.1rem) solid;
-  transition: border-color 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: border-color var(--transition-base);
 }
 
 .btnTxtWrap {
@@ -32,7 +32,7 @@
 
 .btnTxt {
   display: block;
-  transition: transform 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: transform var(--transition-base);
 }
 
 .top {
@@ -49,7 +49,9 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  transition: background-color 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86), border-color 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base);
 }
 
 @media (hover: hover) {
@@ -66,7 +68,7 @@
   }
 }
 
-/* sizes */
+/* ── Sizes ── */
 
 .lg .btnInner {
   padding: 2rem 3.2rem;
@@ -78,7 +80,7 @@
   font-size: 1.4rem;
 }
 
-/* variants */
+/* ── Variants ── */
 
 .primary {
   color: var(--text-white);
@@ -118,7 +120,7 @@
     color: var(--text-white);
   }
   .white:hover .btnInner {
-    border-color: #ffffff1a;
+    border-color: var(--border-white-10);
   }
   .white:hover .btnBg {
     background-color: var(--brand-persian-blue);

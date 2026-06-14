@@ -1,17 +1,53 @@
 :root {
+  /* ── Brown scale ── */
   --bg-brown-100: #2b231f;
-  --bg-brown-80: #846845;
-  --bg-brown-30: #a89d95;
-  --bg-brown-20: #e6d9cd;
-  --bg-brown-10: #f2ebe3;
+  --bg-brown-80:  #846845;
+  --bg-brown-30:  #a89d95;
+  --bg-brown-20:  #e6d9cd;
+  --bg-brown-10:  #f2ebe3;
 
-  --text-white: #ffffff;
+  /* ── Text ── */
+  --text-white:    #ffffff;
   --text-white-80: rgba(255, 255, 255, 0.8);
+
+  /* ── Brand ── */
   --brand-persian-blue: #003357;
 
-  --fonts--body: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* ── Accent (outside brown/blue) ── */
+  --color-star:  #ffb400;
+  --color-score: #e4ed64;
+
+  /* ── Overlays ── */
+  --overlay-dark-45:  rgba(0, 0, 0, 0.45);
+  --overlay-dark-25:  rgba(0, 0, 0, 0.25);
+  --overlay-dark-55:  rgba(0, 0, 0, 0.55);
+  --border-subtle:    rgba(12, 12, 12, 0.12);
+  --border-white-10:  rgba(255, 255, 255, 0.10);
+
+  /* ── Border radius ── */
+  --radius-xs: 0.4rem;
+  --radius-sm: 0.8rem;
+  --radius-md: 1.8rem;
+  --radius-lg: 2.8rem;
+
+  /* ── Easing ── */
+  --ease-expo:   cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  --ease-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* ── Durations ── */
+  --dur-fast: 0.25s;
+  --dur-base: 0.65s;
+  --dur-img:  0.8s;
+
+  /* ── Composite transitions ── */
+  --transition-base:  var(--dur-base) var(--ease-expo);
+  --transition-img:   var(--dur-img)  var(--ease-smooth);
+  --transition-fast:  var(--dur-fast) var(--ease-expo);
+
+  /* ── Fonts ── */
+  --fonts--body:   var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
   --fonts--button: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
-  --fonts--h5: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fonts--h5:     var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 body {
@@ -32,19 +68,11 @@ body {
   touch-action: pan-y;
 }
 
-/* --------------------------------------------
-   Initial header hide (homepage only, no JS)
-   Requires: Loader root has [data-loader]
-   Uses :has() (Chrome/Safari; Firefox may lag)
--------------------------------------------- */
 html:has([data-home] [data-loader]) [data-header] {
   transform: translateY(-110%) !important;
   pointer-events: none !important;
 }
 
-/* --------------------------------------------
-   Loading state (when Loader adds is-loading)
--------------------------------------------- */
 html.is-loading,
 html.is-loading body {
   overflow: hidden !important;

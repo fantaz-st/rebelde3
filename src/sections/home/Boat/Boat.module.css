@@ -16,7 +16,6 @@
   height: 100svh;
   width: 100vw;
   transform-origin: 50% 50%;
-  will-change: transform;
 }
 
 .top,
@@ -28,17 +27,9 @@
   height: 100svh;
 }
 
-.top {
-  bottom: 100%;
-}
-
-.center {
-  top: 0;
-}
-
-.bottom {
-  top: 100%;
-}
+.top    { bottom: 100%; }
+.center { top: 0; }
+.bottom { top: 100%; }
 
 .imageWrapper {
   position: absolute;
@@ -56,7 +47,6 @@
   background: #000;
   opacity: 0;
   pointer-events: none;
-  will-change: opacity;
 }
 
 .overlay {
@@ -74,7 +64,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  will-change: transform, opacity;
 }
 
 .title {

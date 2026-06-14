@@ -38,7 +38,7 @@
 }
 
 .slide {
-  border-radius: 0.8rem;
+  border-radius: var(--radius-sm);
   flex: none;
   height: 100%;
   position: relative;
@@ -48,21 +48,21 @@
 .nullSlide {
   display: none;
 }
+
 .nullSlide .inner {
   height: 100%;
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   justify-content: flex-end;
   align-items: stretch;
-  align-content: stretch;
 }
 
-.nullSlide h3 {
+.swipeHint {
   margin: 0 0 3rem 2rem;
   font-size: 5rem;
   font-weight: 600;
   color: var(--brand-persian-blue);
+  font-family: var(--font-display);
 }
 
 @media (max-width: 991px) {
@@ -75,9 +75,11 @@
     padding: 0 4rem;
     margin-bottom: 4rem;
   }
+
   .swiper {
     height: 44rem;
   }
+
   .nullSlide {
     display: block;
   }
@@ -90,12 +92,14 @@
 
   .text {
     padding: 0 1rem;
-    grid-column: 1/-1;
+    grid-column: 1 / -1;
   }
+
   .swiper {
     grid-column: 1 / -1;
     height: 41.4rem;
   }
+
   .nullSlide {
     display: block;
   }

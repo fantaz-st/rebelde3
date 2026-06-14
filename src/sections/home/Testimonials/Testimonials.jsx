@@ -11,23 +11,59 @@ import testimonials from "@/settings/testimonials";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+const AGGREGATE_RATING = {
+  ratingValue: "5.0",
+  reviewCount: testimonials.length,
+};
+
+function buildReviewJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.rebelde.hr/#business",
+    name: "Rebelde Boats",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: AGGREGATE_RATING.ratingValue,
+      bestRating:  "5",
+      worstRating: "1",
+      reviewCount: "200",
+    },
+    review: testimonials.map((t) => ({
+      "@type":       "Review",
+      name:          t.title,
+      reviewBody:    t.text,
+      reviewRating: {
+        "@type":       "Rating",
+        ratingValue:   "5",
+        bestRating:    "5",
+        worstRating:   "1",
+      },
+      author: {
+        "@type": "Person",
+        name:    t.name,
+      },
+    })),
+  };
+}
+
 export default function Testimonials() {
   const rootRef = useRef(null);
-  const pinRef = useRef(null);
+  const pinRef  = useRef(null);
 
   useGSAP(
     () => {
       const root = rootRef.current;
-      const pin = pinRef.current;
+      const pin  = pinRef.current;
       if (!root || !pin) return;
 
-      const scrollerEl = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot");
-      const scroller = scrollerEl || window;
+      const scrollerEl  = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot");
+      const scroller    = scrollerEl || window;
       const scrollerOpt = scroller === window ? undefined : scroller;
 
-      const inner = root.querySelector(`.${classes.inner}`);
+      const inner    = root.querySelector(`.${classes.inner}`);
       const viewport = root.querySelector(`.${classes.viewport}`);
-      const list = root.querySelector(`.${classes.list}`);
+      const list     = root.querySelector(`.${classes.list}`);
       if (!inner || !viewport || !list) return;
 
       const mm = gsap.matchMedia();
@@ -39,13 +75,13 @@ export default function Testimonials() {
         tl = gsap
           .timeline({
             scrollTrigger: {
-              trigger: pin,
-              scroller: scrollerOpt,
-              start: "top 20%",
-              end: () => `+=${getDelta()}`,
-              pin: inner,
-              scrub: true,
-              anticipatePin: 1,
+              trigger:            pin,
+              scroller:           scrollerOpt,
+              start:              "top 20%",
+              end:                () => `+=${getDelta()}`,
+              pin:                inner,
+              scrub:              true,
+              anticipatePin:      1,
               invalidateOnRefresh: true,
             },
           })
@@ -53,11 +89,7 @@ export default function Testimonials() {
 
         requestAnimationFrame(() => ScrollTrigger.refresh());
 
-        return () => {
-          tl?.scrollTrigger?.kill();
-          tl?.kill();
-          tl = null;
-        };
+        return () => { tl?.scrollTrigger?.kill(); tl?.kill(); tl = null; };
       });
 
       mm.add("(max-width: 991px)", () => {
@@ -70,11 +102,20 @@ export default function Testimonials() {
     { scope: rootRef, dependencies: [testimonials] },
   );
 
+  const jsonLd = buildReviewJsonLd();
+
   return (
-    <section className={classes.wrap} ref={rootRef}>
+    <section className={classes.wrap} ref={rootRef} aria-labelledby="testimonials-heading">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <div className={`container ${classes.inner}`}>
         <div className={classes.header}>
-          <h2 className={classes.title}>Happy users feedback</h2>
+          <h2 id="testimonials-heading" className={classes.title}>
+            What Our Guests Say
+          </h2>
         </div>
 
         <div className={`grid ${classes.grid}`} ref={pinRef}>
@@ -85,13 +126,19 @@ export default function Testimonials() {
                 {testimonials.map((t) => (
                   <article key={t.id} className={classes.card}>
                     <p className={classes.cardTitle}>{t.title}</p>
-                    <h4 className={classes.quote}>&ldquo;{t.text}&rdquo;</h4>
-                    <div className={classes.meta}>
-                      <div className={classes.name}>{t.name}</div>
-                      <div className={classes.stars} aria-hidden="true">
+                    <blockquote className={classes.quote} cite="https://www.tripadvisor.com/Attraction_Review-g295370-d28042808-Reviews-Rebelde_Boats-Split_Split_Dalmatia_County_Dalmatia.html">
+                      &ldquo;{t.text}&rdquo;
+                    </blockquote>
+                    <footer className={classes.meta}>
+                      <cite className={classes.name}>{t.name}</cite>
+                      <div
+                        className={classes.stars}
+                        role="img"
+                        aria-label="5 out of 5 stars"
+                      >
                         ★★★★★
                       </div>
-                    </div>
+                    </footer>
                   </article>
                 ))}
               </div>
@@ -100,12 +147,18 @@ export default function Testimonials() {
 
           <div className={classes.right}>
             <div className={classes.media}>
-              <Image className={classes.image} src="/images/testimonials/background.jpeg" alt="Happy guests on our boat" fill priority sizes="(max-width: 991px) 100vw, 45vw" />
+              <Image
+                className={classes.image}
+                src="/images/testimonials/background.jpeg"
+                alt="Happy guests on a private Rebelde Boats tour in the Adriatic"
+                fill
+                sizes="(max-width: 991px) 100vw, 45vw"
+              />
 
-              <div className={classes.badge}>
-                <h3 className={classes.score}>5.0</h3>
+              <aside className={classes.badge} aria-label="Guest rating summary">
+                <p className={classes.score} aria-label="Rating: 5.0 out of 5">5.0</p>
 
-                <div className={classes.avatars}>
+                <div className={classes.avatars} aria-hidden="true">
                   <div className={classes.avatar}>
                     <Image src="/images/testimonials/avatar-1.jpg" alt="" fill sizes="50px" />
                   </div>
@@ -117,12 +170,12 @@ export default function Testimonials() {
                   </div>
                 </div>
 
-                <div className={classes.badgeStars} aria-hidden="true">
+                <div className={classes.badgeStars} role="img" aria-label="5 out of 5 stars">
                   ★★★★★
                 </div>
 
                 <p className={classes.badgeNote}>200+ satisfied guests</p>
-              </div>
+              </aside>
             </div>
           </div>
         </div>
@@ -133,7 +186,7 @@ export default function Testimonials() {
             variant="primary"
             size="lg"
           >
-            Read more Testimonials
+            Read more on TripAdvisor
           </Button>
         </div>
       </div>

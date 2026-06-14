@@ -18,19 +18,19 @@
   width: 100%;
   margin-bottom: 80vh;
 }
+
 .items {
   grid-column: 3 / -3;
   grid-row-gap: 21rem;
   grid-column-gap: 24rem;
-  flex-flow: wrap;
   grid-template-rows: auto;
   grid-template-columns: minmax(1px, 1fr) minmax(1px, 1fr);
-  grid-auto-columns: 1fr;
   justify-content: flex-start;
   align-items: flex-start;
   display: grid;
   padding: 0 4rem;
 }
+
 .item {
   width: 100%;
   display: flex;
@@ -56,9 +56,8 @@
 
 .mediaInner {
   position: relative;
-  border-radius: 0.8rem;
+  border-radius: var(--radius-sm);
   overflow: hidden;
-  will-change: transform;
   height: 100%;
   width: 100%;
 }
@@ -68,26 +67,24 @@
   height: auto;
   display: block;
   object-fit: cover;
-  will-change: transform;
 }
 
 .text {
   min-width: 0;
   align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 }
 
 .title {
-  margin: 0 0 2rem;
+  margin: 0;
   color: var(--brand-persian-blue);
   letter-spacing: 0.01em;
-  font-size: 3.2rem;
-  line-height: 1.22;
-  font-weight: 600;
 }
 
 .desc {
   margin: 0;
-  line-height: 1.4;
   color: var(--brand-persian-blue);
 }
 
@@ -102,16 +99,14 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
-  will-change: clip-path;
   transform: translateZ(0);
 }
 
 .thumbImg {
   object-fit: cover;
-  will-change: transform;
 }
 
-/* <= 991px */
+/* ≤ 991px */
 @media (max-width: 991px) {
   .blockEmpty {
     height: 0;
@@ -126,15 +121,6 @@
     margin-bottom: 12rem;
   }
 
-  .haveMargin {
-    margin-top: 0;
-    margin-bottom: 4rem;
-  }
-
-  /*  .title {
-    margin-bottom: 3.2rem;
-  } */
-
   .thumb {
     height: auto;
   }
@@ -142,12 +128,12 @@
   .thumbInner {
     position: relative;
     inset: auto;
-    aspect-ratio: 16 / 10;
-    border-radius: 0.8rem;
+    aspect-ratio: 16/10;
+    border-radius: var(--radius-sm);
   }
 }
 
-/* <= 767px */
+/* ≤ 767px */
 @media (max-width: 767px) {
   .blockEmpty {
     display: none;
@@ -167,19 +153,16 @@
   .items {
     grid-column: 1 / -1;
     grid-template-columns: 1fr;
-    padding: 0;
     grid-column-gap: 0;
     grid-row-gap: 6rem;
     padding: 0 2rem;
   }
+
   .item:nth-child(2n) {
     margin: 0;
   }
+
   .thumbInner {
     aspect-ratio: 4/3;
-  }
-
-  .thumbImg {
-    object-fit: cover;
   }
 }

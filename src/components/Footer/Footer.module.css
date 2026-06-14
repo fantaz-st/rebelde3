@@ -96,7 +96,7 @@
 
 .railItem {
   flex: 0 0 auto;
-  width: min(44rem, 38vw);
+  width: min(38rem, 38vw);
   overflow: hidden;
 }
 
