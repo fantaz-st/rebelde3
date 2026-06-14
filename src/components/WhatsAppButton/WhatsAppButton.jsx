@@ -46,7 +46,7 @@ export default function WhatsAppButton() {
     <a
       className={`${classes.container} ${show ? classes.visible : ""}`}
       target="_blank"
-      href="https://wa.me/385997973959"
+      href="https://wa.me/385953933125"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
       onClick={handleClick}

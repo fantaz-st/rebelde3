@@ -87,7 +87,7 @@ export default function Footer() {
             <div className={`${classes.column} ${classes.left} `}>
               <h5 className={classes.label}>Chat with us on WhatsApp</h5>
 
-              <a className={`${classes.link} ${classes.larger}`} target="_blank" href="https://wa.me/385997973959" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+              <a className={`${classes.link} ${classes.larger}`} target="_blank" href="https://wa.me/385953933125" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
                 <h4>+385 99 797 3959</h4>
               </a>
             </div>

@@ -6,7 +6,7 @@
   min-height: 100vh;
 }
 
-/* ===== Header ===== */
+/* ── Header ── */
 .head {
   margin-bottom: 8rem;
 }
@@ -26,136 +26,32 @@
   font-size: 1.8rem;
 }
 
-/* ===== Grid: TOC left + content right ===== */
+.subtitleLink {
+  color: var(--brand-persian-blue);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* ── Layout grid ── */
 .grid {
   width: 100%;
   align-items: start;
 }
 
-/* LEFT: TOC */
-.toc {
-  grid-column: 1 / 6;
+/* SectionNav sits in the left columns — no extra wrapper needed */
+.grid > :first-child {
+  grid-column: 1 / 5;
   min-width: 0;
 }
 
-.tocInner {
-  position: relative;
-  display: block;
-  padding: 2rem 0;
-  /* Reserve space on the left for the pin column */
-  padding-left: 3rem;
-}
-
-/* Pin indicator — absolutely overlays the link list so its track is
-   always exactly the same height as the links (no fragile height math). */
-.tocActive {
-  position: absolute;
-  left: 0;
-  top: 2rem;
-  bottom: 2rem;
-  width: 1.8rem;
-  pointer-events: none;
-}
-
-.tocActiveInner {
-  display: grid;
-  grid-template-columns: auto;
-  height: 100%;
-  /* grid-template-rows is set inline and animates */
-  transition: grid-template-rows 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-}
-
-.tocActiveEmpty {
-  min-height: 0;
-}
-
-.tocActiveMain {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.tocActiveIc {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1.8rem;
-  height: 1.8rem;
-  color: var(--brand-persian-blue);
-}
-
-.tocActiveIc svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* The links */
-.tocList {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-.tocItem {
-  position: relative;
-  display: block;
-  opacity: 0.3;
-  padding: 1rem;
-  text-decoration: none;
-  color: var(--brand-persian-blue);
-  font-size: 1.6rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  line-height: 1.8rem;
-  transition: opacity 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-}
-
-.tocItem:hover {
-  opacity: 0.6;
-}
-
-.tocItemActive {
-  opacity: 1;
-}
-
-/* ===== Text-flip animation on TOC links ===== */
-.flip {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  line-height: 1;
-}
-
-.flipTop,
-.flipBottom {
-  display: block;
-  height: 1em;
-  white-space: nowrap;
-  transition: transform 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-}
-
-.flipBottom {
-  position: absolute;
-  left: 0;
-  bottom: -100%;
-}
-
-.tocItem:hover .flipTop,
-.tocItem:hover .flipBottom {
-  transform: translateY(-100%);
-}
-
-/* RIGHT: content */
+/* ── Content ── */
 .content {
-  grid-column: 7 / -1;
+  grid-column: 6 / -1;
   min-width: 0;
 }
 
 .section {
-  scroll-margin-top: 12rem;
+  scroll-margin-top: 14rem;
   padding-bottom: 8rem;
 }
 
@@ -171,10 +67,13 @@
   line-height: 1.05;
 }
 
+/* ── Q&A using dl/dt/dd ── */
 .qaList {
   display: flex;
   flex-direction: column;
   gap: 3.4rem;
+  margin: 0;
+  padding: 0;
 }
 
 .qa {
@@ -187,6 +86,7 @@
   font-size: 2.4rem;
   font-weight: 600;
   line-height: 1.25;
+  font-family: var(--fonts--body);
 }
 
 .answer {
@@ -197,19 +97,30 @@
   font-size: 1.6rem;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 991px) {
-  .sectionTitle {
-    font-size: 4rem;
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .grid > :first-child {
+    grid-column: 1 / 4;
   }
 
-  /* Hide the sticky TOC below the original's breakpoint */
-  .toc {
+  .content {
+    grid-column: 5 / -1;
+  }
+}
+
+@media (max-width: 991px) {
+  /* SectionNav hides its rail itself on mobile —
+     we just collapse the grid column */
+  .grid > :first-child {
     display: none;
   }
 
   .content {
     grid-column: 1 / -1;
+  }
+
+  .sectionTitle {
+    font-size: 4rem;
   }
 }
 

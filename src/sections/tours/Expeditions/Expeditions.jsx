@@ -15,15 +15,12 @@ export default function Expeditions() {
     <div className={classes.wrap}>
       <div className={classes.emptyTop} aria-hidden="true" />
 
-      {/* listRef wraps all the sections — overlay rail floats over it,
-          mobile bottom bar uses it for visibility. --nav-count feeds the
-          overlay pin-track height. */}
-      <div
-        className={classes.list}
-        ref={listRef}
-        style={{ position: "relative", "--nav-count": items.length }}
-      >
-        <SectionNav sections={sections} containerRef={listRef} overlay />
+      <div className={classes.list} ref={listRef}>
+        <SectionNav
+          sections={sections}
+          containerRef={null}
+          variant="overlay"
+        />
 
         {items.map((item, i) => (
           <ExpeditionItem
