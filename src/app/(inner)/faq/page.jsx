@@ -1,13 +1,6 @@
 import Faq from "@/components/Faq/Faq";
 import faqs from "@/settings/faqs";
 
-export const metadata = {
-  title: "FAQ — Rebelde Boats",
-  description:
-    "Answers to common questions about Rebelde Boats private tours from Split — the boat, what's included, our routes, and booking.",
-};
-
-
 function buildFaqJsonLd() {
   const mainEntity = faqs.flatMap((section) =>
     section.qa.map((item) => ({
