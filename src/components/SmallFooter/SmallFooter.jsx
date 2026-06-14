@@ -25,7 +25,7 @@ export default function SmallFooter() {
               <h5 className={classes.label}>Chat with us on WhatsApp</h5>
 
               <a className={`${classes.link} ${classes.larger}`} target="_blank" href="https://wa.me/385953933125" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-                <h4>+385 99 797 3959</h4>
+                <h4>+385 95 393 3125</h4>
               </a>
             </div>
 
