@@ -1,0 +1,134 @@
+"use client";
+
+import Image from "next/image";
+import { useRef, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+import useParallaxImage from "@/hooks/useParallaxImage";
+import classes from "./Boat.module.css";
+
+export default function BoatSectionContent({ section }) {
+  const rootRef    = useRef(null);
+  const prevRef    = useRef(null);
+  const nextRef    = useRef(null);
+  const galleryRef = useRef(null);
+
+  // Parallax on content images
+  useParallaxImage(rootRef, {
+    blockSelector:  "[data-parallax-block]",
+    innerSelector:  "[data-parallax-inner]",
+    fromScale:      1.15,
+    fromYPercent:   -12,
+    toScale:        1,
+    toYPercent:     10,
+    start:          "top bottom",
+    end:            "bottom top",
+  });
+
+  // Fancybox
+  useEffect(() => {
+    const container = galleryRef.current;
+    if (!container) return;
+    const groupName = `boat-gallery-${section.key}`;
+    Fancybox.bind(container, `[data-fancybox="${groupName}"]`, {
+      Thumbs:   { type: "modern" },
+      Toolbar:  { display: { left: ["infobar"], middle: [], right: ["slideshow", "thumbs", "close"] } },
+      Carousel: { infinite: true },
+    });
+    return () => { Fancybox.unbind(container); Fancybox.close(); };
+  }, [section.key]);
+
+  const galleryGroup = `boat-gallery-${section.key}`;
+
+  return (
+    <div className={classes.content} ref={rootRef}>
+      <div className={classes.sub}>
+        <p className={classes.subHeading}>{section.intro}</p>
+      </div>
+
+      <div className={classes.mainImg} data-parallax-block>
+        <div className={classes.mainImgInner} data-parallax-inner>
+          <Image src={section.mainImg} alt="" fill sizes="(max-width: 991px) 100vw, 50vw" className={classes.img} />
+        </div>
+      </div>
+
+      <div className={classes.subImgWrap}>
+        <div className={classes.subImg} data-parallax-block>
+          <div className={classes.subImgInner} data-parallax-inner>
+            <Image src={section.subImg} alt="" fill sizes="(max-width: 991px) 100vw, 40vw" className={classes.img} />
+          </div>
+        </div>
+        {section.subText && <p className={classes.subText}>{section.subText}</p>}
+      </div>
+
+      <div className={classes.cta}>
+        <div className={classes.ctaImg} data-parallax-block>
+          <div className={classes.ctaImgInner} data-parallax-inner>
+            <Image src={section.ctaImg} alt="" fill sizes="(max-width: 767px) 100vw, (max-width: 991px) 40vw, 45vw" className={classes.img} />
+          </div>
+        </div>
+        <div className={classes.ctaContent}>
+          <p className={classes.ctaText}>{section.ctaText}</p>
+        </div>
+      </div>
+
+      {section.gallery?.length > 0 && (
+        <div className={classes.explore}>
+          <div className={classes.exploreControl}>
+            <button ref={prevRef} type="button" className={classes.exploreControlItem} aria-label="Previous photo">
+              <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path d="M7.875 3.938 2.813 9l5.062 5.063M15.188 9H3.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="square" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <button ref={nextRef} type="button" className={classes.exploreControlItem} aria-label="Next photo">
+              <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path d="M11 3.938 16.063 9 11 14.063M15.188 9H3.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="square" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
+
+          <div className={classes.exploreMain} ref={galleryRef}>
+            <Swiper
+              modules={[Navigation]}
+              slidesPerView="auto"
+              spaceBetween={20}
+              speed={450}
+              navigation={{ prevEl: null, nextEl: null, disabledClass: classes.disabled }}
+              onBeforeInit={(swiper) => {
+                if (typeof swiper.params.navigation !== "boolean") {
+                  swiper.params.navigation.prevEl = prevRef.current;
+                  swiper.params.navigation.nextEl = nextRef.current;
+                }
+              }}
+              onInit={(swiper) => {
+                if (typeof swiper.params.navigation !== "boolean") {
+                  swiper.params.navigation.prevEl = prevRef.current;
+                  swiper.params.navigation.nextEl = nextRef.current;
+                  swiper.navigation.destroy();
+                  swiper.navigation.init();
+                  swiper.navigation.update();
+                }
+              }}
+              className={classes.exploreSwiper}
+            >
+              {section.gallery.map((g, i) => (
+                <SwiperSlide key={i} className={classes.exploreSlide}>
+                  <a href={g.src} data-fancybox={galleryGroup} data-caption={g.caption} className={classes.exploreSlideLink} aria-label={`View photo: ${g.caption}`}>
+                    <div className={classes.exploreItemImg}>
+                      <Image src={g.src} alt={g.caption} fill sizes="(max-width: 767px) 60vw, 30vw" className={classes.img} />
+                    </div>
+                    <p className={classes.exploreItemTxt}>{g.caption}</p>
+                  </a>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
