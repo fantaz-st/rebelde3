@@ -2,9 +2,9 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 
 export const metadata = {
-  title: "The Boat – Felix 37 Buenaventura",
+  title: "The Boat – Felix 37 Buenaventura | Rebelde Boats",
   description:
-    "Meet Buenaventura — our custom Felix 37 speedboat. 500HP, 12-guest capacity, full amenities. Built for private Adriatic tours from Split.",
+    "Meet Buenaventura — our Felix 37 custom speedboat built for the Adriatic. 500HP, 12 guests, extra-large sundeck, onboard fridge and restroom. Private boat tours from Split, Croatia.",
   alternates: {
     canonical: "https://www.rebelde.hr/the-boat",
   },
@@ -12,11 +12,11 @@ export const metadata = {
     url: "https://www.rebelde.hr/the-boat",
     title: "The Boat – Felix 37 Buenaventura | Rebelde Boats",
     description:
-      "500HP Felix 37 speedboat for private tours from Split, Croatia. Sundeck, sound system, SUP boards, and up to 12 guests.",
+      "Our Felix 37 Buenaventura is custom-built for the Adriatic — 500HP, 12 guests, and every comfort for a full day on the water.",
   },
 };
 
-export default function InnerLayout({ children }) {
+export default function TheBoatLayout({ children }) {
   return (
     <>
       <Header variant="white" />

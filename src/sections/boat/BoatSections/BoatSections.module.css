@@ -1,0 +1,13 @@
+.wrap {
+  position: relative;
+  z-index: 2;
+  background-color: var(--bg-brown-10);
+}
+
+.emptyTop {
+  height: 8rem;
+}
+
+.list {
+  position: relative;
+}
