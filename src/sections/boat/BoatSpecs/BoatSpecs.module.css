@@ -13,7 +13,7 @@
 
 /* ---- Left: heading + desc + CTA ---- */
 .left {
-  grid-column: 1 / 7;
+  grid-column: 3 / 9;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -39,7 +39,7 @@
 
 /* ---- Right: spec rows ---- */
 .right {
-  grid-column: 8 / -1;
+  grid-column: 10 / -2;
 }
 
 .list {

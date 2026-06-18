@@ -2,11 +2,17 @@
 
 import classes from "./BoatSections.module.css";
 import BoatSectionItem from "./BoatSectionItem";
+import BoatSpecs from "@/sections/boat/BoatSpecs/BoatSpecs";
 import SectionNav from "@/components/SectionNav/SectionNav";
 import boatSections from "@/settings/boatSections";
 
+const SPECS_NAV = { id: "specifications", label: "Specifications" };
+
 export default function BoatSections() {
-  const sections = boatSections.map((item) => ({ id: item.key, label: item.label }));
+  const sections = [
+    ...boatSections.map((item) => ({ id: item.key, label: item.label })),
+    SPECS_NAV,
+  ];
 
   return (
     <div className={classes.wrap}>
@@ -17,9 +23,12 @@ export default function BoatSections() {
             key={item.key}
             item={item}
             index={i}
-            isLast={i === boatSections.length - 1}
+            isLast={false}
           />
         ))}
+        <div id="specifications">
+          <BoatSpecs />
+        </div>
       </div>
     </div>
   );

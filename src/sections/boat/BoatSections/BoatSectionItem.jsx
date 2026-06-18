@@ -85,13 +85,13 @@ export default function BoatSectionItem({ item, index, isLast }) {
             trigger:             hero,
             scroller,
             start:               "top 90%",
-            end:                 "top top",
+            end:                 "top 40%",
             scrub:               true,
             invalidateOnRefresh: true,
           },
         });
         tl.fromTo(heroImg,
-          { clipPath: `inset(8% 4% 8% 4% round ${r12}px)` },
+          { clipPath: `inset(25% 15% 25% 15% round ${r12}px)` },
           { clipPath: "inset(0% 0% 0% 0% round 0px)" }
         )
         .fromTo(heroTxt,

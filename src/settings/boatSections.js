@@ -1,6 +1,6 @@
 export const boatHero = {
   title: "The Boat",
-  hero: "/images/boat/felix 37 drone shot 1.jpg",  desc: "Meet Buenaventura — our Felix 37, custom-built for the Adriatic. Fast enough to reach the outer islands in comfort, spacious enough to make the journey the best part of the day.",
+  hero: "/images/boat/felix 37 drone shot 4.jpeg",  desc: "Meet Buenaventura — our Felix 37, custom-built for the Adriatic. Fast enough to reach the outer islands in comfort, spacious enough to make the journey the best part of the day.",
   sub: "From the shaded helm to the extra-large sundeck, every detail is built around one idea: that a day on the water should feel effortless from the first dock line to the last sunset.",
 };
 
@@ -8,7 +8,7 @@ const boatSections = [
   {
     key: "the-boat",
     label: "The Boat",
-    heroImg: "/images/boat/felix 37 drone shot 1.jpg",
+    heroImg: "/images/boat/felix 37 drone shot 1.jpeg",
     intro:
       "The Felix 37 Buenaventura is a custom-built speedboat designed for the Croatian coast — quick across open water, stable in a swell, and genuinely comfortable for a full day aboard.",
     imgLarge: "/images/boat/felix 37 Rebelde boats.jpg",    imgSmall: "/images/boat/boat1.jpg",

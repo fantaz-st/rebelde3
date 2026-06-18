@@ -58,7 +58,7 @@ export default function Hero() {
                 priority
                 alt="Felix 37 Buenaventura speedboat cruising the Adriatic sea near Split, Croatia"
                 sizes="100vw"
-                src="/images/tall-hero-felix 37.png"
+                src="/images/rebelde boats felix 37 drone tall.png"
               />
             </div>
 
@@ -68,7 +68,7 @@ export default function Hero() {
                 fill
                 alt=""
                 sizes="1px"
-                src="/images/tall-hero-felix 37.png"
+                src="/images/rebelde boats felix 37 drone tall.png"
               />
             </div>
 
