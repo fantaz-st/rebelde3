@@ -5,7 +5,7 @@ import "./styles/typography.css";
 import "./styles/grid.css";
 import "./styles/swiper.css";
 import SmoothScroll from "./SmoothScroll";
-import WhatsAppButton from "@/components/WhatsAppButton/WhatsAppButton";
+// import WhatsAppButton from "@/components/WhatsAppButton/WhatsAppButton";
 import Script from "next/script";
 
 const SITE_URL = "https://www.rebelde.hr";
@@ -240,7 +240,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <SmoothScroll>{children}</SmoothScroll>
-        <WhatsAppButton />
+        {/* <WhatsAppButton /> */}
       </body>
     </html>
   );
