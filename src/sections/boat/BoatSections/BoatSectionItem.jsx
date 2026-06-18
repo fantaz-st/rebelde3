@@ -59,7 +59,7 @@ export default function BoatSectionItem({ item, index, isLast }) {
           scrollTrigger: {
             trigger:             hero,
             scroller,
-            start:               "top bottom",
+            start:               "top bottom+=200%",
             end:                 "bottom bottom",
             scrub:               true,
             invalidateOnRefresh: true,
@@ -77,15 +77,15 @@ export default function BoatSectionItem({ item, index, isLast }) {
         return () => { tl.scrollTrigger?.kill(); tl.kill(); };
       });
 
-      // Mobile: subtler inset — just a small border that expands
+      // Mobile: start when 10% of image is visible, finish when image top hits viewport top
       mm.add("(max-width: 767px)", () => {
         const tl = gsap.timeline({
           defaults: { ease: "none" },
           scrollTrigger: {
             trigger:             hero,
             scroller,
-            start:               "top bottom",
-            end:                 "bottom bottom",
+            start:               "top 90%",
+            end:                 "top top",
             scrub:               true,
             invalidateOnRefresh: true,
           },
@@ -141,9 +141,8 @@ export default function BoatSectionItem({ item, index, isLast }) {
       {/* ── Main content grid ── */}
       <div className={`container grid ${classes.grid}`}>
 
-        {/* Left: title + intro */}
+        {/* Left: intro only — title shown in heroLabel overlay */}
         <div className={classes.left}>
-          <h2 className={classes.title}>{item.label}</h2>
           <p className={classes.intro}>{item.intro}</p>
         </div>
 
@@ -217,7 +216,7 @@ export default function BoatSectionItem({ item, index, isLast }) {
         </div>
       </div>
 
-      {/* {!isLast && <div className={classes.divider} aria-hidden="true" />} */}
+      {!isLast && <div className={classes.divider} aria-hidden="true" />}
     </section>
   );
 }

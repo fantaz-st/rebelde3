@@ -21,7 +21,6 @@ export default function BoatHero() {
   const textRef = useRef(null);
   const subRef  = useRef(null);
 
-  // Parallax on the hero image only
   useParallaxImage(wrapRef, {
     blockSelector: "[data-parallax-block]",
     innerSelector: "[data-parallax-inner]",
@@ -46,32 +45,23 @@ export default function BoatHero() {
       const mm = gsap.matchMedia();
 
       mm.add("(min-width: 768px)", () => {
-        // Background: blue → cream, triggered on the grid block
-        // end: "bottom 20%" — transition completes well into the blue gap, before sub text
         const tlBg = gsap.timeline({
           scrollTrigger: {
-            trigger:             grid,
-            scroller,
-            start:               "top top",
-            end:                 "bottom 20%",
-            scrub:               true,
-            invalidateOnRefresh: true,
+            trigger: grid, scroller,
+            start: "top top", end: "bottom 20%",
+            scrub: true, invalidateOnRefresh: true,
           },
         });
         tlBg.fromTo(wrap,
-          { backgroundColor: BLUE  },
+          { backgroundColor: BLUE },
           { backgroundColor: CREAM, ease: "none" }
         );
 
-        // Title + desc text: white → navy, same trigger
         const tlText = gsap.timeline({
           scrollTrigger: {
-            trigger:             grid,
-            scroller,
-            start:               "top top",
-            end:                 "bottom 20%",
-            scrub:               true,
-            invalidateOnRefresh: true,
+            trigger: grid, scroller,
+            start: "top top", end: "bottom 20%",
+            scrub: true, invalidateOnRefresh: true,
           },
         });
         tlText.fromTo(text,
@@ -79,20 +69,16 @@ export default function BoatHero() {
           { color: BLUE, ease: "none" }
         );
 
-        // Sub text parallax — rises as it scrolls through viewport
         const tlSub = gsap.timeline({
           scrollTrigger: {
-            trigger:             sub,
-            scroller,
-            start:               "top bottom",
-            end:                 "bottom top",
-            scrub:               true,
-            invalidateOnRefresh: true,
+            trigger: sub, scroller,
+            start: "top bottom", end: "bottom top",
+            scrub: true, invalidateOnRefresh: true,
           },
         });
         tlSub.fromTo(sub,
-          { yPercent: 0,  scale: 0.92, transformOrigin: "bottom center" },
-          { yPercent: 30, scale: 1,    ease: "none" }
+          { yPercent: 0, scale: 0.92, transformOrigin: "bottom center" },
+          { yPercent: 30, scale: 1, ease: "none" }
         );
 
         return () => {
@@ -115,7 +101,7 @@ export default function BoatHero() {
     >
       <div ref={gridRef} className={`container grid ${classes.grid}`}>
 
-        {/* Left: hero image — parallax target */}
+        {/* Image: cols 4–10 */}
         <div className={classes.thumb} data-parallax-block>
           <div className={classes.thumbInner} data-parallax-inner>
             <Image
@@ -129,17 +115,17 @@ export default function BoatHero() {
           </div>
         </div>
 
-        {/* Right: title + description — color animated separately */}
+        {/* Text: cols 12–14, pushed to bottom of viewport */}
         <div ref={textRef} className={classes.text}>
           <h1 className={classes.title}>{boatHero.title}</h1>
           <p className={classes.desc}>{boatHero.desc}</p>
         </div>
 
-      </div>
+        {/* Sub: row 2, cols 6–11 */}
+        <div ref={subRef} className={classes.sub}>
+          <p className={classes.subText}>{boatHero.sub}</p>
+        </div>
 
-      {/* Sub text — always navy, not animated */}
-      <div ref={subRef} className={classes.sub}>
-        <p className={classes.subText}>{boatHero.sub}</p>
       </div>
     </section>
   );

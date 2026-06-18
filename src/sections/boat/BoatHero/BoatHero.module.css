@@ -1,34 +1,36 @@
-/* Full dark-blue section — background & color animated by GSAP on desktop */
+/* Full dark-blue section */
 .wrap {
   background-color: var(--brand-persian-blue);
   color: #fff;
   position: relative;
-  padding-bottom: 15rem;
-  padding-top: 8rem;
+  padding-bottom: 30rem;
 }
 
-/* 16-col grid */
+/* 16-col grid, row 1: image cols 4–10, text cols 12–14 */
 .grid {
   align-items: start;
-  padding-top: 8rem;
 }
 
-/* ---- Left: tall image ---- */
+/* ---- Image: cols 4–10, padding-top pushes it below the header ---- */
 .thumb {
-  grid-column: 3 / 10;
+  grid-column: 4 / 11;
+  grid-row: 1;
   position: relative;
-  height: 100vh;
-  max-height: 120rem;
-  /* clip the parallax scale */
+  /* fixed height matching original 103.5rem */
+  height: 103.5rem;
+  padding-top: 16rem;
   overflow: hidden;
   border-radius: 0.8rem;
 }
 
-/* inner fills the block — useParallaxImage sets overflow:hidden on this too */
+/* inner fills the padded block for parallax */
 .thumbInner {
   position: absolute;
   inset: 0;
+  top: 16rem; /* match padding-top so inner starts where image does */
   will-change: transform;
+  border-radius: 0.8rem;
+  overflow: hidden;
 }
 
 .thumbImg {
@@ -37,102 +39,131 @@
   will-change: transform;
 }
 
-/* ---- Right: title + desc — starts white, GSAP tweens to navy on desktop ---- */
+/* ---- Text: cols 12–14, full viewport height, text pushed to bottom ---- */
 .text {
-  grid-column: 11 / 16;
+  grid-column: 12 / -3;
+  grid-row: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-top: 20vh;
-  padding-bottom: 6rem;
+  height: 100vh;
+  max-height: 119.5rem;
+  padding-bottom: min(26.4rem, 24vh);
   color: #fff;
 }
 
 .title {
-  margin: 0 0 3.2rem;
-  font-size: clamp(6rem, 8vw, 11rem);
-  line-height: 1;
-  letter-spacing: -0.03em;
-  /* color tweened by GSAP on .text wrapper: white → navy */
+  margin: 0 0 4rem;
   color: inherit;
 }
 
 .desc {
   margin: 0;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   line-height: 1.6;
-  max-width: 38rem;
-  /* color tweened by GSAP on .text wrapper */
+  max-width: 43.5rem;
   color: inherit;
 }
 
-/* ---- Sub text ---- */
+/* ---- Sub text: row 2, cols 6–11, centred ---- */
 .sub {
-  display: flex;
-  justify-content: center;
-  padding: 15rem var(--container--padding) 6rem;
+  grid-column: 6 / -6;
+  grid-row: 2;
+  justify-self: center;
+  text-align: center;
+  margin-top: 18rem;
+  margin-bottom: 18rem;
   will-change: transform;
 }
 
 .subText {
   margin: 0;
-  max-width: 62rem;
-  text-align: center;
   font-size: 2rem;
   line-height: 1.5;
-  /* always navy — not animated */
   color: var(--brand-persian-blue);
   font-style: italic;
 }
 
-/* ====== Tablet (no color animation, stays blue) ====== */
+/* ====== Tablet ====== */
 @media (max-width: 991px) {
-  .thumb {
-    grid-column: 1 / 6;
-    height: 85vh;
-  }
-
-  .text {
-    grid-column: 6 / -1;
-    padding-top: 20vh;
-  }
-
-  .title {
-    font-size: 6rem;
-  }
-}
-
-/* ====== Mobile (no color animation, stays blue) ====== */
-@media (max-width: 767px) {
   .wrap {
-    padding-bottom: 10rem;
-  }
-
-  .grid {
-    padding-top: 10rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    padding-inline: 0;
+    padding-top: 21.4rem;
+    padding-bottom: 12rem;
   }
 
   .thumb {
-    width: 100%;
-    height: 70svh;
-    border-radius: 0;
+    padding-top: 0;
+    height: auto;
+    aspect-ratio: 4/5;
+  }
+
+  .thumbInner {
+    top: 0;
   }
 
   .text {
-    padding: 4rem var(--container--padding) 0;
-  }
-
-  .title {
-    font-size: 7rem;
-    margin-bottom: 2.4rem;
+    height: auto;
+    max-height: none;
+    padding-bottom: 8rem;
+    padding-top: 6rem;
   }
 
   .sub {
-    padding-top: 6rem;
+    grid-column: 4 / -4;
+    margin-top: 8rem;
+    margin-bottom: 12rem;
+  }
+}
+
+/* ====== Mobile ====== */
+@media (max-width: 767px) {
+  .wrap {
+    padding-top: 0;
+    padding-bottom: 8rem;
+  }
+
+  /* Switch to flex column: text → image → sub */
+  .grid {
+    display: flex;
+    flex-direction: column;
+    padding-top: 12rem;
+    padding-inline: var(--container--padding);
+    gap: 0;
+  }
+
+  /* 1. title + desc */
+  .text {
+    order: 1;
+    height: auto;
+    max-height: none;
+    padding: 0 0 3.2rem;
+    color: #fff;
+  }
+
+  /* 2. hero image — full bleed edge-to-edge */
+  .thumb {
+    order: 2;
+    padding-top: 0;
+    height: 70svh;
+    aspect-ratio: unset;
+    border-radius: 0;
+    margin-inline: calc(-1 * var(--container--padding));
+  }
+
+  .thumbInner {
+    top: 0;
+    border-radius: 0;
+  }
+
+  /* 3. sub text */
+  .sub {
+    order: 3;
+    grid-column: unset;
+    grid-row: unset;
+    justify-self: unset;
+    margin-top: 4rem;
+    margin-bottom: 6rem;
+    text-align: left;
   }
 
   .subText {
