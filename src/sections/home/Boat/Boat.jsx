@@ -46,7 +46,7 @@ export default function Boat() {
         },
       });
 
-      tl.to(grid, { scale: 0.51, duration: 10 }, 0)
+      tl.to(grid, { scale: 0.3334, duration: 10 }, 0)
         .to('[data-zoom-type="side"], [data-zoom-type="main"]', { clipPath: "inset(10px round 10px)" }, 0)
         .to(scrim, { autoAlpha: 0.25 }, 0)
         .to(text,  { autoAlpha: 1, yPercent: 0 }, 0.12);
