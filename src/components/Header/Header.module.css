@@ -26,9 +26,9 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.75), transparent);
   opacity: 0;
-  transition: opacity 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: opacity 0.65s cubic-bezier(0.785,0.135,0.15,0.86);
   filter: blur(1.4rem);
   z-index: -1;
 }
@@ -38,7 +38,6 @@
 
 .logo { flex-shrink: 0; }
 
-/* Desktop nav */
 .nav {
   display: flex;
   align-items: center;
@@ -57,7 +56,7 @@
   pointer-events: none;
 }
 
-/* Right-side action group: lang switcher + contact button */
+/* Right-side action group: lang switcher + contact button + hamburger */
 .actions {
   display: flex;
   align-items: center;
@@ -65,18 +64,12 @@
   flex-shrink: 0;
 }
 
-/* Contact button wrapper — hidden on tablet and mobile */
+/* Contact button wrapper — hidden on tablet/mobile */
 .contactBtnWrap {
   display: block;
 }
 
-@media (max-width: 991px) {
-  .contactBtnWrap {
-    display: none !important;
-  }
-}
-
-/* Hamburger — hidden on desktop, shown on mobile as last flex item in .actions */
+/* Hamburger — hidden on desktop */
 .hamburgerBtn {
   display: none;
   align-items: center;
@@ -95,7 +88,7 @@
   gap: 4px;
   width: 22px;
   height: 16px;
-  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.3s cubic-bezier(0.23,1,0.32,1);
 }
 
 .hamburger span {
@@ -104,29 +97,26 @@
   background: currentColor;
   border-radius: 10px;
   transition:
-    transform 0.3s 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.3s 0.3s cubic-bezier(0.23,1,0.32,1),
     opacity 0.3s 0.3s;
 }
 
 .hamburger.open span:nth-child(1) {
   transform: translateY(6px) rotate(45deg);
-  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.3s cubic-bezier(0.23,1,0.32,1);
 }
-
 .hamburger.open span:nth-child(2) {
   opacity: 0;
   transition: opacity 0.3s;
 }
-
 .hamburger.open span:nth-child(3) {
   transform: translateY(-6px) rotate(-45deg);
-  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.3s cubic-bezier(0.23,1,0.32,1);
 }
 
 .light { color: #fff; }
 .dark  { color: var(--brand-persian-blue, #003357); }
 
-/* Overlay */
 .overlay {
   position: fixed;
   inset: 0;
@@ -136,10 +126,8 @@
   z-index: 1300;
   transition: opacity 0.3s ease;
 }
-
 .overlayOpen { pointer-events: auto; }
 
-/* Full-screen menu panel */
 .menu {
   position: fixed;
   inset: 0;
@@ -154,7 +142,6 @@
   width: 100vw;
   height: 100vh;
 }
-
 .menuOpen { pointer-events: auto; }
 
 .navList {
@@ -173,11 +160,10 @@
   transition: opacity 0.25s ease;
   text-transform: uppercase;
 }
-
 .navList a:hover,
 .navList a:focus { opacity: 0.6; }
 
-/* Language switcher footer inside the full-screen menu */
+/* Language switcher inside the full-screen menu — bottom centre */
 .menuFooter {
   position: absolute;
   bottom: 4rem;
@@ -185,17 +171,22 @@
   transform: translateX(-50%);
 }
 
+/* ── Tablet (≤ 991px): hide contact button ── */
+@media (max-width: 991px) {
+  .contactBtnWrap {
+    display: none !important;
+  }
+}
+
 /* ── Mobile (≤ 768px): hide nav links, show hamburger ── */
 @media (max-width: 768px) {
-  .nav {
-    display: none;
-  }
+  .nav { display: none; }
 
-  .hamburgerBtn {
-    display: flex;
-  }
+  .hamburgerBtn { display: flex; }
 
   .container {
     padding: 1rem 0.5rem 1rem 1.6rem;
   }
+
+  .actions { gap: 0.4rem; }
 }

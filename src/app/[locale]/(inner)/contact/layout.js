@@ -14,7 +14,7 @@ export async function generateMetadata({ params }) {
 export default function ContactLayout({ children }) {
   return (
     <>
-      <Header variant="blue" />
+      <Header variant="white" />
       <main>{children}</main>
       <Footer />
     </>

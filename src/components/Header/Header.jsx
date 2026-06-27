@@ -60,13 +60,20 @@ export default function Header({ variant = "white" }) {
 
     if (!overlayRef.current || !panelRef.current || !listRef.current) return;
 
+    const items = Array.from(listRef.current.children);
+
+    // Set initial state explicitly — avoids the "from" issue on remount
+    gsap.set(overlayRef.current, { opacity: 0 });
+    gsap.set(panelRef.current,   { clipPath: "inset(0 0 100% 0)" });
+    gsap.set(items,              { y: 24, opacity: 0 });
+
     menuTlRef.current = gsap
       .timeline({ paused: true })
       .to(overlayRef.current, { opacity: 0.45, duration: 0.3, ease: "power2.out" })
-      .to(panelRef.current, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "hop" }, "-=0.1")
-      .from(Array.from(listRef.current.children), { y: 24, opacity: 0, stagger: 0.07, duration: 0.35, ease: "power2.out" }, "-=0.1");
+      .to(panelRef.current,   { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "hop" }, "-=0.1")
+      .to(items,              { y: 0, opacity: 1, stagger: 0.07, duration: 0.35, ease: "power2.out" }, "-=0.1");
 
-    menuTlRef.current.eventCallback("onComplete", () => setIsMenuActive(true));
+    menuTlRef.current.eventCallback("onComplete",        () => setIsMenuActive(true));
     menuTlRef.current.eventCallback("onReverseComplete", () => setIsMenuActive(false));
   }, []);
 
@@ -88,16 +95,14 @@ export default function Header({ variant = "white" }) {
     <>
       <header className={headerClassName} data-header>
         <div className={classes.shadow} aria-hidden="true" />
-
         <div className={classes.container}>
-          {/* Logo */}
+
           <div className={classes.logo}>
             <Link href="/" aria-label="Rebelde Boats home">
               <Logo variant={isDarkUi ? "blue" : "white"} />
             </Link>
           </div>
 
-          {/* Desktop nav links */}
           <nav className={`${classes.nav} ${classes[isDarkUi ? "dark" : "light"]}`}>
             {pageLinks.map(({ href, label }) => (
               <div key={href} className={classes.navItem}>
@@ -106,23 +111,16 @@ export default function Header({ variant = "white" }) {
             ))}
           </nav>
 
-          {/* Right side — desktop: lang dropdown + contact button */}
+          {/* Right side: lang switcher + contact button + hamburger — all in one flex group */}
           <div className={classes.actions}>
-            {/* Language dropdown — visible on ALL breakpoints */}
             <LanguageSwitcher isDarkUi={isDarkUi} />
 
-            {/* Contact button — hidden on tablet/mobile via wrapper div */}
             <div className={classes.contactBtnWrap}>
-              <Button
-                href="/contact"
-                variant={isDarkUi ? "blue" : "white"}
-                size="sm"
-              >
+              <Button href="/contact" variant={isDarkUi ? "blue" : "white"} size="sm">
                 {t("getInTouch")}
               </Button>
             </div>
 
-            {/* Hamburger — mobile only, inside actions so it never overlaps the dropdown */}
             <button
               className={[classes.hamburgerBtn, classes[isDarkUi ? "dark" : "light"]].join(" ")}
               onClick={() => setIsMenuOpen((prev) => !prev)}
@@ -134,17 +132,17 @@ export default function Header({ variant = "white" }) {
               </div>
             </button>
           </div>
+
         </div>
       </header>
 
-      {/* Menu overlay */}
       <div
         ref={overlayRef}
         className={`${classes.overlay} ${isMenuOpen ? classes.overlayOpen : ""}`}
         onClick={() => setIsMenuOpen(false)}
       />
 
-      {/* Full-screen menu panel */}
+      {/* Full-screen menu panel — ONE language switcher at the bottom, no duplicate */}
       <div ref={panelRef} className={`${classes.menu} ${isMenuOpen ? classes.menuOpen : ""}`}>
         <nav>
           <ul ref={listRef} className={classes.navList}>
@@ -157,11 +155,6 @@ export default function Header({ variant = "white" }) {
             ))}
           </ul>
         </nav>
-
-        {/* Language switcher inside the mobile menu panel */}
-        <div className={classes.menuFooter}>
-          <LanguageSwitcher isDarkUi={true} />
-        </div>
       </div>
     </>
   );
