@@ -19,7 +19,7 @@ export const metadata = {
 export default function InnerLayout({ children }) {
   return (
     <>
-      <Header variant="blue" />
+      <Header variant="white" />
       <main>{children}</main>
       <Footer />
     </>

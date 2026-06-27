@@ -1,17 +1,19 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import classes from "./BoatSections.module.css";
 import BoatSectionItem from "./BoatSectionItem";
 import BoatSpecs from "@/sections/boat/BoatSpecs/BoatSpecs";
 import SectionNav from "@/components/SectionNav/SectionNav";
 import boatSections from "@/settings/boatSections";
 
-const SPECS_NAV = { id: "specifications", label: "Specifications" };
-
 export default function BoatSections() {
+  const t = useTranslations("boatSections.sectionNav");
+
   const sections = [
-    ...boatSections.map((item) => ({ id: item.key, label: item.label })),
-    SPECS_NAV,
+    { id: "the-boat",      label: t("theBoat") },
+    { id: "comfort-deck",  label: t("comfortDeck") },
+    { id: "specifications",label: t("specifications") },
   ];
 
   return (

@@ -5,6 +5,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { useTranslations } from "next-intl";
 import classes from "./Team.module.css";
 import items from "@/settings/team";
 import useParallaxImage from "@/hooks/useParallaxImage";
@@ -12,6 +13,7 @@ import useParallaxImage from "@/hooks/useParallaxImage";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Team() {
+  const t = useTranslations("team");
   const wrapRef = useRef(null);
 
   useParallaxImage(wrapRef, {
@@ -60,31 +62,24 @@ export default function Team() {
           .fromTo(img,   { scale: 1.2, transformOrigin: "top" }, { scale: 1, ease: "none" }, 0);
 
         requestAnimationFrame(() => ScrollTrigger.refresh());
-
         return () => { tl.scrollTrigger?.kill(); tl.kill(); };
       });
 
       mm.add("(max-width: 991px)", () => {
         gsap.set(inner, { clipPath: "inset(0% 0% 0% 0% round 0px)" });
-
         const st = gsap.fromTo(
           img,
           { scale: 1.4, yPercent: -20, transformOrigin: "center" },
           {
             scale: 1, yPercent: 12, ease: "none",
             scrollTrigger: {
-              trigger:            thumb,
-              scroller:           scrollerOpt,
-              start:              "top bottom",
-              end:                "bottom top",
-              scrub:              true,
-              invalidateOnRefresh: true,
+              trigger: thumb, scroller: scrollerOpt,
+              start: "top bottom", end: "bottom top",
+              scrub: true, invalidateOnRefresh: true,
             },
           },
         );
-
         requestAnimationFrame(() => ScrollTrigger.refresh());
-
         return () => { st.scrollTrigger?.kill(); st.kill(); };
       });
 
@@ -93,6 +88,18 @@ export default function Team() {
     { scope: wrapRef },
   );
 
+  // Build translated items — key maps to team.t1, team.t2, etc.
+  const translatedItems = items.map((item) => {
+    const key = item.key; // "t1", "t2", "t3", "t4"
+    const descCount = Array.isArray(item.desc) ? item.desc.length : 1;
+    const descs = Array.from({ length: descCount }, (_, i) => t(`${key}.desc${i}`));
+    return {
+      ...item,
+      title: t(`${key}.title`),
+      desc:  descs,
+    };
+  });
+
   return (
     <div className={classes.wrap} ref={wrapRef}>
       <div className={classes.blockEmpty} aria-hidden="true" />
@@ -100,7 +107,7 @@ export default function Team() {
       <section className={classes.team} aria-labelledby="team-heading">
         <div className={`grid ${classes.list}`}>
           <div className={classes.items}>
-            {items.map((item, idx) => (
+            {translatedItems.map((item, idx) => (
               <article className={classes.item} key={item.key}>
                 <div className={classes.media} data-parallax-block>
                   <div className={classes.mediaInner} data-parallax-inner>
@@ -117,12 +124,9 @@ export default function Team() {
 
                 <div className={classes.text}>
                   <h3 className={classes.title}>{item.title}</h3>
-                  {Array.isArray(item.desc)
-                    ? item.desc.map((para, i) => (
-                        <p key={i} className={classes.desc}>{para}</p>
-                      ))
-                    : <p className={classes.desc}>{item.desc}</p>
-                  }
+                  {item.desc.map((para, i) => (
+                    <p key={i} className={classes.desc}>{para}</p>
+                  ))}
                 </div>
               </article>
             ))}

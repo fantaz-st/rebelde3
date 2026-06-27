@@ -1,46 +1,48 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import classes from "./Faq.module.css";
 import faqs from "@/settings/faqs";
 import SectionNav from "@/components/SectionNav/SectionNav";
 
 export default function Faq() {
+  const t  = useTranslations("faq");
+  const tc = useTranslations("faqCategories");
+
   const contentRef = useRef(null);
 
-  const sections = faqs.map((s) => ({ id: s.id, label: s.title }));
+  // Translate section titles and Q&A
+  const translatedFaqs = faqs.map((section) => ({
+    ...section,
+    title: tc(section.id),
+    qa: section.qa.map((item) => ({
+      ...item,
+      question: t(`${item.id}.question`),
+      answer:   t(`${item.id}.answer`),
+    })),
+  }));
+
+  const sections = translatedFaqs.map((s) => ({ id: s.id, label: s.title }));
 
   return (
     <section className={classes.wrap}>
       <div className={`container ${classes.head}`}>
         <h1 className={classes.title}>FAQ</h1>
         <p className={classes.subtitle}>
-          Everything you might want to know before stepping aboard. Can&apos;t find your
-          answer?{" "}
-          <a href="/contact" className={classes.subtitleLink}>
-            Reach out
-          </a>{" "}
-          and we&apos;ll help.
+          {t("subtitle")}{" "}
+          <a href="/contact" className={classes.subtitleLink}>{t("subtitleLink")}</a>
+          {t("subtitleSuffix")}
         </p>
       </div>
 
       <div className={`container grid ${classes.grid}`}>
-        <SectionNav
-          sections={sections}
-          containerRef={contentRef}
-          topOffset={140}
-          variant="rail"
-        />
+        <SectionNav sections={sections} containerRef={contentRef} topOffset={140} variant="rail" />
 
         <div className={classes.content} ref={contentRef}>
-          {faqs.map((section) => (
-            <div
-              key={section.id}
-              id={section.id}
-              className={classes.section}
-            >
+          {translatedFaqs.map((section) => (
+            <div key={section.id} id={section.id} className={classes.section}>
               <h2 className={classes.sectionTitle}>{section.title}</h2>
-
               <dl className={classes.qaList}>
                 {section.qa.map((item) => (
                   <div key={item.id} className={classes.qa}>

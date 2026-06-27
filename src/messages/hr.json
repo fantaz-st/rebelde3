@@ -1,0 +1,472 @@
+{
+  "nav": {
+    "home": "Početna",
+    "theBoat": "Brod",
+    "tours": "Izleti po mjeri",
+    "faq": "Često pitanja",
+    "contact": "Kontakt",
+    "getInTouch": "KONTAKTIRAJTE NAS",
+    "menu": "Izbornik",
+    "close": "Zatvori"
+  },
+  "hero": {
+    "title": "Privatni izleti brodom iz Splita",
+    "subtitle": "Otkrijte Jadran kroz privatna iskustva prilagođena vama.",
+    "ariaLabel": "Hero — Privatni izleti brodom iz Splita"
+  },
+  "tours": {
+    "heading": "Putovanja po mjeri. Otok po otok.",
+    "desc": "Nijedno dva dana na Jadranu ne bi smjela biti ista. Odaberite svoj put — skrivene uvale, osunčane luke, tajne plaže. Svako putovanje osmišljavamo oko vas, vašeg tempa, vašeg duha.",
+    "swipeHint": "Prijeđite prstom za istraživanje →"
+  },
+  "boat": {
+    "title": "Felix 37 Buenaventura — Stvoren za ugodno življenje.",
+    "desc": "Udobnost u kojoj možete utonuti. Performanse koje vas nose dalje. Prostor stvoren za zajednički smijeh, spontane skokove u more i duga, lijena ručanja na suncu. Buenaventura nije samo brod — to je vaše plutajuće utočište.",
+    "cta": "Istražite brod",
+    "ariaLabel": "Felix 37 Buenaventura — naš privatni charter brod"
+  },
+  "footer": {
+    "ctaTitle": "Želite nešto posebno?",
+    "ctaButton": "KONTAKTIRAJTE NAS",
+    "ctaSub": "Javite nam se i dopustite da vaš boravak u Splitu pretvorimo u nešto uistinu posebno.",
+    "whatsappLabel": "Razgovarajte s nama na WhatsAppu",
+    "emailLabel": "Stupite u kontakt",
+    "theBoat": "Brod",
+    "bespokeToursLink": "Izleti po mjeri",
+    "faqLink": "Često pitanja",
+    "contactLink": "Kontakt",
+    "credit": "dizajn i razvoj"
+  },
+  "contact": {
+    "namePlaceholder": "Ime*",
+    "emailPlaceholder": "E-mail*",
+    "phonePlaceholder": "Broj telefona",
+    "interestedInPlaceholder": "Zanima vas...",
+    "messagePlaceholder": "Vaša poruka\nKad biste željeli putovati\nBroj gostiju\nPodručja koja vas zanimaju\nPosebni interesi ili teme",
+    "referralLabel": "Kako ste čuli za nas?",
+    "submitLabel": "Pošalji",
+    "submitting": "Slanje...",
+    "successTitle": "Hvala!",
+    "privacyNote": "Za više detalja o tome kako koristimo vaše podatke, pogledajte naš",
+    "privacyLink": "Pravilnik o privatnosti",
+    "interestedIn": {
+      "general": "Opći upit",
+      "booking": "Rezervacija",
+      "press": "Tisak / Mediji",
+      "other": "Ostalo"
+    },
+    "referralSources": {
+      "personalContact": "Osobni kontakt",
+      "facebookInstagram": "Facebook / Instagram",
+      "travelAgency": "Turistička agencija",
+      "searchEngine": "Tražilica",
+      "featuredArticle": "Objavljeni članak",
+      "other": "Ostalo"
+    }
+  },
+  "toursHero": {
+    "title": "Privatna jadranska iskustva",
+    "desc": "Ukrcajte se za osobniji način doživljavanja hrvatske obale. Otkrijte skrivene uvale, kristalno čiste vode, povijesne otočke gradove i tihe trenutke daleko od gužve. Svako putovanje pažljivo je prilagođeno vašem tempu i interesima — bilo da to znači plivanje u skrivenim uvalama, istraživanje šarmantnih obalnih mjesta, uživanje u lokalnim primorskim restoranima ili jednostavno opuštanje pod jadranskim suncem."
+  },
+  "boatHero": {
+    "title": "Brod",
+    "desc": "Upoznajte Buenaventuru — naš Felix 37, posebno izgrađen za Jadran. Dovoljno brz da stigne do vanjskih otoka u udobnosti, dovoljno prostran da putovanje učini najboljim dijelom dana.",
+    "sub": "Od zasjenjenog kormila do extra velikog palubnog prostora, svaki detalj izgrađen je oko jedne ideje: da dan na vodi treba biti bez napora od prvog veza do posljednjeg zalaska sunca."
+  },
+  "boatSpecs": {
+    "heading": "Izgrađen za Jadran.",
+    "desc": "Svaka specifikacija odabrana u jednu svrhu — najljepši mogući dan na vodi.",
+    "cta": "Provjerite dostupnost"
+  },
+  "boatSections": {
+    "checkAvailability": "Provjerite dostupnost",
+    "sectionNav": {
+      "theBoat": "Brod",
+      "comfortDeck": "Udobnost i paluba",
+      "specifications": "Specifikacije"
+    }
+  },
+  "facts": {
+    "privateCharter": {
+      "title": "Potpuno privatno, potpuno vaše",
+      "desc": "Svaki Rebelde izlet je potpuno privatan — bez dijeljenih grupa, bez fiksnih ruta. Brod, kapetan i dan su vaši, prilagođeni vašem tempu, vašoj grupi i onome što želite otkriti."
+    },
+    "theBoat": {
+      "title": "Izgrađen za udobnost na otvorenom moru",
+      "desc": "Buenaventura je 37-stopni brod posebne izrade s motorom od 500 konjskih snaga, zasjenjenom kabinom, prekorazmjernom palubom za sunčanje, hladnjakom na brodu, kupatilom i tušem sa slatkom vodom — dizajniran da vas drži ugodnima od izlaska do dugo nakon zalaska sunca."
+    },
+    "theCoast": {
+      "title": "Preko 1.000 otoka za istraživanje",
+      "desc": "Hrvatska jadranska obala dom je više od 1.200 otoka, otočića i grebena — od kojih je većina nenaseljena. Samo iz Splita, deseci su dostupni za nekoliko sati, svaki sa svojom osobnošću, skrivenim uvalama i tajnim mjestima za kupanje."
+    },
+    "theWater": {
+      "title": "Jedna od najbistrijih voda u Europi",
+      "desc": "Jadran se dosljedno ubraja među najčišća mora u Europi, s vidljivošću koja često prelazi 30 metara. Kristalno čistine, plave špilje i zaštićene lagune čine svako zaustavljanje za kupanje kao ulazak u akvarij."
+    },
+    "localKnowledge": {
+      "title": "Domaći kapetani, insajderske rute",
+      "desc": "Naši skiperi odrasli su na ovim vodama. Znaju koje uvale opuste do poslijepodneva, koje konobe služe najsvježiju ribu i pod kojim kutom svjetlost najljepše pada na Plavu špilju. Vaš dan vode ljudi koji iskreno vole ovu obalu."
+    }
+  },
+  "team": {
+    "t1": {
+      "title": "Obiteljska priča",
+      "desc0": "Ono što je počelo kao strast prema moru postalo je način dijeljenja Jadrana s drugima.",
+      "desc1": "Mi smo lokalni obiteljski tim koji vjeruje da najbolji trenuci na vodi nisu žurni ni scripted. Svaki gost dobiva osoban doček, svaka ruta se pažljivo planira, a svaki izlet tretira se kao jedinstveno iskustvo, a ne samo rezervacija."
+    },
+    "t2": {
+      "title": "Iskusna posada",
+      "desc0": "Godine provedene u plovidbi hrvatskom obalom naučile su nas gdje Jadran uistinu oživi — skrivene uvale, tiha sidrišta, autentični primorski gradovi i kristalno čiste uvale daleko od gužve.",
+      "desc1": "Od ugodne plovidbe do lokalnih preporuka, brinemo o svakom detalju kako biste se jednostavno mogli opustiti i uživati u putovanju."
+    },
+    "t3": {
+      "title": "Personalizirani itinerari za svako putovanje",
+      "desc0": "Bez fiksnih rasporeda. Bez grupnih tura s gužvom.",
+      "desc1": "Svako iskustvo prilagođeno je vašem tempu i interesima — bilo da želite skrivena mjesta za plivanje, žive otočke gradove, krstarenje u zalazak sunca, ronjenje, beach barove ili cijeli dan istraživanja skrivenih kutaka Jadrana.",
+      "desc2": "More ne slijedi stroge planove, a ni mi ne."
+    },
+    "t4": {
+      "title": "Više od izleta brodom",
+      "desc0": "Ovo nije samo prijevoz između otoka — to je privatno jadransko iskustvo osmišljeno oko slobode, udobnosti i nezaboravnih trenutaka na vodi.",
+      "desc1": "Od prvog polaska do posljednjeg zalaska sunca, naš cilj je jednostavan: učiniti vaš dan beznaporan, osoban i uistinu poseban."
+    }
+  },
+  "tourItems": {
+    "blue-lagoon-three-islands": {
+      "title": "Plava laguna, Trogir, Šolta",
+      "kicker": "Pola dana, blizu i popularno!",
+      "label": "Plava laguna i bijeg na tri otoka",
+      "intro": "Opušteno jadransko putovanje kroz kristalno čiste lagune, skrivene uvale i šarmantna otočka sela odmah iza splitske obale.",
+      "subText": "",
+      "ctaText": "Provedite dan otkrivajući tiši dio Dalmacije dok krstarimo između skrivenih mjesta za plivanje, tirkiznih voda i autentičnih otočkih gradova nedirnutih žurbom većih turističkih ruta.",
+      "galleryCaption0": "Dva borovinasta otočića iznad staklastog tirkiznog mora",
+      "galleryCaption1": "Usidreni u Plavoj laguni — naše omiljeno mjesto za plivanje",
+      "galleryCaption2": "Klizimo uz skrivene uvale oko drveniškog arhipelaga",
+      "galleryCaption3": "Sunce igra na plitinama — voda toliko bistra da vidite svaki kamen",
+      "galleryCaption4": "Privez u staroj trogirskoj luci za šetnju kroz povijest",
+      "galleryCaption5": "Terakota krovovi i zvonici UNESCO-om zaštićenog starog Trogira",
+      "galleryCaption6": "Šetnja kamenim uličicama dalmatinskih obalnih mjesta",
+      "galleryCaption7": "Plivanje iznad šoltanskog brodoloma — trup star stoljeće odmara tik ispod površine"
+    },
+    "blue-cave-five-islands": {
+      "label": "Plava špilja i ekspedicija na pet otoka",
+      "kicker": "Cijeli dan — 5 otoka!",
+      "intro": "Nezaboravna cjelodnevna jadranska avantura koja kombinira dramatičan obalni krajolik, skrivene špilje, udaljene otoke i neke od najbistrijih voda u Hrvatskoj.",
+      "ctaText": "Putujte otvorenim Jadranom da biste otkrili legendarnu Plavu špilju, gdje sunčeva svjetlost preobražava more u sjajne nijanse plave skrivene ispod visokih stijena."
+    },
+    "hvar-pakleni-islands": {
+      "label": "Hvar i iskustvo Paklenih otoka",
+      "kicker": "Najpopularnije!",
+      "intro": "Bezvremensko putovanje na najprepoznatljiviji hrvatski otok, u paru sa skrivenim uvalama i kristalnim lagunama paklenog arhipelaga.",
+      "ctaText": "Istražite živu atmosferu grada Hvara prije bijega u mir Paklenih otoka, gdje borovima prekrivene obale, skrivena sidrišta i bistra tirkizna voda stvaraju savršen jadranski ambijent."
+    },
+    "bol-hvar-pakleni": {
+      "label": "Bol, Hvar i obalno putovanje Paklenim otocima",
+      "kicker": "Stvarno popularno!",
+      "intro": "Profinjeno otočko iskustvo koje kombinira eleganciju Hvara s prirodnom ljepotom najprepoznatljivije hrvatske plaže.",
+      "ctaText": "Krstarite između živahne energije Hvara i zadivljujuće obale Brača, doma čuvene plaže Zlatni rat."
+    }
+  },
+  "boatSectionItems": {
+    "the-boat": {
+      "label": "Brod",
+      "intro": "Felix 37 Buenaventura je brod posebne izrade dizajniran za hrvatsku obalu — brz na otvorenom moru, stabilan u valovima i uistinu ugodan za cijeli dan na brodu.",
+      "subText": "Na 37 stopa s motorom od 500 KS, prevozi do 12 gostiju s prostora za razmještaj — bez skučenih klupa, bez borbe za hlad.",
+      "ctaText": "Bilo da idete na Vis radi Plave špilje ili se lagano kreće između Paklenih otoka, vožnja je glatka, suha i brza."
+    },
+    "comfort-deck": {
+      "label": "Udobnost i paluba",
+      "intro": "Extra velika paluba za sunčanje, zasjenjjena kabina i prostran sjedeći prostor čine Buenaventuru jednako ugodnom na sidrištu kao i u plovidbi.",
+      "subText": "Ispružite se na ležaljkama, sklonite se ispod tvrdog krova kad vam treba odmor od sunca ili se smjestite u kokpit s hladnim pićem iz hladnjaka na brodu.",
+      "ctaText": "Tikova oplata, duboki jastučani sjedeći prostori i raspored koji teče od kormila do pramca — paluba je stvorena za duga, spora ručanja, spontane skokove u more i promatranje obale kako plovi."
+    }
+  },
+  "specs": {
+    "Name": "Naziv",
+    "Model": "Model",
+    "Type": "Tip",
+    "Overall Length": "Ukupna duljina",
+    "Overall Width": "Ukupna širina",
+    "Chassis": "Šasija",
+    "Engine": "Motor",
+    "Horsepower": "Konjske snage",
+    "Fuel Type": "Vrsta goriva",
+    "Fuel Tank Size": "Kapacitet spremnika",
+    "Cruising Speed": "Brzina krstarenja",
+    "Max Speed": "Maksimalna brzina"
+  },
+  "testimonials": {
+    "t1": {
+      "title": "Izlet s prijateljima",
+      "text": "Stvarno ljubazna i prijazna posada koja je učinila sve da nam stvori lijepo iskustvo — a brod je bio nevjerojatan!"
+    },
+    "t2": {
+      "title": "Jednostavno nevjerojatno!!!",
+      "text": "Apsolutno nema žaljenja! Atmosfera je bila super zahvaljujući playlistu — odlična energija! Imao sam nezaboravan dan s prijateljima. Preporučujem 10000% sa zatvorenim očima!!"
+    },
+    "t3": {
+      "title": "Nevjerojatan dan od obale do obale!",
+      "text": "Cedin brod jedan je od najboljih splitskih izleta brodom — ako ne i NAJBOLJI! Hvala na ovom nezaboravnom danu. Toplo preporučujem!"
+    },
+    "t4": {
+      "title": "Sjećanja za cijeli život u jednom danu!",
+      "text": "Da, prizori su bili nevjerojatni. Da, plivanje je bilo kao u akvariju. Ali gostoljubivost, pažljivost i opća gracioznost ove tvrtke tijekom cijelog dana ne mogu se premašiti."
+    },
+    "t5": {
+      "title": "Jedan od apsolutnih vrhunaca našeg putovanja u Hrvatsku!",
+      "text": "Posada broda nije bila samo profesionalna nego iskreno zabavna i prijazna. Dijelili su zanimljive činjenice o svakom mjestu na koje smo se zaustavili."
+    },
+    "t6": {
+      "title": "Nevjerojatan izlet brodom",
+      "text": "Iskreno, bio je vrhunac cijelog odmora. Djeca su ga obožavala, odrasli su ga obožavali — svi su se sjajno zabavili. Posjetili smo neke od najljepših laguna s kristalno čistom vodom."
+    },
+    "heading": "Što kažu naši gosti",
+    "readMore": "Pročitajte više na TripAdvisoru",
+    "badgeNote": "200+ zadovoljnih gostiju"
+  },
+  "faqCategories": {
+    "general": "Opća pitanja",
+    "boat": "O brodu",
+    "blue-lagoon-three-islands": "Plava laguna, Trogir i Šolta",
+    "blue-cave-five-islands": "Plava špilja i pet otoka",
+    "hvar-pakleni-islands": "Hvar i Pakleni otoci",
+    "bol-hvar-pakleni": "Bol, Hvar i Pakleni"
+  },
+  "metadata": {
+    "home": {
+      "title": "Privatni izleti brodom iz Splita — otočko krstarenje i jednodnevni izleti",
+      "description": "Rezervirajte privatni izlet brodom iz Splita. Istražite Hvar, Plavu špilju, Plavu lagunu, Vis i više na luksuznom brzom brodu Felix 37. Do 12 gostiju, potpuno personalizirano."
+    },
+    "tours": {
+      "title": "Izleti po mjeri — privatni jednodnevni izleti iz Splita",
+      "description": "Otkrijte naše privatne izlete brodom iz Splita — Plava špilja, Plava laguna, Hvar, Pakleni otoci i više."
+    },
+    "boat": {
+      "title": "Brod — Felix 37 Buenaventura",
+      "description": "Upoznajte Buenaventuru — naš Felix 37 posebno izrađen za Jadran. 500 KS, 12 gostiju, extra paluba za sunčanje, hladnjak i kupatilo."
+    },
+    "faq": {
+      "title": "Često postavljana pitanja",
+      "description": "Odgovori na uobičajena pitanja o našim privatnim izletima brodom iz Splita."
+    },
+    "contact": {
+      "title": "Kontakt — Stupite u kontakt",
+      "description": "Stupite u kontakt s Rebelde Boats za rezervaciju privatnog izleta brodom iz Splita."
+    }
+  },
+  "gallery": {
+    "slide1": "Stvaramo iskustva gdje je more suputnik, a ne odredište.",
+    "slide2": "Svako putovanje je osobno. Svaki val, nova uspomena."
+  },
+  "factsSection": {
+    "heading": "Što Rebelde čini drugačijim"
+  },
+  "expeditions": {
+    "checkAvailability": "Provjerite dostupnost"
+  },
+  "faq": {
+    "subtitle": "Sve što biste mogli željeti znati prije ukrcaja. Ne možete pronaći odgovor?",
+    "subtitleLink": "Kontaktirajte nas",
+    "subtitleSuffix": " i pomoći ćemo.",
+    "general-q1": {
+      "question": "What's included in the price?",
+      "answer": "Our prices include fuel, a professional skipper, bottled water, and snorkeling gear. Park fees or restaurant bills aren't included unless we tell you otherwise."
+    },
+    "general-q2": {
+      "question": "Can I customize the tour itinerary?",
+      "answer": "Yes — all private tours are flexible. We're happy to adjust the route to fit what you want to see, your pace, and the day's conditions."
+    },
+    "general-q3": {
+      "question": "Do I need to bring anything?",
+      "answer": "Just sunscreen, swimwear, a towel, and a good vibe. We handle the rest, including snorkeling gear and water."
+    },
+    "general-q4": {
+      "question": "Where does the tour start and end?",
+      "answer": "Most tours depart from Split harbor, but we can also pick you up from nearby locations by arrangement. We'll send you exact pickup details after booking."
+    },
+    "general-q5": {
+      "question": "What if the weather is bad?",
+      "answer": "Your safety is our priority. If conditions don't allow for a safe trip, we'll reschedule or offer a full refund — no questions asked."
+    },
+    "general-q6": {
+      "question": "Is food or drink available on board?",
+      "answer": "We provide water and can bring a cooler upon request. You're welcome to bring snacks or drinks of your own — many guests like to stock up at the market before departure."
+    },
+    "general-q7": {
+      "question": "How do I book a tour?",
+      "answer": "Book directly through our website, or reach out via WhatsApp, email, or phone. We typically respond within a few hours during the season."
+    },
+    "boat-q1": {
+      "question": "Will I ever book one boat and end up on a different, lower-quality one?",
+      "answer": "No. We own and operate a single boat, the Felix 37 Buenaventura. For larger groups or extra boats, we only arrange vessels of the same make, size, or quality — never a downgrade."
+    },
+    "boat-q2": {
+      "question": "How many people can the boat accommodate?",
+      "answer": "The Felix 37 Buenaventura comfortably accommodates up to 12 guests."
+    },
+    "boat-q3": {
+      "question": "Is there a restroom on the boat?",
+      "answer": "Yes — there's a private restroom on board with an electric toilet and sink."
+    },
+    "boat-q4": {
+      "question": "Is the boat equipped with safety gear?",
+      "answer": "Absolutely. The boat carries all required safety equipment — life jackets in all sizes, first aid kits, and more — fully compliant with maritime regulations."
+    },
+    "boat-q5": {
+      "question": "Is the boat suitable for children?",
+      "answer": "Yes. We're family-friendly and provide life jackets for kids of all ages."
+    },
+    "boat-q6": {
+      "question": "What amenities are on board?",
+      "answer": "Electric toilet and sink, outdoor shower, extra-large sundeck, refrigerator, large ice box, wine/champagne and other glasses, life vests in all sizes, concert-grade sound system, USB-A phone charging, goggles and snorkels, foam noodles, and SUP boards."
+    },
+    "lagoon-q1": {
+      "question": "How long is the ride to the Blue Lagoon?",
+      "answer": "Plan on roughly 25–30 minutes from Split with our boat. Sea conditions can nudge that a few minutes either way."
+    },
+    "lagoon-q2": {
+      "question": "Can we swim and snorkel once we get there?",
+      "answer": "Absolutely. The Blue Lagoon is crystal clear and perfect for a dip — masks and snorkels are on board if you don't bring your own."
+    },
+    "lagoon-q3": {
+      "question": "Is this Blue Lagoon trip kid-friendly?",
+      "answer": "Yes. It's close to Split so you're not out on open water for long, and the calm, shallow areas make it easy with children."
+    },
+    "lagoon-q4": {
+      "question": "Any beach bars or cafés around?",
+      "answer": "There are a couple of laid-back beach bars right in the bay — great for a coffee or a cold drink between swims."
+    },
+    "lagoon-q5": {
+      "question": "Is there somewhere to grab a proper meal?",
+      "answer": "Yes — there's a waterfront restaurant at the lagoon where you can sit down for food."
+    },
+    "lagoon-q6": {
+      "question": "How long do we usually stay at the Blue Lagoon?",
+      "answer": "Typically 60–90 minutes, but we can tweak the stop based on weather and your preferences."
+    },
+    "lagoon-q7": {
+      "question": "What's the water temperature like?",
+      "answer": "In summer it's usually 23–27 °C (73–81 °F). Spring and autumn are cooler, so a dip can feel brisk."
+    },
+    "trogir-q1": {
+      "question": "How much free time do we get in Trogir?",
+      "answer": "Usually around an hour — enough to wander the old town, grab a gelato, or pop into one landmark. Private trips are flexible."
+    },
+    "trogir-q2": {
+      "question": "What should I see first in Trogir's old town?",
+      "answer": "Start with the Cathedral of St. Lawrence, Kamerlengo Fortress, and the seafront promenade — everything is within a short stroll."
+    },
+    "trogir-q3": {
+      "question": "Can we hit a beach in Trogir during the stop?",
+      "answer": "Not really — the old town where we dock is inland. Use your free time to explore the medieval streets; save beach time for the Blue Lagoon or Šolta."
+    },
+    "solta-q1": {
+      "question": "Which part of Šolta do we visit?",
+      "answer": "We usually stop in Maslinica or a quiet nearby bay — calm water, great swimming, and local taverns for lunch."
+    },
+    "solta-q2": {
+      "question": "Can we try local food or wine on Šolta?",
+      "answer": "Definitely. We can recommend or pre-book a konoba for fresh seafood, olive oil tastings, and local wines."
+    },
+    "bluecave-q1": {
+      "question": "How long is the boat ride to the Blue Cave from Split?",
+      "answer": "Roughly 1 hour 30–40 minutes by speedboat, depending on sea conditions."
+    },
+    "bluecave-q2": {
+      "question": "When does the famous blue glow look the best?",
+      "answer": "Late morning (around 10:00–13:00) usually gives the strongest color, but clouds and sea state can shift it."
+    },
+    "bluecave-q3": {
+      "question": "Is the cave ticket included or paid on the spot?",
+      "answer": "Tickets are handled by the park's staff. Sometimes we include them; otherwise you'll pay on-site — cash or card is fine."
+    },
+    "bluecave-q4": {
+      "question": "Do we swim inside the Blue Cave?",
+      "answer": "No — swimming is not allowed inside. We swim and snorkel at later stops instead."
+    },
+    "bluecave-q5": {
+      "question": "What if the cave is closed due to waves?",
+      "answer": "Harbor authorities shut it when the entrance is unsafe. If that happens, we reroute to extra bays or extend time elsewhere."
+    },
+    "stiniva-q1": {
+      "question": "Do we swim at Stiniva?",
+      "answer": "Yes, if conditions allow. The cove is sheltered and stunning — bring water shoes, as it's pebbly."
+    },
+    "stiniva-q2": {
+      "question": "How long do we stay in Stiniva?",
+      "answer": "Usually 30–40 minutes for swimming, photos, and soaking in the scenery."
+    },
+    "budikovac-q1": {
+      "question": "Is the water shallow at Budikovac's blue lagoon?",
+      "answer": "Yes — crystal clear and relatively shallow near shore, perfect for floating and snorkeling."
+    },
+    "fiveislands-q1": {
+      "question": "What's the total duration of this trip?",
+      "answer": "Plan for a full day — around 10 to 11 hours, including boat rides and all stops."
+    },
+    "fiveislands-q2": {
+      "question": "Is the ride bumpy? What if I get seasick?",
+      "answer": "Open-sea stretches can get choppy. If you're prone to motion sickness, take tablets before departure."
+    },
+    "fiveislands-q3": {
+      "question": "When do we usually return to Split?",
+      "answer": "Around 17:00–18:00, give or take, depending on sea conditions and how long we linger at each stop."
+    },
+    "hvar-q1": {
+      "question": "How much free time do we get in Hvar?",
+      "answer": "Typically 1–2 hours — enough to grab lunch, explore the old town, or hike up to the fortress for a view."
+    },
+    "hvar-q2": {
+      "question": "Can we visit the Španjola Fortress within the stop time?",
+      "answer": "Yes — budget 15–20 minutes uphill. Go right after docking if you want plenty of time and still want lunch after."
+    },
+    "hvar-q3": {
+      "question": "Is Hvar expensive for food and drinks?",
+      "answer": "It's one of the pricier islands, but you'll find everything from quick pizza slices to upscale dining."
+    },
+    "hvar-q4": {
+      "question": "Are there beaches in Hvar town itself?",
+      "answer": "A couple of small spots exist, but for proper swimming we head to the Pakleni Islands just across the channel."
+    },
+    "pakleni-q1": {
+      "question": "Which Pakleni bay do we stop at?",
+      "answer": "Common picks are Palmižana or a quiet cove nearby — calm water, restaurants, and great swimming."
+    },
+    "pakleni-q2": {
+      "question": "Is snorkeling good around the Pakleni Islands?",
+      "answer": "Yes — clear water, rocky bottoms, and plenty of fish. We bring masks; you just jump in."
+    },
+    "pakleni-q3": {
+      "question": "Can we book a lunch table on Pakleni ahead of time?",
+      "answer": "Yes, and it's smart in peak season. Tell us your preference and we'll reserve a spot."
+    },
+    "pakleni-q4": {
+      "question": "Are there sandy beaches on Pakleni or mostly rocks/pebbles?",
+      "answer": "Mostly pebbles and rocks, but with easy water access and ladders at some beach clubs."
+    },
+    "bol-q1": {
+      "question": "How long does it take to reach Bol and Zlatni Rat from Split?",
+      "answer": "Roughly 1 hour 15 minutes by speedboat, give or take depending on sea and wind."
+    },
+    "bol-q2": {
+      "question": "Do we anchor near Zlatni Rat or dock in Bol town?",
+      "answer": "We usually dock in Bol's harbor and you walk 10–15 minutes (or take a mini train / taxi boat) to Zlatni Rat beach."
+    },
+    "bol-q3": {
+      "question": "Is Zlatni Rat sandy?",
+      "answer": "It's mostly smooth white pebbles — water shoes help, but the water is crystal clear."
+    },
+    "bol-q4": {
+      "question": "Can we rent sunbeds or water toys at Zlatni Rat?",
+      "answer": "Yes, plenty of vendors rent loungers, umbrellas, SUP boards, and more during high season."
+    },
+    "bol-q5": {
+      "question": "How much free time do we get in Bol?",
+      "answer": "Usually about 2 hours — enough for a swim, a beach stroll, and a quick drink."
+    },
+    "bol-q6": {
+      "question": "Are there showers and changing rooms at the beach?",
+      "answer": "Yes — public facilities and beach bars around Zlatni Rat where you can rinse off and change."
+    }
+  }
+}

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { useTranslations } from "next-intl";
 import classes from "./Boat.module.css";
 import Button from "@/components/Button/Button";
 import Image from "next/image";
@@ -13,6 +14,8 @@ import { CustomEase } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger, CustomEase, useGSAP);
 
 export default function Boat() {
+  const t = useTranslations("boat");
+
   const sectionRef = useRef(null);
   const gridRef    = useRef(null);
   const scrimRef   = useRef(null);
@@ -37,13 +40,7 @@ export default function Boat() {
 
       const tl = gsap.timeline({
         defaults: { ease: "none" },
-        scrollTrigger: {
-          scroller: scrollerOpt,
-          trigger:  section,
-          start:    "top top",
-          end:      "bottom bottom",
-          scrub:    0.5,
-        },
+        scrollTrigger: { scroller: scrollerOpt, trigger: section, start: "top top", end: "bottom bottom", scrub: 0.5 },
       });
 
       tl.to(grid, { scale: 0.3334, duration: 10 }, 0)
@@ -57,56 +54,27 @@ export default function Boat() {
   );
 
   return (
-    <section
-      className={classes.section}
-      id="boat"
-      ref={sectionRef}
-      aria-label="Felix 37 Buenaventura — our private charter boat"
-    >
+    <section className={classes.section} id="boat" ref={sectionRef} aria-label={t("ariaLabel")}>
       <div className={classes.inner}>
         <div ref={gridRef} className={classes.grid} data-scale aria-hidden="true">
           <div className={classes.top}>
             {images.top.map((img, idx) => (
               <div key={`top-${idx}`} className={classes.imageWrapper} style={{ ...img.position }}>
-                <Image
-                  data-zoom-type={img.type}
-                  src={img.src}
-                  alt=""
-                  fill
-                  sizes="(max-width: 640px) 1080px, 100vw"
-                  className={classes.image}
-                />
+                <Image data-zoom-type={img.type} src={img.src} alt="" fill sizes="(max-width: 640px) 1080px, 100vw" className={classes.image} />
               </div>
             ))}
           </div>
-
           <div className={classes.center}>
             {images.center.map((img, idx) => (
               <div key={`center-${idx}`} className={classes.imageWrapper} style={{ ...img.position }}>
-                <Image
-                  data-zoom-type={img.type}
-                  src={img.src}
-                  alt={img.type === "main" ? "Felix 37 Buenaventura speedboat — Rebelde Boats private charter from Split" : ""}
-                  fill
-                  sizes="(max-width: 640px) 1080px, 100vw"
-                  className={classes.image}
-                  priority={img.type === "main"}
-                />
+                <Image data-zoom-type={img.type} src={img.src} alt={img.type === "main" ? "Felix 37 Buenaventura speedboat — Rebelde Boats private charter from Split" : ""} fill sizes="(max-width: 640px) 1080px, 100vw" className={classes.image} priority={img.type === "main"} />
               </div>
             ))}
           </div>
-
           <div className={classes.bottom}>
             {images.bottom.map((img, idx) => (
               <div key={`bottom-${idx}`} className={classes.imageWrapper} style={{ ...img.position }}>
-                <Image
-                  data-zoom-type={img.type}
-                  src={img.src}
-                  alt=""
-                  fill
-                  sizes="(max-width: 640px) 1080px, 100vw"
-                  className={classes.image}
-                />
+                <Image data-zoom-type={img.type} src={img.src} alt="" fill sizes="(max-width: 640px) 1080px, 100vw" className={classes.image} />
               </div>
             ))}
           </div>
@@ -116,15 +84,9 @@ export default function Boat() {
 
         <div className={`grid ${classes.overlay}`}>
           <div ref={textRef} className={classes.text}>
-            <h2 className={classes.title}>
-              Felix 37 Buenaventura — Built for Good Living.
-            </h2>
-            <p className={classes.desc}>
-              Comfort you can sink into. Performance that carries you farther. Space designed for
-              shared smiles, spontaneous dives, and long, slow lunches under the sun.
-              Buenaventura isn&apos;t just a boat — it&apos;s your floating sanctuary.
-            </p>
-            <Button href="/the-boat">Explore the boat</Button>
+            <h2 className={classes.title}>{t("title")}</h2>
+            <p className={classes.desc}>{t("desc")}</p>
+            <Button href="/the-boat">{t("cta")}</Button>
           </div>
         </div>
       </div>

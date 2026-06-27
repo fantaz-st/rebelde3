@@ -53,9 +53,9 @@ export default function WhatsAppButton() {
     >
       <Image
         src="/whatsappicon2.svg"
-        width={24}
-        height={24}
-        sizes="24px"
+        width={20}
+        height={20}
+        sizes="20px"
         className={classes.icon}
         alt="WhatsApp logo for direct chat - Rebelde boats"
       />

@@ -4,58 +4,58 @@ import { useEffect, useRef, useState, useLayoutEffect } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { CustomEase } from "gsap/CustomEase";
+import { useTranslations } from "next-intl";
 import classes from "./Header.module.css";
 import AnimatedLink from "../AnimatedLink/AnimatedLink";
 import Logo from "../Logo/Logo";
-import pageLinks from "../../settings/pageLinks";
 import Button from "../Button/Button";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 
 export default function Header({ variant = "white" }) {
+  const t = useTranslations("nav");
   const SHADOW_THRESHOLD = 300;
+
+  const pageLinks = [
+    { href: "/",               label: t("home") },
+    { href: "/the-boat",      label: t("theBoat") },
+    { href: "/bespoke-tours", label: t("tours") },
+    { href: "/faq",           label: t("faq") },
+    { href: "/contact",       label: t("contact") },
+  ];
 
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [isShadowVisible, setIsShadowVisible] = useState(false);
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMenuActive, setIsMenuActive] = useState(false);
+  const [isMenuOpen,      setIsMenuOpen]      = useState(false);
+  const [isMenuActive,    setIsMenuActive]    = useState(false);
 
   const prevScrollYRef = useRef(0);
-  const overlayRef = useRef(null);
-  const panelRef = useRef(null);
-  const listRef = useRef(null);
-  const menuTlRef = useRef(null);
+  const overlayRef     = useRef(null);
+  const panelRef       = useRef(null);
+  const listRef        = useRef(null);
+  const menuTlRef      = useRef(null);
 
   useEffect(() => {
     const scrollerEl = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot");
-    const scroller = scrollerEl || window;
-
+    const scroller   = scrollerEl || window;
     const getY = () => (scroller === window ? window.scrollY || 0 : scroller.scrollTop || 0);
 
     prevScrollYRef.current = getY();
 
     const updateOnScroll = () => {
       const y = getY();
-
-      if (y <= 0) {
-        setIsHeaderVisible(true);
-      } else {
-        setIsHeaderVisible(y < prevScrollYRef.current);
-      }
-
+      if (y <= 0) setIsHeaderVisible(true);
+      else        setIsHeaderVisible(y < prevScrollYRef.current);
       setIsShadowVisible(y > SHADOW_THRESHOLD);
       prevScrollYRef.current = y;
     };
 
     updateOnScroll();
-
     scroller.addEventListener("scroll", updateOnScroll, { passive: true });
-
     return () => scroller.removeEventListener("scroll", updateOnScroll);
   }, []);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(CustomEase);
-
     CustomEase.create("hop", "M0,0 C0.29,0 0.348,0.05 0.422,0.134 0.494,0.217 0.484,0.355 0.5,0.5 0.518,0.662 0.515,0.793 0.596,0.876 0.701,0.983 0.72,0.987 1,1");
 
     if (!overlayRef.current || !panelRef.current || !listRef.current) return;
@@ -75,29 +75,14 @@ export default function Header({ variant = "white" }) {
     isMenuOpen ? menuTlRef.current.play() : menuTlRef.current.reverse();
   }, [isMenuOpen]);
 
-  // Color logic:
-  // - Menu open/active => always dark UI (because the menu panel is white)
-  // - variant="blue" (inner pages):
-  //     at top => dark UI (blue on cream/light bg)
-  //     scrolled => light UI (the dark shadow makes white legible)
-  // - variant="white" (home):
-  //     always light UI (white-on-image hero); when menu opens, dark UI takes over
-  const isDarkUi =
-    isMenuOpen ||
-    isMenuActive ||
-    (variant === "blue" && !isShadowVisible);
+  const isDarkUi = isMenuOpen || isMenuActive || (variant === "blue" && !isShadowVisible);
 
   const headerClassName = [
     classes.header,
     isHeaderVisible ? classes.visible : classes.hidden,
     isMenuActive && classes.menuActive,
     isShadowVisible && classes.scrolled,
-  ]
-    .filter(Boolean)
-    .join(" ");
-
-  const burgerButtonClassName = [classes.hamburgerBtn, classes[isDarkUi ? "dark" : "light"]].join(" ");
-  const burgerIconClassName = [classes.hamburger, isMenuOpen && classes.open].filter(Boolean).join(" ");
+  ].filter(Boolean).join(" ");
 
   return (
     <>
@@ -105,12 +90,14 @@ export default function Header({ variant = "white" }) {
         <div className={classes.shadow} aria-hidden="true" />
 
         <div className={classes.container}>
+          {/* Logo */}
           <div className={classes.logo}>
             <Link href="/" aria-label="Rebelde Boats home">
               <Logo variant={isDarkUi ? "blue" : "white"} />
             </Link>
           </div>
 
+          {/* Desktop nav links */}
           <nav className={`${classes.nav} ${classes[isDarkUi ? "dark" : "light"]}`}>
             {pageLinks.map(({ href, label }) => (
               <div key={href} className={classes.navItem}>
@@ -119,35 +106,45 @@ export default function Header({ variant = "white" }) {
             ))}
           </nav>
 
-          <div className={classes.desktopButton}>
-            <Button href="/contact" variant={isDarkUi ? "blue" : "white"} size="sm">
-              GET IN TOUCH
-            </Button>
-          </div>
+          {/* Right side — desktop: lang dropdown + contact button */}
+          <div className={classes.actions}>
+            {/* Language dropdown — visible on ALL breakpoints */}
+            <LanguageSwitcher isDarkUi={isDarkUi} />
 
-          <button
-            className={burgerButtonClassName}
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-            aria-label="Toggle menu"
-            aria-expanded={isMenuOpen}
-          >
-            <p>{isMenuOpen ? "Close" : "Menu"}</p>
-
-            <div className={burgerIconClassName}>
-              <span />
-              <span />
-              <span />
+            {/* Contact button — hidden on tablet/mobile via wrapper div */}
+            <div className={classes.contactBtnWrap}>
+              <Button
+                href="/contact"
+                variant={isDarkUi ? "blue" : "white"}
+                size="sm"
+              >
+                {t("getInTouch")}
+              </Button>
             </div>
-          </button>
+
+            {/* Hamburger — mobile only, inside actions so it never overlaps the dropdown */}
+            <button
+              className={[classes.hamburgerBtn, classes[isDarkUi ? "dark" : "light"]].join(" ")}
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+              aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
+            >
+              <div className={[classes.hamburger, isMenuOpen && classes.open].filter(Boolean).join(" ")}>
+                <span /><span /><span />
+              </div>
+            </button>
+          </div>
         </div>
       </header>
 
+      {/* Menu overlay */}
       <div
         ref={overlayRef}
         className={`${classes.overlay} ${isMenuOpen ? classes.overlayOpen : ""}`}
         onClick={() => setIsMenuOpen(false)}
       />
 
+      {/* Full-screen menu panel */}
       <div ref={panelRef} className={`${classes.menu} ${isMenuOpen ? classes.menuOpen : ""}`}>
         <nav>
           <ul ref={listRef} className={classes.navList}>
@@ -160,6 +157,11 @@ export default function Header({ variant = "white" }) {
             ))}
           </ul>
         </nav>
+
+        {/* Language switcher inside the mobile menu panel */}
+        <div className={classes.menuFooter}>
+          <LanguageSwitcher isDarkUi={true} />
+        </div>
       </div>
     </>
   );

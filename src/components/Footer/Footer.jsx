@@ -6,6 +6,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { useTranslations } from "next-intl";
 import classes from "./Footer.module.css";
 import horizontalLoop from "@/helpers/horizontalHelper";
 import Button from "../Button/Button";
@@ -14,8 +15,9 @@ import items from "../../settings/footer-marquee";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Footer() {
-  const wrapRef = useRef(null);
-  const bgRef = useRef(null);
+  const t = useTranslations("footer");
+  const wrapRef  = useRef(null);
+  const bgRef    = useRef(null);
   const itemRefs = useRef([]);
 
   useGSAP(
@@ -25,13 +27,11 @@ export default function Footer() {
 
       if (bgRef.current) {
         gsap.set(bgRef.current, { backgroundPosition: "0px 0px", willChange: "background-position" });
-
         gsap.to(bgRef.current, {
           backgroundPosition: "0px -220px",
           ease: "none",
           scrollTrigger: {
             scroller: scroller === window ? undefined : scroller,
-
             trigger: wrapRef.current,
             start: "top bottom",
             end: "bottom top",
@@ -43,12 +43,7 @@ export default function Footer() {
 
       const els = itemRefs.current.filter(Boolean);
       if (els.length) {
-        horizontalLoop(els, {
-          repeat: -1,
-          speed: 0.8,
-          paused: false,
-          paddingRight: 24,
-        });
+        horizontalLoop(els, { repeat: -1, speed: 0.8, paused: false, paddingRight: 24 });
       }
     },
     { scope: wrapRef, dependencies: [items] },
@@ -61,11 +56,9 @@ export default function Footer() {
 
       <div className={classes.cta}>
         <div className={`container ${classes.ctaInner}`}>
-          <h2 className={classes.ctaTitle}>Want to make it special?</h2>
-          <Button href="/contact" variant="white" size="lg">
-            GET IN TOUCH
-          </Button>
-          <p className={classes.ctaSub}>Reach out and let us turn your time in Split into something truly special.</p>
+          <h2 className={classes.ctaTitle}>{t("ctaTitle")}</h2>
+          <Button href="/contact" variant="white" size="lg">{t("ctaButton")}</Button>
+          <p className={classes.ctaSub}>{t("ctaSub")}</p>
         </div>
       </div>
 
@@ -84,9 +77,8 @@ export default function Footer() {
       <div className={classes.main}>
         <div className={classes.top}>
           <div className={`container ${classes.topInner}`}>
-            <div className={`${classes.column} ${classes.left} `}>
-              <h5 className={classes.label}>Chat with us on WhatsApp</h5>
-
+            <div className={`${classes.column} ${classes.left}`}>
+              <h5 className={classes.label}>{t("whatsappLabel")}</h5>
               <a className={`${classes.link} ${classes.larger}`} target="_blank" href="https://wa.me/385953933125" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
                 <h4>+385 95 393 3125</h4>
               </a>
@@ -100,7 +92,7 @@ export default function Footer() {
             </div>
 
             <div className={`${classes.column} ${classes.right}`}>
-              <h5 className={classes.label}>Get in touch</h5>
+              <h5 className={classes.label}>{t("emailLabel")}</h5>
               <a className={`${classes.link} ${classes.larger}`} href="mailto:rebeldeboats@gmail.com">
                 <h4>rebeldeboats@gmail.com</h4>
               </a>
@@ -119,23 +111,15 @@ export default function Footer() {
             </div>
             <div className={`${classes.column} ${classes.center}`}>
               <div className={classes.links}>
-                <Link className={classes.botLink} href="/the-boat">
-                  The Boat
-                </Link>
-                <Link className={classes.botLink} href="/bespoke-tours">
-                  Bespoke Tours
-                </Link>
-                <Link className={classes.botLink} href="/faq">
-                  FAQ-s
-                </Link>
-                <Link className={classes.botLink} href="/contact">
-                  Contact
-                </Link>
+                <Link className={classes.botLink} href="/the-boat">{t("theBoat")}</Link>
+                <Link className={classes.botLink} href="/bespoke-tours">{t("bespokeToursLink")}</Link>
+                <Link className={classes.botLink} href="/faq">{t("faqLink")}</Link>
+                <Link className={classes.botLink} href="/contact">{t("contactLink")}</Link>
               </div>
             </div>
             <div className={`${classes.column} ${classes.right}`}>
               <div className={classes.columnInner}>
-                designed & developed by <a href="mailto:cbabic.st@gmail.com">fantaz</a>
+                {t("credit")} <a href="mailto:cbabic.st@gmail.com">fantaz</a>
               </div>
             </div>
           </div>

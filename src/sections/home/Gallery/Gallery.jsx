@@ -4,6 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { useTranslations } from "next-intl";
 import items from "@/settings/gallery";
 import classes from "./Gallery.module.css";
 import Image from "next/image";
@@ -11,6 +12,8 @@ import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Gallery() {
+  const t = useTranslations("gallery");
+
   const wrapRef      = useRef(null);
   const stageRef     = useRef(null);
   const stickRef     = useRef(null);
@@ -40,12 +43,10 @@ export default function Gallery() {
       const tlShowText = gsap.timeline({
         defaults: { ease: "none" },
         scrollTrigger: {
-          trigger:            stick,
-          scroller:           scrollerOpt,
-          start:              "top top",
-          end:                () => `+=${stage.offsetHeight}`,
-          scrub:              true,
-          invalidateOnRefresh: true,
+          trigger: stick, scroller: scrollerOpt,
+          start: "top top",
+          end: () => `+=${stage.offsetHeight}`,
+          scrub: true, invalidateOnRefresh: true,
         },
       });
 
@@ -55,19 +56,14 @@ export default function Gallery() {
           .to(el, { autoAlpha: 0, y: "-3rem", scale: 0.96, duration: 1 }, i * 2 + 1);
       });
 
-      gsap
-        .timeline({
-          defaults: { ease: "none" },
-          scrollTrigger: {
-            trigger:            stage,
-            scroller:           scrollerOpt,
-            start:              "bottom-=1.5vh 50%",
-            end:                "bottom-=1vh 50%",
-            scrub:              true,
-            invalidateOnRefresh: true,
-          },
-        })
-        .fromTo(textInner, { autoAlpha: 1, scale: 1 }, { autoAlpha: 0, scale: 0.96, duration: 1 });
+      gsap.timeline({
+        defaults: { ease: "none" },
+        scrollTrigger: {
+          trigger: stage, scroller: scrollerOpt,
+          start: "bottom-=1.5vh 50%", end: "bottom-=1vh 50%",
+          scrub: true, invalidateOnRefresh: true,
+        },
+      }).fromTo(textInner, { autoAlpha: 1, scale: 1 }, { autoAlpha: 0, scale: 0.96, duration: 1 });
 
       if (startItems.length && endItems.length && startItems.length === endItems.length) {
         const getScrollTop = () => {
@@ -86,7 +82,7 @@ export default function Gallery() {
           const a  = fromEl.getBoundingClientRect();
           const b  = toEl.getBoundingClientRect();
           return {
-            x: (b.left - vp.left + b.width / 2) - (a.left - vp.left + a.width / 2),
+            x: (b.left - vp.left + b.width / 2)  - (a.left - vp.left + a.width / 2),
             y: (b.top  - vp.top  + b.height / 2) - (a.top  - vp.top  + a.height / 2),
           };
         };
@@ -103,23 +99,19 @@ export default function Gallery() {
         const tlImages = gsap.timeline({
           defaults: { ease: "none" },
           scrollTrigger: {
-            trigger:            stage,
-            scroller:           scrollerOpt,
-            start:              "top bottom",
-            end:                "top 50%",
-            scrub:              true,
-            invalidateOnRefresh: true,
-            onRefresh:          () => setImageFlip(),
+            trigger: stage, scroller: scrollerOpt,
+            start: "top bottom", end: "top 50%",
+            scrub: true, invalidateOnRefresh: true,
+            onRefresh: () => setImageFlip(),
           },
         });
 
         startItems.forEach((startEl, i) => {
           const endEl = endItems[i];
           const dir   = (i + 1) % 2 === 0 ? 1 : -1;
-
           const first = {
-            x:        gsap.utils.random(10, 20) * dir,
-            y:        0,
+            x: gsap.utils.random(10, 20) * dir,
+            y: 0,
             rotation: gsap.utils.random(5, 10) * dir,
           };
 
@@ -137,31 +129,22 @@ export default function Gallery() {
           if (img) {
             gsap.to(img, {
               scrollTrigger: {
-                trigger:            startEl,
-                scroller:           scrollerOpt,
-                start:              "top 90%",
-                end:                "top top",
-                scrub:              true,
-                invalidateOnRefresh: true,
+                trigger: startEl, scroller: scrollerOpt,
+                start: "top 90%", end: "top top",
+                scrub: true, invalidateOnRefresh: true,
               },
-              yPercent: randY,
-              ease: "none",
+              yPercent: randY, ease: "none",
             });
           }
 
           if (inner) {
             gsap.to(inner, {
               scrollTrigger: {
-                trigger:            startEl,
-                scroller:           scrollerOpt,
-                start:              "top bottom+=10%",
-                end:                "top top",
-                scrub:              true,
-                invalidateOnRefresh: true,
+                trigger: startEl, scroller: scrollerOpt,
+                start: "top bottom+=10%", end: "top top",
+                scrub: true, invalidateOnRefresh: true,
               },
-              yPercent: -randY,
-              scale: 1,
-              ease: "none",
+              yPercent: -randY, scale: 1, ease: "none",
             });
           }
         });
@@ -179,14 +162,10 @@ export default function Gallery() {
           <div className="container">
             <div className={classes.textInner} ref={textInnerRef}>
               <div className={classes.textItem} ref={(el) => (textItemRefs.current[0] = el)}>
-                <h2 className={classes.heading}>
-                  We craft experiences where the sea is a companion, not a destination.
-                </h2>
+                <h2 className={classes.heading}>{t("slide1")}</h2>
               </div>
               <div className={classes.textItem} ref={(el) => (textItemRefs.current[1] = el)}>
-                <h2 className={classes.heading}>
-                  Every journey is personal. Every wave, a new memory.
-                </h2>
+                <h2 className={classes.heading}>{t("slide2")}</h2>
               </div>
             </div>
           </div>
@@ -205,14 +184,7 @@ export default function Gallery() {
                   role="listitem"
                 >
                   <div className={classes.itemInner}>
-                    <Image
-                      src={it.src}
-                      alt={it.alt}
-                      className={classes.img}
-                      fill
-                      priority={i === 0}
-                      sizes="(max-width: 767px) 50vw, 30vw"
-                    />
+                    <Image src={it.src} alt={it.alt} className={classes.img} fill priority={i === 0} sizes="(max-width: 767px) 50vw, 30vw" />
                   </div>
                 </div>
               ))}
@@ -228,13 +200,7 @@ export default function Gallery() {
                     aria-hidden="true"
                   >
                     <div className={classes.itemInner}>
-                      <Image
-                        src={it.src}
-                        alt=""
-                        className={classes.img}
-                        fill
-                        sizes="(max-width: 767px) 50vw, 30vw"
-                      />
+                      <Image src={it.src} alt="" className={classes.img} fill sizes="(max-width: 767px) 50vw, 30vw" />
                     </div>
                   </div>
                 ))}
