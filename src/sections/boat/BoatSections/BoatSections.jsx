@@ -19,7 +19,7 @@ export default function BoatSections() {
   return (
     <div className={classes.wrap}>
       <div className={classes.list}>
-        <SectionNav sections={sections} containerRef={null} variant="overlay" />
+        <SectionNav sections={sections} containerRef={null} variant="overlay" color="white" />
         {boatSections.map((item, i) => (
           <BoatSectionItem
             key={item.key}

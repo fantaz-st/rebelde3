@@ -19,7 +19,7 @@ export default function Expeditions() {
         <SectionNav
           sections={sections}
           containerRef={null}
-          variant="overlay"
+          variant="overlay" color="white"
         />
 
         {items.map((item, i) => (

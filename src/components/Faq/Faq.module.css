@@ -38,10 +38,12 @@
   align-items: start;
 }
 
-/* SectionNav sits in the left columns — no extra wrapper needed */
+/* SectionNav sits in the left columns.
+   align-self:stretch gives the aside full column height so sticky works. */
 .grid > :first-child {
   grid-column: 1 / 5;
   min-width: 0;
+  align-self: stretch;
 }
 
 /* ── Content ── */

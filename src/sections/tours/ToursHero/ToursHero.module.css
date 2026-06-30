@@ -197,7 +197,7 @@
   display: block;
   height: 1em;
   white-space: nowrap;
-  transition: transform 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: transform 0.65s var(--ease-expo);
 }
 
 .flipBottom {

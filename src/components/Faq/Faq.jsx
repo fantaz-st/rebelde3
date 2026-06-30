@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import classes from "./Faq.module.css";
 import faqs from "@/settings/faqs";
@@ -10,9 +9,6 @@ export default function Faq() {
   const t  = useTranslations("faq");
   const tc = useTranslations("faqCategories");
 
-  const contentRef = useRef(null);
-
-  // Translate section titles and Q&A
   const translatedFaqs = faqs.map((section) => ({
     ...section,
     title: tc(section.id),
@@ -37,9 +33,10 @@ export default function Faq() {
       </div>
 
       <div className={`container grid ${classes.grid}`}>
-        <SectionNav sections={sections} containerRef={contentRef} topOffset={140} variant="rail" />
+        {/* variant="rail" + CSS sticky — same mechanism as tours/boat overlay */}
+        <SectionNav sections={sections} topOffset={140} variant="rail" />
 
-        <div className={classes.content} ref={contentRef}>
+        <div className={classes.content}>
           {translatedFaqs.map((section) => (
             <div key={section.id} id={section.id} className={classes.section}>
               <h2 className={classes.sectionTitle}>{section.title}</h2>

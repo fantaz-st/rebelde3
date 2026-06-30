@@ -7,20 +7,28 @@
   --bg-brown-10:  #f2ebe3;
 
   /* ── Text ── */
-  --text-white:    #ffffff;
-  --text-white-80: rgba(255, 255, 255, 0.8);
+  --text-white: #ffffff;
 
   /* ── Brand ── */
-  --brand-persian-blue: #003357;
+  --brand-persian-blue:     #003357;
+  --brand-persian-blue-90:  rgba(0, 51, 87, 0.9);
+  --brand-persian-blue-85:  rgba(0, 51, 87, 0.85);
+  --brand-persian-blue-60:  rgba(0, 51, 87, 0.6);
+  --brand-persian-blue-35:  rgba(0, 51, 87, 0.35);
+  --brand-persian-blue-20:  rgba(0, 51, 87, 0.2);
+  --brand-persian-blue-12:  rgba(0, 51, 87, 0.12);
+  --brand-persian-blue-08:  rgba(0, 51, 87, 0.08);
+  --brand-persian-blue-06:  rgba(0, 51, 87, 0.06);
+  --brand-persian-blue-05:  rgba(0, 51, 87, 0.05);
 
-  /* ── Accent (outside brown/blue) ── */
+  /* ── Accent ── */
   --color-star:  #ffb400;
   --color-score: #e4ed64;
 
   /* ── Overlays ── */
+  --overlay-dark-55:  rgba(0, 0, 0, 0.55);
   --overlay-dark-45:  rgba(0, 0, 0, 0.45);
   --overlay-dark-25:  rgba(0, 0, 0, 0.25);
-  --overlay-dark-55:  rgba(0, 0, 0, 0.55);
   --border-subtle:    rgba(12, 12, 12, 0.12);
   --border-white-10:  rgba(255, 255, 255, 0.10);
 
@@ -40,14 +48,12 @@
   --dur-img:  0.8s;
 
   /* ── Composite transitions ── */
-  --transition-base:  var(--dur-base) var(--ease-expo);
-  --transition-img:   var(--dur-img)  var(--ease-smooth);
-  --transition-fast:  var(--dur-fast) var(--ease-expo);
+  --transition-base: var(--dur-base) var(--ease-expo);
+  --transition-img:  var(--dur-img)  var(--ease-smooth);
+  --transition-fast: var(--dur-fast) var(--ease-expo);
 
   /* ── Fonts ── */
-  --fonts--body:   var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
-  --fonts--button: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
-  --fonts--h5:     var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fonts--body: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 body {

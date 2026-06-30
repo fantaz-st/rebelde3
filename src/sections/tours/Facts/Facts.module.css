@@ -60,7 +60,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   opacity: 0.3;
   cursor: pointer;
-  transition: opacity 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: opacity 0.65s var(--ease-expo);
 }
 
 .item:last-child {
@@ -88,7 +88,7 @@
   cursor: pointer;
   font: inherit;
   text-align: left;
-  transition: padding 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: padding 0.65s var(--ease-expo);
 }
 
 .itemPoint {
@@ -99,7 +99,7 @@
   border-radius: 50%;
   background-color: #ff6700;
   clip-path: circle(0%);
-  transition: clip-path 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: clip-path 0.65s var(--ease-expo);
 }
 
 .item.active .itemPoint {
@@ -114,7 +114,7 @@
   color: #fff;
   margin: 0;
   padding-left: 0;
-  transition: padding 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: padding 0.65s var(--ease-expo);
 }
 
 .item.active .itemTitle {
@@ -177,7 +177,7 @@
 .thumbTxtInner {
   grid-area: 1 / 1 / 2 / 2;
   opacity: 0;
-  transition: opacity 0.65s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: opacity 0.65s var(--ease-expo);
 }
 
 .thumbTxtInner p {
@@ -267,7 +267,7 @@
     display: block;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    transition: max-height 0.6s var(--ease-expo);
   }
 
   .item.itemOpen .itemContent {

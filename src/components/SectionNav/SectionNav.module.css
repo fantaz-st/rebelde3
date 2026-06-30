@@ -1,34 +1,40 @@
-/* ─────────────────────────────────────────────────────────────
-   SectionNav
-   ───────────────────────────────────────────────────────────── */
-
 .srOnly {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip: rect(0,0,0,0);
   white-space: nowrap;
   border: 0;
 }
 
-/* ── Desktop rail ───────────────────────────────────────────── */
-.rail {
-  min-width: 0;
-}
+/* ── Desktop rail ─────────────────────────────────────────── */
+.rail { min-width: 0; }
 
 .railInner {
+  padding: 2rem 0 2rem 0;
+}
+
+/* Rail variant: CSS sticky — sticks once in view */
+@media (min-width: 992px) {
+  .rail:not(.railOverlay) .railInner {
+    position: sticky;
+    top: 14rem;
+  }
+}
+
+/* navWrap contains both the pin track and nav list.
+   Pin track is absolute here so it spans only the link list height. */
+.navWrap {
   position: relative;
-  padding: 2rem 0 2rem 3rem;
+  padding-left: 3rem;
 }
 
 .pinTrack {
   position: absolute;
   left: 0;
-  top: 2rem;
-  bottom: 2rem;
+  top: 0;
+  bottom: 0;
   width: 1.8rem;
   pointer-events: none;
 }
@@ -40,9 +46,7 @@
   transition: grid-template-rows 0.4s var(--ease-expo);
 }
 
-.pinTrackEmpty {
-  min-height: 0;
-}
+.pinTrackEmpty { min-height: 0; }
 
 .pinTrackDot {
   display: flex;
@@ -57,10 +61,7 @@
   color: var(--brand-persian-blue);
 }
 
-.pinIcon svg {
-  width: 100%;
-  height: 100%;
-}
+.pinIcon svg { width: 100%; height: 100%; }
 
 .navList {
   display: flex;
@@ -85,8 +86,8 @@
   transition: opacity var(--transition-base);
 }
 
-.navItem:hover     { opacity: 0.6; }
-.navItemActive     { opacity: 1; }
+.navItem:hover  { opacity: 0.6; }
+.navItemActive  { opacity: 1; }
 
 .flip {
   position: relative;
@@ -123,8 +124,10 @@
     width: 0;
     height: 100%;
     pointer-events: none;
+    z-index: 10; /* above content grid z-index:2 */
   }
 
+  /* railInner sticks to bottom of viewport, holds ONLY the nav list */
   .railOverlay .railInner {
     position: sticky;
     top: 0;
@@ -135,33 +138,20 @@
     margin-left: var(--container--padding, 4rem);
   }
 
-  .railOverlay .pinTrack {
-    top: 0;
-    bottom: 0;
-  }
-
+  /* Links — theme blue, full opacity on active */
   .railOverlay .navItem {
     pointer-events: auto;
-    color: #fff;
-    mix-blend-mode: difference;
-    opacity: 0.55;
+    color: var(--brand-persian-blue);
+    opacity: 0.4;
   }
 
-  .railOverlay .navItem:hover  { opacity: 0.85; }
+  .railOverlay .navItem:hover  { opacity: 0.7; }
   .railOverlay .navItemActive  { opacity: 1; }
-  .railOverlay .pinIcon        { color: #fff; mix-blend-mode: difference; }
+  .railOverlay .pinIcon        { color: var(--brand-persian-blue); }
 }
 
-/* ── Mobile (portalled to <body>, ≤ 991px only) ─────────────
-   The .mobile wrapper is fixed to viewport.
-   Stack order from bottom to top:
-     1. backdrop  z-index: 1  (dims page, closes on click)
-     2. sheet     z-index: 2  (list of sections)
-     3. bar       z-index: 3  (always-visible pill)
-   ─────────────────────────────────────────────────────────── */
-.mobile {
-  display: none;
-}
+/* ── Mobile (portalled to <body>, ≤ 991px) ─────────────────── */
+.mobile { display: none; }
 
 @media (max-width: 991px) {
   .mobile {
@@ -169,11 +159,9 @@
     position: fixed;
     inset: auto 0 0;
     z-index: 1200;
-    /* pointer-events off at root; children opt in individually */
     pointer-events: none;
   }
 
-  /* ── Backdrop ── z:1 */
   .backdrop {
     position: fixed;
     inset: 0;
@@ -189,12 +177,11 @@
     pointer-events: auto;
   }
 
-  /* ── Sheet ── z:2, sits above backdrop */
   .sheet {
     position: absolute;
     left: 1.6rem;
     right: 1.6rem;
-    bottom: calc(100% - 1.6rem); /* gap above bar accounted for by bar margin */
+    bottom: calc(100% - 1.6rem);
     margin-bottom: 0.8rem;
     z-index: 2;
     background: var(--bg-brown-10);
@@ -204,7 +191,6 @@
     overflow-y: auto;
     overscroll-behavior: contain;
     pointer-events: auto;
-    /* hidden state */
     transform: translateY(1rem);
     opacity: 0;
     visibility: hidden;
@@ -229,13 +215,8 @@
     padding: 0.8rem 0;
   }
 
-  .sheetItem {
-    border-bottom: 1px solid var(--border-subtle);
-  }
-
-  .sheetItem:last-child {
-    border-bottom: none;
-  }
+  .sheetItem { border-bottom: 1px solid var(--border-subtle); }
+  .sheetItem:last-child { border-bottom: none; }
 
   .sheetBtn {
     display: flex;
@@ -254,19 +235,12 @@
     color: var(--brand-persian-blue);
     opacity: 0.45;
     cursor: pointer;
-    transition:
-      opacity          0.2s ease,
-      background-color 0.2s ease;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
   }
 
   .sheetBtn:active,
-  .sheetBtn:hover {
-    background-color: rgba(0, 51, 87, 0.05);
-  }
-
-  .sheetBtnActive {
-    opacity: 1;
-  }
+  .sheetBtn:hover { background-color: var(--brand-persian-blue-05); }
+  .sheetBtnActive { opacity: 1; }
 
   .sheetBtnPin {
     display: flex;
@@ -277,12 +251,8 @@
     transition: opacity 0.2s ease;
   }
 
-  .sheetBtnPin svg {
-    width: 100%;
-    height: 100%;
-  }
+  .sheetBtnPin svg { width: 100%; height: 100%; }
 
-  /* ── Bar ── z:3, always above sheet and backdrop */
   .bar {
     position: relative;
     z-index: 3;
@@ -301,7 +271,6 @@
     box-shadow: 0 1rem 3rem var(--overlay-dark-25);
     cursor: pointer;
     font: inherit;
-    /* hidden: slides up from below */
     transform: translateY(calc(100% + 2.4rem));
     opacity: 0;
     transition:
@@ -309,10 +278,7 @@
       opacity   0.35s ease;
   }
 
-  .mobileVisible .bar {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  .mobileVisible .bar { transform: translateY(0); opacity: 1; }
 
   .barLabel {
     display: flex;
@@ -326,17 +292,8 @@
     min-width: 0;
   }
 
-  .barPinIcon {
-    display: flex;
-    width: 1.5rem;
-    height: 1.5rem;
-    flex-shrink: 0;
-  }
-
-  .barPinIcon svg {
-    width: 100%;
-    height: 100%;
-  }
+  .barPinIcon { display: flex; width: 1.5rem; height: 1.5rem; flex-shrink: 0; }
+  .barPinIcon svg { width: 100%; height: 100%; }
 
   .barLabelText {
     white-space: nowrap;
@@ -352,12 +309,6 @@
     transition: transform 0.35s var(--ease-expo);
   }
 
-  .barChevron svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .barChevronOpen {
-    transform: rotate(180deg);
-  }
+  .barChevron svg { width: 100%; height: 100%; }
+  .barChevronOpen { transform: rotate(180deg); }
 }

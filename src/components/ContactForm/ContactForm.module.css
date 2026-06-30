@@ -87,7 +87,7 @@
   background: #191919;
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: transform 0.4s var(--ease-expo);
   display: block;
 }
 
@@ -179,7 +179,7 @@
 }
 
 .dropdownOptionActive {
-  background-color: rgba(0, 51, 87, 0.08);
+  background-color: var(--brand-persian-blue-08);
   font-weight: 500;
 }
 
@@ -276,7 +276,7 @@
 }
 
 .submitBtn:hover:not(:disabled) {
-  background-color: rgba(0, 51, 87, 0.85);
+  background-color: var(--brand-persian-blue-85);
 }
 
 .submitBtn:disabled {
@@ -421,7 +421,7 @@
 }
 
 .fieldPhone :global(.react-international-phone-country-selector-dropdown__list-item--selected) {
-  background-color: rgba(0, 51, 87, 0.08);
+  background-color: var(--brand-persian-blue-08);
 }
 
 .fieldPhone :global(.react-international-phone-country-selector-dropdown__list-item-country-name) {
