@@ -124,7 +124,7 @@ export default function BoatHero() {
           <div className={classes.thumbInner}>
             <Image
               ref={thumbImgRef}
-              src="/images/boat/grid/hero.jpg"
+              src="/images/boat/felix 37 drone shot 1.jpeg"
               alt="Felix 37 Buenaventura — Rebelde Boats private speedboat on the Adriatic"
               fill
               priority
