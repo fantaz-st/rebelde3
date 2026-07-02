@@ -129,6 +129,7 @@ export default function BoatHero() {
               fill
               priority
               sizes="(max-width: 767px) 100vw, 45vw"
+              quality={85}
               className={classes.thumbImg}
             />
           </div>

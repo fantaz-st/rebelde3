@@ -4,7 +4,13 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Add any existing Next.js config options here
+  images: {
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+    imageSizes:  [16, 32, 48, 64, 96, 128, 256, 384],
+    qualities:[40,75,85,100],
+  },
+  compress: true,
 };
 
 export default withNextIntl(nextConfig);

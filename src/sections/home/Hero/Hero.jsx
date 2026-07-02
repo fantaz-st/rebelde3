@@ -10,8 +10,6 @@ import classes from "./Hero.module.css";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const HERO_SRC = "/images/hero/rebelde boats felix 37 hero tall 2.png";
-
 export default function Hero() {
   const t = useTranslations("hero");
 
@@ -34,11 +32,11 @@ export default function Hero() {
       gsap.timeline({
         defaults: { ease: "none" },
         scrollTrigger: {
-          trigger:             wrapRef.current,
-          scroller:            scroller === window ? undefined : scroller,
-          start:               "top top",
-          end:                 "+=80%",
-          scrub:               true,
+          trigger: wrapRef.current,
+          scroller: scroller === window ? undefined : scroller,
+          start: "top top",
+          end: "+=80%",
+          scrub: true,
           invalidateOnRefresh: true,
         },
       })
@@ -58,31 +56,17 @@ export default function Hero() {
             <div className={classes.bgItem}>
               <Image
                 className={classes.img}
-                fill
-                priority
-                alt="Felix 37 Buenaventura speedboat cruising the Adriatic sea near Split, Croatia"
+                fill priority alt="Felix 37 Buenaventura speedboat cruising the Adriatic sea near Split, Croatia"
                 sizes="100vw"
-                src={HERO_SRC}
+                quality={85}
+                src="/images/hero/rebelde-boats-hero.webp"
               />
             </div>
-
-            {/*
-              Blur overlay — same image rendered via CSS filter rather than
-              loading a second copy with sizes="1px".
-              The blur div is a positioned overlay; the image inside inherits
-              the same src so the browser serves it from cache.
-            */}
             <div ref={blurRef} className={classes.blur} aria-hidden="true">
-              <Image
-                className={classes.img}
-                fill
-                alt=""
-                sizes="100vw"
-                src={HERO_SRC}
-                aria-hidden="true"
-              />
+              {/* Blur overlay — same src hits browser cache, no second network request */}
+              <Image className={classes.img} fill alt="" sizes="100vw" quality={40}
+                src="/images/hero/rebelde-boats-hero.webp" />
             </div>
-
             <div ref={backdropRef} className={classes.backdrop} aria-hidden="true" />
           </div>
 

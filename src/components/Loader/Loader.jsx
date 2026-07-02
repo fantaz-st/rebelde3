@@ -139,7 +139,7 @@ export default function Loader() {
         <div ref={bgInnerRef} className={classes.bgInner}>
           <div className={classes.top} />
           <div className={classes.bot}>
-            <img ref={curtainRef} src="/images/hero/rebelde boats felix 37 hero tall 2.png" alt="" className={classes.curtain} />
+            <img ref={curtainRef} src="/images/hero/rebelde-boats-hero.webp" alt="" className={classes.curtain} />
           </div>
         </div>
       </div>
