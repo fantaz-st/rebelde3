@@ -1,37 +1,44 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import classes from "./BoatSections.module.css";
-import BoatSectionItem from "./BoatSectionItem";
+import SectionList from "@/components/SectionList/SectionList";
 import BoatSpecs from "@/sections/boat/BoatSpecs/BoatSpecs";
-import SectionNav from "@/components/SectionNav/SectionNav";
-import boatSections from "@/settings/boatSections";
+import rawItems from "@/settings/boatSections";
 
 export default function BoatSections() {
-  const t = useTranslations("boatSections.sectionNav");
+  const t  = useTranslations("boatSectionItems");
+  const tn = useTranslations("boatSections");
 
-  const sections = [
-    { id: "the-boat",      label: t("theBoat") },
-    { id: "comfort-deck",  label: t("comfortDeck") },
-    { id: "specifications",label: t("specifications") },
+  // Normalise boatSections.js shape → SectionItem shape
+  const items = rawItems.map((it) => ({
+    key:      it.key,
+    hero:     it.heroImg,
+    label:    t(`${it.key}.label`),
+    intro:    t(`${it.key}.intro`),
+    subText:  t(`${it.key}.subText`),
+    imgLarge: it.imgLarge,
+    imgSmall: it.imgSmall,
+    ctaImg:   it.ctaImg,
+    ctaText:  t(`${it.key}.ctaText`),
+    gallery:  it.gallery,
+  }));
+
+  const navSections = [
+    { id: "the-boat",       label: tn("sectionNav.theBoat") },
+    { id: "comfort-deck",   label: tn("sectionNav.comfortDeck") },
+    { id: "specifications", label: tn("sectionNav.specifications") },
   ];
 
   return (
-    <div className={classes.wrap}>
-      <div className={classes.list}>
-        <SectionNav sections={sections} containerRef={null} variant="overlay" color="white" />
-        {boatSections.map((item, i) => (
-          <BoatSectionItem
-            key={item.key}
-            item={item}
-            index={i}
-            isLast={false}
-          />
-        ))}
+    <SectionList
+      items={items}
+      navSections={navSections}
+      ctaLabel={tn("checkAvailability")}
+      footer={
         <div id="specifications">
           <BoatSpecs />
         </div>
-      </div>
-    </div>
+      }
+    />
   );
 }

@@ -8,90 +8,91 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
-export default function AnimatedText({ children, animateOnScroll = true, delay = 0, className = "" }) {
+export default function AnimatedText({
+  children,
+  animateOnScroll = true,
+  delay = 0,
+  className = "",
+}) {
   const containerRef = useRef(null);
-  const splitRefs = useRef([]);
-  const lines = useRef([]);
+  const splitRef     = useRef(null);
+  const stRef        = useRef(null);
 
   useGSAP(
     () => {
-      if (typeof window === "undefined" || !containerRef.current) return;
+      if (!containerRef.current) return;
 
-      // revert any previous splits
-      splitRefs.current.forEach((s) => s.revert());
-      splitRefs.current = [];
-      lines.current = [];
+      // Revert any previous split
+      splitRef.current?.revert();
 
-      // create new split (no ARIA injection)
       const split = SplitText.create(containerRef.current, {
-        tag: "span",
-        type: "lines",
-        mask: "lines",
-        linesClass: "split-line",
+        tag:           "span",
+        type:          "lines",
+        mask:          "lines",
+        linesClass:    "split-line",
         lineThreshold: 0.1,
-        aria: "none",
+        aria:          "none",
       });
-      splitRefs.current.push(split);
-      lines.current.push(...split.lines);
+      splitRef.current = split;
 
-      // start state
-      gsap.set(containerRef.current, {
-        autoAlpha: 1,
-      });
-      gsap.set(lines.current, { y: "100%" });
+      gsap.set(containerRef.current, { autoAlpha: 1 });
+      gsap.set(split.lines, { y: "100%" });
 
-      const animationProps = {
-        y: "0%",
+      const animProps = {
+        y:        "0%",
         duration: 1,
-        stagger: 0.1,
-        ease: "power4.out",
-        delay: delay,
+        stagger:  0.1,
+        ease:     "power4.out",
+        delay,
       };
 
       if (animateOnScroll) {
-        gsap.to(lines.current, {
-          ...animationProps,
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 75%",
-            once: true,
-          },
+        // Store the ScrollTrigger so we can kill only this one on cleanup
+        stRef.current = ScrollTrigger.create({
+          trigger: containerRef.current,
+          start:   "top 75%",
+          once:    true,
+          onEnter: () => gsap.to(split.lines, animProps),
         });
       } else {
-        gsap.to(lines.current, animationProps);
+        gsap.to(split.lines, animProps);
       }
 
       return () => {
-        ScrollTrigger.getAll().forEach((t) => t.kill());
-        splitRefs.current.forEach((s) => s.revert());
+        stRef.current?.kill();
+        splitRef.current?.revert();
       };
     },
     { scope: containerRef, dependencies: [animateOnScroll, delay] },
   );
 
-  // handle a single element child
   const safe = React.Children.toArray(children);
+
   if (safe.length === 1 && React.isValidElement(safe[0])) {
     const child = safe[0];
-    // flatten text for aria-label
-    const text = React.Children.toArray(child.props.children)
+    const text  = React.Children.toArray(child.props.children)
       .map((c) => (typeof c === "string" ? c : ""))
       .join("");
 
     return React.cloneElement(child, {
-      ref: containerRef,
-      className: `${child.props.className || ""} ${className} animated`.trim(),
-      role: "group",
+      ref:          containerRef,
+      className:    `${child.props.className || ""} ${className} animated`.trim(),
+      role:         "group",
       "aria-label": text,
-      "aria-hidden": "true",
     });
   }
 
-  // fallback wrapper for multiple children
-  const aggregatedText = safe.map((c) => (typeof c === "string" ? c : "")).join("");
+  const aggregatedText = safe
+    .map((c) => (typeof c === "string" ? c : ""))
+    .join("");
 
   return (
-    <div ref={containerRef} className={className} role="group" aria-label={aggregatedText} aria-hidden="true" s>
+    <div
+      ref={containerRef}
+      className={className}
+      role="group"
+      aria-label={aggregatedText}
+    >
       {children}
     </div>
   );

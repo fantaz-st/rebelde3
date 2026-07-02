@@ -66,24 +66,14 @@ export default function Gallery() {
       }).fromTo(textInner, { autoAlpha: 1, scale: 1 }, { autoAlpha: 0, scale: 0.96, duration: 1 });
 
       if (startItems.length && endItems.length && startItems.length === endItems.length) {
-        const getScrollTop = () => {
-          if (scroller === window) return window.scrollY || document.documentElement.scrollTop || 0;
-          return scroller.scrollTop || 0;
-        };
-
-        const getViewportTopLeft = () => {
-          if (scroller === window) return { left: 0, top: 0 };
-          const r = scroller.getBoundingClientRect();
-          return { left: r.left, top: r.top };
-        };
-
         const computeDelta = (fromEl, toEl) => {
-          const vp = getViewportTopLeft();
+          const vpLeft = scroller === window ? 0 : scroller.getBoundingClientRect().left;
+          const vpTop  = scroller === window ? 0 : scroller.getBoundingClientRect().top;
           const a  = fromEl.getBoundingClientRect();
           const b  = toEl.getBoundingClientRect();
           return {
-            x: (b.left - vp.left + b.width / 2)  - (a.left - vp.left + a.width / 2),
-            y: (b.top  - vp.top  + b.height / 2) - (a.top  - vp.top  + a.height / 2),
+            x: (b.left - vpLeft + b.width / 2)  - (a.left - vpLeft + a.width / 2),
+            y: (b.top  - vpTop  + b.height / 2) - (a.top  - vpTop  + a.height / 2),
           };
         };
 

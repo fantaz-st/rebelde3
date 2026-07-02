@@ -141,5 +141,6 @@
   .subText {
     font-size: 1.6rem;
     text-align: left;
+    color: rgba(255, 255, 255, 0.85); /* navy bg stays on mobile, so text must be light */
   }
 }

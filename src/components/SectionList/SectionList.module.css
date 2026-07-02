@@ -1,0 +1,13 @@
+.wrap {
+  position: relative;
+  background-color: var(--bg-brown-10);
+}
+
+.list {
+  position: relative;
+}
+
+/* footer slot (e.g. BoatSpecs) */
+.footer {
+  background-color: var(--bg-brown-10);
+}

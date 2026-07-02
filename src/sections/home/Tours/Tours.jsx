@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import TourCard from "@/components/TourCard/TourCard";
 import "swiper/css";
@@ -8,32 +8,9 @@ import { useTranslations } from "next-intl";
 import classes from "./Tours.module.css";
 import items from "@/settings/tours";
 
-function useBreakpoints() {
-  const [bp, setBp] = useState({ mobile: false, small: false });
-  const mqMobileRef = useRef(null);
-  const mqSmallRef  = useRef(null);
-
-  useEffect(() => {
-    mqMobileRef.current = window.matchMedia("(max-width: 991px)");
-    mqSmallRef.current  = window.matchMedia("(max-width: 767px)");
-    const sync = () => setBp({ mobile: mqMobileRef.current.matches, small: mqSmallRef.current.matches });
-    sync();
-    mqMobileRef.current.addEventListener("change", sync);
-    mqSmallRef.current.addEventListener("change", sync);
-    return () => {
-      mqMobileRef.current.removeEventListener("change", sync);
-      mqSmallRef.current.removeEventListener("change", sync);
-    };
-  }, []);
-
-  return bp;
-}
-
 export default function Tours() {
   const t  = useTranslations("tours");
   const ti = useTranslations("tourItems");
-  const { mobile, small } = useBreakpoints();
-
   const tours = useMemo(
     () =>
       items.map((it) => ({
@@ -57,8 +34,9 @@ export default function Tours() {
 
         <Swiper
           className={classes.swiper}
-          slidesPerView={mobile ? 1.2 : 4}
-          spaceBetween={small ? 12 : 16}
+          slidesPerView={1.2}
+          spaceBetween={12}
+          breakpoints={{ 992: { slidesPerView: 4, spaceBetween: 16 } }}
           speed={450}
           a11y={{ enabled: true }}
         >

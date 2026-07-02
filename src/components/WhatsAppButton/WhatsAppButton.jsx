@@ -9,44 +9,40 @@ export default function WhatsAppButton() {
 
   useEffect(() => {
     const scrollerEl = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot");
-    const scroller = scrollerEl || window;
+    const scroller   = scrollerEl || window;
+    const getY       = () => (scroller === window ? window.scrollY || 0 : scroller.scrollTop || 0);
 
-    const getY = () =>
-      scroller === window ? window.scrollY || 0 : scroller.scrollTop || 0;
-
-    let ticking = false;
-
-    const checkScroll = () => {
-      setShow(getY() > 300);
-      ticking = false;
-    };
+    let raf = null;
 
     const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(checkScroll);
-        ticking = true;
-      }
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        setShow(getY() > 300);
+        raf = null;
+      });
     };
 
     scroller.addEventListener("scroll", onScroll, { passive: true });
-    checkScroll();
+    onScroll();
 
-    return () => scroller.removeEventListener("scroll", onScroll);
+    return () => {
+      scroller.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   const handleClick = () => {
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "conversion", {
-        send_to: "AW-17322617143/fhd7CMSZ04gbELfSiMRA",
-      });
-    }
+    // gtag is injected by Google — safe to call directly
+    window.gtag?.("event", "conversion", {
+      send_to: "AW-17322617143/fhd7CMSZ04gbELfSiMRA",
+    });
   };
 
   return (
     <a
       className={`${classes.container} ${show ? classes.visible : ""}`}
-      target="_blank"
       href="https://wa.me/385953933125"
+      target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
       onClick={handleClick}
@@ -57,7 +53,8 @@ export default function WhatsAppButton() {
         height={20}
         sizes="20px"
         className={classes.icon}
-        alt="WhatsApp logo for direct chat - Rebelde boats"
+        alt=""
+        aria-hidden="true"
       />
       <p>Chat On WhatsApp</p>
     </a>

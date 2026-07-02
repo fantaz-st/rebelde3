@@ -1,3 +1,5 @@
+const LAST_MODIFIED = new Date();
+
 const SITE_URL = "https://www.rebelde.hr";
 const LOCALES = ["hr", "de", "es", "it", "fr"]; // en is at root
 
@@ -16,7 +18,7 @@ export default function sitemap() {
     // English at root
     entries.push({
       url: `${SITE_URL}${page.path}`,
-      lastModified: new Date(),
+      lastModified: LAST_MODIFIED,
       changeFrequency: page.changeFrequency,
       priority: page.priority,
       alternates: {
@@ -31,7 +33,7 @@ export default function sitemap() {
     for (const locale of LOCALES) {
       entries.push({
         url: `${SITE_URL}/${locale}${page.path}`,
-        lastModified: new Date(),
+        lastModified: LAST_MODIFIED,
         changeFrequency: page.changeFrequency,
         priority: page.priority * 0.9,
       });
