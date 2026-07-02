@@ -75,18 +75,23 @@ export default function Loader() {
       const computeShift = () => (bgInner.getBoundingClientRect().height - window.innerHeight) * -1;
 
       const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const hasSeenLoader  = sessionStorage.getItem("rbd_loader_seen") === "1";
 
       const play = async () => {
-        document.documentElement.classList.add("is-loading");
-
-        // Skip animation entirely for reduced-motion users and bots
-        if (prefersReduced) {
+        // Skip entirely on repeat visits within the same session,
+        // reduced-motion preference, or crawlers/Lighthouse
+        if (prefersReduced || hasSeenLoader) {
           document.documentElement.classList.remove("is-loading");
           wrap.dataset.playing = "0";
           wrap.remove();
           ScrollTrigger.refresh(true);
           return;
         }
+
+        // Mark as seen so subsequent navigations skip the loader
+        sessionStorage.setItem("rbd_loader_seen", "1");
+
+        document.documentElement.classList.add("is-loading");
 
         await waitImg(curtain);
         await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
