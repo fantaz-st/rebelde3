@@ -74,8 +74,19 @@ export default function Loader() {
 
       const computeShift = () => (bgInner.getBoundingClientRect().height - window.innerHeight) * -1;
 
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
       const play = async () => {
         document.documentElement.classList.add("is-loading");
+
+        // Skip animation entirely for reduced-motion users and bots
+        if (prefersReduced) {
+          document.documentElement.classList.remove("is-loading");
+          wrap.dataset.playing = "0";
+          wrap.remove();
+          ScrollTrigger.refresh(true);
+          return;
+        }
 
         await waitImg(curtain);
         await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
@@ -106,25 +117,25 @@ export default function Loader() {
         if (window.__RBD_SLOW__) tl.timeScale(0.25);
 
         tl.addLabel("in",     0);
-        tl.addLabel("prog",   0.65);
-        tl.addLabel("reveal", 1.2);
+        tl.addLabel("prog",   0.5);
+        tl.addLabel("reveal", 0.9);
 
         // 1. Back slides up, then front slides up slightly after
-        tl.to([logoFront, logoBack], { yPercent: 0, duration: 0.65, stagger: 0.06, ease: "power3.out" }, "in+=0.05");
+        tl.to([logoFront, logoBack], { yPercent: 0, duration: 0.5, stagger: 0.05, ease: "power3.out" }, "in+=0.05");
 
         // 2. Front wipes in left→right while bg shrinks away
-        tl.to(logoFront, { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)", duration: 1.25, ease: "power2.inOut" }, "prog");
-        tl.to(bgMain,    { autoAlpha: 0, scale: 1, duration: 1.25, ease: "power2.inOut" }, "prog");
-        tl.to(bgInner,   { scale: 1.05, duration: 1.25, ease: "power2.inOut" }, "prog");
+        tl.to(logoFront, { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)", duration: 0.9, ease: "power2.inOut" }, "prog");
+        tl.to(bgMain,    { autoAlpha: 0, scale: 1, duration: 0.9, ease: "power2.inOut" }, "prog");
+        tl.to(bgInner,   { scale: 1.05, duration: 0.9, ease: "power2.inOut" }, "prog");
 
         // 3. Curtain image reveals
-        tl.to(bgInner,  { y: SHIFT, scale: 1, duration: 2.2, ease: "power3.inOut" }, "reveal");
-        tl.to(curtain,  { scale: 1,  duration: 2.2, ease: "power3.inOut" }, "reveal");
+        tl.to(bgInner,  { y: SHIFT, scale: 1, duration: 1.6, ease: "power3.inOut" }, "reveal");
+        tl.to(curtain,  { scale: 1,  duration: 1.6, ease: "power3.inOut" }, "reveal");
 
         // 4. Logo exits
-        tl.to(logo,  { y: -24, autoAlpha: 0, duration: 0.55, ease: "power2.inOut" }, "prog+=1.05");
-        tl.to(noise, { autoAlpha: 0, duration: 0.9, ease: "power1.out" }, "reveal+=1.2");
-        tl.to(wrap,  { autoAlpha: 0, duration: 0.35, ease: "power1.out" }, "reveal+=2.05");
+        tl.to(logo,  { y: -24, autoAlpha: 0, duration: 0.4, ease: "power2.inOut" }, "prog+=0.75");
+        tl.to(noise, { autoAlpha: 0, duration: 0.7, ease: "power1.out" }, "reveal+=0.8");
+        tl.to(wrap,  { autoAlpha: 0, duration: 0.3, ease: "power1.out" }, "reveal+=1.5");
       };
 
       play();
@@ -139,7 +150,7 @@ export default function Loader() {
         <div ref={bgInnerRef} className={classes.bgInner}>
           <div className={classes.top} />
           <div className={classes.bot}>
-            <img ref={curtainRef} src="/images/hero/rebelde-boats-hero.webp" alt="" className={classes.curtain} />
+            <img ref={curtainRef} src="/images/hero/rebelde-boats-hero.webp" alt="" className={classes.curtain} fetchPriority="high" />
           </div>
         </div>
       </div>
