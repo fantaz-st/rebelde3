@@ -1,0 +1,195 @@
+/* components/booking/BookingFlow.module.css */
+
+.flow {
+  width: 100%;
+}
+
+/* ── Step indicator ── */
+.steps {
+  display: flex;
+  gap: 0;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 1.25rem;
+}
+
+.stepItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  opacity: 0.3;
+  transition: opacity 0.2s;
+}
+
+.stepActive  { opacity: 1; }
+.stepDone    { opacity: 0.65; }
+
+.stepNum {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  color: rgba(0,0,0,0.5);
+}
+.stepActive .stepNum {
+  background: #0e6450;
+  color: #fff;
+}
+.stepDone .stepNum {
+  background: rgba(14, 100, 80, 0.2);
+  color: #0e6450;
+}
+
+.stepLabel {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  white-space: nowrap;
+}
+
+/* ── Tour grid ── */
+.tourGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.tourCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.4rem 1.5rem;
+  border: 1.5px solid rgba(0,0,0,0.1);
+  border-radius: 12px;
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  font-family: var(--font-inter, sans-serif);
+}
+.tourCard:hover {
+  border-color: #0e6450;
+  box-shadow: 0 4px 16px rgba(14, 100, 80, 0.12);
+  transform: translateY(-2px);
+}
+
+.tourDuration {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0e6450;
+}
+
+.tourName {
+  font-family: var(--font-fraunces, serif);
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  line-height: 1.3;
+  margin-top: 0.15rem;
+}
+
+.tourDesc {
+  font-size: 0.82rem;
+  color: rgba(0,0,0,0.5);
+  line-height: 1.5;
+  margin-top: 0.25rem;
+  flex: 1;
+}
+
+.tourDeposit {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-top: 0.75rem;
+}
+
+.tourArrow {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #0e6450;
+  margin-top: 0.25rem;
+  transition: letter-spacing 0.15s;
+}
+.tourCard:hover .tourArrow {
+  letter-spacing: 0.05em;
+}
+
+/* ── Calendar step ── */
+.calendarStep {
+  max-width: 480px;
+}
+
+.stepHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.backLink {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.82rem;
+  color: rgba(0,0,0,0.45);
+  padding: 0;
+  font-family: var(--font-inter, sans-serif);
+  white-space: nowrap;
+  padding-top: 0.2rem;
+  transition: color 0.15s;
+}
+.backLink:hover { color: #0e6450; }
+
+.selectedTourLabel {
+  font-family: var(--font-fraunces, serif);
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.selectedTourDuration {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0e6450;
+  margin: 0.2rem 0 0;
+}
+
+.calendarHint {
+  font-size: 0.82rem;
+  color: rgba(0,0,0,0.45);
+  margin: 0 0 1.25rem;
+}
+
+/* ── Form step ── */
+.formStep {
+  max-width: 480px;
+}
+
+.serverError {
+  background: #fff5f5;
+  border: 1px solid #ffcccc;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: #c0392b;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 560px) {
+  .steps { gap: 0.5rem; }
+  .stepLabel { display: none; }
+  .tourGrid { grid-template-columns: 1fr; }
+}

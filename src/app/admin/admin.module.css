@@ -1,0 +1,478 @@
+/* app/admin/admin.module.css */
+
+.main {
+  min-height: 100vh;
+  background: #f5f4f1;
+  padding: 2rem;
+  font-family: var(--font-inter, system-ui, sans-serif);
+}
+
+.authError {
+  max-width: 400px;
+  margin: 8rem auto;
+  text-align: center;
+  color: #333;
+}
+.authError h1 { font-family: serif; font-weight: 400; }
+.authError code {
+  background: rgba(0,0,0,0.08);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+.header {
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+}
+.heading {
+  font-family: var(--font-fraunces, serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 0 0 0.25rem;
+}
+.sub {
+  font-size: 0.85rem;
+  color: rgba(0,0,0,0.45);
+  margin: 0;
+}
+
+/* ── Toast ── */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a1a;
+  color: #fff;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  z-index: 100;
+  pointer-events: none;
+  animation: fadeUp 0.2s ease;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(6px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ── Layout ── */
+.panel {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+@media (max-width: 800px) {
+  .cols { grid-template-columns: 1fr; }
+}
+
+/* ── Tour tabs ── */
+.tourTabs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.tourTab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1.5px solid rgba(0,0,0,0.1);
+  background: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  color: #333;
+  text-align: left;
+  transition: border-color 0.15s, background 0.15s;
+}
+.tourTab:hover { border-color: #0e6450; }
+.tourTabActive {
+  border-color: #0e6450;
+  background: rgba(14, 100, 80, 0.06);
+}
+.tourTabDuration {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #0e6450;
+}
+
+/* ── Calendar ── */
+.calWrap {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.calHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+}
+.calMonth {
+  font-family: var(--font-fraunces, serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+.calNav {
+  background: none;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 50%;
+  width: 1.8rem;
+  height: 1.8rem;
+  cursor: pointer;
+  color: #333;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s;
+}
+.calNav:hover { background: rgba(0,0,0,0.05); }
+
+.calDayNames {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 0.4rem;
+  text-align: center;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+}
+.calDayNames span { padding: 0.25rem 0; }
+
+.calGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  transition: opacity 0.15s;
+}
+.calPending { opacity: 0.5; pointer-events: none; }
+
+.calDay {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.12s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.calDayPast {
+  background: transparent;
+  color: rgba(0,0,0,0.18);
+  cursor: default;
+}
+.calDayOff {
+  background: rgba(0,0,0,0.04);
+  color: rgba(0,0,0,0.35);
+}
+.calDayOff:hover:not(:disabled) {
+  background: rgba(14, 100, 80, 0.1);
+  color: #0e6450;
+}
+.calDayOpen {
+  background: rgba(14, 100, 80, 0.12);
+  color: #0e4030;
+  font-weight: 600;
+}
+.calDayOpen:hover:not(:disabled) {
+  background: rgba(14, 100, 80, 0.22);
+}
+.calDayBooked {
+  background: #0e6450;
+  color: #fff;
+  font-weight: 600;
+  cursor: not-allowed;
+}
+
+/* Legend */
+.calLegend {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.875rem;
+  font-size: 0.72rem;
+  color: rgba(0,0,0,0.45);
+  align-items: center;
+}
+.ldot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-right: 0.3rem;
+}
+.ldotOpen   { background: #0e6450; opacity: 0.5; }
+.ldotOff    { background: rgba(0,0,0,0.15); }
+.ldotBooked { background: #0e6450; }
+
+/* ── Right panel ── */
+.right {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.rightHeading {
+  font-family: var(--font-fraunces, serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0 0 1.25rem;
+}
+.rightTourName {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(0,0,0,0.4);
+}
+
+.empty {
+  font-size: 0.85rem;
+  color: rgba(0,0,0,0.4);
+}
+
+.bookingList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bookingCard {
+  padding: 1rem 1.125rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: #fafafa;
+}
+.bookingPaid {
+  border-color: rgba(14, 100, 80, 0.2);
+  background: rgba(14, 100, 80, 0.04);
+}
+.bookingCancelled {
+  opacity: 0.5;
+}
+
+.bookingTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.bookingDate {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+.bookingStatus {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+}
+.status_paid      { background: rgba(14,100,80,0.12); color: #0e6450; }
+.status_pending   { background: rgba(200,150,0,0.12); color: #7a5900; }
+.status_cancelled { background: rgba(0,0,0,0.06);     color: rgba(0,0,0,0.4); }
+
+.bookingName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 0.25rem;
+}
+.bookingMeta {
+  font-size: 0.78rem;
+  color: rgba(0,0,0,0.45);
+  margin: 0.1rem 0;
+}
+.bookingMessage {
+  font-size: 0.78rem;
+  color: rgba(0,0,0,0.45);
+  font-style: italic;
+  margin: 0.4rem 0 0;
+}
+
+/* ── New additions ── */
+
+.toastError {
+  background: #c0392b;
+}
+
+.calTip {
+  margin: 0.6rem 0 0;
+  font-size: 0.7rem;
+  color: rgba(0,0,0,0.3);
+  font-style: italic;
+}
+
+/* Source dot on booked calendar cells */
+.srcDot {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.7);
+  pointer-events: none;
+}
+.calDay { position: relative; }
+
+/* ── Manual booking modal ── */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.75rem 2rem;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+}
+
+.modalTitle {
+  font-family: var(--font-fraunces, serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 0 0 0.35rem;
+}
+
+.modalSub {
+  font-size: 0.85rem;
+  color: rgba(0,0,0,0.5);
+  margin: 0 0 1.5rem;
+}
+
+.modalLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.45);
+  margin: 0 0 0.6rem;
+}
+
+.sourceGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sourceBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.75rem 0.5rem;
+  border: 1.5px solid rgba(0,0,0,0.12);
+  border-radius: 8px;
+  background: #fafafa;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.8rem;
+  color: #444;
+  transition: border-color 0.12s, background 0.12s;
+}
+.sourceBtn:hover { border-color: #0e6450; background: #fff; }
+.sourceBtnActive {
+  border-color: #0e6450;
+  background: rgba(14, 100, 80, 0.07);
+  color: #0e4030;
+  font-weight: 600;
+}
+
+.sourceIcon { font-size: 1.3rem; }
+
+.modalActions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.modalCancel {
+  flex: 0 0 auto;
+  padding: 0.65rem 1rem;
+  border: 1.5px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  background: none;
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: rgba(0,0,0,0.5);
+  cursor: pointer;
+  transition: border-color 0.12s;
+}
+.modalCancel:hover { border-color: rgba(0,0,0,0.35); }
+
+.modalConfirm {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  background: #0e6450;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.modalConfirm:hover:not(:disabled) { background: #0b5242; }
+.modalConfirm:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Booking card source variants ── */
+.bookingSourceTag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15em 0.5em;
+  border-radius: 4px;
+  background: rgba(0,0,0,0.06);
+  color: rgba(0,0,0,0.5);
+}
+
+.source_tripadvisor  .bookingSourceTag { background: rgba(52,168,83,0.12); color: #1a7a3a; }
+.source_getyourguide .bookingSourceTag { background: rgba(255,90,0,0.1);   color: #c44a00; }
+.source_walkin       .bookingSourceTag { background: rgba(0,100,200,0.1);  color: #004ea0; }
+.source_website      .bookingSourceTag { background: rgba(14,100,80,0.1);  color: #0e6450; }
+
+.cancelBtn {
+  margin-top: 0.6rem;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.72rem;
+  color: rgba(0,0,0,0.3);
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: underline;
+  transition: color 0.12s;
+}
+.cancelBtn:hover { color: #c0392b; }

@@ -1,0 +1,49 @@
+/* app/book/book.module.css */
+
+.main {
+  min-height: 100vh;
+  background: #faf9f6;
+}
+
+.hero {
+  padding: 5rem 2rem 3rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0e6450;
+  margin: 0 0 1rem;
+}
+
+.heading {
+  font-family: var(--font-fraunces, serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 0 0 1rem;
+  line-height: 1.15;
+}
+
+.subheading {
+  font-size: 1rem;
+  color: rgba(0,0,0,0.5);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 500px;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem 5rem;
+}
+
+@media (max-width: 600px) {
+  .hero    { padding: 3.5rem 1.25rem 2rem; }
+  .content { padding: 0 1.25rem 4rem; }
+}

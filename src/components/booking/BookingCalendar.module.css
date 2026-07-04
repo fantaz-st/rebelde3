@@ -1,0 +1,159 @@
+/* components/booking/BookingCalendar.module.css */
+
+.calendar {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  font-family: var(--font-inter, sans-serif);
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.monthLabel {
+  font-family: var(--font-fraunces, serif);
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--color-ink, #1a1a1a);
+}
+
+.navBtn {
+  background: none;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-ink, #1a1a1a);
+  transition: background 0.15s, border-color 0.15s;
+  font-size: 0.875rem;
+}
+.navBtn:hover:not(:disabled) {
+  background: rgba(0,0,0,0.05);
+  border-color: rgba(0,0,0,0.3);
+}
+.navBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ── Day names ── */
+.dayNames {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 0.5rem;
+}
+.dayNames span {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+  padding: 0.25rem 0;
+}
+
+/* ── Grid ── */
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.loadingOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  font-size: 0.8rem;
+  color: rgba(0,0,0,0.5);
+  border-radius: 4px;
+}
+
+/* ── Cells ── */
+.empty {
+  aspect-ratio: 1;
+}
+
+.day {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.past {
+  background: transparent;
+  color: rgba(0,0,0,0.2);
+  cursor: default;
+}
+
+.noTour {
+  background: transparent;
+  color: rgba(0,0,0,0.3);
+  cursor: default;
+}
+
+.unavailable {
+  background: rgba(0,0,0,0.04);
+  color: rgba(0,0,0,0.25);
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.available {
+  background: rgba(14, 100, 80, 0.08);
+  color: #0e4030;
+  font-weight: 500;
+}
+.available:hover {
+  background: rgba(14, 100, 80, 0.18);
+  transform: scale(1.05);
+}
+
+.selected {
+  background: #0e6450 !important;
+  color: #fff !important;
+  font-weight: 600;
+  transform: scale(1.08);
+  box-shadow: 0 2px 8px rgba(14, 100, 80, 0.35);
+}
+
+/* ── Legend ── */
+.legend {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: rgba(0,0,0,0.5);
+  align-items: center;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.35rem;
+}
+.dotAvail   { background: #0e6450; }
+.dotUnavail { background: rgba(0,0,0,0.15); }
