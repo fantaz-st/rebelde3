@@ -60,8 +60,8 @@ insert into tours (slug, name, duration, deposit_eur, description) values
   'Full day exploring Zlatni Rat beach in Bol, the old town of Hvar, and the pine-scented Pakleni island chain.'
 ),
 (
-  'blue-lagoon-islands',
-  'Blue Lagoon & The Islands',
+  'blue-lagoon-three-islands',
+  'Blue Lagoon & Three Islands',
   'am',
   30000,
   'Half-day escape to the crystal-clear Blue Lagoon on Krknjaši, with stops at Šolta and Maslinica.'

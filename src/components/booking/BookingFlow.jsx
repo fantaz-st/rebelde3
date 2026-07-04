@@ -4,7 +4,7 @@ import BookingCalendar from './BookingCalendar'
 import BookingForm from './BookingForm'
 import styles from './BookingFlow.module.css'
 
-const DURATION_LABEL = { full: 'Full day', am: 'Half day · Morning', pm: 'Half day · Afternoon' }
+const DURATION_LABEL = { full: 'Full day', am: 'Half day · Morning', pm: 'Half day · Afternoon', half: 'Half day (AM or PM)' }
 
 export default function BookingFlow({ tours, preselectedDate = null, preselectedTourSlug = null }) {
   // If both date and tour slug are pre-set, jump straight to the form
@@ -142,7 +142,7 @@ export default function BookingFlow({ tours, preselectedDate = null, preselected
             </div>
           </div>
           <p className={styles.calendarHint}>Select an available date to continue.</p>
-          <BookingCalendar selectedDate={selectedDate} onSelectDate={handleSelectDate} />
+          <BookingCalendar tourDuration={selectedTour?.duration || 'full'} selectedDate={selectedDate} onSelectDate={handleSelectDate} />
         </div>
       )}
 

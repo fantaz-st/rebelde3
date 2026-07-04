@@ -1,15 +1,49 @@
 // components/booking/BookingForm.jsx
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './BookingForm.module.css'
 
 const GUEST_OPTIONS = [1,2,3,4,5,6,7,8,9,10,11,12]
 
 export default function BookingForm({ tour, date, onBack, onSubmit, submitting }) {
+  const isHalfDay = tour?.duration === 'half'
+
+  // Which slots are taken on this date — fetched from API
+  const [takenSlots, setTakenSlots] = useState(new Set())
+  const [slotLoading, setSlotLoading] = useState(false)
+
+  // Default to the first available slot
+  const [slot, setSlot] = useState('am')
+
   const [fields, setFields] = useState({
     name: '', email: '', phone: '', guests: 2, message: ''
   })
   const [errors, setErrors] = useState({})
+
+  // Fetch slot availability when component mounts (only for half-day tours)
+  useEffect(() => {
+    if (!isHalfDay || !date) return
+    setSlotLoading(true)
+    fetch(`/api/availability?from=${date}&to=${date}`)
+      .then(r => r.json())
+      .then(data => {
+        const entry = (data.dates || []).find(d => d.date === date)
+        const taken = new Set()
+        if (entry?.status === 'am_only') {
+          // AM is free, PM is taken
+          taken.add('pm')
+          setSlot('am') // default to the free slot
+        } else if (entry?.status === 'pm_only') {
+          // PM is free, AM is taken
+          taken.add('am')
+          setSlot('pm') // default to the free slot
+        }
+        // 'open' = both free, nothing taken
+        setTakenSlots(taken)
+      })
+      .catch(() => setTakenSlots(new Set()))
+      .finally(() => setSlotLoading(false))
+  }, [isHalfDay, date])
 
   const set = (key, val) => {
     setFields(f => ({ ...f, [key]: val }))
@@ -28,7 +62,7 @@ export default function BookingForm({ tour, date, onBack, onSubmit, submitting }
   const handleSubmit = () => {
     const e = validate()
     if (Object.keys(e).length) { setErrors(e); return }
-    onSubmit(fields)
+    onSubmit({ ...fields, slot: isHalfDay ? slot : undefined })
   }
 
   const dateFormatted = new Date(date).toLocaleDateString('en-GB', {
@@ -55,6 +89,37 @@ export default function BookingForm({ tour, date, onBack, onSubmit, submitting }
         </div>
         <p className={styles.cashNote}>Balance paid in cash on the day of the tour.</p>
       </div>
+
+      {/* AM/PM slot picker — half-day tours only */}
+      {isHalfDay && (
+        <div className={styles.slotPicker}>
+          <p className={styles.slotLabel}>Select time slot</p>
+          {slotLoading ? (
+            <p className={styles.slotLoading}>Checking availability…</p>
+          ) : (
+            <div className={styles.slotBtns}>
+              <button
+                type="button"
+                className={`${styles.slotBtn} ${slot === 'am' ? styles.slotBtnActive : ''} ${takenSlots.has('am') ? styles.slotBtnDisabled : ''}`}
+                onClick={() => !takenSlots.has('am') && setSlot('am')}
+                disabled={takenSlots.has('am')}
+              >
+                🌅 Morning (AM)
+                {takenSlots.has('am') && <span className={styles.slotTaken}>Taken</span>}
+              </button>
+              <button
+                type="button"
+                className={`${styles.slotBtn} ${slot === 'pm' ? styles.slotBtnActive : ''} ${takenSlots.has('pm') ? styles.slotBtnDisabled : ''}`}
+                onClick={() => !takenSlots.has('pm') && setSlot('pm')}
+                disabled={takenSlots.has('pm')}
+              >
+                🌇 Afternoon (PM)
+                {takenSlots.has('pm') && <span className={styles.slotTaken}>Taken</span>}
+              </button>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Fields */}
       <div className={styles.fields}>
@@ -130,11 +195,9 @@ export default function BookingForm({ tour, date, onBack, onSubmit, submitting }
         <button
           className={styles.payBtn}
           onClick={handleSubmit}
-          disabled={submitting}
+          disabled={submitting || slotLoading}
         >
-          {submitting
-            ? 'Redirecting…'
-            : `Pay ${depositFormatted} deposit`}
+          {submitting ? 'Redirecting…' : `Pay ${depositFormatted} deposit`}
         </button>
       </div>
     </div>

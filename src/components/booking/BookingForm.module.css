@@ -185,3 +185,74 @@
   cursor: not-allowed;
   transform: none;
 }
+
+/* ── AM/PM slot picker ── */
+.slotPicker {
+  margin-bottom: 1.5rem;
+}
+.slotLabel {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(0,0,0,0.5);
+  margin: 0 0 0.6rem;
+}
+.slotBtns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+.slotBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.875rem;
+  border: 2px solid rgba(0,0,0,0.12);
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(0,0,0,0.5);
+  transition: border-color 0.12s, background 0.12s, color 0.12s;
+}
+.slotBtn:hover { border-color: rgba(0,0,0,0.3); color: rgba(0,0,0,0.8); }
+.slotBtnActive {
+  border-color: #0e6450;
+  background: rgba(14,100,80,0.06);
+  color: #0e6450;
+  font-weight: 700;
+}
+
+/* ── Slot picker additions ── */
+.slotLoading {
+  font-size: 0.85rem;
+  color: rgba(0,0,0,0.4);
+  font-style: italic;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.slotBtnDisabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  text-decoration: line-through;
+  background: #f9f9f9 !important;
+  border-color: rgba(0,0,0,0.08) !important;
+}
+
+.slotTaken {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #dc2626;
+  background: #fee2e2;
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  margin-left: 0.4rem;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+}
