@@ -1,110 +1,89 @@
-// app/api/admin/booking/route.js
+// src/app/api/admin/booking/route.js
 import { NextResponse } from 'next/server'
-import { supabaseAdmin } from '@/lib/supabase'
+import { getSupabaseAdmin } from '@/lib/supabase'
 
-function authCheck(request) {
-  const key = request.headers.get('x-admin-key')
-  return key && key === process.env.ADMIN_SECRET
+async function authCheck(request) {
+  const token = request.headers.get('x-admin-token')
+  if (!token) return false
+  const { createServerClient } = await import('@supabase/ssr')
+  const client = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    { cookies: { getAll: () => [], setAll: () => {} } }
+  )
+  // Verify the token by calling getUser with it as Bearer
+  const { createClient } = await import('@supabase/supabase-js')
+  const userClient = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    { global: { headers: { Authorization: `Bearer ${token}` } } }
+  )
+  const { data: { user }, error } = await userClient.auth.getUser()
+  return !error && !!user
 }
 
-// POST — log a manual booking from an external source
+const VALID_SOURCES = ['website', 'tripadvisor', 'getyourguide', 'walkin']
+
 export async function POST(request) {
-  if (!authCheck(request)) {
+  if (!await authCheck(request)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  const { tourId, date, source } = await request.json()
+  const { tourId, date, source, name, phone } = await request.json()
 
-  if (!tourId || !date || !source) {
-    return NextResponse.json({ error: 'tourId, date, source required' }, { status: 400 })
+  if (!tourId || !date || !source || !VALID_SOURCES.includes(source)) {
+    return NextResponse.json({ error: 'tourId, date, valid source required' }, { status: 400 })
   }
 
-  const VALID_SOURCES = ['website', 'tripadvisor', 'getyourguide', 'walkin']
-  if (!VALID_SOURCES.includes(source)) {
-    return NextResponse.json({ error: 'Invalid source' }, { status: 400 })
-  }
+  const supabaseAdmin = getSupabaseAdmin()
 
-  // Check availability slot exists and is open
   const { data: avail } = await supabaseAdmin
-    .from('availability')
-    .select('open')
-    .eq('tour_id', tourId)
-    .eq('date', date)
-    .single()
-
+    .from('availability_shared').select('open').eq('date', date).single()
   if (!avail?.open) {
-    return NextResponse.json({ error: 'This date is not open for this tour' }, { status: 409 })
+    return NextResponse.json({ error: 'Date is not open' }, { status: 409 })
   }
 
-  // Check not already booked
   const { data: existing } = await supabaseAdmin
-    .from('bookings')
-    .select('id')
-    .eq('tour_id', tourId)
-    .eq('date', date)
-    .eq('status', 'paid')
-    .maybeSingle()
-
+    .from('bookings').select('id').eq('date', date).eq('status', 'paid').maybeSingle()
   if (existing) {
-    return NextResponse.json({ error: 'A booking already exists for this date' }, { status: 409 })
+    return NextResponse.json({ error: 'Already booked' }, { status: 409 })
   }
 
-  // Insert booking as paid (it's already confirmed externally)
-  const { data: booking, error: insertError } = await supabaseAdmin
+  const { data: booking, error } = await supabaseAdmin
     .from('bookings')
     .insert({
       tour_id: tourId,
       date,
       source,
       status: 'paid',
-      guests: 1, // not tracked for manual bookings
+      guests: 1,
+      name:  name  || null,
+      phone: phone || null,
     })
     .select()
     .single()
 
-  if (insertError) {
-    console.error('Manual booking insert error:', insertError)
-    return NextResponse.json({ error: 'Failed to save booking' }, { status: 500 })
-  }
+  if (error) return NextResponse.json({ error: 'Failed to save' }, { status: 500 })
 
-  // Close the availability slot
   await supabaseAdmin
-    .from('availability')
-    .update({ open: false })
-    .eq('tour_id', tourId)
-    .eq('date', date)
+    .from('availability_shared').update({ open: false }).eq('date', date)
 
   return NextResponse.json({ booking })
 }
 
-// DELETE — cancel a manual booking and reopen the slot
 export async function DELETE(request) {
-  if (!authCheck(request)) {
+  if (!await authCheck(request)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  const { bookingId, tourId, date } = await request.json()
-
-  if (!bookingId || !tourId || !date) {
-    return NextResponse.json({ error: 'bookingId, tourId, date required' }, { status: 400 })
+  const { bookingId, date } = await request.json()
+  if (!bookingId || !date) {
+    return NextResponse.json({ error: 'bookingId and date required' }, { status: 400 })
   }
 
-  // Cancel the booking
-  const { error: cancelError } = await supabaseAdmin
-    .from('bookings')
-    .update({ status: 'cancelled' })
-    .eq('id', bookingId)
-
-  if (cancelError) {
-    return NextResponse.json({ error: 'Failed to cancel booking' }, { status: 500 })
-  }
-
-  // Reopen the availability slot
-  await supabaseAdmin
-    .from('availability')
-    .update({ open: true })
-    .eq('tour_id', tourId)
-    .eq('date', date)
+  const supabaseAdmin = getSupabaseAdmin()
+  await supabaseAdmin.from('bookings').update({ status: 'cancelled' }).eq('id', bookingId)
+  await supabaseAdmin.from('availability_shared').update({ open: true }).eq('date', date)
 
   return NextResponse.json({ ok: true })
 }

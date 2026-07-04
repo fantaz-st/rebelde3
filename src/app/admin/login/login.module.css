@@ -1,0 +1,108 @@
+/* src/app/admin/login/login.module.css */
+
+.main {
+  min-height: 100vh;
+  background: #f5f4f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-family: var(--font-inter, system-ui, sans-serif);
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.07);
+  text-align: center;
+}
+
+.logo {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.heading {
+  font-family: var(--font-fraunces, serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 0 0 0.35rem;
+}
+
+.sub {
+  font-size: 0.82rem;
+  color: rgba(0,0,0,0.45);
+  margin: 0 0 1.75rem;
+}
+
+.error {
+  background: #fff5f5;
+  border: 1px solid #ffcccc;
+  border-radius: 8px;
+  padding: 0.6rem 0.875rem;
+  font-size: 0.82rem;
+  color: #c0392b;
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.45);
+}
+
+.input {
+  width: 100%;
+  padding: 0.65rem 0.875rem;
+  border: 1.5px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: #1a1a1a;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  box-sizing: border-box;
+}
+.input:focus {
+  border-color: #0e6450;
+  box-shadow: 0 0 0 3px rgba(14,100,80,0.12);
+}
+
+.btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #0e6450;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn:hover:not(:disabled) { background: #0b5242; }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }

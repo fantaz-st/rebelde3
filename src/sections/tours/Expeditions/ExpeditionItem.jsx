@@ -138,7 +138,7 @@ export default function ExpeditionItem({ item, index, isLast, enableMobileReveal
               </div>
               <div className={classes.ctaContent}>
                 <p className={classes.ctaText}>{t(`${item.key}.ctaText`)}</p>
-                <Button href="/contact" variant="primary" size="lg">
+                <Button href="/availability" variant="primary" size="lg">
                   {tb("checkAvailability")}
                 </Button>
               </div>

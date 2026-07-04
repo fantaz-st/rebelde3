@@ -1,59 +1,54 @@
-// app/admin/page.jsx
-import { supabaseAdmin } from '@/lib/supabase'
+// src/app/admin/page.jsx
+import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
+import { createServerClient } from '@supabase/ssr'
+import { getSupabaseAdmin } from '@/lib/supabase'
 import AdminPanel from './AdminPanel'
-import styles from './admin.module.css'
 
 export const metadata = { title: 'Admin — Rebelde Boats' }
+export const dynamic = 'force-dynamic'
 
-// Basic auth check via environment variable
-// Set ADMIN_SECRET in .env.local and visit /admin?key=YOUR_SECRET
-export default async function AdminPage({ searchParams }) {
-
-const { key } = await searchParams
-  if (!key || key !== process.env.ADMIN_SECRET) {
-    return (
-      <main className={styles.main}>
-        <div className={styles.authError}>
-          <h1>Access denied</h1>
-          <p>Append <code>?key=YOUR_ADMIN_SECRET</code> to the URL.</p>
-        </div>
-      </main>
+async function getSessionUser() {
+  try {
+    const cookieStore = await cookies()
+    const supabase = createServerClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+      {
+        cookies: {
+          getAll() { return cookieStore.getAll() },
+          setAll() {},
+        },
+      }
     )
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) return null
+    const { data: { session } } = await supabase.auth.getSession()
+    return { user, accessToken: session?.access_token }
+  } catch {
+    return null
   }
+}
 
-  const { data: tours } = await supabaseAdmin
-    .from('tours')
-    .select('*')
-    .eq('active', true)
-    .order('name')
+export default async function AdminPage() {
+  const session = await getSessionUser()
+  if (!session) redirect('/admin/login')
 
-  // Fetch all upcoming availability
+  const supabaseAdmin = getSupabaseAdmin()
   const today = new Date().toISOString().slice(0, 10)
-  const { data: availability } = await supabaseAdmin
-    .from('availability')
-    .select('*')
-    .gte('date', today)
-    .order('date')
 
-  // Fetch upcoming bookings
-  const { data: bookings } = await supabaseAdmin
-    .from('bookings')
-    .select('*, tours(name)')
-    .gte('date', today)
-    .order('date')
+  const [{ data: tours }, { data: availability }, { data: bookings }] = await Promise.all([
+    supabaseAdmin.from('tours').select('*').eq('active', true).order('name'),
+    supabaseAdmin.from('availability_shared').select('*').gte('date', today).order('date'),
+    supabaseAdmin.from('bookings').select('*, tours(name)').gte('date', today).neq('status', 'cancelled').order('date'),
+  ])
 
   return (
-    <main className={styles.main}>
-      <div className={styles.header}>
-        <h1 className={styles.heading}>Rebelde Boats · Admin</h1>
-        <p className={styles.sub}>Manage availability and view upcoming bookings</p>
-      </div>
-      <AdminPanel
-        tours={tours || []}
-        availability={availability || []}
-        bookings={bookings || []}
-        adminKey={key}
-      />
-    </main>
+    <AdminPanel
+      tours={tours || []}
+      availability={availability || []}
+      bookings={bookings || []}
+      accessToken={session.accessToken}
+    />
   )
 }

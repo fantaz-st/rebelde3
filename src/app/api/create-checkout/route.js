@@ -1,14 +1,14 @@
-// app/api/create-checkout/route.js
+// src/app/api/create-checkout/route.js
 import { NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
-import { supabaseAdmin } from '@/lib/supabase'
+import { getSupabaseAdmin } from "@/lib/supabase"
+const supabaseAdmin = getSupabaseAdmin()
 
 export async function POST(request) {
   try {
     const body = await request.json()
     const { tourId, date, name, email, phone, guests, message } = body
 
-    // Validate required fields
     if (!tourId || !date || !name || !email || !phone || !guests) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
@@ -24,11 +24,10 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Tour not found' }, { status: 404 })
     }
 
-    // Check availability is still open
+    // Check shared availability slot is open
     const { data: avail } = await supabaseAdmin
-      .from('availability')
+      .from('availability_shared')
       .select('open')
-      .eq('tour_id', tourId)
       .eq('date', date)
       .single()
 
@@ -36,11 +35,10 @@ export async function POST(request) {
       return NextResponse.json({ error: 'This date is no longer available' }, { status: 409 })
     }
 
-    // Check no paid booking already exists
+    // Check no paid booking already exists for this date
     const { data: existing } = await supabaseAdmin
       .from('bookings')
       .select('id')
-      .eq('tour_id', tourId)
       .eq('date', date)
       .eq('status', 'paid')
       .maybeSingle()
@@ -49,14 +47,12 @@ export async function POST(request) {
       return NextResponse.json({ error: 'This date has already been booked' }, { status: 409 })
     }
 
-    // Format date nicely for Stripe
     const dateFormatted = new Date(date).toLocaleDateString('en-GB', {
       weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
     })
 
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
-    // Create Stripe Checkout session
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       customer_email: email,
@@ -68,20 +64,12 @@ export async function POST(request) {
               name: `${tour.name} — Deposit`,
               description: `${dateFormatted} · ${guests} guest${guests > 1 ? 's' : ''} · Balance paid in cash on the day`,
             },
-            unit_amount: tour.deposit_eur, // already in cents
+            unit_amount: tour.deposit_eur,
           },
           quantity: 1,
         },
       ],
-      metadata: {
-        tourId,
-        date,
-        name,
-        email,
-        phone,
-        guests: String(guests),
-        message: message || '',
-      },
+      metadata: { tourId, date, name, email, phone, guests: String(guests), message: message || '' },
       success_url: `${baseUrl}/book/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url:  `${baseUrl}/book?cancelled=1`,
       payment_intent_data: {
@@ -90,24 +78,18 @@ export async function POST(request) {
     })
 
     // Save pending booking
-    const { error: insertError } = await supabaseAdmin
-      .from('bookings')
-      .insert({
-        tour_id:           tourId,
-        date,
-        name,
-        email,
-        phone,
-        guests,
-        message:           message || null,
-        stripe_session_id: session.id,
-        status:            'pending',
-      })
-
-    if (insertError) {
-      console.error('Booking insert error:', insertError)
-      // Don't block the user — session exists, webhook will handle it
-    }
+    await supabaseAdmin.from('bookings').insert({
+      tour_id:           tourId,
+      date,
+      name,
+      email,
+      phone,
+      guests,
+      message:           message || null,
+      stripe_session_id: session.id,
+      status:            'pending',
+      source:            'website',
+    })
 
     return NextResponse.json({ url: session.url })
 

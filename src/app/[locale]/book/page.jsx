@@ -26,7 +26,9 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default async function BookPage() {
+export default async function BookPage({ searchParams }) {
+  const { date: preselectedDate, tour: preselectedTourSlug } = await searchParams
+
   const { data: tours } = await supabase
     .from('tours')
     .select('*')
@@ -45,7 +47,7 @@ export default async function BookPage() {
       </div>
 
       <div className={styles.content}>
-        <BookingFlow tours={tours || []} />
+        <BookingFlow tours={tours || []} preselectedDate={preselectedDate || null} preselectedTourSlug={preselectedTourSlug || null} />
       </div>
     </main>
   )

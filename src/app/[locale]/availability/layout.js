@@ -4,7 +4,7 @@ import Footer from '@/components/Footer/Footer'
 export default function AvailabilityLayout({ children }) {
   return (
     <>
-      <Header variant="white" />
+      <Header variant="blue" />
       {children}
       <Footer />
     </>
