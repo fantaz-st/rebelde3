@@ -12,15 +12,30 @@ export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata.home" });
 
+  const canonical =
+    locale === "en" ? SITE_URL : `${SITE_URL}/${locale}`;
+
+  const ogLocales = {
+    en: "en_US",
+    hr: "hr_HR",
+    de: "de_DE",
+    es: "es_ES",
+    it: "it_IT",
+    fr: "fr_FR",
+  };
+
   return {
     metadataBase: new URL(SITE_URL),
+
     title: {
       default: t("title"),
       template: `%s | Rebelde Boats`,
     },
+
     description: t("description"),
+
     alternates: {
-      canonical: SITE_URL,
+      canonical,
       languages: {
         en: SITE_URL,
         hr: `${SITE_URL}/hr`,
@@ -30,22 +45,23 @@ export async function generateMetadata({ params }) {
         fr: `${SITE_URL}/fr`,
       },
     },
+
     openGraph: {
       type: "website",
       siteName: "Rebelde Boats",
-      images: [
-        {
-          url: "/og-image.jpg",
-          width: 1200,
-          height: 630,
-          alt: "Rebelde Boats – private Adriatic speedboat tours from Split",
-        },
-      ],
+      locale: ogLocales[locale],
+      url: canonical
     },
+
     robots: {
       index: true,
       follow: true,
-      googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }
@@ -63,7 +79,7 @@ const jsonLd = {
       name: "Rebelde Boats",
       url: SITE_URL,
       logo: `${SITE_URL}/android-chrome-512x512.png`,
-      image: `${SITE_URL}/og-image.jpg`,
+      image: `${SITE_URL}/opengraph-image.jpg`,
       description:
         "Private speedboat tours from Split, Croatia. Island-hopping to Hvar, Vis, Blue Cave, Blue Lagoon, Brač, Šolta, and Pakleni Islands.",
       telephone: "+385953933125",
@@ -74,7 +90,11 @@ const jsonLd = {
         addressRegion: "Split-Dalmatia County",
         addressCountry: "HR",
       },
-      geo: { "@type": "GeoCoordinates", latitude: 43.5081, longitude: 16.4402 },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 43.5081,
+        longitude: 16.4402,
+      },
     },
   ],
 };
@@ -88,14 +108,13 @@ export default async function LocaleLayout({ children, params }) {
 
   const messages = await getMessages();
 
-  // No <html> or <body> here — those are owned by the root layout.js.
-  // We only wrap with providers and inject head scripts.
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=AW-17322617143"
         strategy="afterInteractive"
       />
+
       <Script
         id="google-ads"
         strategy="afterInteractive"
@@ -108,10 +127,12 @@ export default async function LocaleLayout({ children, params }) {
           `,
         }}
       />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
       <SmoothScroll>{children}</SmoothScroll>
       <WhatsAppButton />
     </NextIntlClientProvider>
