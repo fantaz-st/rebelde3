@@ -147,25 +147,29 @@
       "galleryCaption4": "Mooring up in Trogir's old harbour for a stroll through history",
       "galleryCaption5": "Terracotta rooftops and bell towers of the UNESCO-listed Trogir old town",
       "galleryCaption6": "Wandering the timeworn stone alleys of Dalmatia's coastal villages",
-      "galleryCaption7": "Swim above the Šolta shipwreck — a century-old hull resting just below the surface"
+      "galleryCaption7": "Swim above the Šolta shipwreck — a century-old hull resting just below the surface",
+      "pin": "Blue Lagoon Krknjaši, Borkko beach bar Šolta & Trogir"
     },
     "blue-cave-five-islands": {
       "label": "Blue Cave & Five Islands Expedition",
       "kicker": "Full day — 5 islands!",
       "intro": "An unforgettable full-day Adriatic adventure combining dramatic coastal scenery, hidden caves, remote islands, and some of Croatia's clearest waters.",
-      "ctaText": "Journey across the open Adriatic to discover the legendary Blue Cave, where sunlight transforms the sea into glowing shades of blue hidden beneath towering cliffs. Beyond the cave, the day unfolds through remote islands, secret swimming spots, charming fishing villages, and untouched bays accessible only by boat. Designed for guests who want to experience the Adriatic beyond the ordinary, this route combines exploration, relaxation, and breathtaking scenery in a single day."
+      "ctaText": "Journey across the open Adriatic to discover the legendary Blue Cave, where sunlight transforms the sea into glowing shades of blue hidden beneath towering cliffs. Beyond the cave, the day unfolds through remote islands, secret swimming spots, charming fishing villages, and untouched bays accessible only by boat. Designed for guests who want to experience the Adriatic beyond the ordinary, this route combines exploration, relaxation, and breathtaking scenery in a single day.",
+      "pin": "Blue Cave Biševo, Stiniva Vis, Komiža, Budikovac & Hvar"
     },
     "hvar-pakleni-islands": {
       "label": "Hvar & Pakleni Islands Experience",
       "kicker": "Most sought after!",
       "intro": "A timeless journey to Croatia's most iconic island, paired with the hidden coves and crystal lagoons of the Pakleni archipelago.",
-      "ctaText": "Explore the vibrant atmosphere of Hvar Town before escaping into the tranquility of the Pakleni Islands, where pine-covered shores, secluded anchorages, and clear turquoise waters create the perfect Adriatic setting. Whether you prefer swimming in quiet bays, discovering beach bars tucked into hidden coves, or simply enjoying the coastline from the deck, this experience blends elegance, relaxation, and island adventure."
+      "ctaText": "Explore the vibrant atmosphere of Hvar Town before escaping into the tranquility of the Pakleni Islands, where pine-covered shores, secluded anchorages, and clear turquoise waters create the perfect Adriatic setting. Whether you prefer swimming in quiet bays, discovering beach bars tucked into hidden coves, or simply enjoying the coastline from the deck, this experience blends elegance, relaxation, and island adventure.",
+      "pin": "Hvar town, Pakleni Islands & Šolta"
     },
     "bol-hvar-pakleni": {
       "label": "Bol, Hvar & Pakleni islands Coastal Journey",
       "kicker": "Really popular!",
       "intro": "A refined island-hopping experience combining the elegance of Hvar with the natural beauty of Croatia's most iconic beach.",
-      "ctaText": "Cruise between the vibrant energy of Hvar and the stunning coastline of Brač, home to the famous Golden Horn beach. Along the way, discover hidden coves, swim in crystal-clear Adriatic waters, and enjoy panoramic coastal scenery shaped by centuries of wind and sea. From lively waterfront promenades to peaceful anchorages beneath dramatic cliffs, this journey captures the perfect balance between exploration, relaxation, and Mediterranean elegance."
+      "ctaText": "Cruise between the vibrant energy of Hvar and the stunning coastline of Brač, home to the famous Golden Horn beach. Along the way, discover hidden coves, swim in crystal-clear Adriatic waters, and enjoy panoramic coastal scenery shaped by centuries of wind and sea. From lively waterfront promenades to peaceful anchorages beneath dramatic cliffs, this journey captures the perfect balance between exploration, relaxation, and Mediterranean elegance.",
+      "pin": "Brač, Hvar, Pakleni Islands & Šolta"
     }
   },
   "boatSectionItems": {
@@ -235,7 +239,7 @@
   },
   "metadata": {
     "home": {
-      "title": "Private Boat Tours Split, Croatia – Island Hopping & Day Trips",
+      "title": "Rebelde Boats — Private Boat Tours Split, Croatia | Island Hopping & Day Trips",
       "description": "Book a private boat tour from Split, Croatia. Explore Hvar, Blue Cave, Blue Lagoon, Vis & more on a luxury Felix 37 speedboat. Up to 12 guests, fully personalised."
     },
     "tours": {
@@ -253,14 +257,6 @@
     "contact": {
       "title": "Contact – Get In Touch",
       "description": "Get in touch with Rebelde Boats to book a private boat tour from Split, Croatia."
-    },
-    "book": {
-      "title": "Book a Private Boat Tour — Rebelde Boats",
-      "description": "Reserve your private boat tour along the Dalmatian coast. Pay a deposit to secure your date. Blue Cave, Hvar, Blue Lagoon and more from Split."
-    },
-    "availability": {
-      "title": "Availability — Rebelde Boats",
-      "description": "Check live availability for private boat tours from Split, Croatia. See open dates and book instantly."
     }
   },
   "gallery": {
@@ -477,54 +473,5 @@
       "question": "Are there showers and changing rooms at the beach?",
       "answer": "Yes — public facilities and beach bars around Zlatni Rat where you can rinse off and change."
     }
-  },
-  "book": {
-    "eyebrow": "Private boat tours · Split, Croatia",
-    "heading": "Reserve your day on the water",
-    "subheading": "Choose your tour, pick a date, and secure it with a deposit. The balance is settled in cash on the morning of departure."
-  },
-  "availability": {
-    "eyebrow": "Rebelde Boats · Split",
-    "heading": "Availability",
-    "sub": "Live availability for private boat tours. Updated every 5 minutes."
-  },
-  "bookingFlow": {
-    "stepTour": "Tour",
-    "stepDate": "Date",
-    "stepDetails": "Details & payment",
-    "selectArrow": "Select →",
-    "backAllTours": "← All tours",
-    "selectDateHint": "Select an available date to continue.",
-    "changeDate": "Change date",
-    "dateLabel": "Date:"
-  },
-  "bookingForm": {
-    "summaryTour": "Tour",
-    "summaryDate": "Date",
-    "summaryDeposit": "Deposit due now",
-    "cashNote": "Balance paid in cash on the day of the tour.",
-    "slotLabel": "Select time slot",
-    "slotAM": "🌅 Morning (AM)",
-    "slotPM": "🌇 Afternoon (PM)",
-    "slotTaken": "Taken",
-    "checkingAvailability": "Checking availability…",
-    "labelName": "Full name",
-    "labelEmail": "Email",
-    "labelPhone": "Phone number",
-    "labelGuests": "Number of guests",
-    "labelMessage": "Message",
-    "optional": "(optional)",
-    "placeholderName": "Your full name",
-    "placeholderEmail": "you@example.com",
-    "placeholderPhone": "+385 91 234 5678",
-    "placeholderMessage": "Any special requests, dietary requirements, or questions…",
-    "guestSingular": "guest",
-    "guestPlural": "guests",
-    "errorName": "Please enter your name",
-    "errorEmail": "Please enter a valid email",
-    "errorPhone": "Please enter your phone number",
-    "backBtn": "← Change date",
-    "payBtn": "Pay {deposit} deposit",
-    "redirecting": "Redirecting…"
   }
 }

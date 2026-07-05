@@ -156,11 +156,11 @@
 
 /* ── Item positions ── */
 
-.gallery .item:nth-child(1) { width: 54rem;   aspect-ratio: 4/3; }
+.gallery .item:nth-child(1) { width: 43.2rem;   aspect-ratio: 3/4; }
 .gallery .item:nth-child(2) { width: 70rem;   aspect-ratio: 4/3; }
 .gallery .item:nth-child(3) { width: 43.2rem; aspect-ratio: 3/4; }
-.gallery .item:nth-child(4) { width: 58.7rem; height: 42rem; }
-.gallery .item:nth-child(5) { width: 62.4rem; aspect-ratio: 4/3; }
+.gallery .item:nth-child(4) { width: 42.2rem; aspect-ratio: 3/4; }
+.gallery .item:nth-child(5) { width: 43.2rem; aspect-ratio: 3/4; }
 
 .gallery .item.end:nth-child(1) { grid-column: 1/6;   grid-row: 1/1; justify-self: end; }
 .gallery .item.end:nth-child(2) { margin-top: -12.3rem; grid-column: 11/14; grid-row: 1/1; }

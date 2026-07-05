@@ -1,51 +1,147 @@
-.wrap {
-  background-color: var(--bg-brown-10);
-}
+/* Team.module.css — matches reference: alternating image-left / image-right */
 
-/* Pairs stack with spacing between them */
-.pair {
-  position: relative;
-}
-
-.pair + .pair {
-  border-top: 1px solid var(--border-subtle);
-  margin-top: 2rem;
-}
-
-/* Left column text block */
-.textBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-}
-
-.title {
-  margin: 0;
-  color: var(--brand-persian-blue);
-  letter-spacing: -0.01em;
-}
-
-.desc {
-  margin: 0;
-  color: var(--brand-persian-blue);
-  font-size: 1.5rem;
-  line-height: 1.6;
-}
-
-/* Visually hidden heading for a11y */
 .srOnly {
   position: absolute;
   width: 1px; height: 1px;
-  padding: 0; margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip: rect(0,0,0,0);
   white-space: nowrap;
-  border: 0;
 }
 
-/* Tablet (≤ 991px) */
+/* ── Section wrapper ── */
+.wrap {
+  background-color: var(--bg-brown-10);
+  position: relative;
+  padding-top: 16rem;
+  padding-bottom: 20rem;
+}
+
+/* ── List of items ── */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rem;
+  padding-left: var(--container--padding, 6rem);
+  padding-right: var(--container--padding, 6rem);
+  max-width: var(--container--max-width, 1920px);
+  margin: 0 auto;
+}
+
+/* ── Each item: side-by-side flex row ── */
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8rem;
+}
+
+/* Flipped: image goes first visually, text second */
+.itemFlip {
+  flex-direction: row-reverse;
+}
+
+/* ── Text side ── */
+.text {
+  flex: 0 0 calc(38% - 4rem);
+  padding-top: 2rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 4vw, 6rem);
+  font-weight: 400;
+  color: var(--brand-persian-blue);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0 0 3.2rem;
+  font-variation-settings: "opsz" 72;
+}
+
+.desc {
+  font-family: var(--fonts--body);
+  font-size: 1.5rem;
+  line-height: 1.65;
+  color: var(--bg-brown-80);
+  margin: 0 0 1.4rem;
+  max-width: 44ch;
+}
+
+/* ── Image side ── */
+.imgWrap {
+  flex: 1;
+  position: relative;
+  aspect-ratio: 3/4;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  will-change: transform;
+}
+
+/* Wide variant for 5/4 aspect images */
+.imgWide {
+  aspect-ratio: 5/4;
+}
+
+.imgInner {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.img {
+  object-fit: cover;
+}
+
+/* ── Tablet ── */
 @media (max-width: 991px) {
-  .pair + .pair {
-    margin-top: 0;
+  .wrap {
+    padding-top: 10rem;
+    padding-bottom: 12rem;
+  }
+  .list {
+    gap: 12rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+  .item {
+    gap: 4rem;
+  }
+  .text {
+    flex: 0 0 45%;
+  }
+  .title {
+    font-size: clamp(2.8rem, 3.5vw, 4.4rem);
+    margin-bottom: 2.4rem;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 767px) {
+  .wrap {
+    padding-top: 6rem;
+    padding-bottom: 8rem;
+  }
+  .list {
+    gap: 8rem;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+  }
+  .item,
+  .itemFlip {
+    flex-direction: column;
+    gap: 3.2rem;
+  }
+  .text {
+    flex: none;
+    width: 100%;
+    padding-top: 0;
+  }
+  .imgWrap,
+  .imgWide {
+    flex: none;
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: var(--radius-xs);
+  }
+  .desc {
+    max-width: none;
   }
 }

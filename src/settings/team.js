@@ -17,7 +17,7 @@ const items = [
       "Years spent navigating the Croatian coast taught us where the Adriatic truly comes alive — hidden coves, quiet anchorages, authentic seaside towns, and crystal-clear bays far from the crowds.",
       "From smooth cruising to local recommendations, we handle every detail so you can simply relax and enjoy the journey.",
     ],
-    img: "/images/team/image-2.jpg",
+    img: "/images/team/team-1.jpg",
     alt: "Rebelde Boats skipper at the helm navigating the Adriatic between Hvar and Vis",
     aspect: "5/4",
   },

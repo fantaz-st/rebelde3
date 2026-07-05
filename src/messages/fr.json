@@ -147,25 +147,29 @@
       "galleryCaption4": "Amarrage dans le vieux port de Trogir pour une promenade dans l'histoire",
       "galleryCaption5": "Toits en tuiles et clochers de la vieille ville de Trogir classée à l'UNESCO",
       "galleryCaption6": "Flânant dans les vieilles ruelles en pierre des villages côtiers dalmates",
-      "galleryCaption7": "Nager au-dessus de l'épave de Šolta — une coque centenaire reposant juste sous la surface"
+      "galleryCaption7": "Nager au-dessus de l'épave de Šolta — une coque centenaire reposant juste sous la surface",
+      "pin": "Lagon Bleu Krknjaši, Borkko beach bar Šolta et Trogir"
     },
     "blue-cave-five-islands": {
       "label": "Grotte Bleue et Expédition des Cinq Îles",
       "kicker": "Journée complète — 5 îles !",
       "intro": "Une aventure adriatique inoubliable d'une journée complète combinant des paysages côtiers dramatiques, des grottes cachées, des îles éloignées et certaines des eaux les plus claires de Croatie.",
-      "ctaText": "Voyagez à travers l'Adriatique ouverte pour découvrir la légendaire Grotte Bleue, où la lumière du soleil transforme la mer en nuances de bleu lumineux."
+      "ctaText": "Voyagez à travers l'Adriatique ouverte pour découvrir la légendaire Grotte Bleue, où la lumière du soleil transforme la mer en nuances de bleu lumineux.",
+      "pin": "Grotte Bleue Biševo, Stiniva Vis, Komiža, Budikovac & Hvar"
     },
     "hvar-pakleni-islands": {
       "label": "Hvar et l'Expérience des Îles Pakleni",
       "kicker": "La plus demandée !",
       "intro": "Un voyage intemporel vers l'île la plus emblématique de Croatie, associé aux criques cachées et aux lagunes cristallines de l'archipel Pakleni.",
-      "ctaText": "Explorez l'atmosphère vibrante de la ville de Hvar avant de vous échapper dans la tranquillité des îles Pakleni."
+      "ctaText": "Explorez l'atmosphère vibrante de la ville de Hvar avant de vous échapper dans la tranquillité des îles Pakleni.",
+      "pin": "Ville de Hvar, îles Pakleni et Šolta"
     },
     "bol-hvar-pakleni": {
       "label": "Voyage Côtier Bol, Hvar et Îles Pakleni",
       "kicker": "Vraiment populaire !",
       "intro": "Une expérience raffinée d'island-hopping combinant l'élégance de Hvar avec la beauté naturelle de la plage la plus emblématique de Croatie.",
-      "ctaText": "Naviguez entre l'énergie vibrante de Hvar et le littoral époustouflant de Brač, home de la célèbre plage du Corne d'Or."
+      "ctaText": "Naviguez entre l'énergie vibrante de Hvar et le littoral époustouflant de Brač, home de la célèbre plage du Corne d'Or.",
+      "pin": "Brač, Hvar, îles Pakleni et Šolta"
     }
   },
   "boatSectionItems": {
@@ -235,7 +239,7 @@
   },
   "metadata": {
     "home": {
-      "title": "Excursions Privées en Bateau Split, Croatie — Island Hopping et Excursions d'une Journée",
+      "title": "Rebelde Boats — Excursions en bateau privé Split, Croatie | Île en île & excursions à la journée",
       "description": "Réservez une excursion privée en bateau depuis Split, Croatie. Explorez Hvar, Grotte Bleue, Lagune Bleue, Vis et plus sur un luxueux bateau rapide Felix 37."
     },
     "tours": {
@@ -253,14 +257,6 @@
     "contact": {
       "title": "Contact — Contactez-nous",
       "description": "Contactez Rebelde Boats pour réserver une excursion privée en bateau depuis Split, Croatie."
-    },
-    "book": {
-      "title": "Réserver une excursion en bateau privé — Rebelde Boats",
-      "description": "Réservez votre excursion privée en bateau le long de la côte dalmate. Payez un acompte pour sécuriser votre date. Grotte Bleue, Hvar, Lagon Bleu et plus depuis Split."
-    },
-    "availability": {
-      "title": "Disponibilité — Rebelde Boats",
-      "description": "Consultez la disponibilité en temps réel des excursions privées en bateau depuis Split, Croatie. Voir les dates disponibles et réserver instantanément."
     }
   },
   "gallery": {
@@ -477,54 +473,5 @@
       "question": "Are there showers and changing rooms at the beach?",
       "answer": "Yes — public facilities and beach bars around Zlatni Rat where you can rinse off and change."
     }
-  },
-  "book": {
-    "eyebrow": "Excursions en bateau privé · Split, Croatie",
-    "heading": "Réservez votre journée sur l'eau",
-    "subheading": "Choisissez votre excursion, une date et sécurisez-la avec un acompte. Le solde est réglé en espèces le matin du départ."
-  },
-  "availability": {
-    "eyebrow": "Rebelde Boats · Split",
-    "heading": "Disponibilité",
-    "sub": "Disponibilité en temps réel pour les excursions en bateau privé. Mise à jour toutes les 5 minutes."
-  },
-  "bookingFlow": {
-    "stepTour": "Excursion",
-    "stepDate": "Date",
-    "stepDetails": "Détails et paiement",
-    "selectArrow": "Sélectionner →",
-    "backAllTours": "← Toutes les excursions",
-    "selectDateHint": "Sélectionnez une date disponible pour continuer.",
-    "changeDate": "Changer la date",
-    "dateLabel": "Date :"
-  },
-  "bookingForm": {
-    "summaryTour": "Excursion",
-    "summaryDate": "Date",
-    "summaryDeposit": "Acompte à payer",
-    "cashNote": "Le solde est payé en espèces le jour de l'excursion.",
-    "slotLabel": "Choisir le créneau horaire",
-    "slotAM": "🌅 Matin (AM)",
-    "slotPM": "🌇 Après-midi (PM)",
-    "slotTaken": "Pris",
-    "checkingAvailability": "Vérification de la disponibilité…",
-    "labelName": "Nom complet",
-    "labelEmail": "E-mail",
-    "labelPhone": "Numéro de téléphone",
-    "labelGuests": "Nombre d'invités",
-    "labelMessage": "Message",
-    "optional": "(facultatif)",
-    "placeholderName": "Votre nom complet",
-    "placeholderEmail": "vous@exemple.fr",
-    "placeholderPhone": "+385 91 234 5678",
-    "placeholderMessage": "Demandes spéciales, exigences alimentaires ou questions…",
-    "guestSingular": "invité",
-    "guestPlural": "invités",
-    "errorName": "Veuillez entrer votre nom",
-    "errorEmail": "Veuillez entrer un e-mail valide",
-    "errorPhone": "Veuillez entrer votre numéro de téléphone",
-    "backBtn": "← Changer la date",
-    "payBtn": "Payer l'acompte de {deposit}",
-    "redirecting": "Redirection…"
   }
 }

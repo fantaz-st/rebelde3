@@ -2,45 +2,38 @@ import Image from "next/image";
 import classes from "./SectionContentGrid.module.css";
 
 /**
- * Reusable two-column image+text grid.
+ * Two-column image+text grid used by Team section.
  *
- * Left column accepts either:
- *   - intro (string)   → renders a single <p>
- *   - children         → renders whatever you pass (title, paragraphs, etc.)
+ * Layout (default, flip=false):
+ *   Row 1: [text left]        [large image right, spans rows 1-2]
+ *   Row 2: [small image left] [                                  ]
+ *   Row 3:                    [subContent right]
  *
- * Props:
- *   intro       string | null
- *   children    ReactNode | null   — overrides intro if provided
- *   subText     string | null      — bottom-right paragraph (optional)
- *   imgLarge    string             — large image src (right, spans rows 1–2)
- *   imgSmall    string             — small image src (left, row 2)
- *   imgLargeAlt string
- *   imgSmallAlt string
- *   paddingTop  string             — CSS value, default "8rem"
- *   priority    boolean
+ * Layout (flip=true):
+ *   Row 1: [large image left, spans rows 1-2] [text right       ]
+ *   Row 2: [                                ] [small image right ]
+ *   Row 3: [subContent left]
  */
 export default function SectionContentGrid({
-  intro       = null,
   children    = null,
-  subText     = null,
+  subContent  = null,
   imgLarge,
   imgSmall,
   imgLargeAlt = "",
   imgSmallAlt = "",
   paddingTop  = "8rem",
   priority    = false,
+  flip        = false,
 }) {
   return (
     <div
-      className={`container grid ${classes.grid}`}
+      className={`container grid ${classes.grid} ${flip ? classes.flip : ""}`}
       style={{ "--grid-pt": paddingTop }}
     >
-      {/* Left col row 1: text */}
-      <div className={classes.left}>
-        {children ?? <p className={classes.intro}>{intro}</p>}
+      <div className={classes.textPrimary}>
+        {children}
       </div>
 
-      {/* Right: large image — cols 9–15, rows 1–2 */}
       <div className={classes.imgLarge} data-parallax-block>
         <div className={classes.imgLargeInner} data-parallax-inner>
           <Image
@@ -48,13 +41,12 @@ export default function SectionContentGrid({
             alt={imgLargeAlt}
             fill
             priority={priority}
-            sizes="(max-width: 767px) 50vw, (max-width: 991px) 50vw, 40vw"
+            sizes="(max-width: 767px) 92vw, (max-width: 991px) 50vw, 40vw"
             className={classes.img}
           />
         </div>
       </div>
 
-      {/* Left col row 2: small image */}
       <div className={classes.imgSmall} data-parallax-block>
         <div className={classes.imgSmallInner} data-parallax-inner>
           <Image
@@ -67,10 +59,9 @@ export default function SectionContentGrid({
         </div>
       </div>
 
-      {/* Right col row 3: optional sub-text */}
-      {subText && (
-        <div className={classes.subText}>
-          <p className={classes.subTextP}>{subText}</p>
+      {subContent && (
+        <div className={classes.textSecondary}>
+          {subContent}
         </div>
       )}
     </div>

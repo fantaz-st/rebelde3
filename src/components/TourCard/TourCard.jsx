@@ -7,6 +7,7 @@ export default function TourCard({
   imageSrc,
   imageAlt = "",
   kicker,
+  pin,
   title,
   depositEur,    // cents, e.g. 30000 = €300
   restEur,       // cents, e.g. 110000 = €1,100
@@ -51,7 +52,7 @@ export default function TourCard({
             <path d="M8 1a5 5 0 0 1 5 5c0 3.5-5 9-5 9S3 9.5 3 6a5 5 0 0 1 5-5Z" fill="currentColor" fillOpacity=".9"/>
             <circle cx="8" cy="6" r="1.75" fill="white"/>
           </svg>
-          <span>Split, Croatia</span>
+          <span>{pin}</span>
         </div>
       </div>
     </Link>

@@ -1,23 +1,16 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useTranslations } from "next-intl";
-import classes from "./Team.module.css";
-import rawItems from "@/settings/team";
 import useParallaxImage from "@/hooks/useParallaxImage";
-import SectionContentGrid from "@/components/SectionList/SectionContentGrid";
+import rawItems from "@/settings/team";
+import classes from "./Team.module.css";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
-
-// Pair items: [0,1], [2,3], [4,5] ...
-function chunk(arr, size) {
-  const out = [];
-  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
-  return out;
-}
 
 export default function Team() {
   const t       = useTranslations("team");
@@ -26,15 +19,14 @@ export default function Team() {
   useParallaxImage(wrapRef, {
     blockSelector: "[data-parallax-block]",
     innerSelector: "[data-parallax-inner]",
-    fromScale:    1.15,
-    fromYPercent: -10,
+    fromScale:    1.12,
+    fromYPercent: -8,
     toScale:      1,
-    toYPercent:   8,
+    toYPercent:   6,
     start: "top bottom",
     end:   "bottom top",
   });
 
-  // Translate items
   const items = rawItems.map((item) => {
     const descCount = Array.isArray(item.desc) ? item.desc.length : 1;
     return {
@@ -44,33 +36,46 @@ export default function Team() {
     };
   });
 
-  const pairs = chunk(items, 2);
-
   return (
     <section className={classes.wrap} ref={wrapRef} aria-labelledby="team-heading">
       <h2 id="team-heading" className={classes.srOnly}>Our Team</h2>
 
-      {pairs.map(([a, b], pairIdx) => (
-        <div key={a.key} className={classes.pair}>
-          <SectionContentGrid
-            imgLarge={a.img}
-            imgLargeAlt={a.alt}
-            imgSmall={b.img}
-            imgSmallAlt={b.alt}
-            paddingTop={pairIdx === 0 ? "12rem" : "16rem"}
-            priority={pairIdx === 0}
-            subText={b.descs[0]}
-          >
-            {/* Left column — item A: title + all paragraphs */}
-            <div className={classes.textBlock}>
-              <h3 className={classes.title}>{a.title}</h3>
-              {a.descs.map((para, i) => (
-                <p key={i} className={classes.desc}>{para}</p>
-              ))}
+      <div className={classes.list}>
+        {items.map((item, idx) => {
+          const flip = idx % 2 !== 0;
+          return (
+            <div
+              key={item.key}
+              className={`${classes.item} ${flip ? classes.itemFlip : ""}`}
+            >
+              {/* Text block */}
+              <div className={classes.text}>
+                <h3 className={classes.title}>{item.title}</h3>
+                {item.descs.map((para, i) => (
+                  <p key={i} className={classes.desc}>{para}</p>
+                ))}
+              </div>
+
+              {/* Image block */}
+              <div
+                className={`${classes.imgWrap} ${item.aspect === "5/4" ? classes.imgWide : ""}`}
+                data-parallax-block
+              >
+                <div className={classes.imgInner} data-parallax-inner>
+                  <Image
+                    src={item.img}
+                    alt={item.alt || ""}
+                    fill
+                    sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 42vw"
+                    className={classes.img}
+                    priority={idx === 0}
+                  />
+                </div>
+              </div>
             </div>
-          </SectionContentGrid>
-        </div>
-      ))}
+          );
+        })}
+      </div>
     </section>
   );
 }

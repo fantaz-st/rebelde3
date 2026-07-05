@@ -147,25 +147,29 @@
       "galleryCaption4": "Ormeggio nel vecchio porto di Traù per una passeggiata nella storia",
       "galleryCaption5": "Tetti di terracotta e campanili della città vecchia di Traù patrimonio UNESCO",
       "galleryCaption6": "Passeggiando per i vecchi vicoli di pietra dei villaggi costieri della Dalmazia",
-      "galleryCaption7": "Nuotare sopra il relitto di Šolta — uno scafo centenario che riposa appena sotto la superficie"
+      "galleryCaption7": "Nuotare sopra il relitto di Šolta — uno scafo centenario che riposa appena sotto la superficie",
+      "pin": "Laguna Blu Krknjaši, Borkko beach bar Šolta e Trogir"
     },
     "blue-cave-five-islands": {
       "label": "Grotta Azzurra ed Espedizione alle Cinque Isole",
       "kicker": "Giornata intera — 5 isole!",
       "intro": "Un'indimenticabile avventura adriatica di un giorno intero che combina scenari costieri drammatici, grotte nascoste, isole remote e alcune delle acque più chiare della Croazia.",
-      "ctaText": "Viaggia attraverso l'Adriatico aperto per scoprire la leggendaria Grotta Azzurra, dove la luce del sole trasforma il mare in sfumature di blu incandescente."
+      "ctaText": "Viaggia attraverso l'Adriatico aperto per scoprire la leggendaria Grotta Azzurra, dove la luce del sole trasforma il mare in sfumature di blu incandescente.",
+      "pin": "Grotta Azzurra Biševo, Stiniva Vis, Komiža, Budikovac e Hvar"
     },
     "hvar-pakleni-islands": {
       "label": "Hvar e l'Esperienza delle Isole Pakleni",
       "kicker": "La più richiesta!",
       "intro": "Un viaggio senza tempo verso l'isola più iconica della Croazia, abbinato alle calette nascoste e alle lagune cristalline dell'arcipelago Pakleni.",
-      "ctaText": "Esplora la vivace atmosfera della città di Hvar prima di fuggire nella tranquillità delle isole Pakleni."
+      "ctaText": "Esplora la vivace atmosfera della città di Hvar prima di fuggire nella tranquillità delle isole Pakleni.",
+      "pin": "Città di Hvar, Isole Pakleni e Šolta"
     },
     "bol-hvar-pakleni": {
       "label": "Viaggio Costiero Bol, Hvar e Isole Pakleni",
       "kicker": "Davvero popolare!",
       "intro": "Un'elegante esperienza di island-hopping che combina l'eleganza di Hvar con la bellezza naturale della spiaggia più iconica della Croazia.",
-      "ctaText": "Naviga tra l'energia vibrante di Hvar e la straordinaria costa di Brač, sede della famosa spiaggia del Corno d'Oro."
+      "ctaText": "Naviga tra l'energia vibrante di Hvar e la straordinaria costa di Brač, sede della famosa spiaggia del Corno d'Oro.",
+      "pin": "Brač, Hvar, Isole Pakleni e Šolta"
     }
   },
   "boatSectionItems": {
@@ -235,7 +239,7 @@
   },
   "metadata": {
     "home": {
-      "title": "Tour Privati in Barca Spalato, Croazia — Island Hopping ed Escursioni di un Giorno",
+      "title": "Rebelde Boats — Tour privati in barca Split, Croazia | Island hopping ed escursioni di un giorno",
       "description": "Prenota un tour privato in barca da Spalato, Croazia. Esplora Hvar, Grotta Azzurra, Laguna Azzurra, Vis e altro su un lussuoso motoscafo Felix 37."
     },
     "tours": {
@@ -253,14 +257,6 @@
     "contact": {
       "title": "Contatto — Mettiti in Contatto",
       "description": "Contatta Rebelde Boats per prenotare un tour privato in barca da Spalato, Croazia."
-    },
-    "book": {
-      "title": "Prenota un tour in barca privato — Rebelde Boats",
-      "description": "Prenota il tuo tour privato in barca lungo la costa dalmata. Paga un deposito per assicurarti la data. Grotta Azzurra, Hvar, Laguna Blu e altro da Spalato."
-    },
-    "availability": {
-      "title": "Disponibilità — Rebelde Boats",
-      "description": "Controlla la disponibilità in tempo reale per i tour privati in barca da Spalato, Croazia. Vedi le date disponibili e prenota subito."
     }
   },
   "gallery": {
@@ -477,54 +473,5 @@
       "question": "Are there showers and changing rooms at the beach?",
       "answer": "Yes — public facilities and beach bars around Zlatni Rat where you can rinse off and change."
     }
-  },
-  "book": {
-    "eyebrow": "Tour privati in barca · Spalato, Croazia",
-    "heading": "Prenota la tua giornata in acqua",
-    "subheading": "Scegli il tuo tour, una data e assicuralo con un deposito. Il saldo viene pagato in contanti la mattina della partenza."
-  },
-  "availability": {
-    "eyebrow": "Rebelde Boats · Spalato",
-    "heading": "Disponibilità",
-    "sub": "Disponibilità in tempo reale per tour privati in barca. Aggiornata ogni 5 minuti."
-  },
-  "bookingFlow": {
-    "stepTour": "Tour",
-    "stepDate": "Data",
-    "stepDetails": "Dettagli e pagamento",
-    "selectArrow": "Seleziona →",
-    "backAllTours": "← Tutti i tour",
-    "selectDateHint": "Seleziona una data disponibile per continuare.",
-    "changeDate": "Cambia data",
-    "dateLabel": "Data:"
-  },
-  "bookingForm": {
-    "summaryTour": "Tour",
-    "summaryDate": "Data",
-    "summaryDeposit": "Deposito da pagare ora",
-    "cashNote": "Il saldo viene pagato in contanti il giorno del tour.",
-    "slotLabel": "Seleziona fascia oraria",
-    "slotAM": "🌅 Mattina (AM)",
-    "slotPM": "🌇 Pomeriggio (PM)",
-    "slotTaken": "Occupato",
-    "checkingAvailability": "Verifica disponibilità…",
-    "labelName": "Nome completo",
-    "labelEmail": "Email",
-    "labelPhone": "Numero di telefono",
-    "labelGuests": "Numero di ospiti",
-    "labelMessage": "Messaggio",
-    "optional": "(opzionale)",
-    "placeholderName": "Il tuo nome completo",
-    "placeholderEmail": "tu@esempio.it",
-    "placeholderPhone": "+385 91 234 5678",
-    "placeholderMessage": "Richieste speciali, esigenze alimentari o domande…",
-    "guestSingular": "ospite",
-    "guestPlural": "ospiti",
-    "errorName": "Inserisci il tuo nome",
-    "errorEmail": "Inserisci un'email valida",
-    "errorPhone": "Inserisci il tuo numero di telefono",
-    "backBtn": "← Cambia data",
-    "payBtn": "Paga deposito di {deposit}",
-    "redirecting": "Reindirizzamento…"
   }
 }

@@ -147,25 +147,29 @@
       "galleryCaption4": "Privez u staroj trogirskoj luci za šetnju kroz povijest",
       "galleryCaption5": "Terakota krovovi i zvonici UNESCO-om zaštićenog starog Trogira",
       "galleryCaption6": "Šetnja kamenim uličicama dalmatinskih obalnih mjesta",
-      "galleryCaption7": "Plivanje iznad šoltanskog brodoloma — trup star stoljeće odmara tik ispod površine"
+      "galleryCaption7": "Plivanje iznad šoltanskog brodoloma — trup star stoljeće odmara tik ispod površine",
+      "pin": "Plava laguna Krknjaši, Borkko beach bar Šolta i Trogir"
     },
     "blue-cave-five-islands": {
       "label": "Plava špilja i ekspedicija na pet otoka",
       "kicker": "Cijeli dan — 5 otoka!",
       "intro": "Nezaboravna cjelodnevna jadranska avantura koja kombinira dramatičan obalni krajolik, skrivene špilje, udaljene otoke i neke od najbistrijih voda u Hrvatskoj.",
-      "ctaText": "Putujte otvorenim Jadranom da biste otkrili legendarnu Plavu špilju, gdje sunčeva svjetlost preobražava more u sjajne nijanse plave skrivene ispod visokih stijena."
+      "ctaText": "Putujte otvorenim Jadranom da biste otkrili legendarnu Plavu špilju, gdje sunčeva svjetlost preobražava more u sjajne nijanse plave skrivene ispod visokih stijena.",
+      "pin": "Plava špilja Biševo, Stiniva Vis, Komiža, Budikovac i Hvar"
     },
     "hvar-pakleni-islands": {
       "label": "Hvar i iskustvo Paklenih otoka",
       "kicker": "Najpopularnije!",
       "intro": "Bezvremensko putovanje na najprepoznatljiviji hrvatski otok, u paru sa skrivenim uvalama i kristalnim lagunama paklenog arhipelaga.",
-      "ctaText": "Istražite živu atmosferu grada Hvara prije bijega u mir Paklenih otoka, gdje borovima prekrivene obale, skrivena sidrišta i bistra tirkizna voda stvaraju savršen jadranski ambijent."
+      "ctaText": "Istražite živu atmosferu grada Hvara prije bijega u mir Paklenih otoka, gdje borovima prekrivene obale, skrivena sidrišta i bistra tirkizna voda stvaraju savršen jadranski ambijent.",
+      "pin": "Grad Hvar, Pakleni otoci i Šolta"
     },
     "bol-hvar-pakleni": {
       "label": "Bol, Hvar i obalno putovanje Paklenim otocima",
       "kicker": "Stvarno popularno!",
       "intro": "Profinjeno otočko iskustvo koje kombinira eleganciju Hvara s prirodnom ljepotom najprepoznatljivije hrvatske plaže.",
-      "ctaText": "Krstarite između živahne energije Hvara i zadivljujuće obale Brača, doma čuvene plaže Zlatni rat."
+      "ctaText": "Krstarite između živahne energije Hvara i zadivljujuće obale Brača, doma čuvene plaže Zlatni rat.",
+      "pin": "Brač, Hvar, Pakleni otoci i Šolta"
     }
   },
   "boatSectionItems": {
@@ -235,7 +239,7 @@
   },
   "metadata": {
     "home": {
-      "title": "Privatni izleti brodom iz Splita — otočko krstarenje i jednodnevni izleti",
+      "title": "Rebelde Boats — Privatni brodski izleti Split, Hrvatska | Otočki izleti i jednodnevni izleti",
       "description": "Rezervirajte privatni izlet brodom iz Splita. Istražite Hvar, Plavu špilju, Plavu lagunu, Vis i više na luksuznom brzom brodu Felix 37. Do 12 gostiju, potpuno personalizirano."
     },
     "tours": {
@@ -253,14 +257,6 @@
     "contact": {
       "title": "Kontakt — Stupite u kontakt",
       "description": "Stupite u kontakt s Rebelde Boats za rezervaciju privatnog izleta brodom iz Splita."
-    },
-    "book": {
-      "title": "Rezervirajte privatni brodski izlet — Rebelde Boats",
-      "description": "Rezervirajte privatni brodski izlet duž Dalmatinske obale. Platite depozit za osiguranje datuma. Plava špilja, Hvar, Plava laguna i više iz Splita."
-    },
-    "availability": {
-      "title": "Dostupnost — Rebelde Boats",
-      "description": "Provjerite dostupnost privatnih brodskih izleta iz Splita. Pogledajte slobodne datume i odmah rezervirajte."
     }
   },
   "gallery": {
@@ -477,54 +473,5 @@
       "question": "Are there showers and changing rooms at the beach?",
       "answer": "Yes — public facilities and beach bars around Zlatni Rat where you can rinse off and change."
     }
-  },
-  "book": {
-    "eyebrow": "Privatni brodski izleti · Split, Hrvatska",
-    "heading": "Rezervirajte vaš dan na moru",
-    "subheading": "Odaberite izlet, datum i osigurajte ga depozitom. Ostatak se plaća gotovinom jutro polaska."
-  },
-  "availability": {
-    "eyebrow": "Rebelde Boats · Split",
-    "heading": "Dostupnost",
-    "sub": "Dostupnost privatnih brodskih izleta. Ažurira se svakih 5 minuta."
-  },
-  "bookingFlow": {
-    "stepTour": "Izlet",
-    "stepDate": "Datum",
-    "stepDetails": "Detalji i plaćanje",
-    "selectArrow": "Odaberi →",
-    "backAllTours": "← Svi izleti",
-    "selectDateHint": "Odaberite dostupan datum za nastavak.",
-    "changeDate": "Promijeni datum",
-    "dateLabel": "Datum:"
-  },
-  "bookingForm": {
-    "summaryTour": "Izlet",
-    "summaryDate": "Datum",
-    "summaryDeposit": "Depozit za uplatu",
-    "cashNote": "Ostatak se plaća gotovinom na dan izleta.",
-    "slotLabel": "Odaberite termin",
-    "slotAM": "🌅 Jutro (AM)",
-    "slotPM": "🌇 Poslijepodne (PM)",
-    "slotTaken": "Zauzeto",
-    "checkingAvailability": "Provjera dostupnosti…",
-    "labelName": "Ime i prezime",
-    "labelEmail": "E-mail",
-    "labelPhone": "Broj telefona",
-    "labelGuests": "Broj gostiju",
-    "labelMessage": "Poruka",
-    "optional": "(neobavezno)",
-    "placeholderName": "Vaše ime i prezime",
-    "placeholderEmail": "vi@primjer.com",
-    "placeholderPhone": "+385 91 234 5678",
-    "placeholderMessage": "Posebni zahtjevi, prehrambene potrebe ili pitanja…",
-    "guestSingular": "gost",
-    "guestPlural": "gostiju",
-    "errorName": "Molimo unesite vaše ime",
-    "errorEmail": "Molimo unesite valjanu e-mail adresu",
-    "errorPhone": "Molimo unesite vaš broj telefona",
-    "backBtn": "← Promijeni datum",
-    "payBtn": "Plati {deposit} depozit",
-    "redirecting": "Preusmjeravamo…"
   }
 }

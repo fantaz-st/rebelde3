@@ -147,25 +147,29 @@
       "galleryCaption4": "Atracando en el viejo puerto de Trogir para un paseo por la historia",
       "galleryCaption5": "Tejados de terracota y campanarios del casco antiguo de Trogir",
       "galleryCaption6": "Paseando por los viejos callejones de piedra de los pueblos costeros de Dalmacia",
-      "galleryCaption7": "Nadando sobre el naufragio de Šolta — un casco centenario descansando bajo la superficie"
+      "galleryCaption7": "Nadando sobre el naufragio de Šolta — un casco centenario descansando bajo la superficie",
+      "pin": "Laguna Azul Krknjaši, Borkko beach bar Šolta y Trogir"
     },
     "blue-cave-five-islands": {
       "label": "Cueva Azul y Expedición a Cinco Islas",
       "kicker": "¡Día completo — 5 islas!",
       "intro": "Una aventura adriática de día completo que combina paisajes costeros dramáticos, cuevas ocultas, islas remotas y algunas de las aguas más claras de Croacia.",
-      "ctaText": "Viaja por el Adriático abierto para descubrir la legendaria Cueva Azul, donde la luz del sol transforma el mar en tonos de azul brillante."
+      "ctaText": "Viaja por el Adriático abierto para descubrir la legendaria Cueva Azul, donde la luz del sol transforma el mar en tonos de azul brillante.",
+      "pin": "Cueva Azul Biševo, Stiniva Vis, Komiža, Budikovac y Hvar"
     },
     "hvar-pakleni-islands": {
       "label": "Hvar y la Experiencia de las Islas Pakleni",
       "kicker": "¡La más solicitada!",
       "intro": "Un viaje atemporal a la isla más icónica de Croacia, combinado con las calas ocultas y las lagunas de cristal del archipiélago Pakleni.",
-      "ctaText": "Explora la vibrante atmósfera de la ciudad de Hvar antes de escapar a la tranquilidad de las islas Pakleni."
+      "ctaText": "Explora la vibrante atmósfera de la ciudad de Hvar antes de escapar a la tranquilidad de las islas Pakleni.",
+      "pin": "Ciudad de Hvar, Islas Pakleni y Šolta"
     },
     "bol-hvar-pakleni": {
       "label": "Viaje Costero por Bol, Hvar y las Islas Pakleni",
       "kicker": "¡Muy popular!",
       "intro": "Una refinada experiencia de island-hopping que combina la elegancia de Hvar con la belleza natural de la playa más icónica de Croacia.",
-      "ctaText": "Navega entre la energía vibrante de Hvar y la impresionante costa de Brač, hogar de la famosa playa del Cuerno Dorado."
+      "ctaText": "Navega entre la energía vibrante de Hvar y la impresionante costa de Brač, hogar de la famosa playa del Cuerno Dorado.",
+      "pin": "Brač, Hvar, Islas Pakleni y Šolta"
     }
   },
   "boatSectionItems": {
@@ -235,7 +239,7 @@
   },
   "metadata": {
     "home": {
-      "title": "Tours Privados en Barco Split, Croacia — Island Hopping y Excursiones de un Día",
+      "title": "Rebelde Boats — Tours privados en barco Split, Croacia | Island hopping y excursiones de un día",
       "description": "Reserva un tour privado en barco desde Split, Croacia. Explora Hvar, Cueva Azul, Laguna Azul, Vis y más en un lujoso barco rápido Felix 37."
     },
     "tours": {
@@ -253,14 +257,6 @@
     "contact": {
       "title": "Contacto — Ponte en Contacto",
       "description": "Ponte en contacto con Rebelde Boats para reservar un tour privado en barco desde Split, Croacia."
-    },
-    "book": {
-      "title": "Reservar un tour en barco privado — Rebelde Boats",
-      "description": "Reserve su tour privado en barco por la costa de Dalmacia. Pague un depósito para asegurar su fecha. Cueva Azul, Hvar, Laguna Azul y más desde Split."
-    },
-    "availability": {
-      "title": "Disponibilidad — Rebelde Boats",
-      "description": "Compruebe la disponibilidad en tiempo real de tours privados en barco desde Split, Croacia. Vea las fechas disponibles y reserve al instante."
     }
   },
   "gallery": {
@@ -477,54 +473,5 @@
       "question": "Are there showers and changing rooms at the beach?",
       "answer": "Yes — public facilities and beach bars around Zlatni Rat where you can rinse off and change."
     }
-  },
-  "book": {
-    "eyebrow": "Tours privados en barco · Split, Croacia",
-    "heading": "Reserve su día en el agua",
-    "subheading": "Elija su tour, una fecha y asegúrelo con un depósito. El resto se paga en efectivo la mañana de la salida."
-  },
-  "availability": {
-    "eyebrow": "Rebelde Boats · Split",
-    "heading": "Disponibilidad",
-    "sub": "Disponibilidad en tiempo real para tours privados en barco. Se actualiza cada 5 minutos."
-  },
-  "bookingFlow": {
-    "stepTour": "Tour",
-    "stepDate": "Fecha",
-    "stepDetails": "Detalles y pago",
-    "selectArrow": "Seleccionar →",
-    "backAllTours": "← Todos los tours",
-    "selectDateHint": "Seleccione una fecha disponible para continuar.",
-    "changeDate": "Cambiar fecha",
-    "dateLabel": "Fecha:"
-  },
-  "bookingForm": {
-    "summaryTour": "Tour",
-    "summaryDate": "Fecha",
-    "summaryDeposit": "Depósito a pagar ahora",
-    "cashNote": "El resto se paga en efectivo el día del tour.",
-    "slotLabel": "Seleccionar horario",
-    "slotAM": "🌅 Mañana (AM)",
-    "slotPM": "🌇 Tarde (PM)",
-    "slotTaken": "Ocupado",
-    "checkingAvailability": "Comprobando disponibilidad…",
-    "labelName": "Nombre completo",
-    "labelEmail": "Correo electrónico",
-    "labelPhone": "Número de teléfono",
-    "labelGuests": "Número de huéspedes",
-    "labelMessage": "Mensaje",
-    "optional": "(opcional)",
-    "placeholderName": "Su nombre completo",
-    "placeholderEmail": "usted@ejemplo.com",
-    "placeholderPhone": "+385 91 234 5678",
-    "placeholderMessage": "Solicitudes especiales, requisitos dietéticos o preguntas…",
-    "guestSingular": "huésped",
-    "guestPlural": "huéspedes",
-    "errorName": "Por favor, introduzca su nombre",
-    "errorEmail": "Por favor, introduzca un correo electrónico válido",
-    "errorPhone": "Por favor, introduzca su número de teléfono",
-    "backBtn": "← Cambiar fecha",
-    "payBtn": "Pagar depósito de {deposit}",
-    "redirecting": "Redirigiendo…"
   }
 }

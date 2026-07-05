@@ -19,6 +19,7 @@ export default function Tours() {
         imageSrc:   it.thumb,
         imageAlt:   it.thumbAlt || "",
         kicker:     ti(`${it.key}.kicker`),
+        pin:        ti(`${it.key}.pin`),
         title:      ti(`${it.key}.label`),
         depositEur: it.depositEur,
         restEur:    it.restEur,
@@ -55,6 +56,7 @@ export default function Tours() {
                 imageSrc={tour.imageSrc}
                 imageAlt={tour.imageAlt}
                 kicker={tour.kicker}
+                pin={tour.pin}
                 title={tour.title}
                 depositEur={tour.depositEur}
                 restEur={tour.restEur}
