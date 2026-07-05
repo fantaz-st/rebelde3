@@ -134,6 +134,11 @@ export default function AvailabilityView({ tours }) {
                     <span className={styles.tourOptionName}>{tour.name}</span>
                     <span className={styles.tourOptionDeposit}>
                       Deposit: €{(tour.deposit_eur / 100).toLocaleString('en')}
+                      {tour.rest_eur > 0 && (
+                        <span className={styles.tourOptionRest}>
+                          {' '}· Rest: €{(tour.rest_eur / 100).toLocaleString('en')} cash on the day
+                        </span>
+                      )}
                     </span>
                   </div>
                   <span className={styles.tourOptionArrow}>→</span>

@@ -1,16 +1,10 @@
 'use client'
+import { MONTHS, isoDate } from '@/lib/bookingUtils'
 import { useState, useEffect, useCallback } from 'react'
 import styles from './BookingCalendar.module.css'
 
-const MONTHS = [
-  'January','February','March','April','May','June',
-  'July','August','September','October','November','December'
-]
 const DAYS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
 
-function isoDate(y, m, d) {
-  return `${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`
-}
 
 // tourDuration: 'full' | 'am' | 'pm'
 // A date is selectable if:

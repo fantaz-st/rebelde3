@@ -253,6 +253,14 @@
     "contact": {
       "title": "Kontakt — Schreiben Sie uns",
       "description": "Kontaktieren Sie Rebelde Boats für eine private Bootstour ab Split, Kroatien."
+    },
+    "book": {
+      "title": "Private Bootstour buchen — Rebelde Boats",
+      "description": "Reservieren Sie Ihre private Bootstour entlang der dalmatinischen Küste. Sichern Sie Ihr Datum mit einer Anzahlung. Blaue Grotte, Hvar und mehr von Split."
+    },
+    "availability": {
+      "title": "Verfügbarkeit — Rebelde Boats",
+      "description": "Prüfen Sie die Live-Verfügbarkeit für private Bootstouren ab Split, Kroatien. Freie Termine ansehen und sofort buchen."
     }
   },
   "gallery": {
@@ -469,5 +477,54 @@
       "question": "Are there showers and changing rooms at the beach?",
       "answer": "Yes — public facilities and beach bars around Zlatni Rat where you can rinse off and change."
     }
+  },
+  "book": {
+    "eyebrow": "Private Bootstouren · Split, Kroatien",
+    "heading": "Reservieren Sie Ihren Tag auf dem Wasser",
+    "subheading": "Wählen Sie Ihre Tour, ein Datum und sichern Sie es mit einer Anzahlung. Der Rest wird am Morgen der Abfahrt bar bezahlt."
+  },
+  "availability": {
+    "eyebrow": "Rebelde Boats · Split",
+    "heading": "Verfügbarkeit",
+    "sub": "Live-Verfügbarkeit für private Bootstouren. Wird alle 5 Minuten aktualisiert."
+  },
+  "bookingFlow": {
+    "stepTour": "Tour",
+    "stepDate": "Datum",
+    "stepDetails": "Details & Zahlung",
+    "selectArrow": "Auswählen →",
+    "backAllTours": "← Alle Touren",
+    "selectDateHint": "Wählen Sie ein verfügbares Datum aus.",
+    "changeDate": "Datum ändern",
+    "dateLabel": "Datum:"
+  },
+  "bookingForm": {
+    "summaryTour": "Tour",
+    "summaryDate": "Datum",
+    "summaryDeposit": "Jetzt fällige Anzahlung",
+    "cashNote": "Der Restbetrag wird am Tag der Tour bar bezahlt.",
+    "slotLabel": "Zeitfenster wählen",
+    "slotAM": "🌅 Morgen (AM)",
+    "slotPM": "🌇 Nachmittag (PM)",
+    "slotTaken": "Belegt",
+    "checkingAvailability": "Verfügbarkeit wird geprüft…",
+    "labelName": "Vollständiger Name",
+    "labelEmail": "E-Mail",
+    "labelPhone": "Telefonnummer",
+    "labelGuests": "Anzahl der Gäste",
+    "labelMessage": "Nachricht",
+    "optional": "(optional)",
+    "placeholderName": "Ihr vollständiger Name",
+    "placeholderEmail": "sie@beispiel.de",
+    "placeholderPhone": "+385 91 234 5678",
+    "placeholderMessage": "Besondere Wünsche, Ernährungsbedürfnisse oder Fragen…",
+    "guestSingular": "Gast",
+    "guestPlural": "Gäste",
+    "errorName": "Bitte geben Sie Ihren Namen ein",
+    "errorEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "errorPhone": "Bitte geben Sie Ihre Telefonnummer ein",
+    "backBtn": "← Datum ändern",
+    "payBtn": "{deposit} Anzahlung bezahlen",
+    "redirecting": "Weiterleitung…"
   }
 }

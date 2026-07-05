@@ -253,6 +253,14 @@
     "contact": {
       "title": "Contatto — Mettiti in Contatto",
       "description": "Contatta Rebelde Boats per prenotare un tour privato in barca da Spalato, Croazia."
+    },
+    "book": {
+      "title": "Prenota un tour in barca privato — Rebelde Boats",
+      "description": "Prenota il tuo tour privato in barca lungo la costa dalmata. Paga un deposito per assicurarti la data. Grotta Azzurra, Hvar, Laguna Blu e altro da Spalato."
+    },
+    "availability": {
+      "title": "Disponibilità — Rebelde Boats",
+      "description": "Controlla la disponibilità in tempo reale per i tour privati in barca da Spalato, Croazia. Vedi le date disponibili e prenota subito."
     }
   },
   "gallery": {
@@ -469,5 +477,54 @@
       "question": "Are there showers and changing rooms at the beach?",
       "answer": "Yes — public facilities and beach bars around Zlatni Rat where you can rinse off and change."
     }
+  },
+  "book": {
+    "eyebrow": "Tour privati in barca · Spalato, Croazia",
+    "heading": "Prenota la tua giornata in acqua",
+    "subheading": "Scegli il tuo tour, una data e assicuralo con un deposito. Il saldo viene pagato in contanti la mattina della partenza."
+  },
+  "availability": {
+    "eyebrow": "Rebelde Boats · Spalato",
+    "heading": "Disponibilità",
+    "sub": "Disponibilità in tempo reale per tour privati in barca. Aggiornata ogni 5 minuti."
+  },
+  "bookingFlow": {
+    "stepTour": "Tour",
+    "stepDate": "Data",
+    "stepDetails": "Dettagli e pagamento",
+    "selectArrow": "Seleziona →",
+    "backAllTours": "← Tutti i tour",
+    "selectDateHint": "Seleziona una data disponibile per continuare.",
+    "changeDate": "Cambia data",
+    "dateLabel": "Data:"
+  },
+  "bookingForm": {
+    "summaryTour": "Tour",
+    "summaryDate": "Data",
+    "summaryDeposit": "Deposito da pagare ora",
+    "cashNote": "Il saldo viene pagato in contanti il giorno del tour.",
+    "slotLabel": "Seleziona fascia oraria",
+    "slotAM": "🌅 Mattina (AM)",
+    "slotPM": "🌇 Pomeriggio (PM)",
+    "slotTaken": "Occupato",
+    "checkingAvailability": "Verifica disponibilità…",
+    "labelName": "Nome completo",
+    "labelEmail": "Email",
+    "labelPhone": "Numero di telefono",
+    "labelGuests": "Numero di ospiti",
+    "labelMessage": "Messaggio",
+    "optional": "(opzionale)",
+    "placeholderName": "Il tuo nome completo",
+    "placeholderEmail": "tu@esempio.it",
+    "placeholderPhone": "+385 91 234 5678",
+    "placeholderMessage": "Richieste speciali, esigenze alimentari o domande…",
+    "guestSingular": "ospite",
+    "guestPlural": "ospiti",
+    "errorName": "Inserisci il tuo nome",
+    "errorEmail": "Inserisci un'email valida",
+    "errorPhone": "Inserisci il tuo numero di telefono",
+    "backBtn": "← Cambia data",
+    "payBtn": "Paga deposito di {deposit}",
+    "redirecting": "Reindirizzamento…"
   }
 }

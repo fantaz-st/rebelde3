@@ -1,6 +1,8 @@
 const items = [
   {
     key: "blue-lagoon-three-islands",
+    depositEur: 30000,  // €300
+    restEur:    110000, // €1,100,
     title: "Blue lagoon, Trogir, Šolta",
     kicker: "Half day, close and popular!",
     thumb: "/images/tours/lagoon.jpg",
@@ -28,6 +30,8 @@ const items = [
 
   {
     key: "blue-cave-five-islands",
+    depositEur: 40000,  // €400
+    restEur:    100000, // €1,000,
     label: "Blue Cave & Five Islands Expedition",
     kicker: "Full day — 5 islands!",
     thumb: "/images/tours/cave.jpg",
@@ -62,6 +66,8 @@ const items = [
 
   {
     key: "hvar-pakleni-islands",
+    depositEur: 40000,  // €400
+    restEur:    100000, // €1,000,
     label: "Hvar & Pakleni Islands Experience",
     kicker: "Most sought after!",
     thumb: "/images/tours/hvar-pakleni/hero.jpg",
@@ -90,6 +96,8 @@ const items = [
 
   {
     key: "bol-hvar-pakleni",
+    depositEur: 40000,  // €400
+    restEur:    100000, // €1,000,
     label: "Bol, Hvar & Pakleni islands Coastal Journey",
     kicker: "Really popular!",
     thumb: "/images/tours/zlatni-rat.jpg",

@@ -25,7 +25,7 @@ export default async function AvailabilityPage() {
   const until = threeMonthsOut.toISOString().slice(0, 10)
 
   const [{ data: tours }, { data: availability }, { data: bookings }] = await Promise.all([
-    supabase.from('tours').select('id, slug, name, duration, deposit_eur').eq('active', true).order('name'),
+    supabase.from('tours').select('id, slug, name, duration, deposit_eur, rest_eur').eq('active', true).order('name'),
     supabase.from('availability_shared').select('date, open').gte('date', today).lte('date', until),
     supabase.from('bookings').select('date, status').eq('status', 'paid').gte('date', today).lte('date', until),
   ])

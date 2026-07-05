@@ -253,6 +253,14 @@
     "contact": {
       "title": "Contacto — Ponte en Contacto",
       "description": "Ponte en contacto con Rebelde Boats para reservar un tour privado en barco desde Split, Croacia."
+    },
+    "book": {
+      "title": "Reservar un tour en barco privado — Rebelde Boats",
+      "description": "Reserve su tour privado en barco por la costa de Dalmacia. Pague un depósito para asegurar su fecha. Cueva Azul, Hvar, Laguna Azul y más desde Split."
+    },
+    "availability": {
+      "title": "Disponibilidad — Rebelde Boats",
+      "description": "Compruebe la disponibilidad en tiempo real de tours privados en barco desde Split, Croacia. Vea las fechas disponibles y reserve al instante."
     }
   },
   "gallery": {
@@ -469,5 +477,54 @@
       "question": "Are there showers and changing rooms at the beach?",
       "answer": "Yes — public facilities and beach bars around Zlatni Rat where you can rinse off and change."
     }
+  },
+  "book": {
+    "eyebrow": "Tours privados en barco · Split, Croacia",
+    "heading": "Reserve su día en el agua",
+    "subheading": "Elija su tour, una fecha y asegúrelo con un depósito. El resto se paga en efectivo la mañana de la salida."
+  },
+  "availability": {
+    "eyebrow": "Rebelde Boats · Split",
+    "heading": "Disponibilidad",
+    "sub": "Disponibilidad en tiempo real para tours privados en barco. Se actualiza cada 5 minutos."
+  },
+  "bookingFlow": {
+    "stepTour": "Tour",
+    "stepDate": "Fecha",
+    "stepDetails": "Detalles y pago",
+    "selectArrow": "Seleccionar →",
+    "backAllTours": "← Todos los tours",
+    "selectDateHint": "Seleccione una fecha disponible para continuar.",
+    "changeDate": "Cambiar fecha",
+    "dateLabel": "Fecha:"
+  },
+  "bookingForm": {
+    "summaryTour": "Tour",
+    "summaryDate": "Fecha",
+    "summaryDeposit": "Depósito a pagar ahora",
+    "cashNote": "El resto se paga en efectivo el día del tour.",
+    "slotLabel": "Seleccionar horario",
+    "slotAM": "🌅 Mañana (AM)",
+    "slotPM": "🌇 Tarde (PM)",
+    "slotTaken": "Ocupado",
+    "checkingAvailability": "Comprobando disponibilidad…",
+    "labelName": "Nombre completo",
+    "labelEmail": "Correo electrónico",
+    "labelPhone": "Número de teléfono",
+    "labelGuests": "Número de huéspedes",
+    "labelMessage": "Mensaje",
+    "optional": "(opcional)",
+    "placeholderName": "Su nombre completo",
+    "placeholderEmail": "usted@ejemplo.com",
+    "placeholderPhone": "+385 91 234 5678",
+    "placeholderMessage": "Solicitudes especiales, requisitos dietéticos o preguntas…",
+    "guestSingular": "huésped",
+    "guestPlural": "huéspedes",
+    "errorName": "Por favor, introduzca su nombre",
+    "errorEmail": "Por favor, introduzca un correo electrónico válido",
+    "errorPhone": "Por favor, introduzca su número de teléfono",
+    "backBtn": "← Cambiar fecha",
+    "payBtn": "Pagar depósito de {deposit}",
+    "redirecting": "Redirigiendo…"
   }
 }

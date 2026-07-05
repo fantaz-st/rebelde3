@@ -14,12 +14,14 @@ export default function Tours() {
   const tours = useMemo(
     () =>
       items.map((it) => ({
-        key:      it.key,
-        href:     `/bespoke-tours#${it.key}`,
-        imageSrc: it.thumb,
-        imageAlt: it.thumbAlt || "",
-        kicker:   ti(`${it.key}.kicker`),
-        title:    ti(`${it.key}.label`),
+        key:        it.key,
+        href:       `/bespoke-tours#${it.key}`,
+        imageSrc:   it.thumb,
+        imageAlt:   it.thumbAlt || "",
+        kicker:     ti(`${it.key}.kicker`),
+        title:      ti(`${it.key}.label`),
+        depositEur: it.depositEur,
+        restEur:    it.restEur,
       })),
     [ti],
   );
@@ -54,6 +56,8 @@ export default function Tours() {
                 imageAlt={tour.imageAlt}
                 kicker={tour.kicker}
                 title={tour.title}
+                depositEur={tour.depositEur}
+                restEur={tour.restEur}
               />
             </SwiperSlide>
           ))}

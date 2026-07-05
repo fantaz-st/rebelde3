@@ -253,6 +253,14 @@
     "contact": {
       "title": "Contact – Get In Touch",
       "description": "Get in touch with Rebelde Boats to book a private boat tour from Split, Croatia."
+    },
+    "book": {
+      "title": "Book a Private Boat Tour — Rebelde Boats",
+      "description": "Reserve your private boat tour along the Dalmatian coast. Pay a deposit to secure your date. Blue Cave, Hvar, Blue Lagoon and more from Split."
+    },
+    "availability": {
+      "title": "Availability — Rebelde Boats",
+      "description": "Check live availability for private boat tours from Split, Croatia. See open dates and book instantly."
     }
   },
   "gallery": {
@@ -469,5 +477,54 @@
       "question": "Are there showers and changing rooms at the beach?",
       "answer": "Yes — public facilities and beach bars around Zlatni Rat where you can rinse off and change."
     }
+  },
+  "book": {
+    "eyebrow": "Private boat tours · Split, Croatia",
+    "heading": "Reserve your day on the water",
+    "subheading": "Choose your tour, pick a date, and secure it with a deposit. The balance is settled in cash on the morning of departure."
+  },
+  "availability": {
+    "eyebrow": "Rebelde Boats · Split",
+    "heading": "Availability",
+    "sub": "Live availability for private boat tours. Updated every 5 minutes."
+  },
+  "bookingFlow": {
+    "stepTour": "Tour",
+    "stepDate": "Date",
+    "stepDetails": "Details & payment",
+    "selectArrow": "Select →",
+    "backAllTours": "← All tours",
+    "selectDateHint": "Select an available date to continue.",
+    "changeDate": "Change date",
+    "dateLabel": "Date:"
+  },
+  "bookingForm": {
+    "summaryTour": "Tour",
+    "summaryDate": "Date",
+    "summaryDeposit": "Deposit due now",
+    "cashNote": "Balance paid in cash on the day of the tour.",
+    "slotLabel": "Select time slot",
+    "slotAM": "🌅 Morning (AM)",
+    "slotPM": "🌇 Afternoon (PM)",
+    "slotTaken": "Taken",
+    "checkingAvailability": "Checking availability…",
+    "labelName": "Full name",
+    "labelEmail": "Email",
+    "labelPhone": "Phone number",
+    "labelGuests": "Number of guests",
+    "labelMessage": "Message",
+    "optional": "(optional)",
+    "placeholderName": "Your full name",
+    "placeholderEmail": "you@example.com",
+    "placeholderPhone": "+385 91 234 5678",
+    "placeholderMessage": "Any special requests, dietary requirements, or questions…",
+    "guestSingular": "guest",
+    "guestPlural": "guests",
+    "errorName": "Please enter your name",
+    "errorEmail": "Please enter a valid email",
+    "errorPhone": "Please enter your phone number",
+    "backBtn": "← Change date",
+    "payBtn": "Pay {deposit} deposit",
+    "redirecting": "Redirecting…"
   }
 }

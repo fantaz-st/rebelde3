@@ -1,44 +1,41 @@
-const LAST_MODIFIED = new Date();
-
 const SITE_URL = "https://www.rebelde.hr";
-const LOCALES = ["hr", "de", "es", "it", "fr"]; // en is at root
+const LOCALES  = ["hr", "de", "es", "it", "fr"];
+const LAST_MOD = new Date();
 
 const pages = [
-  { path: "",            priority: 1,   changeFrequency: "monthly" },
-  { path: "/the-boat",  priority: 0.8, changeFrequency: "yearly" },
-  { path: "/bespoke-tours", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/faq",       priority: 0.6, changeFrequency: "yearly" },
-  { path: "/contact",   priority: 0.5, changeFrequency: "yearly" },
+  { path: "",               priority: 1,    freq: "monthly" },
+  { path: "/the-boat",      priority: 0.8,  freq: "yearly"  },
+  { path: "/bespoke-tours", priority: 0.9,  freq: "monthly" },
+  { path: "/faq",           priority: 0.6,  freq: "yearly"  },
+  { path: "/contact",       priority: 0.5,  freq: "yearly"  },
+  { path: "/availability",  priority: 0.9,  freq: "daily"   },
+  { path: "/book",          priority: 0.85, freq: "daily"   },
 ];
 
 export default function sitemap() {
   const entries = [];
-
   for (const page of pages) {
-    // English at root
     entries.push({
       url: `${SITE_URL}${page.path}`,
-      lastModified: LAST_MODIFIED,
-      changeFrequency: page.changeFrequency,
+      lastModified: LAST_MOD,
+      changeFrequency: page.freq,
       priority: page.priority,
       alternates: {
         languages: Object.fromEntries([
-          ["en", `${SITE_URL}${page.path}`],
-          ...LOCALES.map((locale) => [locale, `${SITE_URL}/${locale}${page.path}`]),
+          ["x-default", `${SITE_URL}${page.path}`],
+          ["en",        `${SITE_URL}${page.path}`],
+          ...LOCALES.map(l => [l, `${SITE_URL}/${l}${page.path}`]),
         ]),
       },
     });
-
-    // Other locales
-    for (const locale of LOCALES) {
+    for (const l of LOCALES) {
       entries.push({
-        url: `${SITE_URL}/${locale}${page.path}`,
-        lastModified: LAST_MODIFIED,
-        changeFrequency: page.changeFrequency,
+        url: `${SITE_URL}/${l}${page.path}`,
+        lastModified: LAST_MOD,
+        changeFrequency: page.freq,
         priority: page.priority * 0.9,
       });
     }
   }
-
   return entries;
 }

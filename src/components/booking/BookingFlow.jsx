@@ -124,7 +124,12 @@ export default function BookingFlow({ tours, preselectedDate = null, preselected
               <span className={styles.tourDuration}>{DURATION_LABEL[tour.duration]}</span>
               <span className={styles.tourName}>{tour.name}</span>
               <span className={styles.tourDesc}>{tour.description}</span>
-              <span className={styles.tourDeposit}>Deposit: €{(tour.deposit_eur / 100).toLocaleString('en')}</span>
+              <span className={styles.tourDeposit}>
+                Deposit: €{(tour.deposit_eur / 100).toLocaleString('en')}
+                {tour.rest_eur > 0 && (
+                  <span className={styles.tourRest}> · Rest: €{(tour.rest_eur / 100).toLocaleString('en')} cash</span>
+                )}
+              </span>
               <span className={styles.tourArrow}>Select →</span>
             </button>
           ))}

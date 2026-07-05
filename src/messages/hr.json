@@ -253,6 +253,14 @@
     "contact": {
       "title": "Kontakt — Stupite u kontakt",
       "description": "Stupite u kontakt s Rebelde Boats za rezervaciju privatnog izleta brodom iz Splita."
+    },
+    "book": {
+      "title": "Rezervirajte privatni brodski izlet — Rebelde Boats",
+      "description": "Rezervirajte privatni brodski izlet duž Dalmatinske obale. Platite depozit za osiguranje datuma. Plava špilja, Hvar, Plava laguna i više iz Splita."
+    },
+    "availability": {
+      "title": "Dostupnost — Rebelde Boats",
+      "description": "Provjerite dostupnost privatnih brodskih izleta iz Splita. Pogledajte slobodne datume i odmah rezervirajte."
     }
   },
   "gallery": {
@@ -469,5 +477,54 @@
       "question": "Are there showers and changing rooms at the beach?",
       "answer": "Yes — public facilities and beach bars around Zlatni Rat where you can rinse off and change."
     }
+  },
+  "book": {
+    "eyebrow": "Privatni brodski izleti · Split, Hrvatska",
+    "heading": "Rezervirajte vaš dan na moru",
+    "subheading": "Odaberite izlet, datum i osigurajte ga depozitom. Ostatak se plaća gotovinom jutro polaska."
+  },
+  "availability": {
+    "eyebrow": "Rebelde Boats · Split",
+    "heading": "Dostupnost",
+    "sub": "Dostupnost privatnih brodskih izleta. Ažurira se svakih 5 minuta."
+  },
+  "bookingFlow": {
+    "stepTour": "Izlet",
+    "stepDate": "Datum",
+    "stepDetails": "Detalji i plaćanje",
+    "selectArrow": "Odaberi →",
+    "backAllTours": "← Svi izleti",
+    "selectDateHint": "Odaberite dostupan datum za nastavak.",
+    "changeDate": "Promijeni datum",
+    "dateLabel": "Datum:"
+  },
+  "bookingForm": {
+    "summaryTour": "Izlet",
+    "summaryDate": "Datum",
+    "summaryDeposit": "Depozit za uplatu",
+    "cashNote": "Ostatak se plaća gotovinom na dan izleta.",
+    "slotLabel": "Odaberite termin",
+    "slotAM": "🌅 Jutro (AM)",
+    "slotPM": "🌇 Poslijepodne (PM)",
+    "slotTaken": "Zauzeto",
+    "checkingAvailability": "Provjera dostupnosti…",
+    "labelName": "Ime i prezime",
+    "labelEmail": "E-mail",
+    "labelPhone": "Broj telefona",
+    "labelGuests": "Broj gostiju",
+    "labelMessage": "Poruka",
+    "optional": "(neobavezno)",
+    "placeholderName": "Vaše ime i prezime",
+    "placeholderEmail": "vi@primjer.com",
+    "placeholderPhone": "+385 91 234 5678",
+    "placeholderMessage": "Posebni zahtjevi, prehrambene potrebe ili pitanja…",
+    "guestSingular": "gost",
+    "guestPlural": "gostiju",
+    "errorName": "Molimo unesite vaše ime",
+    "errorEmail": "Molimo unesite valjanu e-mail adresu",
+    "errorPhone": "Molimo unesite vaš broj telefona",
+    "backBtn": "← Promijeni datum",
+    "payBtn": "Plati {deposit} depozit",
+    "redirecting": "Preusmjeravamo…"
   }
 }

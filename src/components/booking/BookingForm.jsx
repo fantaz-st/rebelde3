@@ -1,26 +1,34 @@
 // components/booking/BookingForm.jsx
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import styles from './BookingForm.module.css'
 
 const GUEST_OPTIONS = [1,2,3,4,5,6,7,8,9,10,11,12]
 
+const EXTRAS = [
+  { id: 'charcuterie', label: 'Charcuterie platter', price: 20000, emoji: '🧀' },
+  { id: 'fruit',       label: 'Fruit platter',       price: 15000, emoji: '🍇' },
+]
+
 export default function BookingForm({ tour, date, onBack, onSubmit, submitting }) {
   const isHalfDay = tour?.duration === 'half'
 
-  // Which slots are taken on this date — fetched from API
   const [takenSlots, setTakenSlots] = useState(new Set())
   const [slotLoading, setSlotLoading] = useState(false)
-
-  // Default to the first available slot
   const [slot, setSlot] = useState('am')
+
+  // Payment mode: 'deposit' | 'full'
+  const [paymentMode, setPaymentMode] = useState('deposit')
+
+  // Selected extras: Set of extra ids
+  const [selectedExtras, setSelectedExtras] = useState(new Set())
 
   const [fields, setFields] = useState({
     name: '', email: '', phone: '', guests: 2, message: ''
   })
   const [errors, setErrors] = useState({})
 
-  // Fetch slot availability when component mounts (only for half-day tours)
+  // Fetch slot availability for half-day tours
   useEffect(() => {
     if (!isHalfDay || !date) return
     setSlotLoading(true)
@@ -29,21 +37,21 @@ export default function BookingForm({ tour, date, onBack, onSubmit, submitting }
       .then(data => {
         const entry = (data.dates || []).find(d => d.date === date)
         const taken = new Set()
-        if (entry?.status === 'am_only') {
-          // AM is free, PM is taken
-          taken.add('pm')
-          setSlot('am') // default to the free slot
-        } else if (entry?.status === 'pm_only') {
-          // PM is free, AM is taken
-          taken.add('am')
-          setSlot('pm') // default to the free slot
-        }
-        // 'open' = both free, nothing taken
+        if (entry?.status === 'am_only') { taken.add('pm'); setSlot('am') }
+        else if (entry?.status === 'pm_only') { taken.add('am'); setSlot('pm') }
         setTakenSlots(taken)
       })
       .catch(() => setTakenSlots(new Set()))
       .finally(() => setSlotLoading(false))
   }, [isHalfDay, date])
+
+  const toggleExtra = (id) => {
+    setSelectedExtras(prev => {
+      const next = new Set(prev)
+      next.has(id) ? next.delete(id) : next.add(id)
+      return next
+    })
+  }
 
   const set = (key, val) => {
     setFields(f => ({ ...f, [key]: val }))
@@ -59,17 +67,31 @@ export default function BookingForm({ tour, date, onBack, onSubmit, submitting }
     return e
   }
 
+  // Compute amounts
+  const depositAmount = tour.deposit_eur  // cents
+  const fullAmount    = (tour.deposit_eur || 0) + (tour.rest_eur || 0)  // cents
+  const extrasTotal   = EXTRAS.filter(e => selectedExtras.has(e.id))
+                               .reduce((sum, e) => sum + e.price, 0)
+
+  const baseAmount    = paymentMode === 'full' ? fullAmount : depositAmount
+  const totalAmount   = baseAmount + extrasTotal
+
+  const fmt = (cents) => `€${(cents / 100).toLocaleString('en', { minimumFractionDigits: 0 })}`
+
   const handleSubmit = () => {
     const e = validate()
     if (Object.keys(e).length) { setErrors(e); return }
-    onSubmit({ ...fields, slot: isHalfDay ? slot : undefined })
+    onSubmit({
+      ...fields,
+      slot: isHalfDay ? slot : undefined,
+      paymentMode,
+      extras: [...selectedExtras],
+    })
   }
 
   const dateFormatted = new Date(date).toLocaleDateString('en-GB', {
     weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
   })
-
-  const depositFormatted = `€${(tour.deposit_eur / 100).toLocaleString('en', { minimumFractionDigits: 0 })}`
 
   return (
     <div className={styles.form}>
@@ -84,16 +106,80 @@ export default function BookingForm({ tour, date, onBack, onSubmit, submitting }
           <span className={styles.summaryValue}>{dateFormatted}</span>
         </div>
         <div className={styles.summaryRow}>
-          <span className={styles.summaryLabel}>Deposit due now</span>
-          <span className={`${styles.summaryValue} ${styles.deposit}`}>{depositFormatted}</span>
+          <span className={styles.summaryLabel}>Paying now</span>
+          <span className={`${styles.summaryValue} ${styles.deposit}`}>{fmt(totalAmount)}</span>
         </div>
-        <p className={styles.cashNote}>Balance paid in cash on the day of the tour.</p>
+        {paymentMode === 'deposit' && tour.rest_eur > 0 && (
+          <p className={styles.cashNote}>
+            Remaining {fmt(tour.rest_eur)} paid in cash on the day of the tour.
+          </p>
+        )}
+        {paymentMode === 'full' && (
+          <p className={styles.cashNote}>Full tour price — nothing to pay on the day.</p>
+        )}
+      </div>
+
+      {/* Payment mode picker */}
+      <div className={styles.section}>
+        <p className={styles.sectionLabel}>How would you like to pay?</p>
+        <div className={styles.paymentBtns}>
+          <button
+            type="button"
+            className={`${styles.paymentBtn} ${paymentMode === 'deposit' ? styles.paymentBtnActive : ''}`}
+            onClick={() => setPaymentMode('deposit')}
+          >
+            <span className={styles.paymentBtnTitle}>Deposit only</span>
+            <span className={styles.paymentBtnAmount}>{fmt(depositAmount)}</span>
+            {tour.rest_eur > 0 && (
+              <span className={styles.paymentBtnNote}>
+                +{fmt(tour.rest_eur)} cash on the day
+              </span>
+            )}
+          </button>
+          <button
+            type="button"
+            className={`${styles.paymentBtn} ${paymentMode === 'full' ? styles.paymentBtnActive : ''}`}
+            onClick={() => setPaymentMode('full')}
+          >
+            <span className={styles.paymentBtnTitle}>Pay in full</span>
+            <span className={styles.paymentBtnAmount}>{fmt(fullAmount)}</span>
+            <span className={styles.paymentBtnNote}>Nothing to pay on the day</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Extras */}
+      <div className={styles.section}>
+        <p className={styles.sectionLabel}>Add extras <span className={styles.optional}>(optional)</span></p>
+        <div className={styles.extrasList}>
+          {EXTRAS.map(extra => {
+            const active = selectedExtras.has(extra.id)
+            return (
+              <button
+                key={extra.id}
+                type="button"
+                className={`${styles.extraBtn} ${active ? styles.extraBtnActive : ''}`}
+                onClick={() => toggleExtra(extra.id)}
+                aria-pressed={active}
+              >
+                <span className={styles.extraEmoji}>{extra.emoji}</span>
+                <span className={styles.extraInfo}>
+                  <span className={styles.extraLabel}>{extra.label}</span>
+                  <span className={styles.extraPrice}>{fmt(extra.price)}</span>
+                </span>
+                <span className={styles.extraCheck} aria-hidden="true">
+                  {active ? '✓' : '+'}
+                </span>
+              </button>
+            )
+          })}
+        </div>
       </div>
 
       {/* AM/PM slot picker — half-day tours only */}
       {isHalfDay && (
-        <div className={styles.slotPicker}>
-          <p className={styles.slotLabel}>Select time slot</p>
+        <div className={styles.section}>
+          <p className={styles.sectionLabel}>Select time slot</p>
           {slotLoading ? (
             <p className={styles.slotLoading}>Checking availability…</p>
           ) : (
@@ -197,7 +283,7 @@ export default function BookingForm({ tour, date, onBack, onSubmit, submitting }
           onClick={handleSubmit}
           disabled={submitting || slotLoading}
         >
-          {submitting ? 'Redirecting…' : `Pay ${depositFormatted} deposit`}
+          {submitting ? 'Redirecting…' : `Pay ${fmt(totalAmount)}`}
         </button>
       </div>
     </div>
