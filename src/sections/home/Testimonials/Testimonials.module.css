@@ -34,7 +34,7 @@
   grid-area: 2 / 2 / 3 / -2;
   width: 100%;
   padding: 0 1rem;
-  height:40rem;
+  height:50rem;
 }
 
 .slide {
@@ -121,7 +121,7 @@
 
   .swiper {
     grid-column: 1 / -1;
-    height: 41.4rem;
+    height: 45rem;
   }
 
   .nullSlide {

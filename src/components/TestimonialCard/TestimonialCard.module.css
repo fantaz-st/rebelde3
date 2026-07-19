@@ -19,7 +19,7 @@
 
 .title {
   flex-shrink: 0;
-  margin: 0 0 1.2rem;
+  margin: 0 0 2rem;
   font-size: 2rem;
   font-weight: 700 !important;
   line-height: 1.2;
@@ -39,7 +39,7 @@
   line-height: 1.6;
   color: rgba(0, 51, 87, 0.68);
   display: -webkit-box;
-  -webkit-line-clamp: 8;
+  -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -105,7 +105,7 @@
 @media (max-width: 991px) {
   .card   { padding: 2.4rem; }
   .title  { font-size: 1.8rem; }
-  .quote  { font-size: 1.4rem; -webkit-line-clamp: 6; }
+  .quote  { font-size: 1.4rem; }
   .stars  { font-size: 1.4rem; }
   .avatar { width: 4rem; height: 4rem; font-size: 1.5rem; }
   .name   { font-size: 1.4rem; }
