@@ -59,7 +59,7 @@ export default function Testimonials() {
         <div className={classes.scrollbar} />
       </div>
 <div className={classes.ctaInner}>
-                <Button href="/https://www.tripadvisor.com/Attraction_Review-g295370-d28042808-Reviews-Rebelde_boats_Private_Boat_Tours_from_Split-Split_Split_Dalmatia_County_Dalmatia.html" variant="white" size="lg">Read all reviews</Button>
+                <Button href="https://www.tripadvisor.com/Attraction_Review-g295370-d28042808-Reviews-Rebelde_boats_Private_Boat_Tours_from_Split-Split_Split_Dalmatia_County_Dalmatia.html" variant="white" size="lg">Read all reviews</Button>
                 </div>
       
     </section>
