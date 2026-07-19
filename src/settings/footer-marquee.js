@@ -14,11 +14,11 @@ const items = [
   { id: 13, src: "/images/footer/image-13.jpg", title: "Buenaventura - Rebelde boats", alt: "" },
   { id: 14, src: "/images/footer/image-14.jpg", title: "Buenaventura - Rebelde boats", alt: "" },
   { id: 15, src: "/images/footer/image-15.jpg", title: "Buenaventura - Rebelde boats", alt: "" },
-  { id: 15, src: "/images/footer/image-16.jpg", title: "Buenaventura - Rebelde boats", alt: "" },
-  { id: 15, src: "/images/footer/image-17.jpg", title: "Buenaventura - Rebelde boats", alt: "" },
-  { id: 15, src: "/images/footer/image-18.jpg", title: "Buenaventura - Rebelde boats", alt: "" },
-  { id: 15, src: "/images/footer/image-19.jpg", title: "Buenaventura - Rebelde boats", alt: "" },
-  { id: 15, src: "/images/footer/image-20.jpg", title: "Buenaventura - Rebelde boats", alt: "" },
+  { id: 16, src: "/images/footer/image-16.jpg", title: "Buenaventura - Rebelde boats", alt: "" },
+  { id: 17, src: "/images/footer/image-17.jpg", title: "Buenaventura - Rebelde boats", alt: "" },
+  { id: 18, src: "/images/footer/image-18.jpg", title: "Buenaventura - Rebelde boats", alt: "" },
+  { id: 19, src: "/images/footer/image-19.jpg", title: "Buenaventura - Rebelde boats", alt: "" },
+  { id: 20, src: "/images/footer/image-20.jpg", title: "Buenaventura - Rebelde boats", alt: "" },
 
 ];
 

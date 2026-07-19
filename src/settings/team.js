@@ -50,7 +50,7 @@ const items = [
 // Final full-viewport thumb — same role as .home-team-thumb in template.
 // Reuses image-1 so it renders without any new assets; swap for a wide crew shot later.
 export const thumb = {
-  img: "/images/team/image-1.jpg",
+  img: "/images/team/team-thumb.jpg",
   alt: "Rebelde Boats crew and guests on deck during a private Adriatic charter from Split",
 };
 
