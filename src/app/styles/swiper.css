@@ -1,5 +1,14 @@
 /* swiper.css */
 
+/* Ensure slides fill the swiper height — critical for fixed-height card layouts */
+.swiper-wrapper {
+  align-items: stretch;
+}
+
+.swiper-slide {
+  height: 100%;
+}
+
 /* Swiper image focus effect (tablet + mobile) */
 @media (max-width: 991px) {
   .swiper-slide [data-swipe-img] {

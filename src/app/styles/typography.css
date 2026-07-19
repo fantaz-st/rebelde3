@@ -1,69 +1,72 @@
-/* typography.css — font sizes and families only, no color */
+/* typography.css */
 
 body {
-  font-size: 1.2rem;
-  line-height: 1.4;
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  line-height: 1.6;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4 {
+/* Playfair Display for all display headings */
+h1, h2, h3 {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 144;
+  font-weight: 400;
 }
 
 h1 {
-  font-size: 12rem;
-  line-height: 1;
-  font-weight: 400;
-  letter-spacing: -0.04em;
+  font-size: 10rem;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
 }
 
 h2 {
   font-size: 8rem;
-  line-height: 0.95;
-  font-weight: 400;
-  letter-spacing: -0.035em;
+  line-height: 0.97;
+  letter-spacing: -0.025em;
 }
 
 h3 {
-  font-size: 7rem;
+  font-size: 6rem;
   line-height: 1.05;
-  font-weight: 400;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
 
+/* h4 uses body font — labels, kickers, nav items */
 h4 {
-  font-size: 2.8rem;
-  line-height: 1.22;
+  font-family: var(--font-body);
+  font-size: 1.2rem;
   font-weight: 500;
-  letter-spacing: -0.01em;
-  font-variation-settings: "opsz" 36;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 p {
-  font-size: 1.4rem;
-  line-height: 1.6;
+  font-size: 1.5rem;
+  line-height: 1.65;
   font-weight: 400;
-  letter-spacing: -0.005em;
 }
 
+/* Tablet */
 @media only screen and (max-width: 991px) {
-  h1 { font-size: 8.4rem; letter-spacing: -0.035em; }
-  h2 { font-size: 4.2rem; letter-spacing: -0.03em; }
-  h3 { font-size: 3.6rem; }
-  h4 { font-size: 2.4rem; line-height: 1.1; }
+  h1 { font-size: 8rem;   letter-spacing: -0.025em; }
+  h2 { font-size: 5.6rem; letter-spacing: -0.02em; }
+  h3 { font-size: 4rem;   letter-spacing: -0.015em; }
+  h4 { font-size: 1.1rem; }
 }
 
+/* Mobile */
 @media only screen and (max-width: 767px) {
-  h1 { font-size: 6.2rem; letter-spacing: -0.03em; }
-  h3 { font-size: 3.6rem; }
-  h4 { font-size: 2rem; line-height: 1.15; }
-  p  { font-size: 1.4rem; line-height: 1.55; }
+  h1 { font-size: 6rem;   letter-spacing: -0.02em; }
+  h2 { font-size: 4.4rem; letter-spacing: -0.015em; }
+  h3 { font-size: 3.4rem; }
+  p  { font-size: 1.4rem; line-height: 1.6; }
 }
 
+/* Small mobile */
 @media only screen and (max-width: 479px) {
-  h1 { font-size: 5.2rem; letter-spacing: -0.025em; }
-  h2 { font-size: 3.4rem; letter-spacing: -0.025em; }
+  h1 { font-size: 5rem;   letter-spacing: -0.018em; }
+  h2 { font-size: 3.6rem; letter-spacing: -0.012em; }
 }

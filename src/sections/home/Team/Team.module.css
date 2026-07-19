@@ -1,5 +1,158 @@
-/* Team.module.css — matches reference: alternating image-left / image-right */
+/* Team.module.css — mirrors Kudanil.com home-team section exactly.
+   
+   Original Kudanil grid mapping (16-column grid, `.container.grid.full-w`):
+   
+   ITEM 1 (double image):
+     img1 (top-right):   grid-area: 1 / 10 / 3 / -5   → rows 1-2, cols 10-12
+     text (center-left): grid-area: 1 / 4 / 2 / 8     → row 1, cols 4-7, align center
+     img2 (bot-left):    grid-area: 2 / 4 / 3 / 8     → row 2, cols 4-7 (has 8rem top margin)
+     
+   ITEM 2 (image left, text top-right):
+     img (big left):     grid-area: 1 / 4 / 2 / 10    → row 1, cols 4-9
+     text (top-right):   grid-area: 1 / 11 / 2 / 16   → row 1, cols 11-15, align end
+     
+   ITEM 3 (image right, text bottom-left):
+     img (big right):    grid-area: 1 / 10 / 2 / 16   → row 1, cols 10-15
+     text (bot-left):    grid-area: 1 / 4 / 2 / 9     → row 1, cols 4-8, align end
+*/
 
+.wrap {
+  z-index: 3;
+  background-color: var(--bg-brown-10);
+  position: relative;
+}
+
+/* 100vh scroll spacer before sticky team block */
+.blockEmpty {
+  height: 100vh;
+}
+
+/* Sticky team section — pins to viewport bottom as user scrolls */
+.team {
+  padding-top: 16.8rem;
+  position: sticky;
+  bottom: 0;
+}
+
+.list {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  row-gap: 20rem;
+  margin-bottom: 30rem;
+}
+
+/* ── Item container = the 16-column grid ── */
+.item {
+  width: 100%;
+  padding-left: var(--container--padding, 6rem);
+  padding-right: var(--container--padding, 6rem);
+  max-width: var(--container--max-width, 1920px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid {
+  display: grid;
+  grid-column-gap: 2rem;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  grid-auto-rows: auto;
+  align-content: start;
+}
+
+/* ── ITEM 1: double image + centered text ── */
+.item1Text {
+  grid-area: 1 / 3 / 2 / 7;
+  align-self: center;
+}
+
+.item1Img1 {
+  grid-area: 1 / 9 / 3 / -4;
+}
+
+.item1Img2 {
+  grid-area: 2 / 3 / 3 / 7;
+  margin-top: 8rem; /* .have-margin */
+}
+
+/* ── ITEM 2: big image left, text top-right ── */
+.item2Img {
+  grid-area: 1 / 3 / 2 / 9;
+}
+
+.item2Text {
+  grid-area: 1 / 10 / 2 / 15;
+  align-self: end;
+}
+
+/* ── ITEM 3: big image right, text bottom-left ── */
+.item3Img {
+  grid-area: 1 / 9 / 2 / 15;
+}
+
+.item3Text {
+  grid-area: 1 / 3 / 2 / 8;
+  align-self: end;
+}
+
+/* ── Image wrapper (shared) ── */
+.imgWrap {
+  position: relative;
+  aspect-ratio: 4/5;
+  will-change: transform;
+}
+
+.imgInner {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  will-change: transform;
+}
+
+.img {
+  object-fit: cover;
+}
+
+/* ── Text block ── */
+.title {
+  font-family: var(--font-display);
+  color: var(--brand-persian-blue);
+  margin: 0 0 4rem;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-size: clamp(3.2rem, 4vw, 6rem);
+}
+
+.desc {
+  font-family: var(--font-body);
+  color: var(--bg-brown-80);
+  margin: 0 0 1.6rem;
+  font-size: 1.5rem;
+  line-height: 1.65;
+  max-width: 46ch;
+}
+
+.desc:last-child { margin-bottom: 0; }
+
+/* ── Final 100vh thumb ── */
+.thumb {
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.thumbInner {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.thumbImg { object-fit: cover; }
+
+/* Accessibility */
 .srOnly {
   position: absolute;
   width: 1px; height: 1px;
@@ -8,140 +161,86 @@
   white-space: nowrap;
 }
 
-/* ── Section wrapper ── */
-.wrap {
-  background-color: var(--bg-brown-10);
-  position: relative;
-  padding-top: 16rem;
-  padding-bottom: 20rem;
-}
-
-/* ── List of items ── */
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 20rem;
-  padding-left: var(--container--padding, 6rem);
-  padding-right: var(--container--padding, 6rem);
-  max-width: var(--container--max-width, 1920px);
-  margin: 0 auto;
-}
-
-/* ── Each item: side-by-side flex row ── */
-.item {
-  display: flex;
-  align-items: flex-start;
-  gap: 8rem;
-}
-
-/* Flipped: image goes first visually, text second */
-.itemFlip {
-  flex-direction: row-reverse;
-}
-
-/* ── Text side ── */
-.text {
-  flex: 0 0 calc(38% - 4rem);
-  padding-top: 2rem;
-}
-
-.title {
-  font-family: var(--font-display);
-  font-size: clamp(3.2rem, 4vw, 6rem);
-  font-weight: 400;
-  color: var(--brand-persian-blue);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  margin: 0 0 3.2rem;
-  font-variation-settings: "opsz" 72;
-}
-
-.desc {
-  font-family: var(--fonts--body);
-  font-size: 1.5rem;
-  line-height: 1.65;
-  color: var(--bg-brown-80);
-  margin: 0 0 1.4rem;
-  max-width: 44ch;
-}
-
-/* ── Image side ── */
-.imgWrap {
-  flex: 1;
-  position: relative;
-  aspect-ratio: 3/4;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  will-change: transform;
-}
-
-/* Wide variant for 5/4 aspect images */
-.imgWide {
-  aspect-ratio: 5/4;
-}
-
-.imgInner {
-  position: absolute;
-  inset: 0;
-  will-change: transform;
-}
-
-.img {
-  object-fit: cover;
-}
-
-/* ── Tablet ── */
+/* ── Tablet (≤ 991px) — reduces to a 6-column grid, template becomes relative ── */
 @media (max-width: 991px) {
-  .wrap {
-    padding-top: 10rem;
-    padding-bottom: 12rem;
+  .team {
+    padding-top: 12rem;
+    position: relative;
+    bottom: auto;
   }
+
   .list {
-    gap: 12rem;
+    row-gap: 15rem;
+    margin-bottom: 20rem;
+  }
+
+  .item {
     padding-left: 4rem;
     padding-right: 4rem;
   }
-  .item {
-    gap: 4rem;
+
+  .grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
-  .text {
-    flex: 0 0 45%;
-  }
-  .title {
-    font-size: clamp(2.8rem, 3.5vw, 4.4rem);
-    margin-bottom: 2.4rem;
+
+  /* ITEM 1: stacked — text top, big img mid, small img bottom */
+  .item1Text  { grid-area: 1 / 2 / 2 / -2; }
+  .item1Img1  { grid-row: 3 / 4; grid-column: 2 / -2; }
+  .item1Img2  { grid-area: 2 / 2 / 3 / -3; margin-top: 0; }
+
+  /* ITEM 2: image top full, text right */
+  .item2Img   { grid-row: 2 / 3; grid-column: 2 / -2; }
+  .item2Text  { grid-column: 2 / 5; grid-row: 1 / 2; }
+
+  /* ITEM 3: image top full, text left */
+  .item3Img   { grid-row: 2 / 3; grid-column-end: -2; grid-column-start: 2; }
+  .item3Text  { grid-column-start: 3; grid-column-end: -2; grid-row: 1 / 2; }
+
+  .imgInner { border-radius: var(--radius-xs); }
+
+  .thumb { height: auto; }
+  .thumbInner {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 16/10;
+    border-radius: var(--radius-sm);
   }
 }
 
-/* ── Mobile ── */
+/* ── Mobile (≤ 767px) — single column, no sticky, no block-empty ── */
 @media (max-width: 767px) {
-  .wrap {
-    padding-top: 6rem;
-    padding-bottom: 8rem;
-  }
+  .blockEmpty { display: none; }
+
+  .team { padding-top: 8rem; }
+
   .list {
-    gap: 8rem;
+    row-gap: 12rem;
+    margin-bottom: 12rem;
+  }
+
+  .item {
     padding-left: 2.4rem;
     padding-right: 2.4rem;
   }
-  .item,
-  .itemFlip {
+
+  .grid {
+    display: flex;
     flex-direction: column;
-    gap: 3.2rem;
+    gap: 4rem;
   }
-  .text {
-    flex: none;
-    width: 100%;
-    padding-top: 0;
+
+  /* Reset all grid areas — everything stacks in DOM order */
+  .item1Text, .item1Img1, .item1Img2,
+  .item2Img, .item2Text,
+  .item3Img, .item3Text {
+    grid-area: auto;
+    margin-top: 0;
+    align-self: auto;
   }
-  .imgWrap,
-  .imgWide {
-    flex: none;
-    width: 100%;
-    aspect-ratio: 4/3;
-    border-radius: var(--radius-xs);
-  }
-  .desc {
-    max-width: none;
-  }
+
+  .title { margin-bottom: 3.2rem; }
+
+  .imgWrap { aspect-ratio: 4/3; }
+
+  .thumbInner { aspect-ratio: 4/3; }
 }

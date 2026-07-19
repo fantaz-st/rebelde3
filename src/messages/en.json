@@ -227,7 +227,8 @@
     },
     "heading": "What Our Guests Say",
     "readMore": "Read more on TripAdvisor",
-    "badgeNote": "200+ satisfied guests"
+    "badgeNote": "200+ satisfied guests",
+    "swipeHint": "Swipe to read →"
   },
   "faqCategories": {
     "general": "General Questions",

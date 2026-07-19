@@ -1,251 +1,163 @@
 .wrap {
-  width: 100%;
+  position: relative;
+  z-index: 2;
   background-color: var(--bg-brown-10);
+  overflow: hidden;
+  /* margin-top: -130vh; */
 }
 
-.inner {
-  position: relative;
-  padding-block: 10rem 7rem;
+.container {
+  padding-top: 16rem;
+  padding-bottom: 10rem;
+}
+
+.text {
+  grid-column: 4 / -4;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.header {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 7rem;
 }
 
 .title {
+  margin: 0 0 3.2rem;
+  color: var(--brand-persian-blue);
+}
+
+.desc {
   margin: 0;
   color: var(--brand-persian-blue);
 }
 
-.grid {
-  width: 100%;
-  align-items: start;
-  row-gap: 6rem;
-}
-
-.left {
-  grid-column: 3 / 9;
-  min-width: 0;
-}
-
-.right {
-  grid-column: 9 / -3;
-  min-width: 0;
-  display: grid;
-  justify-items: end;
-}
-
-.rule {
-  height: 1px;
-  width: 100%;
-  background: transparent;
-  margin-bottom: 3.6rem;
-}
-
-.viewport {
-  position: relative;
-  height: 70vh;
-  overflow: hidden;
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-  border-top: 1px solid var(--border-subtle);
-  padding: 3.2rem 0;
-}
-
-.cardTitle {
-  margin: 0;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--brand-persian-blue);
-}
-
-.quote {
-  margin: 0 0 0.8rem;
-  font-weight: 700;
-  line-height: 1.18;
-  letter-spacing: -0.02em;
-  color: var(--brand-persian-blue);
-  font-family: var(--font-display);
-  font-size: 2.8rem;
-  font-style: normal;
-}
-
-.meta {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.name {
-  font-weight: 700;
-  font-style: normal;
-  color: var(--brand-persian-blue);
-}
-
-.stars {
-  display: flex;
-  gap: 0.4rem;
-  color: var(--color-star);
-}
-
-.media {
-  position: relative;
-  width: min(54rem, 100%);
-  height: 80vh;
-  max-height: 92rem;
-}
-
-.image {
-  position: absolute;
-  inset: 0;
-  object-fit: cover;
-  border-radius: var(--radius-lg);
-}
-
-.badge {
-  position: absolute;
-  left: 4rem;
-  bottom: -4rem;
-  width: 22rem;
-  padding: 2.2rem;
-  border-radius: var(--radius-md);
-  background: var(--overlay-dark-45);
-  backdrop-filter: blur(10px);
-  color: var(--text-white);
-  text-align: center;
-}
-
-.score {
-  color: var(--color-score);
-  margin: 0 0 1.2rem;
-  font-size: 4.2rem;
-  font-weight: 700;
-  font-family: var(--font-display);
-  line-height: 1;
-}
-
-.avatars {
-  display: flex;
-  justify-content: center;
-  gap: 0.8rem;
-  margin-bottom: 1.1rem;
-}
-
-.avatar {
-  width: 5rem;
-  height: 5rem;
-  border-radius: 999px;
-  overflow: hidden;
-  position: relative;
-}
-
-.avatar:nth-child(1) { transform: translateX(15px); }
-.avatar:nth-child(2) { transform: translateY(-5px); }
-.avatar:nth-child(3) { transform: translateX(-15px); }
-
-.badgeStars {
-  font-size: 1.6rem;
-  letter-spacing: 0.16em;
-  color: var(--color-star);
-}
-
-.badgeNote {
-  margin: 0.8rem 0 0;
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
-.buttonWrap {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+.swiper {
   margin-top: 6rem;
+  grid-area: 2 / 2 / 3 / -2;
+  width: 100%;
+  padding: 0 1rem;
+  height:40rem;
 }
 
-@media (max-width: 1200px) {
-  .left     { grid-column: 2 / 11; }
-  .right    { grid-column: 11 / -2; }
-  .viewport { height: 100vh; }
-  .media    { height: 62vh; }
+.slide {
+  border-radius: var(--radius-sm);
+  flex: none;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.nullSlide {
+  display: none;
+}
+
+.nullSlide .inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+}
+
+.swipeHint {
+  margin: 0 0 3rem 2rem;
+  font-size: 5rem;
+  font-weight: 600;
+  color: var(--brand-persian-blue);
+  font-family: var(--font-display);
+}
+
+.platforms{
+  display: flex;
+  flex-direction: row;
+  gap:2rem;
+}
+.platform{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:1rem;
+  flex:1
+}
+.platformText{ font-size: 1.75rem; color: var(--brand-persian-blue); }
+
+
+.ctaInner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 8rem;
 }
 
 @media (max-width: 991px) {
-  .inner {
-    padding-block: 7rem 6rem;
+  .container {
+    padding-left: 0;
+    padding-right: 0;
   }
 
-  .header {
+  .text {
+    padding: 0 4rem;
     margin-bottom: 4rem;
   }
 
-  .grid {
-    row-gap: 4rem;
+  .swiper {
+    height: 44rem;
   }
 
-  .left {
-    grid-column: 1 / -1;
-  }
-
-  .right {
-    grid-column: 1 / -1;
-    justify-items: center;
-  }
-
-  .viewport {
-    height: auto;
-    overflow: visible;
-  }
-
-  .list {
-    transform: none;
-  }
-
-  .media {
-    height: 56vh;
-    width: min(62rem, 100%);
-  }
-
-  .badge {
-    bottom: -4rem;
-    left: 50%;
-    transform: translateX(-50%);
+  .nullSlide {
+    display: block;
   }
 }
 
 @media (max-width: 767px) {
-  .media {
-    border-radius: var(--radius-lg);
+  .container {
+    padding: 12rem 1rem 7rem;
   }
 
-  .image {
-    border-radius: var(--radius-lg);
+  .text {
+    padding: 0 1rem;
+    grid-column: 1 / -1;
   }
 
-  .badge {
-    width: 20rem;
-    padding: 2rem;
+  .swiper {
+    grid-column: 1 / -1;
+    height: 41.4rem;
   }
 
-  .avatar {
-    width: 4.6rem;
-    height: 4.6rem;
+  .nullSlide {
+    display: block;
   }
+}
 
-  .quote {
-    font-size: 2rem;
-  }
+/* ── Scrollbar ── */
+.scrollbar {
+  grid-area: 3 / 2 / 4 / -2;
+  height: 4px;
+  margin-top: 3.2rem;
+  background: var(--brand-persian-blue-12);
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Swiper injects .swiper-scrollbar-drag into our custom el */
+.scrollbar :global(.swiper-scrollbar-drag) {
+  height: 100%;
+  background: var(--brand-persian-blue);
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: height 0.2s ease, top 0.2s ease;
+}
+
+/* Thicker on hover/drag for easier grabbing */
+.scrollbar:hover,
+.scrollbar:active {
+  height: 6px;
+  margin-top: calc(3.2rem - 1px);
+}
+
+@media (max-width: 767px) {
+  .scrollbar { grid-column: 1 / -1; }
 }

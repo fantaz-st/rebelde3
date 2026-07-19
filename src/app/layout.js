@@ -1,4 +1,4 @@
-import { Inter, Fraunces } from "next/font/google";
+import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./styles/reset.css";
 import "./styles/globals.css";
 import "./styles/typography.css";
@@ -9,29 +9,26 @@ export const viewport = {
   themeColor: "#ffffff",
 };
 
-const inter = Inter({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: "variable",
-  axes: ["opsz"],
+  weight: ["400", "500", "600", "700"],
+  style:  ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
 });
 
-// suppressHydrationWarning on <html> prevents the hydration error caused by
-// [locale]/layout.js setting lang={locale} on the same element server-side.
-// The attribute change is expected and safe — both layouts agree on the structure.
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-body",
+  display: "swap",
+});
+
 export default function RootLayout({ children }) {
   return (
     <html
       suppressHydrationWarning
-      className={`${inter.variable} ${fraunces.variable}`}
+      className={`${playfair.variable} ${dmSans.variable}`}
     >
       <body>{children}</body>
     </html>

@@ -227,7 +227,8 @@
     },
     "heading": "Ce que disent nos clients",
     "readMore": "Lire plus sur TripAdvisor",
-    "badgeNote": "200+ clients satisfaits"
+    "badgeNote": "200+ clients satisfaits",
+    "swipeHint": "Glissez pour lire →"
   },
   "faqCategories": {
     "general": "Questions Générales",
