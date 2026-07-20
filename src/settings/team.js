@@ -1,11 +1,3 @@
-// Mirrors original Kudanil template team section exactly.
-// Item 1 = 2 images + text (text in middle, image top-right, image bottom-left "have-margin")
-// Item 2 = 1 image + text (image LEFT big, text top-right)
-// Item 3 = 1 image + text (image RIGHT big, text bottom-left)
-//
-// Reuses the 4 team images we already have; where the template used a 2nd image,
-// we alternate through the pool so nothing repeats twice in a row.
-
 const items = [
   {
     key: "t1",
@@ -16,8 +8,8 @@ const items = [
       "Croatia is a place of deep family connection — and that extends from the owners to the crew.",
       "Together we share our passion for the Adriatic with you every day, forging bonds so deep that our journey often ends in the exchange of long hugs and even goodbye tears. When you're on board Rebelde, you're family.",
     ],
-    img:  "/images/team/image-1.jpg",
-    alt:  "The Rebelde Boats family crew welcoming guests aboard in Split harbour",
+    img: "/images/team/image-1.jpg",
+    alt: "The Rebelde Boats family crew welcoming guests aboard in Split harbour",
     img2: "/images/team/team-1.jpg",
     alt2: "Rebelde crew and guests sharing a moment on deck between islands",
   },
@@ -49,8 +41,11 @@ const items = [
 
 // Final full-viewport thumb — same role as .home-team-thumb in template.
 // Reuses image-1 so it renders without any new assets; swap for a wide crew shot later.
+// Add this to your src/settings/team.js — replace the existing `thumb` export:
+
 export const thumb = {
-  img: "/images/team/team-thumb.jpg",
+  img: "/images/team/team-main.webp", // desktop landscape
+  imgMobile: "/images/team/team-main-portrait.webp", // mobile portrait crop
   alt: "Rebelde Boats crew and guests on deck during a private Adriatic charter from Split",
 };
 
