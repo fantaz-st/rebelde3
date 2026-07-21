@@ -32,7 +32,7 @@ const items = [
   {
     key: "blue-cave-five-islands",
     depositEur: 40000,  // €400
-    restEur:    100000, // €1,000,
+    restEur:    110000, // €1,100,
     label: "Blue Cave & Five Islands Expedition",
     kicker: "Full day — 5 islands!",
     pin:"Blue Cave Biševo, Stiniva cove Vis, Komiža Vis, Budikovac, Pakleni islands and Hvar town",

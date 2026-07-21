@@ -199,7 +199,7 @@ export default function Team() {
             />
             {/* Mobile — portrait crop of the same photo */}
             {thumb.imgMobile && (
-              <Image data-team-thumb-img-mobile src={thumb.imgMobile} alt={thumb.alt} fill sizes="100vw" quality={90} className={`${classes.thumbImg} ${classes.thumbImgMobile}`} />
+              <Image data-team-thumb-img-mobile src={thumb.imgMobile} alt={thumb.alt} fill sizes="100vw" quality={85} className={`${classes.thumbImg} ${classes.thumbImgMobile}`} />
             )}
           </div>
         </div>
