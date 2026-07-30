@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { useRef } from "react";
 import classes from "./Faq.module.css";
 import faqs from "@/settings/faqs";
 import SectionNav from "@/components/SectionNav/SectionNav";
@@ -8,6 +9,8 @@ import SectionNav from "@/components/SectionNav/SectionNav";
 export default function Faq() {
   const t  = useTranslations("faq");
   const tc = useTranslations("faqCategories");
+
+  const contentRef = useRef(null);
 
   const translatedFaqs = faqs.map((section) => ({
     ...section,
@@ -24,7 +27,11 @@ export default function Faq() {
   return (
     <section className={classes.wrap}>
       <div className={`container ${classes.head}`}>
-        <h1 className={classes.title}>FAQ</h1>
+        {/*
+          H1 upgraded from bare "FAQ" to a descriptive, keyword-rich heading.
+          Pulls from faq.heading translation key with a sensible fallback.
+        */}
+        <h1 className={classes.title}>{t("heading")}</h1>
         <p className={classes.subtitle}>
           {t("subtitle")}{" "}
           <a href="/contact" className={classes.subtitleLink}>{t("subtitleLink")}</a>
@@ -33,13 +40,22 @@ export default function Faq() {
       </div>
 
       <div className={`container grid ${classes.grid}`}>
-        {/* variant="rail" + CSS sticky — same mechanism as tours/boat overlay */}
-        <SectionNav sections={sections} topOffset={140} variant="rail" />
+        <SectionNav
+          sections={sections}
+          containerRef={contentRef}
+          topOffset={140}
+          variant="rail"
+        />
 
-        <div className={classes.content}>
+        <div className={classes.content} ref={contentRef}>
           {translatedFaqs.map((section) => (
-            <div key={section.id} id={section.id} className={classes.section}>
+            <div
+              key={section.id}
+              id={section.id}
+              className={classes.section}
+            >
               <h2 className={classes.sectionTitle}>{section.title}</h2>
+
               <dl className={classes.qaList}>
                 {section.qa.map((item) => (
                   <div key={item.id} className={classes.qa}>

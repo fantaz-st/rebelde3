@@ -1,15 +1,18 @@
 const SITE_URL = "https://www.rebelde.hr";
 const LOCALES  = ["hr", "de", "es", "it", "fr"];
+
+// A stable timestamp per build. `new Date()` here fires at build time,
+// so it's the same for every URL in a given deploy — not per-request jitter.
 const LAST_MOD = new Date();
 
 const pages = [
   { path: "",               priority: 1,    freq: "monthly" },
   { path: "/the-boat",      priority: 0.8,  freq: "yearly"  },
   { path: "/bespoke-tours", priority: 0.9,  freq: "monthly" },
-  { path: "/faq",           priority: 0.6,  freq: "yearly"  },
-  { path: "/contact",       priority: 0.5,  freq: "yearly"  },
-  { path: "/availability",  priority: 0.9,  freq: "daily"   },
-  { path: "/book",          priority: 0.85, freq: "daily"   },
+  { path: "/faq",           priority: 0.7,  freq: "monthly" },
+  { path: "/contact",       priority: 0.7,  freq: "yearly"  },
+  // /availability and /book removed — booking flow hidden while managing
+  // through direct contact only. Robots.js also disallows those paths.
 ];
 
 export default function sitemap() {
