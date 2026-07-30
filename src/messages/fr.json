@@ -3,6 +3,7 @@
     "home": "Accueil",
     "theBoat": "Le Bateau",
     "tours": "Excursions Sur Mesure",
+    "journal": "Journal",
     "checkAvailability": "Vérifier la Disponibilité",
     "faq": "Questions Fréquentes",
     "contact": "Contact",
@@ -247,6 +248,10 @@
       "title": "Excursions Sur Mesure — Excursions Privées d'une Journée depuis Split",
       "description": "Découvrez nos excursions privées en bateau depuis Split — Grotte Bleue, Lagune Bleue, Hvar, Îles Pakleni et plus."
     },
+    "journal": {
+      "title": "Journal — Histoires de l'Adriatique",
+      "description": "Guides, observations et notes des coulisses de Rebelde Boats sur les excursions privées en bateau en Croatie."
+    },
     "boat": {
       "title": "Le Bateau — Felix 37 Buenaventura",
       "description": "Rencontrez Buenaventura — notre Felix 37 construit sur mesure pour l'Adriatique. 500 CV, 12 invités, pont solaire extra-large."
@@ -271,7 +276,6 @@
     "checkAvailability": "Vérifier la Disponibilité"
   },
   "faq": {
-    "heading": "Questions Fréquentes sur les Excursions Privées en Bateau depuis Split",
     "subtitle": "Tout ce que vous pourriez vouloir savoir avant de monter à bord. Vous ne trouvez pas votre réponse ?",
     "subtitleLink": "Contactez-nous",
     "subtitleSuffix": " et nous vous aiderons.",

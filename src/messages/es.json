@@ -3,6 +3,7 @@
     "home": "Inicio",
     "theBoat": "El Barco",
     "tours": "Tours a Medida",
+    "journal": "Journal",
     "checkAvailability": "Verificar Disponibilidad",
     "faq": "Preguntas Frecuentes",
     "contact": "Contacto",
@@ -247,6 +248,10 @@
       "title": "Tours a Medida — Excursiones Privadas de un Día desde Split",
       "description": "Descubre nuestros tours privados en barco desde Split — Cueva Azul, Laguna Azul, Hvar, Islas Pakleni y más."
     },
+    "journal": {
+      "title": "Journal — Historias del Adriático",
+      "description": "Guías, observaciones y notas entre bastidores de Rebelde Boats sobre tours privados en barco en Croacia."
+    },
     "boat": {
       "title": "El Barco — Felix 37 Buenaventura",
       "description": "Conoce a Buenaventura — nuestro Felix 37 construido a medida para el Adriático. 500 CV, 12 huéspedes, cubierta extra grande."
@@ -271,7 +276,6 @@
     "checkAvailability": "Verificar Disponibilidad"
   },
   "faq": {
-    "heading": "Preguntas Frecuentes sobre Tours Privados en Barco desde Split",
     "subtitle": "Todo lo que podrías querer saber antes de subir a bordo. ¿No encuentras tu respuesta?",
     "subtitleLink": "Contáctanos",
     "subtitleSuffix": " y te ayudaremos.",

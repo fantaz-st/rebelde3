@@ -3,6 +3,7 @@
     "home": "Home",
     "theBoat": "La Barca",
     "tours": "Tour Su Misura",
+    "journal": "Journal",
     "checkAvailability": "Verifica Disponibilità",
     "faq": "Domande Frequenti",
     "contact": "Contatto",
@@ -247,6 +248,10 @@
       "title": "Tour Su Misura — Escursioni Private di un Giorno da Spalato",
       "description": "Scopri i nostri tour privati in barca da Spalato — Grotta Azzurra, Laguna Azzurra, Hvar, Isole Pakleni e altro."
     },
+    "journal": {
+      "title": "Journal — Storie dall'Adriatico",
+      "description": "Guide, osservazioni e note dietro le quinte da Rebelde Boats sui tour privati in barca in Croazia."
+    },
     "boat": {
       "title": "La Barca — Felix 37 Buenaventura",
       "description": "Conosci Buenaventura — il nostro Felix 37 costruito su misura per l'Adriatico. 500 CV, 12 ospiti, ponte sole extra grande."
@@ -271,7 +276,6 @@
     "checkAvailability": "Verifica Disponibilità"
   },
   "faq": {
-    "heading": "Domande Frequenti sui Tour Privati in Barca da Spalato",
     "subtitle": "Tutto ciò che potresti voler sapere prima di salire a bordo. Non riesci a trovare la tua risposta?",
     "subtitleLink": "Contattaci",
     "subtitleSuffix": " e ti aiuteremo.",

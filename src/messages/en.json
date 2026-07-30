@@ -3,6 +3,7 @@
     "home": "Home",
     "theBoat": "The Boat",
     "tours": "Bespoke Tours",
+    "journal": "Journal",
     "checkAvailability": "Check Availability",
     "faq": "FAQ-s",
     "contact": "Contact",
@@ -247,6 +248,10 @@
       "title": "Bespoke Tours – Private Day Trips from Split",
       "description": "Discover our private boat tours from Split — Blue Cave, Blue Lagoon, Hvar, Pakleni Islands and more. Fully tailored to your group."
     },
+    "journal": {
+      "title": "Journal — Stories from the Adriatic",
+      "description": "Guides, observations, and behind-the-scenes notes from Rebelde Boats on private boat tours in Croatia."
+    },
     "boat": {
       "title": "The Boat – Felix 37 Buenaventura",
       "description": "Meet Buenaventura — our Felix 37 custom speedboat built for the Adriatic. 500HP, 12 guests, extra-large sundeck, onboard fridge and restroom."
@@ -271,7 +276,6 @@
     "checkAvailability": "Check Availability"
   },
   "faq": {
-    "heading": "Frequently Asked Questions About Private Boat Tours from Split",
     "subtitle": "Everything you might want to know before stepping aboard. Can't find your answer?",
     "subtitleLink": "Reach out",
     "subtitleSuffix": " and we'll help.",

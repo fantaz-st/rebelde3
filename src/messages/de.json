@@ -3,6 +3,7 @@
     "home": "Startseite",
     "theBoat": "Das Boot",
     "tours": "Maßgeschneiderte Touren",
+    "journal": "Journal",
     "faq": "FAQ",
     "checkAvailability": "Verfügbarkeit prüfen",
     "contact": "Kontakt",
@@ -247,6 +248,10 @@
       "title": "Maßgeschneiderte Touren — Private Tagesausflüge ab Split",
       "description": "Entdecken Sie unsere privaten Bootstouren ab Split — Blaue Grotte, Blaue Lagune, Hvar, Pakleni-Inseln und mehr."
     },
+    "journal": {
+      "title": "Journal — Geschichten aus der Adria",
+      "description": "Reiseführer, Beobachtungen und Insider-Notizen von Rebelde Boats über private Bootstouren in Kroatien."
+    },
     "boat": {
       "title": "Das Boot — Felix 37 Buenaventura",
       "description": "Lernen Sie Buenaventura kennen — unseren für die Adria maßgefertigten Felix 37. 500 PS, 12 Gäste, extra Sonnendeck."
@@ -271,7 +276,6 @@
     "checkAvailability": "Verfügbarkeit prüfen"
   },
   "faq": {
-    "heading": "Häufig gestellte Fragen zu privaten Bootstouren ab Split",
     "subtitle": "Alles, was Sie vor dem Einsteigen wissen möchten. Können Sie Ihre Antwort nicht finden?",
     "subtitleLink": "Schreiben Sie uns",
     "subtitleSuffix": " und wir helfen.",

@@ -3,6 +3,7 @@
     "home": "Početna",
     "theBoat": "Brod",
     "tours": "Izleti po mjeri",
+    "journal": "Journal",
     "checkAvailability": "Provjerite dostupnost",
     "faq": "Često pitanja",
     "contact": "Kontakt",
@@ -247,6 +248,10 @@
       "title": "Izleti po mjeri — privatni jednodnevni izleti iz Splita",
       "description": "Otkrijte naše privatne izlete brodom iz Splita — Plava špilja, Plava laguna, Hvar, Pakleni otoci i više."
     },
+    "journal": {
+      "title": "Journal — Priče s Jadrana",
+      "description": "Vodiči, zapažanja i priče iza kulisa privatnih izleta brodom iz Splita s Rebelde Boats."
+    },
     "boat": {
       "title": "Brod — Felix 37 Buenaventura",
       "description": "Upoznajte Buenaventuru — naš Felix 37 posebno izrađen za Jadran. 500 KS, 12 gostiju, extra paluba za sunčanje, hladnjak i kupatilo."
@@ -271,7 +276,6 @@
     "checkAvailability": "Provjerite dostupnost"
   },
   "faq": {
-    "heading": "Često postavljana pitanja o privatnim izletima brodom iz Splita",
     "subtitle": "Sve što biste mogli željeti znati prije ukrcaja. Ne možete pronaći odgovor?",
     "subtitleLink": "Kontaktirajte nas",
     "subtitleSuffix": " i pomoći ćemo.",
