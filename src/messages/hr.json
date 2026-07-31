@@ -37,7 +37,9 @@
     "bespokeToursLink": "Izleti po mjeri",
     "faqLink": "Često pitanja",
     "contactLink": "Kontakt",
-    "credit": "dizajn i razvoj"
+    "credit": "dizajn i razvoj",
+    "journalLink": "Journal",
+    "reviewsLink": "Recenzije"
   },
   "contact": {
     "namePlaceholder": "Ime*",
@@ -251,6 +253,10 @@
     "journal": {
       "title": "Journal — Priče s Jadrana",
       "description": "Vodiči, zapažanja i priče iza kulisa privatnih izleta brodom iz Splita s Rebelde Boats."
+    },
+    "reviews": {
+      "title": "Recenzije — Što gosti kažu o našim privatnim izletima brodom",
+      "description": "Pročitajte recenzije gostiju o Rebelde Boats privatnim izletima brodom iz Splita — 220+ pet zvjezdica recenzija na TripAdvisoru, Googleu i GetYourGuideu."
     },
     "boat": {
       "title": "Brod — Felix 37 Buenaventura",

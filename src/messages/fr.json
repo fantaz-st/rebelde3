@@ -37,7 +37,9 @@
     "bespokeToursLink": "Excursions Sur Mesure",
     "faqLink": "Questions Fréquentes",
     "contactLink": "Contact",
-    "credit": "design & développement"
+    "credit": "design & développement",
+    "journalLink": "Journal",
+    "reviewsLink": "Avis"
   },
   "contact": {
     "namePlaceholder": "Nom*",
@@ -251,6 +253,10 @@
     "journal": {
       "title": "Journal — Histoires de l'Adriatique",
       "description": "Guides, observations et notes des coulisses de Rebelde Boats sur les excursions privées en bateau en Croatie."
+    },
+    "reviews": {
+      "title": "Avis — Ce que les clients disent de nos excursions privées en bateau",
+      "description": "Lisez les avis des clients sur les excursions privées en bateau de Rebelde Boats depuis Split, Croatie — 220+ avis 5 étoiles sur TripAdvisor, Google et GetYourGuide."
     },
     "boat": {
       "title": "Le Bateau — Felix 37 Buenaventura",

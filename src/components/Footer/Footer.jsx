@@ -113,6 +113,8 @@ export default function Footer() {
               <div className={classes.links}>
                 <Link className={classes.botLink} href="/the-boat">{t("theBoat")}</Link>
                 <Link className={classes.botLink} href="/bespoke-tours">{t("bespokeToursLink")}</Link>
+                <Link className={classes.botLink} href="/journal">{t("journalLink")}</Link>
+                <Link className={classes.botLink} href="/reviews">{t("reviewsLink")}</Link>
                 <Link className={classes.botLink} href="/faq">{t("faqLink")}</Link>
                 <Link className={classes.botLink} href="/contact">{t("contactLink")}</Link>
               </div>

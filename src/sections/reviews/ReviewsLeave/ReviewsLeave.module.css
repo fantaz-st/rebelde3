@@ -1,0 +1,146 @@
+/*
+ * "Leave a review" section — persian-blue background for visual break from
+ * the wall. Text left, platform buttons right.
+ */
+
+.wrap {
+  background-color: var(--brand-persian-blue);
+  padding-top:    14rem;
+  padding-bottom: 14rem;
+  color: var(--text-white);
+}
+
+.container {
+  grid-template-rows: auto;
+}
+
+/* ── Text block: cols 3–8 ──────────────────────── */
+.textWrap {
+  grid-area: 1 / 3 / 2 / 9;
+  align-self: center;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 2.4rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.6rem, 5vw, 6rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: var(--text-white);
+  margin: 0 0 2.4rem;
+}
+
+.desc {
+  font-family: var(--font-body);
+  font-size: 1.6rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 44ch;
+  margin: 0;
+}
+
+/* ── Platforms: cols 10–15 ─────────────────────── */
+.platforms {
+  grid-area: 1 / 10 / 2 / 15;
+  align-self: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+  gap: 1.2rem;
+}
+
+.platformLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem 2.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.6rem;
+  color: var(--text-white);
+  text-decoration: none;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+.platformLink:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.platformLogo {
+  display: inline-flex;
+  align-items: center;
+  filter: brightness(0) invert(1);
+}
+
+.platformLogoImg {
+  height: 2.4rem;
+  width: auto;
+}
+
+.platformCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-white);
+}
+
+.platformArrow {
+  transition: transform var(--transition-fast);
+}
+
+.platformLink:hover .platformArrow {
+  transform: translateX(4px);
+}
+
+/* ── Tablet ────────────────────────────────────── */
+@media (max-width: 991px) {
+  .wrap {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+  }
+  .textWrap,
+  .platforms {
+    grid-area: auto;
+    grid-column: 2 / -2;
+  }
+  .textWrap  { grid-row: 1; margin-bottom: 5rem; }
+  .platforms { grid-row: 2; }
+}
+
+/* ── Mobile ────────────────────────────────────── */
+@media (max-width: 767px) {
+  .wrap {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  .textWrap,
+  .platforms {
+    grid-column: 1 / -1;
+  }
+  .title {
+    font-size: clamp(3rem, 8vw, 4rem);
+  }
+  .platformLink {
+    padding: 1.6rem 2rem;
+  }
+  .platformLogoImg {
+    height: 2rem;
+  }
+}

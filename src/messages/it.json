@@ -37,7 +37,9 @@
     "bespokeToursLink": "Tour Su Misura",
     "faqLink": "Domande Frequenti",
     "contactLink": "Contatto",
-    "credit": "design & sviluppo"
+    "credit": "design & sviluppo",
+    "journalLink": "Journal",
+    "reviewsLink": "Recensioni"
   },
   "contact": {
     "namePlaceholder": "Nome*",
@@ -251,6 +253,10 @@
     "journal": {
       "title": "Journal — Storie dall'Adriatico",
       "description": "Guide, osservazioni e note dietro le quinte da Rebelde Boats sui tour privati in barca in Croazia."
+    },
+    "reviews": {
+      "title": "Recensioni — Cosa dicono gli ospiti dei nostri tour privati in barca",
+      "description": "Leggi le recensioni degli ospiti sui tour privati in barca di Rebelde Boats da Spalato, Croazia — 220+ recensioni a 5 stelle su TripAdvisor, Google e GetYourGuide."
     },
     "boat": {
       "title": "La Barca — Felix 37 Buenaventura",

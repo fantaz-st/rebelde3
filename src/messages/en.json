@@ -37,7 +37,9 @@
     "bespokeToursLink": "Bespoke Tours",
     "faqLink": "FAQ-s",
     "contactLink": "Contact",
-    "credit": "designed & developed by"
+    "credit": "designed & developed by",
+    "journalLink": "Journal",
+    "reviewsLink": "Reviews"
   },
   "contact": {
     "namePlaceholder": "Name*",
@@ -251,6 +253,10 @@
     "journal": {
       "title": "Journal — Stories from the Adriatic",
       "description": "Guides, observations, and behind-the-scenes notes from Rebelde Boats on private boat tours in Croatia."
+    },
+    "reviews": {
+      "title": "Reviews — What Guests Say About Our Private Boat Tours",
+      "description": "Read guest reviews of Rebelde Boats private boat tours from Split, Croatia — 220+ 5-star reviews collected across TripAdvisor, Google, and GetYourGuide."
     },
     "boat": {
       "title": "The Boat – Felix 37 Buenaventura",

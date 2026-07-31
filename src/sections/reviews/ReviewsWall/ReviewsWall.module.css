@@ -1,0 +1,157 @@
+/*
+ * Reviews wall — masonry layout via CSS `columns`.
+ *
+ * Cards are simple divs with `break-inside: avoid`; the browser flows them
+ * naturally into 3 columns on desktop, 2 on tablet, 1 on mobile.
+ *
+ * Photos use the same rules but with a fixed 3/4 aspect — they break up
+ * the reading rhythm and add visual warmth.
+ */
+
+.wrap {
+  background-color: var(--bg-brown-20);
+  padding-top:    16rem;
+  padding-bottom: 16rem;
+  color: var(--brand-persian-blue);
+}
+
+.container {
+  display: block;
+}
+
+/* ── Masonry list ──────────────────────────────── */
+
+.list {
+  columns: 3;
+  column-gap: 3rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  break-inside: avoid;
+  margin-bottom: 3rem;
+  display: block;
+}
+
+/* ── Quote card ────────────────────────────────── */
+
+.quoteItem {
+  /* Nothing extra — inherits from .item */
+}
+
+.card {
+  display: flex;
+  flex-flow: column;
+  gap: 1.6rem;
+  background-color: var(--bg-brown-10);
+  border-radius: 0.6rem;
+  padding: 3.2rem 3rem 2.8rem;
+  height: 100%;
+}
+
+.stars {
+  font-size: 1.4rem;
+  color: var(--color-star);
+  letter-spacing: 0.15em;
+  line-height: 1;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  color: var(--brand-persian-blue);
+  margin: 0;
+}
+
+.cardQuote {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--brand-persian-blue-85);
+  margin: 0;
+  quotes: none;
+}
+
+.cardFooter {
+  display: flex;
+  flex-flow: column;
+  gap: 0.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--brand-persian-blue-12);
+  margin-top: auto;
+}
+
+.cardName {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--brand-persian-blue);
+}
+
+.cardTour {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-persian-blue-60);
+}
+
+/* ── Photo item ────────────────────────────────── */
+
+.photoItem {
+  /* Nothing extra */
+}
+
+.photoInner {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+
+.photoImg {
+  object-fit: cover;
+}
+
+/* ── Tablet (≤ 991px) ──────────────────────────── */
+@media (max-width: 991px) {
+  .wrap {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+  .list {
+    columns: 2;
+    column-gap: 2.4rem;
+  }
+  .item {
+    margin-bottom: 2.4rem;
+  }
+}
+
+/* ── Mobile (≤ 767px) ──────────────────────────── */
+@media (max-width: 767px) {
+  .wrap {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+  .list {
+    columns: 1;
+  }
+  .item {
+    margin-bottom: 2rem;
+  }
+  .card {
+    padding: 2.4rem 2rem 2rem;
+  }
+  .cardTitle {
+    font-size: 1.9rem;
+  }
+  .cardQuote {
+    font-size: 1.4rem;
+  }
+}

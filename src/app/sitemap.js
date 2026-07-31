@@ -11,6 +11,7 @@ const pages = [
   { path: "/the-boat",      priority: 0.8,  freq: "yearly"  },
   { path: "/bespoke-tours", priority: 0.9,  freq: "monthly" },
   { path: "/journal",       priority: 0.8,  freq: "monthly" },
+  { path: "/reviews",       priority: 0.8,  freq: "monthly" },
   { path: "/faq",           priority: 0.7,  freq: "monthly" },
   { path: "/contact",       priority: 0.7,  freq: "yearly"  },
 ];
