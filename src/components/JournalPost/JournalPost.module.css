@@ -1,0 +1,343 @@
+/*
+ * Journal post layout — mirrors Kudanil's .journal-content.
+ *
+ * Kudanil recipe (desktop):
+ *   section padding:    32rem top / 18rem bottom
+ *   3-row grid:         title (row 1), body (row 2), nav (row 3)
+ *   all rows span:      grid-column: 5 / -5   (cols 5–11 of 16, tight inset)
+ *   title margin-btm:   8rem
+ *   body margin-btm:    18rem
+ *   h2:                 4.4rem,  margin: 8rem 0 2.4rem
+ *   h3:                 3.6rem,  margin: 2.4rem 0
+ *   h4:                 2.4rem,  margin: 2.4rem 0
+ *   p:                  margin: 2.4rem 0
+ *   figure:             margin: 8rem 0
+ *   blockquote:         left border persian-blue, tinted bg, padding 2/2/2/4rem
+ *   ul/ol:              gap 0.8rem, margin: 2.4rem 0
+ *
+ * Tablet: title cols 2/-2, sizes reduce
+ * Mobile: single column, full width, reduced padding
+ */
+
+.wrap {
+  background-color: var(--bg-brown-10);
+  color: var(--brand-persian-blue);
+}
+
+.container {
+  padding-top:    32rem;
+  padding-bottom: 18rem;
+  grid-template-rows: auto auto auto;
+  grid-row-gap: 0;
+}
+
+/* All three main sections sit in cols 5/-5 — Kudanil's editorial inset.
+   This is what makes reading feel deliberate rather than viewport-wide. */
+.titleWrap {
+  grid-area: 1 / 5 / 2 / -5;
+  margin-bottom: 8rem;
+}
+
+.bodyWrap {
+  grid-area: 2 / 5 / 3 / -5;
+  margin-bottom: 18rem;
+}
+
+.navWrap {
+  grid-area: 3 / 5 / 4 / -5;
+}
+
+/* ── Title block ───────────────────────────────── */
+
+.meta {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-persian-blue-60);
+  margin: 0 0 3rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  /* Kudanil sets h2-style 10rem. Clamp lets it scale on smaller screens. */
+  font-size: clamp(5rem, 8vw, 10rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--brand-persian-blue);
+  margin: 0 0 3rem;
+}
+
+.lede {
+  font-family: var(--font-body);
+  font-size: 1.8rem;
+  line-height: 1.5;
+  color: var(--brand-persian-blue-60);
+  max-width: 62ch;
+  margin: 0;
+}
+
+/* ── Hero figure (between title and body) ──────── */
+
+.heroFigure {
+  margin: 0 0 8rem;
+}
+
+.heroFigureInner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+
+.heroImg {
+  object-fit: cover;
+}
+
+/* ── Body rich text ────────────────────────────── */
+
+.body {
+  font-family: var(--font-body);
+  font-size: 1.7rem;
+  line-height: 1.65;
+  color: var(--brand-persian-blue);
+}
+
+/* Kudanil hides the H1 inside the rich text — we do the same because our
+   title lives outside the MDX body (as .title). If an author accidentally
+   includes an # H1 in their markdown, it's hidden here. */
+.body h1 {
+  display: none;
+}
+
+.body h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.2rem, 4vw, 4.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.005em;
+  color: var(--brand-persian-blue);
+  margin: 8rem 0 2.4rem;
+}
+
+.body h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 3vw, 3.6rem);
+  line-height: 1.15;
+  color: var(--brand-persian-blue);
+  margin: 4.8rem 0 2.4rem;
+}
+
+.body h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 1.2;
+  color: var(--brand-persian-blue);
+  margin: 2.4rem 0;
+}
+
+.body h5 {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.3;
+  color: var(--brand-persian-blue);
+  margin: 2.4rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.body p {
+  margin: 2.4rem 0;
+}
+
+.body strong {
+  font-weight: 600;
+  color: var(--brand-persian-blue);
+}
+
+.body em {
+  font-style: italic;
+}
+
+.body a {
+  color: var(--brand-persian-blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: opacity var(--transition-fast);
+}
+.body a:hover {
+  opacity: 0.65;
+}
+
+.body figure {
+  margin: 8rem 0;
+}
+
+.body figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.6rem;
+}
+
+.body figure figcaption {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--brand-persian-blue-60);
+  margin-top: 1.6rem;
+  text-align: center;
+}
+
+.body blockquote {
+  border-left: 1px solid var(--brand-persian-blue);
+  background-color: var(--brand-persian-blue-05);
+  padding: 2rem 2rem 2rem 4rem;
+  margin: 2.4rem 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 2rem;
+  line-height: 1.5;
+  color: var(--brand-persian-blue);
+}
+
+.body blockquote p {
+  margin: 0;
+}
+
+.body ul,
+.body ol {
+  display: flex;
+  flex-flow: column;
+  gap: 0.8rem;
+  margin: 2.4rem 0;
+  padding-left: 2.4rem;
+}
+
+.body ul {
+  list-style: disc;
+}
+.body ol {
+  list-style: decimal;
+}
+
+.body li {
+  padding-left: 0.4rem;
+}
+
+.body li::marker {
+  color: var(--brand-persian-blue-60);
+}
+
+/* Horizontal rule — used as section dividers in the pricing article */
+.body hr {
+  border: 0;
+  border-top: 1px solid var(--brand-persian-blue-12);
+  margin: 6rem auto;
+  max-width: 8rem;
+}
+
+/* ── Tablet (≤ 991px) ───────────────────────────── */
+@media (max-width: 991px) {
+  .container {
+    padding-top:    18rem;
+    padding-bottom: 12rem;
+  }
+
+  /* Widen all three sections to cols 2/-2 for more breathing room */
+  .titleWrap,
+  .bodyWrap,
+  .navWrap {
+    grid-area: auto;
+    grid-column: 2 / -2;
+  }
+
+  .titleWrap  { grid-row: 1; margin-bottom: 6rem; }
+  .bodyWrap   { grid-row: 2; margin-bottom: 12rem; }
+  .navWrap    { grid-row: 3; }
+
+  .heroFigure {
+    margin-bottom: 6rem;
+  }
+
+  .body h2 { margin-top: 6rem; }
+  .body h3 { margin-top: 4rem; }
+  .body figure { margin: 6rem 0; }
+}
+
+/* ── Mobile (≤ 767px) ───────────────────────────── */
+@media (max-width: 767px) {
+  .container {
+    padding-top:    12rem;
+    padding-bottom: 8rem;
+  }
+
+  .titleWrap,
+  .bodyWrap,
+  .navWrap {
+    grid-column: 1 / -1;
+  }
+
+  .titleWrap { margin-bottom: 5rem; }
+  .bodyWrap  { margin-bottom: 8rem; }
+
+  .meta {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .title {
+    font-size: clamp(3.6rem, 10vw, 5.6rem);
+    margin-bottom: 2rem;
+  }
+
+  .lede {
+    font-size: 1.6rem;
+  }
+
+  .heroFigure {
+    margin-bottom: 4rem;
+  }
+
+  .heroFigureInner {
+    aspect-ratio: 4 / 3;
+    border-radius: 0.4rem;
+  }
+
+  .body {
+    font-size: 1.6rem;
+  }
+
+  .body h2 {
+    font-size: 2.8rem;
+    margin: 4.8rem 0 2rem;
+  }
+
+  .body h3 {
+    font-size: 2.4rem;
+    margin: 3.6rem 0 1.8rem;
+  }
+
+  .body h4 {
+    font-size: 2rem;
+  }
+
+  .body figure {
+    margin: 4rem 0;
+  }
+
+  .body figure img {
+    border-radius: 0.4rem;
+  }
+
+  .body blockquote {
+    padding: 1.6rem 1.6rem 1.6rem 2.4rem;
+    font-size: 1.7rem;
+  }
+}

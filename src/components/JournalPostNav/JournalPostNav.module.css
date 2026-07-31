@@ -1,0 +1,152 @@
+/*
+ * Prev / next nav — mirrors Kudanil's .journal-content-nav.
+ *
+ * Layout: grid-template-columns: 1fr 1px 1fr
+ *   → left half (prev, right-aligned)
+ *   → 1px vertical divider
+ *   → right half (next, left-aligned)
+ *
+ * Kudanil values:
+ *   prev padding-right: 4.5rem
+ *   next padding-left:  4.5rem
+ *   item gap:           2.7rem  (label → thumb → title)
+ *   thumb:              15rem × 9rem, radius 0.8rem
+ */
+
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  grid-auto-columns: 1fr;
+  grid-template-rows: auto;
+}
+
+/* ── Item (column) ─────────────────────────────── */
+
+.item {
+  display: flex;
+  flex-flow: column;
+  gap: 2.7rem;
+}
+
+.prev {
+  padding-right: 4.5rem;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.next {
+  padding-left: 4.5rem;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.empty {
+  min-height: 100%;
+  width: 100%;
+}
+
+/* ── Label ──────────────────────────────────────── */
+
+.label {
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-persian-blue-60);
+}
+
+/* ── Thumbnail ──────────────────────────────────── */
+
+.thumb {
+  position: relative;
+  width: 15rem;
+  height: 9rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  display: block;
+  transition: opacity var(--transition-fast);
+}
+
+.thumb:hover {
+  opacity: 0.85;
+}
+
+.thumbImg {
+  object-fit: cover;
+  transition: transform var(--transition-img);
+}
+
+.thumb:hover .thumbImg {
+  transform: scale(1.05);
+}
+
+/* ── Title ──────────────────────────────────────── */
+
+.title {
+  color: var(--brand-persian-blue);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+  max-width: 40rem;
+}
+
+.title:hover {
+  opacity: 0.72;
+}
+
+.title h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+
+/* ── Divider line ──────────────────────────────── */
+
+.line {
+  background-color: var(--brand-persian-blue-12);
+  width: 1px;
+  min-height: 100%;
+  align-self: stretch;
+}
+
+/* ── Tablet ─────────────────────────────────────── */
+@media (max-width: 991px) {
+  .prev  { padding-right: 3rem; }
+  .next  { padding-left:  3rem; }
+  .item  { gap: 2rem; }
+}
+
+/* ── Mobile ─────────────────────────────────────── */
+@media (max-width: 767px) {
+  .wrap {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 4rem 0;
+  }
+
+  .prev,
+  .next {
+    padding: 0;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  /* Horizontal divider instead of vertical on mobile */
+  .line {
+    width: 100%;
+    min-height: 0;
+    height: 1px;
+  }
+
+  .thumb {
+    width: 12rem;
+    height: 8rem;
+    border-radius: 0.6rem;
+  }
+
+  .title h4 {
+    font-size: 1.8rem;
+  }
+}

@@ -14,7 +14,7 @@ export async function generateMetadata({ params }) {
 export default function JournalLayout({ children }) {
   return (
     <>
-      <Header variant="white" />
+      <Header variant="blue" />
       <main>{children}</main>
       <Footer />
     </>

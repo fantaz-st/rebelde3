@@ -19,7 +19,7 @@ export default function Header({ variant = "white" }) {
     { href: "/", label: t("home") },
     { href: "/the-boat", label: t("theBoat") },
     { href: "/bespoke-tours", label: t("tours") },
-    // { href: "/journal",       label: t("journal") },
+    { href: "/journal", label: t("journal") },
     { href: "/faq", label: t("faq") },
     { href: "/contact", label: t("contact") },
   ];
