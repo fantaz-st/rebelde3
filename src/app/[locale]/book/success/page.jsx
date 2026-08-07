@@ -1,7 +1,7 @@
 import { stripe } from "@/lib/stripe";
 import { getSupabaseAdmin } from "@/lib/supabase";
 import styles from "./success.module.css";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 export const metadata = {
   title: "Booking Confirmed — Rebelde Boats",
@@ -38,7 +38,7 @@ export default async function SuccessPage({ searchParams }) {
     : null;
 
   return (
-    <main className={styles.main}>
+    <div className={styles.main}>
       <div className={styles.card}>
         <div className={styles.icon}>✓</div>
         <h1 className={styles.heading}>You&apos;re booked.</h1>
@@ -76,6 +76,6 @@ export default async function SuccessPage({ searchParams }) {
           ← Back to Rebelde Boats
         </Link>
       </div>
-    </main>
+    </div>
   );
 }

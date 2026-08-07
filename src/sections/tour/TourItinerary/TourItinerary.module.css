@@ -1,0 +1,155 @@
+/*
+ * Tour itinerary — brown-20 for visual break. Numbered stops in vertical list.
+ * Head at cols 5/-5. Stops at cols 3–13.
+ */
+
+.wrap {
+  background-color: var(--bg-brown-20);
+  color: var(--brand-persian-blue);
+  padding-top:    16rem;
+  padding-bottom: 16rem;
+}
+
+.container {
+  grid-template-rows: auto auto;
+  row-gap: 8rem;
+}
+
+.head {
+  grid-column: 5 / -5;
+  display: flex;
+  flex-flow: column;
+  gap: 2.4rem;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-persian-blue-60);
+  margin: 0;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.6rem, 5vw, 6rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+/* ── Stops ─────────────────────────────────────── */
+
+.stops {
+  grid-column: 3 / -3;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+}
+
+.stop {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 4rem;
+  align-items: baseline;
+  padding: 4rem 0;
+  border-top: 1px solid var(--brand-persian-blue-12);
+}
+
+.stop:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.stopNumber {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 4.8rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--brand-persian-blue-35);
+}
+
+.stopContent {
+  display: flex;
+  flex-flow: column;
+  gap: 1.4rem;
+}
+
+.stopTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 2.8vw, 3.2rem);
+  line-height: 1.15;
+  letter-spacing: 0.005em;
+  color: var(--brand-persian-blue);
+  margin: 0;
+}
+
+.stopDesc {
+  font-family: var(--font-body);
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: var(--brand-persian-blue-85);
+  margin: 0;
+  max-width: 62ch;
+}
+
+/* ── Tablet ────────────────────────────────────── */
+@media (max-width: 991px) {
+  .wrap {
+    padding-top:    10rem;
+    padding-bottom: 10rem;
+  }
+  .container {
+    row-gap: 5rem;
+  }
+  .head,
+  .stops {
+    grid-column: 2 / -2;
+  }
+  .stop {
+    grid-template-columns: 8rem 1fr;
+    gap: 3rem;
+    padding: 3rem 0;
+  }
+  .stopNumber {
+    font-size: 3.6rem;
+  }
+}
+
+/* ── Mobile ────────────────────────────────────── */
+@media (max-width: 767px) {
+  .wrap {
+    padding-top:    7rem;
+    padding-bottom: 7rem;
+  }
+  .container {
+    row-gap: 3.6rem;
+  }
+  .head,
+  .stops {
+    grid-column: 1 / -1;
+  }
+  .heading {
+    font-size: clamp(2.8rem, 8vw, 4rem);
+  }
+  .stop {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+    padding: 2.8rem 0;
+  }
+  .stopNumber {
+    font-size: 3rem;
+  }
+  .stopTitle {
+    font-size: 2.2rem;
+  }
+  .stopDesc {
+    font-size: 1.5rem;
+  }
+}

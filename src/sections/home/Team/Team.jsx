@@ -159,14 +159,16 @@ export default function Team() {
     { scope: wrapRef },
   );
 
-  const items = rawItems.map((item) => {
-    const descCount = Array.isArray(item.desc) ? item.desc.length : 1;
-    return {
-      ...item,
-      title: t(`${item.key}.title`),
-      descs: Array.from({ length: descCount }, (_, i) => t(`${item.key}.desc${i}`)),
-    };
-  });
+  // `t.raw` returns the array straight from messages — no more desc0/desc1
+  // index juggling, and settings/team.js no longer carries a parallel copy
+  // of the English text just to count paragraphs.
+  const items = rawItems.map((item) => ({
+    ...item,
+    title: t(`${item.key}.title`),
+    descs: t.raw(`${item.key}.desc`),
+    alt: t(`${item.key}.alt`),
+    alt2: item.img2 ? t(`${item.key}.alt2`) : undefined,
+  }));
 
   return (
     <div className={classes.wrap} ref={wrapRef}>

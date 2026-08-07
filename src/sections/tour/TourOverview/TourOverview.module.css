@@ -1,0 +1,197 @@
+/*
+ * Tour overview — cream section.
+ *   Head (eyebrow + heading):    cols 5/-5 editorial-tight
+ *   Body (overview paragraphs):  cols 3–10 (left)
+ *   Facts panel (aside):         cols 11–15 (right, with sub-image on top)
+ */
+
+.wrap {
+  background-color: var(--bg-brown-10);
+  color: var(--brand-persian-blue);
+  padding-top:    18rem;
+  padding-bottom: 16rem;
+}
+
+.container {
+  grid-template-rows: auto auto;
+  row-gap: 8rem;
+}
+
+/* ── Head (editorial-tight) ────────────────────── */
+
+.head {
+  grid-column: 5 / -5;
+  display: flex;
+  flex-flow: column;
+  gap: 2.4rem;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-persian-blue-60);
+  margin: 0;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.6rem, 5vw, 6.4rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  margin: 0;
+  max-width: 20ch;
+}
+
+/* ── Body: paragraphs ──────────────────────────── */
+
+.body {
+  grid-column: 3 / 11;
+  display: flex;
+  flex-flow: column;
+  gap: 2.4rem;
+}
+
+.para {
+  font-family: var(--font-body);
+  font-size: 1.7rem;
+  line-height: 1.65;
+  color: var(--brand-persian-blue);
+  margin: 0;
+  max-width: 62ch;
+}
+
+/* ── Aside: facts panel (with sub-image) ───────── */
+
+.facts {
+  grid-column: 11 / -3;
+  display: flex;
+  flex-flow: column;
+  gap: 4rem;
+}
+
+.subImg {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.subImgInner {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.subImgEl {
+  object-fit: cover;
+}
+
+.factsList {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+  padding: 3rem;
+  border-radius: var(--radius-md);
+  background-color: rgba(0, 51, 87, 0.06);
+}
+
+.fact {
+  display: flex;
+  flex-flow: column;
+  gap: 0.4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--brand-persian-blue-12);
+}
+
+.fact:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.factLabel {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-persian-blue-60);
+  margin: 0;
+}
+
+.factValue {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: var(--brand-persian-blue);
+  margin: 0;
+}
+
+/* ── Tablet ────────────────────────────────────── */
+@media (max-width: 991px) {
+  .wrap {
+    padding-top:    12rem;
+    padding-bottom: 10rem;
+  }
+  .container {
+    row-gap: 5rem;
+  }
+  .head,
+  .body,
+  .facts {
+    grid-column: 2 / -2;
+  }
+  .body {
+    order: 1;
+  }
+  .facts {
+    order: 2;
+    flex-flow: row;
+    gap: 3rem;
+  }
+  .subImg {
+    flex: 1;
+    max-width: 24rem;
+  }
+  .factsList {
+    flex: 1;
+  }
+}
+
+/* ── Mobile ────────────────────────────────────── */
+@media (max-width: 767px) {
+  .wrap {
+    padding-top:    7rem;
+    padding-bottom: 7rem;
+  }
+  .container {
+    row-gap: 4rem;
+  }
+  .head,
+  .body,
+  .facts {
+    grid-column: 1 / -1;
+  }
+  .facts {
+    flex-flow: column;
+    gap: 2.4rem;
+  }
+  .subImg {
+    max-width: none;
+    aspect-ratio: 3 / 2;
+  }
+  .heading {
+    font-size: clamp(2.8rem, 8vw, 4rem);
+  }
+  .para {
+    font-size: 1.5rem;
+  }
+  .factsList {
+    padding: 2.4rem;
+    border-radius: var(--radius-sm);
+  }
+}

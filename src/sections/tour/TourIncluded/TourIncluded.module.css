@@ -1,0 +1,160 @@
+/*
+ * Tour included — navy section, 2-col cards with check/cross markers.
+ */
+
+.wrap {
+  background-color: var(--brand-persian-blue);
+  color: var(--text-white);
+  padding-top:    16rem;
+  padding-bottom: 16rem;
+}
+
+.container {
+  grid-template-rows: auto auto;
+  row-gap: 8rem;
+}
+
+.head {
+  grid-column: 5 / -5;
+  display: flex;
+  flex-flow: column;
+  gap: 2.4rem;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.6rem, 5vw, 6rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: var(--text-white);
+  margin: 0;
+}
+
+/* ── 2-column split ────────────────────────────── */
+
+.columns {
+  grid-column: 3 / -3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.column {
+  display: flex;
+  flex-flow: column;
+  gap: 3rem;
+  padding: 4rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+}
+
+.columnNot {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.columnTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  color: var(--text-white);
+  margin: 0;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+  gap: 1.6rem;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 2.4rem 1fr;
+  gap: 1.4rem;
+  align-items: baseline;
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.check {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.cross {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 2rem;
+  line-height: 1;
+  text-align: center;
+}
+
+/* ── Tablet ────────────────────────────────────── */
+@media (max-width: 991px) {
+  .wrap {
+    padding-top:    10rem;
+    padding-bottom: 10rem;
+  }
+  .container {
+    row-gap: 5rem;
+  }
+  .head,
+  .columns {
+    grid-column: 2 / -2;
+  }
+  .columns {
+    gap: 2.4rem;
+  }
+  .column {
+    padding: 3rem;
+  }
+}
+
+/* ── Mobile ────────────────────────────────────── */
+@media (max-width: 767px) {
+  .wrap {
+    padding-top:    7rem;
+    padding-bottom: 7rem;
+  }
+  .container {
+    row-gap: 3.6rem;
+  }
+  .head,
+  .columns {
+    grid-column: 1 / -1;
+  }
+  .heading {
+    font-size: clamp(2.8rem, 8vw, 4rem);
+  }
+  .columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .column {
+    padding: 2.4rem;
+    border-radius: var(--radius-sm);
+    gap: 2rem;
+  }
+  .columnTitle {
+    font-size: 2rem;
+  }
+  .item {
+    font-size: 1.4rem;
+  }
+}

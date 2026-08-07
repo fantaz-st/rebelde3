@@ -36,7 +36,7 @@ export default async function BookPage({ searchParams }) {
     .order('name')
 
   return (
-    <main className={styles.main}>
+    <div className={styles.main}>
       <div className={styles.hero}>
         <p className={styles.eyebrow}>Private boat tours · Split, Croatia</p>
         <h1 className={styles.heading}>Reserve your day on the water</h1>
@@ -49,6 +49,6 @@ export default async function BookPage({ searchParams }) {
       <div className={styles.content}>
         <BookingFlow tours={tours || []} preselectedDate={preselectedDate || null} preselectedTourSlug={preselectedTourSlug || null} />
       </div>
-    </main>
+    </div>
   )
 }

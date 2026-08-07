@@ -8,20 +8,24 @@ import "swiper/css/scrollbar";
 import classes from "./Testimonials.module.css";
 import items from "@/settings/testimonials";
 import Button from "@/components/Button/Button";
+import { useTranslations } from "next-intl";
 
 export default function Testimonials() {
+  const t = useTranslations("testimonials");
+  const tc = useTranslations("common");
+
   return (
     <section className={classes.wrap} aria-labelledby="tours-heading">
       <div className={`grid ${classes.container}`}>
         <header className={classes.text}>
-          <h2 id="tours-heading" className={classes.title}>What our guests say</h2>
+          <h2 id="tours-heading" className={classes.title}>{t("heading")}</h2>
           <div className={classes.platforms}>
             <div className={classes.platform}>
-              <span className={classes.platformText}>Rated 5.0 on</span>
+              <span className={classes.platformText}>{tc("ratedOn")}</span>
               <img src="/images/logos/tripadvisor.svg" alt="Tripadvisor logo" />
             </div>
             <div className={classes.platform}>
-              <span className={classes.platformText}>Rated 5.0 on</span>
+              <span className={classes.platformText}>{tc("ratedOn")}</span>
               <img src="/images/logos/google.svg" alt="Google logo" />
             </div>
           </div>

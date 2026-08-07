@@ -22,9 +22,9 @@ export default function BoatSpecs() {
 
         <div className={classes.right}>
           <ul className={classes.list} aria-label="Boat technical specifications">
-            {boatSpecs.map(({ label, value }) => (
-              <li key={label} className={classes.row}>
-                <span className={classes.rowLabel}>{ts(label)}</span>
+            {boatSpecs.map(({ key, value }) => (
+              <li key={key} className={classes.row}>
+                <span className={classes.rowLabel}>{ts(key)}</span>
                 <span className={classes.rowValue}>{value}</span>
               </li>
             ))}

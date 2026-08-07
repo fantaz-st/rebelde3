@@ -1,0 +1,160 @@
+/*
+ * Tour testimonials — cream section, 3-col quote cards.
+ */
+
+.wrap {
+  background-color: var(--bg-brown-10);
+  color: var(--brand-persian-blue);
+  padding-top:    16rem;
+  padding-bottom: 16rem;
+}
+
+.container {
+  grid-template-rows: auto auto;
+  row-gap: 8rem;
+}
+
+.head {
+  grid-column: 5 / -5;
+  display: flex;
+  flex-flow: column;
+  gap: 2.4rem;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-persian-blue-60);
+  margin: 0;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.6rem, 5vw, 5.4rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  margin: 0;
+  max-width: 22ch;
+}
+
+/* ── Quote cards ───────────────────────────────── */
+
+.quotes {
+  grid-column: 3 / -3;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.quote {
+  display: flex;
+  flex-flow: column;
+  gap: 1.6rem;
+  padding: 3.2rem 3rem 2.8rem;
+  background-color: rgba(255, 255, 255, 0.55);
+  border-radius: var(--radius-md);
+  height: 100%;
+}
+
+.stars {
+  font-size: 1.4rem;
+  color: var(--color-star);
+  letter-spacing: 0.15em;
+  line-height: 1;
+}
+
+.quoteTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.2;
+  color: var(--brand-persian-blue);
+  margin: 0;
+}
+
+.quoteBody {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--brand-persian-blue-85);
+  margin: 0;
+  quotes: none;
+}
+
+.quoteFooter {
+  display: flex;
+  flex-flow: column;
+  gap: 0.4rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--brand-persian-blue-12);
+  margin-top: auto;
+}
+
+.quoteAuthor {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--brand-persian-blue);
+}
+
+.quoteTour {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-persian-blue-60);
+}
+
+/* ── Tablet ────────────────────────────────────── */
+@media (max-width: 991px) {
+  .wrap {
+    padding-top:    10rem;
+    padding-bottom: 10rem;
+  }
+  .container {
+    row-gap: 5rem;
+  }
+  .head,
+  .quotes {
+    grid-column: 2 / -2;
+  }
+  .quotes {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+}
+
+/* ── Mobile ────────────────────────────────────── */
+@media (max-width: 767px) {
+  .wrap {
+    padding-top:    7rem;
+    padding-bottom: 7rem;
+  }
+  .container {
+    row-gap: 3.6rem;
+  }
+  .head,
+  .quotes {
+    grid-column: 1 / -1;
+  }
+  .heading {
+    font-size: clamp(2.8rem, 8vw, 4rem);
+  }
+  .quote {
+    padding: 2.4rem 2rem 2rem;
+    border-radius: var(--radius-sm);
+  }
+  .quoteTitle {
+    font-size: 1.8rem;
+  }
+  .quoteBody {
+    font-size: 1.4rem;
+  }
+}

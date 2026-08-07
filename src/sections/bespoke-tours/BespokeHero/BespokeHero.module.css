@@ -1,0 +1,81 @@
+/*
+ * Bespoke hero — mirrors the journal/reviews hero editorial style.
+ * Title inset to cols 3–7 (left side), subtitle stacks below.
+ */
+
+.wrap {
+  padding-top:    22rem;
+  padding-bottom: 12rem;
+  background-color: var(--bg-brown-10);
+  color: var(--brand-persian-blue);
+}
+
+.container {
+  grid-template-rows: auto;
+}
+
+.inner {
+  grid-column: 3 / -3;
+  display: flex;
+  flex-flow: column;
+  gap: 3rem;
+}
+
+.kicker {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-persian-blue-60);
+  margin: 0;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(4.8rem, 8vw, 10rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--brand-persian-blue);
+  margin: 0;
+  max-width: 22ch;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 1.7rem;
+  line-height: 1.55;
+  color: var(--brand-persian-blue-85);
+  margin: 0;
+  max-width: 62ch;
+}
+
+@media (max-width: 991px) {
+  .wrap {
+    padding-top:    17.4rem;
+    padding-bottom: 8rem;
+  }
+  .inner {
+    grid-column: 2 / -2;
+  }
+  .title {
+    font-size: clamp(4rem, 9vw, 7rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .wrap {
+    padding-top:    13.4rem;
+    padding-bottom: 5.4rem;
+  }
+  .inner {
+    grid-column: 1 / -1;
+    gap: 2.4rem;
+  }
+  .title {
+    font-size: clamp(3.6rem, 10vw, 5.6rem);
+  }
+  .subtitle {
+    font-size: 1.5rem;
+  }
+}

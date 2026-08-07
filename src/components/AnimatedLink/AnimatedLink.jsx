@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import classes from "./AnimatedLink.module.css";
 
 const AnimatedLink = ({ href, children }) => (

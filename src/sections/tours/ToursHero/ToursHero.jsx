@@ -6,14 +6,22 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import classes from "./ToursHero.module.css";
 import items from "@/settings/tours";
 import useParallaxImage from "@/hooks/useParallaxImage";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+/**
+ * Hero for the /tours index.
+ *
+ * The list used to be `#anchor` links that smooth-scrolled to sections on the
+ * same page. Each tour has its own page now, so these are real links —
+ * crawlable, shareable, and locale-aware.
+ */
 export default function ToursHero() {
-  const t  = useTranslations("toursHero");
+  const t = useTranslations("toursIndex");
   const ti = useTranslations("tourItems");
   const wrapRef = useRef(null);
 
@@ -25,39 +33,22 @@ export default function ToursHero() {
     start: "top bottom", end: "bottom top",
   });
 
-  const handleAnchorClick = (e, key) => {
-    e.preventDefault();
-    const target = document.getElementById(key);
-    if (!target) return;
-    const scroller = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot");
-    if (scroller && scroller !== window) {
-      const targetTop = target.getBoundingClientRect().top - scroller.getBoundingClientRect().top + scroller.scrollTop;
-      scroller.scrollTo({ top: targetTop, behavior: "smooth" });
-    } else {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
   return (
     <section className={classes.wrap} ref={wrapRef}>
       <div className={`container grid ${classes.grid}`}>
         <div className={classes.content}>
-          <h2 className={classes.title}>{t("title")}</h2>
+          <h1 className={classes.title}>{t("title")}</h1>
           <p className={classes.desc}>{t("desc")}</p>
 
           <ul className={classes.list}>
             {items.map((item) => (
               <li key={item.key} className={classes.listItem}>
-                <a
-                  href={`#${item.key}`}
-                  className={classes.link}
-                  onClick={(e) => handleAnchorClick(e, item.key)}
-                >
+                <Link href={`/tours/${item.key}`} className={classes.link}>
                   <span className={classes.flip}>
                     <span className={classes.flipTop}>{ti(`${item.key}.label`)}</span>
                     <span className={classes.flipBottom}>{ti(`${item.key}.label`)}</span>
                   </span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

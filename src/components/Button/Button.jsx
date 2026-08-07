@@ -1,7 +1,7 @@
 // primary, white, ghost,
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import classes from "./Button.module.css";
 
 export default function Button({ children, href, onClick, variant = "primary", size = "lg", className = "", ...props }) {

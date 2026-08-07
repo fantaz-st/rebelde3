@@ -8,23 +8,26 @@ import classes from "./SmallFooter.module.css";
 import Button from "../Button/Button";
 import items from "../../settings/footer-marquee";
 
-
 export default function SmallFooter() {
   const wrapRef = useRef(null);
   const bgRef = useRef(null);
   const itemRefs = useRef([]);
 
-
   return (
     <footer ref={wrapRef} className={classes.footer}>
-     
       <div className={classes.main}>
         <div className={classes.top}>
           <div className={`container ${classes.topInner}`}>
             <div className={`${classes.column} ${classes.left} `}>
               <h5 className={classes.label}>Chat with us on WhatsApp</h5>
 
-              <a className={`${classes.link} ${classes.larger}`} target="_blank" href="https://wa.me/385953933125" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+              <a
+                className={`${classes.link} ${classes.larger}`}
+                target="_blank"
+                href="https://wa.me/385953933125"
+                rel="noopener noreferrer"
+                aria-label="Chat on WhatsApp"
+              >
                 <h4>+385 95 393 3125</h4>
               </a>
             </div>
@@ -33,12 +36,15 @@ export default function SmallFooter() {
               <p className={`${classes.label} font-alternate`}>Rebelde Boats</p>
               <p className={classes.larger}>REBELDE d.o.o.</p>
               <p className={classes.larger}>OIB: 99723002621</p>
-              <p className={classes.larger}>Vnkovačka 45, 21000 SPLIT</p>
+              <p className={classes.larger}>Vinkovačka 45, 21000 SPLIT</p>
             </div>
 
             <div className={`${classes.column} ${classes.right}`}>
               <h5 className={classes.label}>Get in touch</h5>
-              <a className={`${classes.link} ${classes.larger}`} href="mailto:rebeldeboats@gmail.com">
+              <a
+                className={`${classes.link} ${classes.larger}`}
+                href="mailto:rebeldeboats@gmail.com"
+              >
                 <h4>rebeldeboats@gmail.com</h4>
               </a>
             </div>
@@ -72,7 +78,8 @@ export default function SmallFooter() {
             </div>
             <div className={`${classes.column} ${classes.right}`}>
               <div className={classes.columnInner}>
-                designed & developed by <a href="mailto:cbabic.st@gmail.com">fantaz</a>
+                designed & developed by{" "}
+                <a href="mailto:cbabic.st@gmail.com">fantaz</a>
               </div>
             </div>
           </div>

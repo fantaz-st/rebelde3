@@ -1,0 +1,163 @@
+/*
+ * Bespoke custom — brown-20 section for visual break.
+ * Head at cols 3–8. 2-col list side-by-side below at cols 3–15.
+ */
+
+.wrap {
+  background-color: var(--bg-brown-20);
+  color: var(--brand-persian-blue);
+  padding-top:    16rem;
+  padding-bottom: 16rem;
+}
+
+.container {
+  grid-template-rows: auto auto;
+  row-gap: 8rem;
+}
+
+.head {
+  grid-column: 3 / 9;
+  display: flex;
+  flex-flow: column;
+  gap: 2.4rem;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-persian-blue-60);
+  margin: 0;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.6rem, 5vw, 5.4rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.lede {
+  font-family: var(--font-body);
+  font-size: 1.6rem;
+  line-height: 1.55;
+  color: var(--brand-persian-blue-85);
+  margin: 0;
+  max-width: 60ch;
+}
+
+/* ── 2-column split ────────────────────────────── */
+
+.columns {
+  grid-column: 3 / -3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+}
+
+.column {
+  display: flex;
+  flex-flow: column;
+  gap: 3rem;
+  padding: 4rem;
+  border-radius: var(--radius-md);
+  background-color: rgba(255, 255, 255, 0.55);
+}
+
+.columnFixed {
+  background-color: rgba(0, 51, 87, 0.06);
+}
+
+.columnTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  color: var(--brand-persian-blue);
+  margin: 0;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+  gap: 1.8rem;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.4rem;
+  align-items: baseline;
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  line-height: 1.55;
+  color: var(--brand-persian-blue-85);
+}
+
+.dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: var(--brand-persian-blue-35);
+  transform: translateY(0.7rem);
+}
+
+/* ── Tablet ────────────────────────────────────── */
+@media (max-width: 991px) {
+  .wrap {
+    padding-top:    10rem;
+    padding-bottom: 10rem;
+  }
+  .container {
+    row-gap: 5rem;
+  }
+  .head,
+  .columns {
+    grid-column: 2 / -2;
+  }
+  .columns {
+    gap: 3rem;
+  }
+  .column {
+    padding: 3rem;
+  }
+}
+
+/* ── Mobile ────────────────────────────────────── */
+@media (max-width: 767px) {
+  .wrap {
+    padding-top:    7rem;
+    padding-bottom: 7rem;
+  }
+  .container {
+    row-gap: 3.6rem;
+  }
+  .head,
+  .columns {
+    grid-column: 1 / -1;
+  }
+  .heading {
+    font-size: clamp(2.8rem, 8vw, 4rem);
+  }
+  .columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .column {
+    padding: 2.4rem;
+    border-radius: var(--radius-sm);
+    gap: 2.4rem;
+  }
+  .columnTitle {
+    font-size: 2rem;
+  }
+  .item {
+    font-size: 1.4rem;
+  }
+}

@@ -1,0 +1,158 @@
+/*
+ * Bespoke pillars — dark navy section, cream text.
+ * Head (eyebrow + heading) inset to cols 3–8 left.
+ * Intro paragraph at cols 10–15 right (bottom-aligned).
+ * Pillars grid full width below.
+ */
+
+.wrap {
+  background-color: var(--brand-persian-blue);
+  color: var(--text-white);
+  padding-top:    16rem;
+  padding-bottom: 16rem;
+}
+
+.container {
+  grid-template-rows: auto auto;
+  row-gap: 12rem;
+}
+
+/* ── Head + intro row ──────────────────────────── */
+
+.head {
+  grid-column: 3 / 9;
+  align-self: start;
+  display: flex;
+  flex-flow: column;
+  gap: 2.4rem;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.6rem, 5vw, 6rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: var(--text-white);
+  margin: 0;
+  max-width: 15ch;
+}
+
+.intro {
+  grid-column: 10 / -3;
+  align-self: end;
+}
+
+.intro p {
+  font-family: var(--font-body);
+  font-size: 1.7rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+  max-width: 58ch;
+}
+
+/* ── Pillars grid ──────────────────────────────── */
+
+.pillars {
+  grid-column: 3 / -3;
+  grid-row: 2;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6rem 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 6rem;
+}
+
+.pillar {
+  display: flex;
+  flex-flow: column;
+  gap: 1.4rem;
+}
+
+.pillarTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  color: var(--text-white);
+  margin: 0;
+}
+
+.pillarBody {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+}
+
+/* ── Tablet ────────────────────────────────────── */
+@media (max-width: 991px) {
+  .wrap {
+    padding-top:    10rem;
+    padding-bottom: 10rem;
+  }
+  .container {
+    row-gap: 6rem;
+  }
+  .head,
+  .intro,
+  .pillars {
+    grid-column: 2 / -2;
+  }
+  .intro {
+    grid-row: auto;
+    align-self: start;
+  }
+  .pillars {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem 3rem;
+    padding-top: 5rem;
+  }
+}
+
+/* ── Mobile ────────────────────────────────────── */
+@media (max-width: 767px) {
+  .wrap {
+    padding-top:    7rem;
+    padding-bottom: 7rem;
+  }
+  .container {
+    row-gap: 4rem;
+  }
+  .head,
+  .intro,
+  .pillars {
+    grid-column: 1 / -1;
+  }
+  .heading {
+    font-size: clamp(3rem, 8vw, 4.4rem);
+  }
+  .intro p {
+    font-size: 1.5rem;
+  }
+  .pillars {
+    grid-template-columns: 1fr;
+    gap: 3.2rem;
+    padding-top: 3.6rem;
+  }
+  .pillarTitle {
+    font-size: 2rem;
+  }
+  .pillarBody {
+    font-size: 1.4rem;
+  }
+}

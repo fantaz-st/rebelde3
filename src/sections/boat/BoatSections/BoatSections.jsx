@@ -20,7 +20,11 @@ export default function BoatSections() {
     imgSmall: it.imgSmall,
     ctaImg:   it.ctaImg,
     ctaText:  t(`${it.key}.ctaText`),
-    gallery:  it.gallery,
+    // image paths from settings, captions from messages, matched by index
+    gallery:  it.gallery.map((src, i) => ({
+      src,
+      caption: t.raw(`${it.key}.gallery`)?.[i] ?? "",
+    })),
   }));
 
   const navSections = [

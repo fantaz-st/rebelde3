@@ -1,0 +1,125 @@
+/*
+ * Tour logistics — brown-20 section, 3-col grid.
+ */
+
+.wrap {
+  background-color: var(--bg-brown-20);
+  color: var(--brand-persian-blue);
+  padding-top:    14rem;
+  padding-bottom: 14rem;
+}
+
+.container {
+  grid-template-rows: auto auto;
+  row-gap: 6rem;
+}
+
+.head {
+  grid-column: 5 / -5;
+  display: flex;
+  flex-flow: column;
+  gap: 2.4rem;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-persian-blue-60);
+  margin: 0;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.2rem, 4vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+/* ── Items grid ────────────────────────────────── */
+
+.items {
+  grid-column: 3 / -3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+}
+
+.item {
+  display: flex;
+  flex-flow: column;
+  gap: 1.6rem;
+  padding: 3rem;
+  border-radius: var(--radius-md);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.itemTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.15;
+  color: var(--brand-persian-blue);
+  margin: 0;
+}
+
+.itemBody {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--brand-persian-blue-85);
+  margin: 0;
+}
+
+/* ── Tablet ────────────────────────────────────── */
+@media (max-width: 991px) {
+  .wrap {
+    padding-top:    9rem;
+    padding-bottom: 9rem;
+  }
+  .container {
+    row-gap: 4rem;
+  }
+  .head,
+  .items {
+    grid-column: 2 / -2;
+  }
+  .items {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .item {
+    padding: 2.4rem;
+  }
+}
+
+/* ── Mobile ────────────────────────────────────── */
+@media (max-width: 767px) {
+  .wrap {
+    padding-top:    6rem;
+    padding-bottom: 6rem;
+  }
+  .container {
+    row-gap: 3rem;
+  }
+  .head,
+  .items {
+    grid-column: 1 / -1;
+  }
+  .heading {
+    font-size: clamp(2.6rem, 8vw, 3.6rem);
+  }
+  .item {
+    padding: 2rem;
+    border-radius: var(--radius-sm);
+  }
+  .itemTitle {
+    font-size: 1.7rem;
+  }
+  .itemBody {
+    font-size: 1.4rem;
+  }
+}

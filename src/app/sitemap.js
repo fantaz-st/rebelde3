@@ -1,75 +1,84 @@
 import { getAllPosts } from "@/lib/journal";
+import tours from "@/settings/tours";
+import { SITE_URL, LOCALES } from "@/lib/schema";
 
-const SITE_URL = "https://www.rebelde.hr";
-const LOCALES  = ["hr", "de", "es", "it", "fr"];
+/**
+ * Sitemap.
+ *
+ * `LOCALES` and `SITE_URL` come from lib/schema so the locale list is
+ * defined once — it used to be redeclared here (and missing "en").
+ */
 
 const LAST_MOD = new Date();
+const PREFIXED = LOCALES.filter((l) => l !== "en");
 
-// Fixed pages — one entry per page, hreflang'd across all locales.
+/** Fixed pages. `/reviews` and `/tours` were both missing before. */
 const pages = [
-  { path: "",               priority: 1,    freq: "monthly" },
-  { path: "/the-boat",      priority: 0.8,  freq: "yearly"  },
-  { path: "/bespoke-tours", priority: 0.9,  freq: "monthly" },
-  { path: "/journal",       priority: 0.8,  freq: "monthly" },
-  { path: "/reviews",       priority: 0.8,  freq: "monthly" },
-  { path: "/faq",           priority: 0.7,  freq: "monthly" },
-  { path: "/contact",       priority: 0.7,  freq: "yearly"  },
+  { path: "", priority: 1, freq: "monthly" },
+  { path: "/tours", priority: 0.95, freq: "monthly" },
+  { path: "/bespoke-tours", priority: 0.9, freq: "monthly" },
+  { path: "/the-boat", priority: 0.8, freq: "yearly" },
+  { path: "/journal", priority: 0.8, freq: "monthly" },
+  { path: "/reviews", priority: 0.8, freq: "weekly" },
+  { path: "/faq", priority: 0.7, freq: "monthly" },
+  { path: "/contact", priority: 0.7, freq: "yearly" },
 ];
+
+const alternates = (path) => ({
+  languages: Object.fromEntries([
+    ["x-default", `${SITE_URL}${path}`],
+    ["en", `${SITE_URL}${path}`],
+    ...PREFIXED.map((l) => [l, `${SITE_URL}/${l}${path}`]),
+  ]),
+});
+
+/** One canonical (English) entry plus a plain entry per prefixed locale. */
+function entriesFor({ path, priority, freq, lastModified = LAST_MOD }) {
+  return [
+    {
+      url: `${SITE_URL}${path}`,
+      lastModified,
+      changeFrequency: freq,
+      priority,
+      alternates: alternates(path),
+    },
+    ...PREFIXED.map((l) => ({
+      url: `${SITE_URL}/${l}${path}`,
+      lastModified,
+      changeFrequency: freq,
+      priority: Math.round(priority * 0.9 * 100) / 100,
+    })),
+  ];
+}
 
 export default function sitemap() {
   const entries = [];
 
-  // Static pages — each with locale alternates
   for (const page of pages) {
-    entries.push({
-      url:             `${SITE_URL}${page.path}`,
-      lastModified:    LAST_MOD,
-      changeFrequency: page.freq,
-      priority:        page.priority,
-      alternates: {
-        languages: Object.fromEntries([
-          ["x-default", `${SITE_URL}${page.path}`],
-          ["en",        `${SITE_URL}${page.path}`],
-          ...LOCALES.map((l) => [l, `${SITE_URL}/${l}${page.path}`]),
-        ]),
-      },
-    });
-    for (const l of LOCALES) {
-      entries.push({
-        url:             `${SITE_URL}/${l}${page.path}`,
-        lastModified:    LAST_MOD,
-        changeFrequency: page.freq,
-        priority:        page.priority * 0.9,
-      });
-    }
+    entries.push(...entriesFor(page));
   }
 
-  // Journal posts — one entry per post. `publishedAt` becomes lastModified
-  // so the freshness signal is real per-post, not per-build.
-  const posts = getAllPosts();
-  for (const post of posts) {
-    const path = `/journal/${post.slug}`;
-    entries.push({
-      url:             `${SITE_URL}${path}`,
-      lastModified:    post.publishedAt ? new Date(post.publishedAt) : LAST_MOD,
-      changeFrequency: "yearly",
-      priority:        0.6,
-      alternates: {
-        languages: Object.fromEntries([
-          ["x-default", `${SITE_URL}${path}`],
-          ["en",        `${SITE_URL}${path}`],
-          ...LOCALES.map((l) => [l, `${SITE_URL}/${l}${path}`]),
-        ]),
-      },
-    });
-    for (const l of LOCALES) {
-      entries.push({
-        url:             `${SITE_URL}/${l}${path}`,
-        lastModified:    post.publishedAt ? new Date(post.publishedAt) : LAST_MOD,
-        changeFrequency: "yearly",
-        priority:        0.5,
-      });
-    }
+  // Individual tour pages — our biggest conversion pages.
+  for (const tour of tours) {
+    entries.push(
+      ...entriesFor({
+        path: `/tours/${tour.key}`,
+        priority: 0.9,
+        freq: "monthly",
+      }),
+    );
+  }
+
+  // Journal posts — `publishedAt` gives a real per-post freshness signal.
+  for (const post of getAllPosts()) {
+    entries.push(
+      ...entriesFor({
+        path: `/journal/${post.slug}`,
+        priority: 0.6,
+        freq: "yearly",
+        lastModified: post.publishedAt ? new Date(post.publishedAt) : LAST_MOD,
+      }),
+    );
   }
 
   return entries;

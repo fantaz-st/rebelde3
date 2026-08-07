@@ -1,0 +1,131 @@
+/*
+ * Tour FAQ — brown-20 section, sticky head cols 3-7, qa list cols 9-15.
+ * Same visual language as BespokeFaq for consistency across FAQ sections.
+ */
+
+.wrap {
+  background-color: var(--bg-brown-20);
+  color: var(--brand-persian-blue);
+  padding-top:    16rem;
+  padding-bottom: 16rem;
+}
+
+.container {
+  grid-template-rows: auto;
+}
+
+.head {
+  grid-column: 3 / 8;
+  display: flex;
+  flex-flow: column;
+  gap: 2.4rem;
+  align-self: start;
+  position: sticky;
+  top: 12rem;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-persian-blue-60);
+  margin: 0;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.6rem, 5vw, 5.4rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  margin: 0;
+  max-width: 15ch;
+}
+
+/* ── Q&A list ──────────────────────────────────── */
+
+.list {
+  grid-column: 9 / -3;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: column;
+  gap: 0;
+}
+
+.qa {
+  padding: 3.2rem 0;
+  border-bottom: 1px solid var(--brand-persian-blue-12);
+}
+
+.qa:first-child {
+  padding-top: 0;
+}
+
+.qa:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.question {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 2vw, 2.4rem);
+  line-height: 1.25;
+  letter-spacing: 0.005em;
+  color: var(--brand-persian-blue);
+  margin: 0 0 1.4rem;
+}
+
+.answer {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  line-height: 1.65;
+  color: var(--brand-persian-blue-85);
+  margin: 0;
+  max-width: 62ch;
+}
+
+/* ── Tablet ────────────────────────────────────── */
+@media (max-width: 991px) {
+  .wrap {
+    padding-top:    10rem;
+    padding-bottom: 10rem;
+  }
+  .head {
+    grid-column: 2 / -2;
+    position: static;
+    margin-bottom: 4rem;
+  }
+  .list {
+    grid-column: 2 / -2;
+  }
+}
+
+/* ── Mobile ────────────────────────────────────── */
+@media (max-width: 767px) {
+  .wrap {
+    padding-top:    7rem;
+    padding-bottom: 7rem;
+  }
+  .head {
+    grid-column: 1 / -1;
+    margin-bottom: 3rem;
+  }
+  .list {
+    grid-column: 1 / -1;
+  }
+  .heading {
+    font-size: clamp(2.8rem, 8vw, 4rem);
+  }
+  .qa {
+    padding: 2.4rem 0;
+  }
+  .question {
+    font-size: 1.7rem;
+  }
+  .answer {
+    font-size: 1.4rem;
+  }
+}

@@ -23,14 +23,12 @@ export default function Facts() {
   const tlRef = useRef(null);
   const [openIndex, setOpenIndex] = useState(0);
 
-  // facts.js uses hyphenated keys (e.g. "private-charter") but message keys are camelCase
-  const toCamel = (s) => s.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
-
-  // Build translated items
+  // Message keys match settings keys one-to-one now — the hyphen/camelCase
+  // mapping that used to sit here is gone.
   const translated = items.map((item) => ({
     ...item,
-    title: t(`${toCamel(item.key)}.title`),
-    desc:  t(`${toCamel(item.key)}.desc`),
+    title: t(`${item.key}.title`),
+    desc:  t(`${item.key}.desc`),
   }));
 
   useGSAP(

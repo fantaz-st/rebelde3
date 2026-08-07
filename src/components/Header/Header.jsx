@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useLayoutEffect } from "react";
-import Link from "next/link";
+import { Link, usePathname } from "@/i18n/navigation";
 import { gsap } from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import { useTranslations } from "next-intl";
@@ -11,13 +11,26 @@ import Logo from "../Logo/Logo";
 import Button from "../Button/Button";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 
-export default function Header({ variant = "white" }) {
+/**
+ * Routes that sit on a light background and therefore need the white header.
+ * Everything else gets the blue one. This used to be a `variant` prop that
+ * every route layout had to pass — the reason ten near-identical layouts
+ * existed. The prop still works as an override.
+ */
+const WHITE_HEADER_ROUTES = ["/", "/contact"];
+
+export default function Header({ variant }) {
   const t = useTranslations("nav");
+  const pathname = usePathname();
   const SHADOW_THRESHOLD = 300;
+
+  const resolvedVariant =
+    variant ?? (WHITE_HEADER_ROUTES.includes(pathname) ? "white" : "blue");
 
   const pageLinks = [
     { href: "/", label: t("home") },
     { href: "/the-boat", label: t("theBoat") },
+    { href: "/tours", label: t("toursIndex") },
     { href: "/bespoke-tours", label: t("tours") },
     { href: "/journal", label: t("journal") },
     { href: "/faq", label: t("faq") },
@@ -103,7 +116,7 @@ export default function Header({ variant = "white" }) {
   }, [isMenuOpen]);
 
   const isDarkUi =
-    isMenuOpen || isMenuActive || (variant === "blue" && !isShadowVisible);
+    isMenuOpen || isMenuActive || (resolvedVariant === "blue" && !isShadowVisible);
 
   const headerClassName = [
     classes.header,

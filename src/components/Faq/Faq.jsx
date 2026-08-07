@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { useRef } from "react";
 import classes from "./Faq.module.css";
 import faqs from "@/settings/faqs";
@@ -12,13 +13,15 @@ export default function Faq() {
 
   const contentRef = useRef(null);
 
+  // settings/faqs.js is ids only now — every string comes from messages,
+  // so /hr/faq, /de/faq etc. render translated copy instead of English.
   const translatedFaqs = faqs.map((section) => ({
-    ...section,
+    id: section.id,
     title: tc(section.id),
-    qa: section.qa.map((item) => ({
-      ...item,
-      question: t(`${item.id}.question`),
-      answer:   t(`${item.id}.answer`),
+    qa: section.qa.map((id) => ({
+      id,
+      question: t(`${id}.question`),
+      answer:   t(`${id}.answer`),
     })),
   }));
 
@@ -34,7 +37,7 @@ export default function Faq() {
         <h1 className={classes.title}>{t("heading")}</h1>
         <p className={classes.subtitle}>
           {t("subtitle")}{" "}
-          <a href="/contact" className={classes.subtitleLink}>{t("subtitleLink")}</a>
+          <Link href="/contact" className={classes.subtitleLink}>{t("subtitleLink")}</Link>
           {t("subtitleSuffix")}
         </p>
       </div>

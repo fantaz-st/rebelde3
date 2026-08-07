@@ -31,7 +31,7 @@ export default async function AvailabilityPage() {
   ])
 
   return (
-    <main className={styles.main}>
+    <div className={styles.main}>
       <div className={styles.header}>
         {/* <p className={styles.eyebrow}>Rebelde Boats · Split</p> */}
         <h1 className={styles.heading}>Rebelde Boats -Availability</h1>
@@ -42,6 +42,6 @@ export default async function AvailabilityPage() {
         availability={availability || []}
         bookings={bookings || []}
       />
-    </main>
+    </div>
   )
 }
