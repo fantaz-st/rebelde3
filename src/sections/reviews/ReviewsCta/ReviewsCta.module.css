@@ -3,8 +3,8 @@
  */
 
 .wrap {
-  background-color: var(--bg-brown-10);
-  padding-top:    16rem;
+  background-color: #ffffff;
+  padding-top: 16rem;
   padding-bottom: 20rem;
   color: var(--brand-persian-blue);
 }

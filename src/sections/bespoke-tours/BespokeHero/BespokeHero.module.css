@@ -4,9 +4,9 @@
  */
 
 .wrap {
-  padding-top:    22rem;
+  padding-top: 22rem;
   padding-bottom: 12rem;
-  background-color: var(--bg-brown-10);
+  background-color: #ffffff;
   color: var(--brand-persian-blue);
 }
 
@@ -52,7 +52,7 @@
 
 @media (max-width: 991px) {
   .wrap {
-    padding-top:    17.4rem;
+    padding-top: 17.4rem;
     padding-bottom: 8rem;
   }
   .inner {
@@ -65,7 +65,7 @@
 
 @media (max-width: 767px) {
   .wrap {
-    padding-top:    13.4rem;
+    padding-top: 13.4rem;
     padding-bottom: 5.4rem;
   }
   .inner {

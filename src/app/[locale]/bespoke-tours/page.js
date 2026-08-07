@@ -15,7 +15,6 @@ import BespokeProcess from "@/sections/bespoke-tours/BespokeProcess/BespokeProce
 import BespokeCustom from "@/sections/bespoke-tours/BespokeCustom/BespokeCustom";
 import BespokeStarting from "@/sections/bespoke-tours/BespokeStarting/BespokeStarting";
 import BespokeFaq from "@/sections/bespoke-tours/BespokeFaq/BespokeFaq";
-import BespokeCta from "@/sections/bespoke-tours/BespokeCta/BespokeCta";
 import HashRedirect from "@/sections/bespoke-tours/HashRedirect";
 
 const BESPOKE_FAQ_IDS = [
@@ -29,7 +28,10 @@ const BESPOKE_FAQ_IDS = [
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "metadata.bespokeTours" });
+  const t = await getTranslations({
+    locale,
+    namespace: "metadata.bespokeTours",
+  });
   return pageMetadata({
     locale,
     path: "/bespoke-tours",
@@ -66,7 +68,7 @@ export default async function BespokeToursPage({ params }) {
       <BespokeCustom />
       <BespokeStarting />
       <BespokeFaq locale={locale} />
-      <BespokeCta />
+      {/* <BespokeCta /> */}
     </Messages>
   );
 }

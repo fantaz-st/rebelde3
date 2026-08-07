@@ -4,9 +4,9 @@
  */
 
 .wrap {
-  background-color: var(--bg-brown-10);
+  background-color: #ffffff;
   color: var(--brand-persian-blue);
-  padding-top:    18rem;
+  padding-top: 18rem;
   padding-bottom: 18rem;
 }
 
@@ -94,7 +94,7 @@
 /* ── Tablet ────────────────────────────────────── */
 @media (max-width: 991px) {
   .wrap {
-    padding-top:    12rem;
+    padding-top: 12rem;
     padding-bottom: 12rem;
   }
   .container {
@@ -115,7 +115,7 @@
 /* ── Mobile ────────────────────────────────────── */
 @media (max-width: 767px) {
   .wrap {
-    padding-top:    7rem;
+    padding-top: 7rem;
     padding-bottom: 7rem;
   }
   .container {

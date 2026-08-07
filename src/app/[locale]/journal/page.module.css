@@ -5,7 +5,7 @@
   flex: 1;
   display: flex;
   display: block;
-  background-color: var(--bg-brown-10);
+  background-color: #ffffff;
   color: var(--brand-persian-blue);
 }
 

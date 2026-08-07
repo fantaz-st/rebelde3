@@ -20,12 +20,12 @@
  */
 
 .wrap {
-  background-color: var(--bg-brown-10);
+  background-color: #ffffff;
   color: var(--brand-persian-blue);
 }
 
 .container {
-  padding-top:    32rem;
+  padding-top: 32rem;
   padding-bottom: 18rem;
   grid-template-rows: auto auto auto;
   grid-row-gap: 0;
@@ -246,7 +246,7 @@
 /* ── Tablet (≤ 991px) ───────────────────────────── */
 @media (max-width: 991px) {
   .container {
-    padding-top:    18rem;
+    padding-top: 18rem;
     padding-bottom: 12rem;
   }
 
@@ -258,23 +258,37 @@
     grid-column: 2 / -2;
   }
 
-  .titleWrap  { grid-row: 1; margin-bottom: 6rem; }
-  .bodyWrap   { grid-row: 2; margin-bottom: 12rem; }
-  .navWrap    { grid-row: 3; }
+  .titleWrap {
+    grid-row: 1;
+    margin-bottom: 6rem;
+  }
+  .bodyWrap {
+    grid-row: 2;
+    margin-bottom: 12rem;
+  }
+  .navWrap {
+    grid-row: 3;
+  }
 
   .heroFigure {
     margin-bottom: 6rem;
   }
 
-  .body h2 { margin-top: 6rem; }
-  .body h3 { margin-top: 4rem; }
-  .body figure { margin: 6rem 0; }
+  .body h2 {
+    margin-top: 6rem;
+  }
+  .body h3 {
+    margin-top: 4rem;
+  }
+  .body figure {
+    margin: 6rem 0;
+  }
 }
 
 /* ── Mobile (≤ 767px) ───────────────────────────── */
 @media (max-width: 767px) {
   .container {
-    padding-top:    12rem;
+    padding-top: 12rem;
     padding-bottom: 8rem;
   }
 
@@ -284,8 +298,12 @@
     grid-column: 1 / -1;
   }
 
-  .titleWrap { margin-bottom: 5rem; }
-  .bodyWrap  { margin-bottom: 8rem; }
+  .titleWrap {
+    margin-bottom: 5rem;
+  }
+  .bodyWrap {
+    margin-bottom: 8rem;
+  }
 
   .meta {
     font-size: 1.2rem;

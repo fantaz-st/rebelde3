@@ -1,7 +1,7 @@
 .wrap {
   position: relative;
   z-index: 2;
-  background-color: var(--bg-brown-10);
+  background-color: #ffffff;
   overflow: hidden;
   /* margin-top: -130vh; */
 }
@@ -34,7 +34,7 @@
   grid-area: 2 / 2 / 3 / -2;
   width: 100%;
   padding: 0 1rem;
-  height:50rem;
+  height: 50rem;
 }
 
 .slide {
@@ -65,20 +65,22 @@
   font-family: var(--font-display);
 }
 
-.platforms{
+.platforms {
   display: flex;
   flex-direction: row;
-  gap:2rem;
+  gap: 2rem;
 }
-.platform{
+.platform {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap:1rem;
-  flex:1
+  gap: 1rem;
+  flex: 1;
 }
-.platformText{ font-size: 1.75rem; color: var(--brand-persian-blue); }
-
+.platformText {
+  font-size: 1.75rem;
+  color: var(--brand-persian-blue);
+}
 
 .ctaInner {
   width: 100%;
@@ -148,7 +150,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  transition: height 0.2s ease, top 0.2s ease;
+  transition:
+    height 0.2s ease,
+    top 0.2s ease;
 }
 
 /* Thicker on hover/drag for easier grabbing */
@@ -159,5 +163,7 @@
 }
 
 @media (max-width: 767px) {
-  .scrollbar { grid-column: 1 / -1; }
+  .scrollbar {
+    grid-column: 1 / -1;
+  }
 }

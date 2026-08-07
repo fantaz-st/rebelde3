@@ -9,9 +9,9 @@
  */
 
 .wrap {
-  padding-top:    22rem;
+  padding-top: 22rem;
   padding-bottom: 12rem;
-  background-color: var(--bg-brown-10);
+  background-color: #ffffff;
   color: var(--brand-persian-blue);
 }
 
@@ -116,7 +116,9 @@
   text-decoration: none;
   transition: opacity var(--transition-fast);
 }
-.platformLink:hover { opacity: 0.7; }
+.platformLink:hover {
+  opacity: 0.7;
+}
 
 .platformRating {
   font-weight: 500;
@@ -152,8 +154,14 @@
     grid-area: auto;
     grid-column: 2 / -2;
   }
-  .titleWrap  { grid-row: 1; margin-bottom: 6rem; }
-  .statsWrap  { grid-row: 2; align-self: start; }
+  .titleWrap {
+    grid-row: 1;
+    margin-bottom: 6rem;
+  }
+  .statsWrap {
+    grid-row: 2;
+    align-self: start;
+  }
 
   .title {
     font-size: 6.4rem;

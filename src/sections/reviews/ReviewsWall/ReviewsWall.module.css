@@ -10,7 +10,7 @@
 
 .wrap {
   background-color: var(--bg-brown-20);
-  padding-top:    16rem;
+  padding-top: 16rem;
   padding-bottom: 16rem;
   color: var(--brand-persian-blue);
 }
@@ -45,7 +45,7 @@
   display: flex;
   flex-flow: column;
   gap: 1.6rem;
-  background-color: var(--bg-brown-10);
+  background-color: #ffffff;
   border-radius: 0.6rem;
   padding: 3.2rem 3rem 2.8rem;
   height: 100%;
