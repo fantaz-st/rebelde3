@@ -5,19 +5,43 @@
 
 const images = {
   top: [
-    { src: "/images/boat/felix 37 drone shot 1.jpg", type: "side", position: { left: 0 } },
-    { src: "/images/boat/boat4.jpg",                 type: "side", position: { left: "100vw" } },
-    { src: "/images/boat/felix 37 drone shot 3.jpg", type: "side", position: { left: "200vw" } },
+    { src: "/images/boat/boat-1.webp", type: "side", position: { left: 0 } },
+    {
+      src: "/images/boat/boat-2.webp",
+      type: "side",
+      position: { left: "100vw" },
+    },
+    {
+      src: "/images/boat/boat-3.webp",
+      type: "side",
+      position: { left: "200vw" },
+    },
   ],
   center: [
-    { src: "/images/boat/boat7.jpg",                  type: "side", position: { left: 0 } },
-    { src: "/images/boat/felix 37 Rebelde boats.jpg", type: "main", position: { left: "100vw" } },
-    { src: "/images/boat/boat5.jpg",                  type: "side", position: { left: "200vw" } },
+    { src: "/images/boat/boat-4.webp", type: "side", position: { left: 0 } },
+    {
+      src: "/images/boat/boat-5.webp",
+      type: "main",
+      position: { left: "100vw" },
+    },
+    {
+      src: "/images/boat/boat-6.webp",
+      type: "side",
+      position: { left: "200vw" },
+    },
   ],
   bottom: [
-    { src: "/images/boat/boat2.jpg",          type: "side", position: { left: 0 } },
-    { src: "/images/boat/felix 37 buoy1.jpg", type: "side", position: { left: "100vw" } },
-    { src: "/images/boat/boat1.jpg",          type: "side", position: { left: "200vw" } },
+    { src: "/images/boat/boat-7.webp", type: "side", position: { left: 0 } },
+    {
+      src: "/images/boat/boat-8.webp",
+      type: "side",
+      position: { left: "100vw" },
+    },
+    {
+      src: "/images/boat/boat-9.webp",
+      type: "side",
+      position: { left: "200vw" },
+    },
   ],
 };
 

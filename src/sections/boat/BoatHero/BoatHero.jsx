@@ -10,93 +10,122 @@ import classes from "./BoatHero.module.css";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const BLUE  = "#003357";
+const BLUE = "#003357";
 const WHITE = "#ffffff";
 const CREAM = "#f2ebe3";
 
 export default function BoatHero() {
   const t = useTranslations("boatHero");
 
-  const wrapRef    = useRef(null);
-  const gridRef    = useRef(null);
-  const textRef    = useRef(null);
-  const subRef     = useRef(null);
-  const thumbRef   = useRef(null);
+  const wrapRef = useRef(null);
+  const gridRef = useRef(null);
+  const textRef = useRef(null);
+  const subRef = useRef(null);
+  const thumbRef = useRef(null);
   const thumbImgRef = useRef(null);
 
   useGSAP(
     () => {
-      const wrap     = wrapRef.current;
-      const grid     = gridRef.current;
-      const text     = textRef.current;
-      const sub      = subRef.current;
-      const thumb    = thumbRef.current;
+      const wrap = wrapRef.current;
+      const grid = gridRef.current;
+      const text = textRef.current;
+      const sub = subRef.current;
+      const thumb = thumbRef.current;
       const thumbImg = thumbImgRef.current;
       if (!wrap || !grid || !text || !sub || !thumb || !thumbImg) return;
 
-      const scroller = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot") || window;
+      const scroller =
+        window.__RBD_SCROLLER__ ||
+        document.querySelector(".scrollRoot") ||
+        window;
 
       const mm = gsap.matchMedia();
 
       mm.add("(min-width: 768px)", () => {
         // Hero image parallax — desktop only
         gsap.set(thumb, { overflow: "hidden" });
-        const tlParallax = gsap.fromTo(thumbImg,
+        const tlParallax = gsap.fromTo(
+          thumbImg,
           { scale: 1.12, yPercent: -8, transformOrigin: "center" },
           {
-            scale: 1, yPercent: 6, ease: "none",
+            scale: 1,
+            yPercent: 6,
+            ease: "none",
             scrollTrigger: {
-              trigger: thumb, scroller,
-              start: "top top", end: "bottom top",
-              scrub: true, invalidateOnRefresh: true,
+              trigger: thumb,
+              scroller,
+              start: "top top",
+              end: "bottom top",
+              scrub: true,
+              invalidateOnRefresh: true,
             },
-          }
+          },
         );
 
         // Background: blue → cream as grid scrolls
-        const tlBg = gsap.fromTo(wrap,
+        const tlBg = gsap.fromTo(
+          wrap,
           { backgroundColor: BLUE },
           {
-            backgroundColor: CREAM, ease: "none",
+            backgroundColor: WHITE,
+            ease: "none",
             scrollTrigger: {
-              trigger: grid, scroller,
-              start: "top top", end: "bottom 20%",
-              scrub: true, invalidateOnRefresh: true,
+              trigger: grid,
+              scroller,
+              start: "top top",
+              end: "bottom 20%",
+              scrub: true,
+              invalidateOnRefresh: true,
             },
-          }
+          },
         );
 
         // Title + desc: white → navy
-        const tlText = gsap.fromTo(text,
+        const tlText = gsap.fromTo(
+          text,
           { color: WHITE },
           {
-            color: BLUE, ease: "none",
+            color: BLUE,
+            ease: "none",
             scrollTrigger: {
-              trigger: grid, scroller,
-              start: "top top", end: "bottom 20%",
-              scrub: true, invalidateOnRefresh: true,
+              trigger: grid,
+              scroller,
+              start: "top top",
+              end: "bottom 20%",
+              scrub: true,
+              invalidateOnRefresh: true,
             },
-          }
+          },
         );
 
         // Sub text parallax
-        const tlSub = gsap.fromTo(sub,
+        const tlSub = gsap.fromTo(
+          sub,
           { yPercent: 0, scale: 0.92, transformOrigin: "bottom center" },
           {
-            yPercent: 30, scale: 1, ease: "none",
+            yPercent: 30,
+            scale: 1,
+            ease: "none",
             scrollTrigger: {
-              trigger: sub, scroller,
-              start: "top bottom", end: "bottom top",
-              scrub: true, invalidateOnRefresh: true,
+              trigger: sub,
+              scroller,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+              invalidateOnRefresh: true,
             },
-          }
+          },
         );
 
         return () => {
-          tlParallax.scrollTrigger?.kill(); tlParallax.kill();
-          tlBg.scrollTrigger?.kill();       tlBg.kill();
-          tlText.scrollTrigger?.kill();     tlText.kill();
-          tlSub.scrollTrigger?.kill();      tlSub.kill();
+          tlParallax.scrollTrigger?.kill();
+          tlParallax.kill();
+          tlBg.scrollTrigger?.kill();
+          tlBg.kill();
+          tlText.scrollTrigger?.kill();
+          tlText.kill();
+          tlSub.scrollTrigger?.kill();
+          tlSub.kill();
         };
       });
 
@@ -118,7 +147,6 @@ export default function BoatHero() {
       aria-label="The Boat — Felix 37 Buenaventura"
     >
       <div ref={gridRef} className={`container grid ${classes.grid}`}>
-
         {/* Image: cols 3–10 */}
         <div ref={thumbRef} className={classes.thumb}>
           <div className={classes.thumbInner}>
@@ -140,7 +168,6 @@ export default function BoatHero() {
           <h1 className={classes.title}>{t("title")}</h1>
           <p className={classes.desc}>{t("desc")}</p>
         </div>
-
       </div>
 
       {/* Sub text — always navy, gets parallax on desktop */}
