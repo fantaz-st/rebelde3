@@ -16,9 +16,9 @@ export default function AdminLoginPage() {
     setError(null)
 
     const supabase = createBrowserClient()
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
+    const { error: signInError } = await supabase.auth.signInWithPassword({ email, password })
 
-    if (error) {
+    if (signInError) {
       setError('Invalid email or password.')
       setLoading(false)
       return

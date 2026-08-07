@@ -18,7 +18,9 @@ export default function Testimonials() {
     <section className={classes.wrap} aria-labelledby="tours-heading">
       <div className={`grid ${classes.container}`}>
         <header className={classes.text}>
-          <h2 id="tours-heading" className={classes.title}>{t("heading")}</h2>
+          <h2 id="tours-heading" className={classes.title}>
+            {t("heading")}
+          </h2>
           <div className={classes.platforms}>
             <div className={classes.platform}>
               <span className={classes.platformText}>{tc("ratedOn")}</span>
@@ -41,7 +43,11 @@ export default function Testimonials() {
           scrollbar={{ draggable: true, el: `.${classes.scrollbar}` }}
           a11y={{ enabled: true }}
         >
-          <SwiperSlide key="null-tour-slide" className={classes.nullSlide} aria-hidden="true">
+          <SwiperSlide
+            key="null-tour-slide"
+            className={classes.nullSlide}
+            aria-hidden="true"
+          >
             <div className={classes.inner}>
               <p className={classes.swipeHint}>Swipe to read reviews →</p>
             </div>
@@ -62,10 +68,15 @@ export default function Testimonials() {
         {/* Scrollbar renders outside swiper so it's not clipped */}
         <div className={classes.scrollbar} />
       </div>
-<div className={classes.ctaInner}>
-                <Button href="https://www.tripadvisor.com/Attraction_Review-g295370-d28042808-Reviews-Rebelde_boats_Private_Boat_Tours_from_Split-Split_Split_Dalmatia_County_Dalmatia.html" variant="white" size="lg">Read all reviews</Button>
-                </div>
-      
+      <div className={classes.ctaInner}>
+        <Button
+          href="https://www.tripadvisor.com/Attraction_Review-g295370-d28042808-Reviews-Rebelde_boats_Private_Boat_Tours_from_Split-Split_Split_Dalmatia_County_Dalmatia.html"
+          variant="primary"
+          size="lg"
+        >
+          Read all reviews
+        </Button>
+      </div>
     </section>
   );
 }

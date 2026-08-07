@@ -4,9 +4,6 @@
   width: 100%;
   background-color: var(--brand-persian-blue);
   padding: 18rem 0 10rem;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
 }
 
 .bg {

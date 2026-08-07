@@ -17,7 +17,7 @@ import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
  * every route layout had to pass — the reason ten near-identical layouts
  * existed. The prop still works as an override.
  */
-const WHITE_HEADER_ROUTES = ["/", "/contact"];
+const WHITE_HEADER_ROUTES = ["/", "/the-boat", "/contact"];
 
 export default function Header({ variant }) {
   const t = useTranslations("nav");

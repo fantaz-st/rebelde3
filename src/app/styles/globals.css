@@ -66,6 +66,26 @@ body {
   font-family: var(--font-display);
 }
 
+/*
+ * Screen-reader-only text. Kept for headings a page needs semantically but
+ * not visually — the contact page H1, for one.
+ *
+ * This class went missing during the typography rewrite and the contact H1
+ * rendered at full size as a flex sibling of the form, which is what pushed
+ * the card off-centre.
+ */
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .scrollRoot {
   height: 100svh;
   overflow-y: auto;

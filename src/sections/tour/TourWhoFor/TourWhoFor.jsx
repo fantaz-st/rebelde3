@@ -22,8 +22,8 @@ export default function TourWhoFor({ tour }) {
 
           {w.tags && w.tags.length > 0 && (
             <ul className={classes.tags}>
-              {w.tags.map((t) => (
-                <li key={t} className={classes.tag}>{t}</li>
+              {w.tags.map((tag) => (
+                <li key={tag} className={classes.tag}>{tag}</li>
               ))}
             </ul>
           )}
