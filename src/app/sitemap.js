@@ -12,11 +12,14 @@ import { SITE_URL, LOCALES } from "@/lib/schema";
 const LAST_MOD = new Date();
 const PREFIXED = LOCALES.filter((l) => l !== "en");
 
-/** Fixed pages. `/reviews` and `/tours` were both missing before. */
+/**
+ * Fixed pages. Tour detail pages are generated from settings/tours.js below,
+ * so the bespoke charter is included automatically as /tours/bespoke-tour —
+ * it no longer has a page of its own.
+ */
 const pages = [
   { path: "", priority: 1, freq: "monthly" },
   { path: "/tours", priority: 0.95, freq: "monthly" },
-  { path: "/bespoke-tours", priority: 0.9, freq: "monthly" },
   { path: "/the-boat", priority: 0.8, freq: "yearly" },
   { path: "/journal", priority: 0.8, freq: "monthly" },
   { path: "/reviews", priority: 0.8, freq: "weekly" },

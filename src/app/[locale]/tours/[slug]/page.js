@@ -70,7 +70,7 @@ export default async function TourDetailPage({ params }) {
       <JsonLd
         data={breadcrumb(
           [
-            { name: tNav("tours"), url: "/tours" },
+            { name: tNav("toursIndex"), url: "/tours" },
             { name: view.label, url: `/tours/${slug}` },
           ],
           locale,

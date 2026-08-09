@@ -13,7 +13,7 @@ import classes from "./TourSlider.module.css";
 /**
  * The one way tours get listed anywhere on the site.
  *
- * Home, /tours, /bespoke-tours and the "other days you might like" block on
+ * Home, /tours and the "other days you might like" block on
  * tour detail pages all render this — same Swiper, same TourCard. Each call
  * site passes its own copy and picks a background tone; nothing else varies.
  *

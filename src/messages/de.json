@@ -2,7 +2,6 @@
   "nav": {
     "home": "Startseite",
     "theBoat": "Das Boot",
-    "tours": "Maßgeschneiderte Touren",
     "journal": "Journal",
     "faq": "FAQ",
     "checkAvailability": "Verfügbarkeit prüfen",
@@ -41,10 +40,6 @@
       "title": "Bewertungen — Was Gäste über unsere privaten Bootstouren sagen",
       "description": "Lesen Sie Gästebewertungen zu Rebelde Boats privaten Bootstouren ab Split, Kroatien — 220+ 5-Sterne-Bewertungen auf TripAdvisor, Google und GetYourGuide."
     },
-    "bespokeTours": {
-      "title": "Die Rebelde-Art — Wie wir einen Tag auf See gestalten",
-      "description": "So organisieren wir private Bootstouren ab Split — ein Boot, eine Gruppe pro Tag, Routen ganz nach Ihnen. Direkt mit den Eigentümern, ohne Agenturen."
-    },
     "tour": {
       "title": "{label} — private Bootstour ab Split",
       "description": "{intro} Privatcharter für bis zu 12 Gäste an Bord unseres Felix 37 Speedboots."
@@ -57,7 +52,6 @@
     "whatsappLabel": "Chatten Sie mit uns auf WhatsApp",
     "emailLabel": "Kontakt aufnehmen",
     "theBoat": "Das Boot",
-    "bespokeToursLink": "Maßgeschneiderte Touren",
     "faqLink": "FAQ",
     "contactLink": "Kontakt",
     "credit": "Design & Entwicklung",
@@ -66,13 +60,13 @@
     "toursLink": "Unsere Touren"
   },
   "hero": {
-    "title": "Private Bootstouren ab Split",
-    "subtitle": "Entdecken Sie die Adria durch maßgeschneiderte private Erlebnisse.",
-    "ariaLabel": "Hero — Private Bootstouren ab Split"
+    "title": "Das Boot gehört uns. Der Tag Ihnen.",
+    "subtitle": "Private Touren ab Split, geführt von der Familie, der das Boot gehört. Eine Gruppe pro Tag — Ihre.",
+    "ariaLabel": "Private Bootstouren ab Split, Kroatien"
   },
   "gallery": {
-    "slide1": "Wir gestalten Erlebnisse, bei denen das Meer ein Begleiter ist, kein Ziel.",
-    "slide2": "Jede Reise ist persönlich. Jede Welle, eine neue Erinnerung.",
+    "slide1": "Wir schicken Sie nicht mit einem Skipper los. Wir kommen mit.",
+    "slide2": "Die Bucht vor dem Andrang. Der Schatten zur richtigen Stunde. Die Kleinigkeiten sind das Ganze.",
     "alt": {
       "g1": "Guests swimming in the crystal-clear Blue Lagoon near Split, Croatia",
       "g2": "Rebelde Boats Felix 37 Buenaventura anchored in a secluded Adriatic cove",
@@ -82,9 +76,9 @@
     }
   },
   "tours": {
-    "heading": "Maßgeschneiderte Reisen. Insel für Insel.",
-    "desc": "Kein Tag auf der Adria sollte je gleich sein. Wählen Sie Ihren Weg — versteckte Buchten, sonnige Häfen, geheime Strände. Jede Reise gestalten wir um Sie, Ihr Tempo, Ihren Geist.",
-    "swipeHint": "Wischen zum Erkunden →"
+    "heading": "Vier Tage, die wir auswendig kennen — und einer, den wir noch nicht kennen",
+    "desc": "Vier sind Routen, die wir am häufigsten fahren, verfeinert über Hunderte Tage auf dem Wasser: wann man ablegt, damit die Grotte leuchtet, welche Bucht sich bis zwei Uhr leert, wo sich der Umweg zum Mittagessen lohnt. Der fünfte ist leer — Ihr Tag, von Grund auf gebaut.",
+    "swipeHint": "Wischen zum Entdecken →"
   },
   "toursIndex": {
     "title": "Private Adria-Erlebnisse",
@@ -516,13 +510,118 @@
           "body": "Swimsuit, towel, sun cream, sunglasses, a light layer for the ride home. Everything else is on the boat."
         }
       ]
+    },
+    "bespoke-tour": {
+      "label": "Gestalten Sie Ihren eigenen Tag",
+      "kicker": "Ganzer Tag, ganz Ihrer",
+      "pin": "Überall hin, wohin das Boot an einem Tag kommt",
+      "thumbAlt": "Buenaventura allein vor Anker in einer stillen Adriabucht im goldenen Licht",
+      "intro": "Keine feste Route. Sie sagen uns, was für einen Tag Sie möchten, und wir bauen ihn um Wind, Licht und die Orte ohne Andrang.",
+      "ctaText": "Manche Gäste wissen genau, wohin sie wollen. Die meisten nicht, und das ist gut so — der Tag wird meist besser, wenn wir davon ausgehen, wie Sie sich fühlen möchten, statt von einer Liste von Orten. Sagen Sie uns, wer mitkommt, wie viel Zeit Sie haben und ob Sie lieber schwimmen, essen, erkunden oder sehr wenig tun möchten. Wir melden uns mit einem Entwurf für den Tag, passen ihn an, bis er stimmt, und passen ihn auf dem Wasser noch einmal an, wenn das Meer andere Pläne hat.",
+      "durationLabel": "So lange der Tag es zulässt",
+      "capacityLabel": "Bis zu 12 Gäste",
+      "priceLabel": "Ab 800 €",
+      "gallery": [
+        "Das Boot für Sie allein — kein Zeitplan, keine wartende Gruppe",
+        "Wir ankern, wo Platz ist, nicht wo der Plan es vorschreibt",
+        "Lange Mittagessen gibt es, wenn niemand die Stunden zählt",
+        "Badestopps, die so lange dauern, wie Sie möchten",
+        "Spätes Licht auf dem Rückweg, weil wir es nicht eilig hatten",
+        "Stille Buchten, die es auf keine Standardroute schaffen"
+      ],
+      "overview": [
+        "Das ist weniger eine Tour als ein leerer Tag mit einem Boot und zwei Menschen, die diese Küste kennen. Passend für Gäste, die schon einmal in Dalmatien waren, für Gruppen mit einem besonderen Anlass und für alle, denen ein fertiger Ablaufplan zuwider ist.",
+        "Wir planen ihn gemeinsam per Nachricht, bevor Sie ankommen. Am Tag selbst passen wir laufend an — bleiben länger, wo es Ihnen gefällt, lassen weg, was nicht ankommt, ändern den ganzen Plan, wenn der Wind dreht. Diese Flexibilität ist der Grund, warum wir nur eine Gruppe pro Tag nehmen."
+      ],
+      "keyFacts": [
+        {
+          "label": "Dauer",
+          "value": "Sie bestimmen — meist 8–10 Stunden"
+        },
+        {
+          "label": "Abfahrt",
+          "value": "Ort und Zeit mit Ihnen abgestimmt"
+        },
+        {
+          "label": "Gruppengröße",
+          "value": "Bis zu 12 Gäste"
+        },
+        {
+          "label": "Preis",
+          "value": "Ab 800 €, je nach Route und Stundenzahl"
+        }
+      ],
+      "itinerary": [
+        {
+          "title": "Wir sprechen, bevor Sie anreisen",
+          "description": "Meist ein paar Nachrichten. Wer mitkommt, was Sie schon gesehen haben, ob es ein Anlass ist, wie Sie längere Überfahrten vertragen. Keine Formulare."
+        },
+        {
+          "title": "Wir schlagen einen Entwurf vor",
+          "description": "Keinen Fahrplan — einen groben Bogen für den Tag mit zwei, drei Ankerpunkten und Luft dazwischen. Sie sagen uns, was zu ändern ist."
+        },
+        {
+          "title": "Der Morgen entscheidet die Details",
+          "description": "Wir prüfen Wind und Vorhersage am Vorabend und noch einmal beim Frühstück. Manchmal hält der Plan. Manchmal tauschen wir eine Insel und der Tag wird dadurch besser."
+        },
+        {
+          "title": "Der Tag bewegt sich mit Ihnen",
+          "description": "Länger schwimmen, früher essen, eine Bucht mehr, vor Sonnenuntergang zurück — alles an Bord entschieden, von Ihnen, ohne dass jemand auf uns wartet."
+        }
+      ],
+      "included": [
+        "Privatcharter der Buenaventura (Felix 37 Speedboot)",
+        "Treibstoff und Hafengebühren",
+        "Lizenzierter Skipper — jedes Mal einer von uns",
+        "Routenplanung vor und während des Tages",
+        "Frische Handtücher und Kühlbox mit Wasser und Softdrinks",
+        "Schnorchelausrüstung",
+        "Bluetooth-Soundsystem",
+        "MwSt."
+      ],
+      "notIncluded": [
+        "Mittagessen (wir reservieren vorab, wo immer Sie essen möchten)",
+        "Nationalpark-Eintritt, falls Ihre Route einen enthält",
+        "Alkoholische Getränke (selbst mitbringen oder wir besorgen sie vorab)",
+        "Trinkgeld (freiwillig)"
+      ],
+      "whoItsFor": {
+        "paragraph": "Am besten für Wiederkehrer, Gruppen mit einem Anlass und alle, die sich an festen Zeitplänen stören. Wenn Sie zum ersten Mal an dieser Küste sind und nicht alles selbst entscheiden möchten, ist eine unserer vier festen Routen der einfachere Einstieg — und auch die biegen wir dorthin, wo Sie möchten.",
+        "tags": [
+          "Wiederkehrer",
+          "Besondere Anlässe",
+          "Kein fester Plan"
+        ],
+        "compareLink": {
+          "slug": "blue-lagoon-three-islands",
+          "label": "Blaue Lagune & Drei Inseln"
+        }
+      },
+      "logistics": [
+        {
+          "title": "Treffpunkt",
+          "body": "Mit Ihnen abgestimmt — Promenade von Split, Marina Zenta, Trogir oder Ihr Hotel, wenn es am Wasser liegt."
+        },
+        {
+          "title": "Wetterregelung",
+          "body": "Sind die Bedingungen unsicher, bieten wir einen neuen Termin oder volle Erstattung an, entschieden am Vorabend. Häufiger ändern wir einfach die Route und fahren trotzdem."
+        },
+        {
+          "title": "Was mitbringen",
+          "body": "Badesachen, Handtuch, Sonnencreme, Sonnenbrille, etwas Leichtes für die Rückfahrt. Alles andere ist an Bord."
+        },
+        {
+          "title": "Wie früh anfragen",
+          "body": "Schreiben Sie jederzeit — im Juli und August aber lieber früher. Selbst wenige Tage vorher kann der Termin noch frei sein."
+        }
+      ]
     }
   },
   "boat": {
-    "title": "Felix 37 Buenaventura — Für gutes Leben gebaut.",
-    "desc": "Komfort, in den Sie versinken können. Leistung, die Sie weiter trägt. Raum für gemeinsames Lachen, spontane Tauchgänge und lange, gemütliche Mittagessen in der Sonne. Buenaventura ist nicht nur ein Boot — es ist Ihr schwimmendes Refugium.",
-    "cta": "Das Boot erkunden",
-    "ariaLabel": "Felix 37 Buenaventura — unser privates Charterboot"
+    "title": "Buenaventura — unser einziges Boot",
+    "desc": "Eine Felix 37. Zwölf Gäste, fünfhundert PS und ein Eigner, der sie selbst wartet. Deshalb ist der Kühlschrank kalt, bevor Sie an Bord kommen, deshalb passen die Masken wirklich und deshalb sind die Handtücher trocken. Sie buchen Buenaventura und Sie bekommen Buenaventura — und falls Ihre Gruppe ein zweites Boot braucht, setzen wir Sie nur auf eines, das wir selbst gern fahren würden.",
+    "cta": "Das Boot entdecken",
+    "ariaLabel": "Buenaventura, unser Felix 37 Speedboot"
   },
   "boatHero": {
     "title": "Das Boot",
@@ -586,36 +685,36 @@
   },
   "team": {
     "t1": {
-      "title": "Eine Familienangelegenheit",
+      "title": "Sie treffen uns, keinen Dienstplan",
       "desc": [
-        "Was als Leidenschaft für das Meer begann, wurde zu einer Möglichkeit, die Adria mit anderen zu teilen.",
-        "Wir sind ein lokales familiengeführtes Team, das glaubt, dass die besten Momente auf dem Wasser weder gehetzt noch geplant sind."
+        "Wer Ihre erste Nachricht beantwortet, reicht Ihnen am Ende des Tages das Handtuch. Es gibt keine Disposition und keine wechselnde Crew.",
+        "Wir nehmen eine Gruppe pro Tag. Das heißt: An Bord haben Sie unsere volle Aufmerksamkeit, und wenn mittendrin etwas geändert werden muss, müssen wir niemanden fragen."
       ],
       "alt": "The Rebelde Boats family crew welcoming guests aboard in Split harbour",
       "alt2": "Rebelde crew and guests sharing a moment on deck between islands"
     },
     "t2": {
-      "title": "Eine erfahrene Crew",
+      "title": "Wir wissen, wo die Küste still wird",
       "desc": [
-        "Jahre auf der kroatischen Küste haben uns gelehrt, wo die Adria wirklich zum Leben erwacht — versteckte Buchten, stille Ankerplätze, authentische Küstenstädte.",
-        "Von reibungslosem Fahren bis hin zu lokalen Empfehlungen kümmern wir uns um jedes Detail."
+        "Jahre auf diesem Wasser haben uns mehr über Timing als über Geografie beigebracht. Welche Bucht um elf leer und um eins voll ist. Welche Inselseite man nimmt, wenn der Maestral auffrischt. Welche Konoba den Fisch noch auf die alte Art zubereitet.",
+        "Sie müssen nichts davon planen. Sagen Sie uns, was für einen Tag Sie sich wünschen, und wir bauen ihn um Wind, Licht und Andrang herum."
       ],
       "alt": "Rebelde Boats skipper at the helm navigating the Adriatic between Hvar and Vis"
     },
     "t3": {
-      "title": "Personalisierte Reiserouten für jede Reise",
+      "title": "Aufmerksamkeit ist die ganze Leistung",
       "desc": [
-        "Keine festen Zeitpläne. Keine vollen Gruppentouren.",
-        "Jedes Erlebnis wird auf Ihr Tempo und Ihre Interessen zugeschnitten.",
-        "Das Meer folgt keinen strengen Plänen, und wir auch nicht."
+        "Kein fester Zeitplan. Keine Gruppentour. Keine Warteschlange hinter Ihnen.",
+        "Wir merken Dinge. Dass Sie lieber schwimmen als laufen. Dass jemandem der Seegang zusetzt. Dass die Kinder genug Sonne hatten. Also verschiebt sich der Tag — wir bleiben länger, wo es Ihnen gefällt, und lassen still weg, was nicht ankommt.",
+        "Das Meer hält sich an keinen Plan, wir auch nicht."
       ],
       "alt": "Rebelde guests on a personalised private tour along the Dalmatian coast at sunset"
     }
   },
   "testimonials": {
-    "heading": "Was unsere Gäste sagen",
-    "readMore": "Mehr auf TripAdvisor lesen",
-    "badgeNote": "200+ zufriedene Gäste",
+    "heading": "Zweihundert Tage, zweihundert Geschichten",
+    "readMore": "Auf TripAdvisor nachlesen",
+    "badgeNote": "200+ Fünf-Sterne-Bewertungen",
     "swipeHint": "Wischen zum Lesen →"
   },
   "facts": {
@@ -930,10 +1029,5 @@
   },
   "booking": {
     "checkAvailability": "Verfügbarkeit prüfen"
-  },
-  "bespokeStarting": {
-    "eyebrow": "Wo unsere Gäste meistens starten",
-    "heading": "Vier Ausgangspunkte",
-    "lede": "Die meisten unserer Gäste starten mit einer dieser vier Routen und formen sie von dort aus um. Verstehen Sie sie als Vorlagen, nicht als Menü — am Ende sieht jeder Tag ein wenig anders aus."
   }
 }

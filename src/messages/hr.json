@@ -2,7 +2,6 @@
   "nav": {
     "home": "Početna",
     "theBoat": "Brod",
-    "tours": "Izleti po mjeri",
     "journal": "Journal",
     "checkAvailability": "Provjerite dostupnost",
     "faq": "Često pitanja",
@@ -41,10 +40,6 @@
       "title": "Recenzije — Što gosti kažu o našim privatnim izletima brodom",
       "description": "Pročitajte recenzije gostiju o Rebelde Boats privatnim izletima brodom iz Splita — 220+ pet zvjezdica recenzija na TripAdvisoru, Googleu i GetYourGuideu."
     },
-    "bespokeTours": {
-      "title": "Rebelde pristup — Kako oblikujemo dan na moru",
-      "description": "Kako organiziramo privatne izlete brodom iz Splita — jedan brod, jedna grupa dnevno, rute prilagođene vama. Direktno s vlasnicima, bez agencija."
-    },
     "tour": {
       "title": "{label} — privatni brodski izlet iz Splita",
       "description": "{intro} Privatni najam za do 12 gostiju na našem glisseru Felix 37."
@@ -57,7 +52,6 @@
     "whatsappLabel": "Razgovarajte s nama na WhatsAppu",
     "emailLabel": "Stupite u kontakt",
     "theBoat": "Brod",
-    "bespokeToursLink": "Izleti po mjeri",
     "faqLink": "Često pitanja",
     "contactLink": "Kontakt",
     "credit": "dizajn i razvoj",
@@ -66,13 +60,13 @@
     "toursLink": "Naši izleti"
   },
   "hero": {
-    "title": "Privatni izleti brodom iz Splita",
-    "subtitle": "Otkrijte Jadran kroz privatna iskustva prilagođena vama.",
-    "ariaLabel": "Hero — Privatni izleti brodom iz Splita"
+    "title": "Brod je naš. Kao i dan.",
+    "subtitle": "Privatni izleti iz Splita, u vlasništvu i vođenju obitelji koja upravlja brodom. Jedna grupa dnevno — vaša.",
+    "ariaLabel": "Privatni brodski izleti iz Splita, Hrvatska"
   },
   "gallery": {
-    "slide1": "Stvaramo iskustva gdje je more suputnik, a ne odredište.",
-    "slide2": "Svako putovanje je osobno. Svaki val, nova uspomena.",
+    "slide1": "Ne šaljemo vas sa skiperom. Idemo s vama.",
+    "slide2": "Uvala prije gužve. Hlad u pravi sat. Sitnice su zapravo sve.",
     "alt": {
       "g1": "Guests swimming in the crystal-clear Blue Lagoon near Split, Croatia",
       "g2": "Rebelde Boats Felix 37 Buenaventura anchored in a secluded Adriatic cove",
@@ -82,9 +76,9 @@
     }
   },
   "tours": {
-    "heading": "Putovanja po mjeri. Otok po otok.",
-    "desc": "Nijedno dva dana na Jadranu ne bi smjela biti ista. Odaberite svoj put — skrivene uvale, osunčane luke, tajne plaže. Svako putovanje osmišljavamo oko vas, vašeg tempa, vašeg duha.",
-    "swipeHint": "Prijeđite prstom za istraživanje →"
+    "heading": "Četiri dana koja znamo napamet — i jedan koji još ne znamo",
+    "desc": "Četiri su rute koje plovimo najčešće, dotjerane kroz stotine dana na moru: kad krenuti da špilja bude osvijetljena, koja se uvala isprazni do dva, gdje se ručak isplati zaobići. Peti je prazan — vaš dan, složen ispočetka.",
+    "swipeHint": "Povucite za više →"
   },
   "toursIndex": {
     "title": "Privatna jadranska iskustva",
@@ -516,13 +510,118 @@
           "body": "Swimsuit, towel, sun cream, sunglasses, a light layer for the ride home. Everything else is on the boat."
         }
       ]
+    },
+    "bespoke-tour": {
+      "label": "Osmislite svoj dan",
+      "kicker": "Cijeli dan, potpuno vaš",
+      "pin": "Bilo gdje kamo brod stigne u jednom danu",
+      "thumbAlt": "Buenaventura usidrena sama u tihoj jadranskoj uvali u zlatnom satu",
+      "intro": "Bez zadane rute. Vi nam kažete kakav dan želite, a mi ga slažemo oko vjetra, svjetla i onoga gdje nema gužve.",
+      "ctaText": "Neki gosti točno znaju kamo žele. Većina ne zna, i to je sasvim u redu — dan obično ispadne bolji kad krenemo od toga kako se želite osjećati, a ne od popisa mjesta. Recite nam tko dolazi, koliko imate vremena i biste li radije plivali, jeli, istraživali ili radili vrlo malo. Vratit ćemo se s okvirom dana, dotjerati ga dok ne bude kako treba, a onda ga ponovno dotjerati na moru ako more ima druge planove.",
+      "durationLabel": "Onoliko koliko dan dopusti",
+      "capacityLabel": "Do 12 gostiju",
+      "priceLabel": "Od 800 €",
+      "gallery": [
+        "Brod samo za vas — bez rasporeda i bez grupe koja čeka",
+        "Sidrimo ondje gdje ima mjesta, a ne gdje piše u planu",
+        "Dugi ručkovi događaju se kad nitko ne broji sate",
+        "Kupanja koja traju onoliko koliko vi želite",
+        "Kasno svjetlo na povratku, jer nam se nije žurilo",
+        "Tihe uvale koje ne dolaze na standardne rute"
+      ],
+      "overview": [
+        "Ovo i nije toliko izlet koliko prazan dan s brodom i dvoje ljudi koji poznaju obalu. Odgovara gostima koji su već bili u Dalmaciji, grupama s posebnom prigodom i svima koji ne žele da im se uruči gotov itinerar.",
+        "Planiramo ga zajedno, porukama, prije nego što stignete. Na sam dan stalno prilagođavamo — ostajemo dulje ondje gdje vam je lijepo, preskačemo ono što ne sjeda, mijenjamo cijeli plan ako se okrene vjetar. Ta fleksibilnost je razlog zašto vozimo samo jednu grupu dnevno."
+      ],
+      "keyFacts": [
+        {
+          "label": "Trajanje",
+          "value": "Vi određujete — većina dana traje 8–10 sati"
+        },
+        {
+          "label": "Polazak",
+          "value": "Mjesto i vrijeme dogovaramo s vama"
+        },
+        {
+          "label": "Veličina grupe",
+          "value": "Do 12 gostiju"
+        },
+        {
+          "label": "Cijena",
+          "value": "Od 800 €, ovisno o ruti i broju sati"
+        }
+      ],
+      "itinerary": [
+        {
+          "title": "Razgovaramo prije vašeg dolaska",
+          "description": "Obično nekoliko poruka. Tko dolazi, što ste već vidjeli, je li ovo proslava, kako podnosite duže plovidbe. Bez obrazaca."
+        },
+        {
+          "title": "Predlažemo okvir",
+          "description": "Ne raspored — grubi luk dana s dvije ili tri točke oslonca i prostorom između. Vi nam kažete što promijeniti."
+        },
+        {
+          "title": "Jutro odlučuje detalje",
+          "description": "Provjeravamo vjetar i prognozu večer prije i opet uz doručak. Katkad plan ostaje. Katkad zamijenimo otok i dan zbog toga ispadne bolji."
+        },
+        {
+          "title": "Dan se pomiče s vama",
+          "description": "Dulje kupanje, raniji ručak, još jedna uvala, povratak prije zalaska — sve se odlučuje na brodu, i to vi, bez ikoga tko nas čeka."
+        }
+      ],
+      "included": [
+        "Privatni najam Buenaventure (glisser Felix 37)",
+        "Gorivo i lučke pristojbe",
+        "Licencirani skiper — svaki put netko od nas",
+        "Planiranje rute prije i tijekom dana",
+        "Svježi ručnici i rashladna torba s vodom i sokovima",
+        "Oprema za ronjenje na dah",
+        "Bluetooth zvučni sustav",
+        "PDV"
+      ],
+      "notIncluded": [
+        "Ručak (rezervirat ćemo unaprijed gdje god poželite jesti)",
+        "Ulaznice za nacionalni park, ako ih ruta uključuje",
+        "Alkoholna pića (ponesite svoja ili ih nabavljamo prije polaska)",
+        "Napojnice (nisu obavezne)"
+      ],
+      "whoItsFor": {
+        "paragraph": "Najbolje za goste koji se vraćaju, grupe koje nešto slave i sve koje smeta fiksni raspored. Ako ste prvi put na ovoj obali i ne biste radije sve odlučivali sami, jedna od naše četiri zadane rute lakše je polazište — a i nju ćemo prilagoditi gdje god želite.",
+        "tags": [
+          "Povratnici",
+          "Posebne prigode",
+          "Bez zadanog plana"
+        ],
+        "compareLink": {
+          "slug": "blue-lagoon-three-islands",
+          "label": "Plava laguna i tri otoka"
+        }
+      },
+      "logistics": [
+        {
+          "title": "Mjesto sastanka",
+          "body": "Dogovaramo s vama — splitska riva, marina Zenta, Trogir ili vaš hotel ako je uz more."
+        },
+        {
+          "title": "Politika vremenskih uvjeta",
+          "body": "Ako uvjeti nisu sigurni, nudimo novi termin ili puni povrat, a odluku donosimo večer prije. Češće jednostavno promijenimo rutu i svejedno idemo."
+        },
+        {
+          "title": "Što ponijeti",
+          "body": "Kupaći, ručnik, kremu za sunčanje, sunčane naočale i nešto lagano za povratak. Sve ostalo je na brodu."
+        },
+        {
+          "title": "Koliko unaprijed pitati",
+          "body": "Pišite kad god — ali u srpnju i kolovozu bolje ranije. Čak i nekoliko dana prije, datum bi mogao biti slobodan."
+        }
+      ]
     }
   },
   "boat": {
-    "title": "Felix 37 Buenaventura — Stvoren za ugodno življenje.",
-    "desc": "Udobnost u kojoj možete utonuti. Performanse koje vas nose dalje. Prostor stvoren za zajednički smijeh, spontane skokove u more i duga, lijena ručanja na suncu. Buenaventura nije samo brod — to je vaše plutajuće utočište.",
-    "cta": "Istražite brod",
-    "ariaLabel": "Felix 37 Buenaventura — naš privatni charter brod"
+    "title": "Buenaventura — jedini brod koji imamo",
+    "desc": "Felix 37. Dvanaest gostiju, petsto konja i vlasnik koji ga sam održava. Zato je hladnjak hladan prije nego kročite na palubu, maske stvarno pristaju, a ručnici su suhi. Rezervirate Buenaventuru i dobivate Buenaventuru — a ako vaša grupa treba još jedan brod, stavit ćemo vas samo na onaj koji bismo i sami rado vozili.",
+    "cta": "Pogledajte brod",
+    "ariaLabel": "Buenaventura, naš glisser Felix 37"
   },
   "boatHero": {
     "title": "Brod",
@@ -586,36 +685,36 @@
   },
   "team": {
     "t1": {
-      "title": "Obiteljska priča",
+      "title": "Upoznat ćete nas, a ne raspored",
       "desc": [
-        "Ono što je počelo kao strast prema moru postalo je način dijeljenja Jadrana s drugima.",
-        "Mi smo lokalni obiteljski tim koji vjeruje da najbolji trenuci na vodi nisu žurni ni scripted. Svaki gost dobiva osoban doček, svaka ruta se pažljivo planira, a svaki izlet tretira se kao jedinstveno iskustvo, a ne samo rezervacija."
+        "Osoba koja odgovori na vašu prvu poruku ista je ona koja vam na kraju dana pruži ručnik. Nema dispečera ni posade koja se izmjenjuje.",
+        "Vozimo jednu grupu dnevno. To znači da dok ste na brodu imate svu našu pažnju, a kad nešto usred dana treba promijeniti, nemamo koga pitati."
       ],
       "alt": "The Rebelde Boats family crew welcoming guests aboard in Split harbour",
       "alt2": "Rebelde crew and guests sharing a moment on deck between islands"
     },
     "t2": {
-      "title": "Iskusna posada",
+      "title": "Naučili smo gdje obala utihne",
       "desc": [
-        "Godine provedene u plovidbi hrvatskom obalom naučile su nas gdje Jadran uistinu oživi — skrivene uvale, tiha sidrišta, autentični primorski gradovi i kristalno čiste uvale daleko od gužve.",
-        "Od ugodne plovidbe do lokalnih preporuka, brinemo o svakom detalju kako biste se jednostavno mogli opustiti i uživati u putovanju."
+        "Godine na ovom moru naučile su nas više o vremenu nego o geografiji. Koja je uvala prazna u jedanaest, a puna do jedan. Kojom stranom otoka ploviti kad se digne maestral. Koja konoba još sprema ribu na stari način.",
+        "Ne morate ništa planirati. Recite nam kakav dan želite i složit ćemo ga oko vjetra, svjetla i gužve."
       ],
       "alt": "Rebelde Boats skipper at the helm navigating the Adriatic between Hvar and Vis"
     },
     "t3": {
-      "title": "Personalizirani itinerari za svako putovanje",
+      "title": "Pažnja je cijela usluga",
       "desc": [
-        "Bez fiksnih rasporeda. Bez grupnih tura s gužvom.",
-        "Svako iskustvo prilagođeno je vašem tempu i interesima — bilo da želite skrivena mjesta za plivanje, žive otočke gradove, krstarenje u zalazak sunca, ronjenje, beach barove ili cijeli dan istraživanja skrivenih kutaka Jadrana.",
-        "More ne slijedi stroge planove, a ni mi ne."
+        "Bez fiksnog rasporeda. Bez grupnih izleta. Bez reda koji čeka iza vas.",
+        "Primjećujemo stvari. Da biste radije plivali nego hodali. Da netko od vas teže podnosi valove. Da su djeca dosta bila na suncu. Zato se dan pomiče — ostajemo dulje ondje gdje vam je lijepo i tiho izbacimo ono što ne sjeda.",
+        "More se ne drži plana, pa ni mi."
       ],
       "alt": "Rebelde guests on a personalised private tour along the Dalmatian coast at sunset"
     }
   },
   "testimonials": {
-    "heading": "Što kažu naši gosti",
-    "readMore": "Pročitajte više na TripAdvisoru",
-    "badgeNote": "200+ zadovoljnih gostiju",
+    "heading": "Dvjesto dana, dvjesto priča",
+    "readMore": "Pročitajte ih na TripAdvisoru",
+    "badgeNote": "200+ recenzija s pet zvjezdica",
     "swipeHint": "Prijeđite za čitanje →"
   },
   "facts": {
@@ -930,10 +1029,5 @@
   },
   "booking": {
     "checkAvailability": "Provjerite dostupnost"
-  },
-  "bespokeStarting": {
-    "eyebrow": "Odakle gosti obično kreću",
-    "heading": "Četiri polazne točke",
-    "lede": "Većina naših gostiju kreće od jedne od ove četiri rute i dalje je oblikuje po svome. Shvatite ih kao predloške, ne kao meni — svaki dan na kraju izgleda malo drugačije."
   }
 }

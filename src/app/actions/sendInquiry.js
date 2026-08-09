@@ -55,7 +55,7 @@ export async function sendInquiry(prevState, formData) {
         html: `
           <p>Hi ${data.name},</p>
           <p>Thanks for reaching out. We've received your message and will reply within 24 hours.</p>
-          <p>In the meantime, feel free to check out our <a href="https://rebelde.hr/bespoke-tours">bespoke tours</a> or follow us on <a href="https://instagram.com/rebeldeboats">Instagram</a>.</p>
+          <p>In the meantime, feel free to check out our <a href="https://www.rebelde.hr/tours">our tours</a> or follow us on <a href="https://instagram.com/rebeldeboats">Instagram</a>.</p>
           <p>— The Rebelde Boats team</p>
         `,
       }),

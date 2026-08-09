@@ -175,6 +175,41 @@ const tours = [
       "blue-lagoon-three-islands",
     ],
   },
+  {
+    key: "bespoke-tour",
+    depositEur: 30000,
+    restEur: 50000,
+    minPrice: 800,
+    maxPrice: 2400,
+    durationHours: 9,
+    touristType: ["Couple", "Group", "Family"],
+    thumb: "/images/gallery/gallery-6.webp",
+    hero: "/images/boat/felix 37 drone shot 1.jpg",
+    mainImg: "/images/boat/felix 37 buoy1.jpg",
+    subImg: "/images/gallery/gallery-9.webp",
+    ctaImg: "/images/boat/felix 37 Rebelde boats.jpg",
+    gallery: [
+      "/images/gallery/gallery-1.jpg",
+      "/images/gallery/gallery-6.webp",
+      "/images/gallery/gallery-8.webp",
+      "/images/gallery/gallery-9.webp",
+      "/images/gallery/gallery-10.webp",
+      "/images/boat/felix 37 drone shot 3.jpg",
+    ],
+    faqIds: [
+      "booking-q1",
+      "booking-q2",
+      "booking-q3",
+      "general-q2",
+      "general-q5",
+      "general-q1",
+    ],
+    relatedTourKeys: [
+      "blue-lagoon-three-islands",
+      "blue-cave-five-islands",
+      "hvar-pakleni-islands",
+    ],
+  },
 ];
 
 export default tours;

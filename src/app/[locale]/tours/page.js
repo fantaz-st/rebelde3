@@ -9,9 +9,9 @@ import Facts from "@/sections/tours/Facts/Facts";
 /**
  * /tours — the index of our template tours.
  *
- * Distinct from /bespoke-tours: this page lists the four (soon five) fixed
- * itineraries we sell, each linking to its own detail page. The bespoke page
- * pitches the fully-custom charter instead.
+ * Lists all five tours we offer, each linking to its own detail page.
+ * The bespoke charter is one of them rather than a separate page — it's the
+ * same kind of thing as the other four, just without a fixed route.
  */
 
 export async function generateMetadata({ params }) {
@@ -34,7 +34,7 @@ export default async function ToursIndexPage({ params }) {
     <Messages route="tours">
       <JsonLd data={tourList(tTours, locale)} id="tourlist-jsonld" />
       <JsonLd
-        data={breadcrumb([{ name: tNav("tours"), url: "/tours" }], locale, tNav("home"))}
+        data={breadcrumb([{ name: tNav("toursIndex"), url: "/tours" }], locale, tNav("home"))}
         id="breadcrumb-jsonld"
       />
 

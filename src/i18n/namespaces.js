@@ -30,7 +30,6 @@ export const ROUTE_NAMESPACES = {
   ],
   tours: [...SHARED, "toursIndex", "tourItems", "tourDetail", "facts", "factsSection"],
   tour: [...SHARED, "tourItems", "tourDetail", "faq", "testimonials"],
-  bespoke: [...SHARED, "bespokeStarting", "tourItems", "faq", "faqCategories"],
   boat: [...SHARED, "boatHero", "boatSections", "boatSectionItems", "boatSpecs", "specs"],
   faq: [...SHARED, "faq", "faqCategories"],
   contact: [...SHARED, "contact"],

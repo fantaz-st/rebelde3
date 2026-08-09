@@ -31,7 +31,6 @@ export default function Header({ variant }) {
     { href: "/", label: t("home") },
     { href: "/the-boat", label: t("theBoat") },
     { href: "/tours", label: t("toursIndex") },
-    { href: "/bespoke-tours", label: t("tours") },
     { href: "/journal", label: t("journal") },
     { href: "/faq", label: t("faq") },
     { href: "/contact", label: t("contact") },

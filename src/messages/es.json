@@ -2,7 +2,6 @@
   "nav": {
     "home": "Inicio",
     "theBoat": "El Barco",
-    "tours": "Tours a Medida",
     "journal": "Journal",
     "checkAvailability": "Verificar Disponibilidad",
     "faq": "Preguntas Frecuentes",
@@ -41,10 +40,6 @@
       "title": "Opiniones — Lo que dicen los huéspedes sobre nuestros tours privados",
       "description": "Lee opiniones de los huéspedes sobre los tours privados en barco de Rebelde Boats desde Split, Croacia — 220+ opiniones de 5 estrellas en TripAdvisor, Google y GetYourGuide."
     },
-    "bespokeTours": {
-      "title": "El estilo Rebelde — Cómo diseñamos un día en el mar",
-      "description": "Cómo organizamos los tours privados en barco desde Split — un barco, un grupo al día, rutas hechas a tu medida. Directo con los propietarios, sin agencias."
-    },
     "tour": {
       "title": "{label} — excursión privada en barco desde Split",
       "description": "{intro} Chárter privado para hasta 12 personas a bordo de nuestra lancha Felix 37."
@@ -57,7 +52,6 @@
     "whatsappLabel": "Chatea con nosotros en WhatsApp",
     "emailLabel": "Contáctanos",
     "theBoat": "El Barco",
-    "bespokeToursLink": "Tours a Medida",
     "faqLink": "Preguntas Frecuentes",
     "contactLink": "Contacto",
     "credit": "diseño y desarrollo",
@@ -66,13 +60,13 @@
     "toursLink": "Nuestras excursiones"
   },
   "hero": {
-    "title": "Tours Privados en Barco desde Split",
-    "subtitle": "Descubre el Adriático a través de experiencias privadas diseñadas para ti.",
-    "ariaLabel": "Hero — Tours Privados en Barco desde Split"
+    "title": "El barco es nuestro. El día, tuyo.",
+    "subtitle": "Excursiones privadas desde Split, llevadas por la familia propietaria del barco. Un grupo al día — el tuyo.",
+    "ariaLabel": "Excursiones privadas en barco desde Split, Croacia"
   },
   "gallery": {
-    "slide1": "Creamos experiencias donde el mar es un compañero, no un destino.",
-    "slide2": "Cada viaje es personal. Cada ola, un nuevo recuerdo.",
+    "slide1": "No te mandamos con un patrón. Vamos contigo.",
+    "slide2": "La cala antes que la gente. La sombra a la hora justa. Los detalles son lo esencial.",
     "alt": {
       "g1": "Guests swimming in the crystal-clear Blue Lagoon near Split, Croatia",
       "g2": "Rebelde Boats Felix 37 Buenaventura anchored in a secluded Adriatic cove",
@@ -82,8 +76,8 @@
     }
   },
   "tours": {
-    "heading": "Viajes a Medida. Isla por Isla.",
-    "desc": "No hay dos días iguales en el Adriático. Elige tu camino — calas ocultas, puertos soleados, playas secretas. Diseñamos cada viaje en torno a ti, a tu ritmo, a tu espíritu.",
+    "heading": "Cuatro días que nos sabemos de memoria — y uno que aún no",
+    "desc": "Cuatro son las rutas que más hacemos, afinadas a lo largo de cientos de días en el mar: a qué hora salir para que la cueva esté iluminada, qué cala se vacía a las dos, dónde vale la pena desviarse a comer. El quinto está en blanco: tu día, construido desde cero.",
     "swipeHint": "Desliza para explorar →"
   },
   "toursIndex": {
@@ -516,13 +510,118 @@
           "body": "Swimsuit, towel, sun cream, sunglasses, a light layer for the ride home. Everything else is on the boat."
         }
       ]
+    },
+    "bespoke-tour": {
+      "label": "Diseña tu propio día",
+      "kicker": "Día completo, enteramente tuyo",
+      "pin": "A donde el barco pueda llegar en un día",
+      "thumbAlt": "Buenaventura fondeado en solitario en una cala tranquila del Adriático a la hora dorada",
+      "intro": "Sin ruta fija. Nos dices qué tipo de día quieres y lo montamos según el viento, la luz y dónde no hay gente.",
+      "ctaText": "Algunos huéspedes saben exactamente adónde quieren ir. La mayoría no, y está bien: el día suele salir mejor cuando partimos de cómo quieres sentirte y no de una lista de sitios. Dinos quién viene, cuánto tiempo tienes y si prefieres nadar, comer, explorar o hacer muy poco. Volveremos con una forma para el día, la ajustaremos hasta que esté bien y la volveremos a ajustar en el agua si el mar tiene otros planes.",
+      "durationLabel": "Lo que dé el día",
+      "capacityLabel": "Hasta 12 personas",
+      "priceLabel": "Desde 800 €",
+      "gallery": [
+        "El barco para vosotros — sin horario y sin otro grupo esperando",
+        "Fondeamos donde hay sitio, no donde lo dice el itinerario",
+        "Las comidas largas ocurren cuando nadie cuenta las horas",
+        "Baños que duran lo que tú quieras",
+        "Luz tardía a la vuelta, porque no teníamos prisa",
+        "Calas silenciosas que no entran en las rutas estándar"
+      ],
+      "overview": [
+        "Más que una excursión, es un día en blanco con un barco y dos personas que conocen la costa. Encaja con quien ya ha estado en Dalmacia, con grupos que celebran algo y con cualquiera a quien le incomode que le entreguen un itinerario.",
+        "Lo planeamos juntos por mensajes antes de que llegues. El día en sí lo vamos ajustando: nos quedamos más donde estáis a gusto, saltamos lo que no encaja, cambiamos el plan entero si gira el viento. Esa flexibilidad es la razón por la que solo salimos con un grupo al día."
+      ],
+      "keyFacts": [
+        {
+          "label": "Duración",
+          "value": "La marcas tú — la mayoría de días son de 8 a 10 horas"
+        },
+        {
+          "label": "Salida",
+          "value": "Punto y hora acordados contigo"
+        },
+        {
+          "label": "Tamaño del grupo",
+          "value": "Hasta 12 personas"
+        },
+        {
+          "label": "Precio",
+          "value": "Desde 800 €, según ruta y horas"
+        }
+      ],
+      "itinerary": [
+        {
+          "title": "Hablamos antes de que llegues",
+          "description": "Unos cuantos mensajes, normalmente. Quién viene, qué has visto ya, si es una celebración, cómo llevas las travesías largas. Sin formularios."
+        },
+        {
+          "title": "Proponemos una forma",
+          "description": "No un horario: un arco aproximado del día con dos o tres puntos de apoyo y aire entre ellos. Tú nos dices qué cambiar."
+        },
+        {
+          "title": "La mañana decide los detalles",
+          "description": "Miramos el viento y la previsión la tarde anterior y otra vez en el desayuno. A veces el plan aguanta. A veces cambiamos una isla y el día sale mejor por ello."
+        },
+        {
+          "title": "El día se mueve contigo",
+          "description": "Un baño más largo, comer antes, una cala más, volver antes del atardecer: todo se decide a bordo, y lo decides tú, sin nadie esperándonos."
+        }
+      ],
+      "included": [
+        "Chárter privado del Buenaventura (lancha Felix 37)",
+        "Combustible y tasas portuarias",
+        "Patrón titulado — siempre uno de nosotros",
+        "Planificación de la ruta antes y durante el día",
+        "Toallas limpias y nevera con agua y refrescos",
+        "Equipo de snorkel",
+        "Equipo de sonido Bluetooth",
+        "IVA"
+      ],
+      "notIncluded": [
+        "Comida (reservamos con antelación donde quieras comer)",
+        "Entradas de parque nacional, si la ruta incluye alguno",
+        "Bebidas alcohólicas (tráelas tú o las conseguimos antes de salir)",
+        "Propinas (opcionales)"
+      ],
+      "whoItsFor": {
+        "paragraph": "Ideal para quien repite, para grupos que celebran algo y para cualquiera a quien le chirríe un horario fijo. Si es tu primera vez en esta costa y prefieres no decidirlo todo, una de nuestras cuatro rutas fijas es un punto de partida más cómodo — y también la doblamos donde quieras.",
+        "tags": [
+          "Repetidores",
+          "Ocasiones especiales",
+          "Sin plan fijo"
+        ],
+        "compareLink": {
+          "slug": "blue-lagoon-three-islands",
+          "label": "Laguna Azul y Tres Islas"
+        }
+      },
+      "logistics": [
+        {
+          "title": "Punto de encuentro",
+          "body": "Acordado contigo: paseo marítimo de Split, marina de Zenta, Trogir o tu hotel si está junto al mar."
+        },
+        {
+          "title": "Política meteorológica",
+          "body": "Si las condiciones no son seguras, ofrecemos otra fecha o reembolso íntegro, decidido la tarde anterior. Lo más habitual es que simplemente cambiemos la ruta y salgamos igual."
+        },
+        {
+          "title": "Qué llevar",
+          "body": "Bañador, toalla, protector solar, gafas de sol y algo ligero para la vuelta. Lo demás está a bordo."
+        },
+        {
+          "title": "Con cuánta antelación preguntar",
+          "body": "Escríbenos cuando quieras, pero en julio y agosto cuanto antes mejor. Incluso con pocos días, la fecha puede seguir libre."
+        }
+      ]
     }
   },
   "boat": {
-    "title": "Felix 37 Buenaventura — Construido para Vivir Bien.",
-    "desc": "Una comodidad en la que hundirse. Un rendimiento que te lleva más lejos. Un espacio diseñado para sonrisas compartidas, zambullidas espontáneas y largas comidas bajo el sol. Buenaventura no es solo un barco — es tu santuario flotante.",
-    "cta": "Explorar el barco",
-    "ariaLabel": "Felix 37 Buenaventura — nuestro barco de charter privado"
+    "title": "Buenaventura — el único barco que tenemos",
+    "desc": "Un Felix 37. Doce personas, quinientos caballos y un armador que lo mantiene él mismo. Por eso la nevera está fría antes de que subas, las gafas de buceo ajustan de verdad y las toallas están secas. Reservas el Buenaventura y navegas en el Buenaventura — y si tu grupo necesita un segundo barco, solo te pondremos en uno que patronearíamos nosotros.",
+    "cta": "Descubre el barco",
+    "ariaLabel": "Buenaventura, nuestra lancha Felix 37"
   },
   "boatHero": {
     "title": "El Barco",
@@ -586,36 +685,36 @@
   },
   "team": {
     "t1": {
-      "title": "Un asunto familiar",
+      "title": "Nos conocerás a nosotros, no a un turno",
       "desc": [
-        "Lo que comenzó como una pasión por el mar se convirtió en una forma de compartir el Adriático con otros.",
-        "Somos un equipo local familiar que cree que los mejores momentos en el agua no son apresurados ni guionizados."
+        "Quien contesta tu primer mensaje es quien te pasa la toalla al final del día. No hay central de reservas ni tripulación rotativa.",
+        "Salimos con un grupo al día. Eso significa que a bordo tienes toda nuestra atención, y que si algo hay que cambiar a media jornada, no tenemos a quién pedir permiso."
       ],
       "alt": "The Rebelde Boats family crew welcoming guests aboard in Split harbour",
       "alt2": "Rebelde crew and guests sharing a moment on deck between islands"
     },
     "t2": {
-      "title": "Una tripulación experimentada",
+      "title": "Hemos aprendido dónde la costa se queda en calma",
       "desc": [
-        "Años navegando la costa croata nos enseñaron dónde el Adriático verdaderamente cobra vida.",
-        "Desde una navegación tranquila hasta recomendaciones locales, nos encargamos de cada detalle."
+        "Los años en este mar nos han enseñado más de horarios que de geografía. Qué cala está vacía a las once y llena a la una. Por qué lado de la isla pasar cuando entra el maestral. Qué konoba sigue cocinando el pescado como antes.",
+        "No tienes que planear nada. Dinos qué tipo de día quieres y lo montamos según el viento, la luz y la gente."
       ],
       "alt": "Rebelde Boats skipper at the helm navigating the Adriatic between Hvar and Vis"
     },
     "t3": {
-      "title": "Itinerarios personalizados para cada viaje",
+      "title": "La atención es todo el servicio",
       "desc": [
-        "Sin horarios fijos. Sin tours grupales abarrotados.",
-        "Cada experiencia está adaptada a tu ritmo e intereses.",
-        "El mar no sigue planes estrictos, y nosotros tampoco."
+        "Sin horario fijo. Sin excursión de grupo. Sin cola esperando detrás de ti.",
+        "Nos damos cuenta de las cosas. De que prefieres nadar a caminar. De que a alguien le está afectando el oleaje. De que los niños ya han tenido bastante sol. Así que el día se mueve: nos quedamos más donde estáis a gusto y quitamos sin ruido lo que no encaja.",
+        "El mar no sigue un plan, y nosotros tampoco."
       ],
       "alt": "Rebelde guests on a personalised private tour along the Dalmatian coast at sunset"
     }
   },
   "testimonials": {
-    "heading": "Lo que dicen nuestros huéspedes",
-    "readMore": "Leer más en TripAdvisor",
-    "badgeNote": "200+ huéspedes satisfechos",
+    "heading": "Doscientos días, doscientas historias",
+    "readMore": "Léelas en TripAdvisor",
+    "badgeNote": "200+ reseñas de cinco estrellas",
     "swipeHint": "Desliza para leer →"
   },
   "facts": {
@@ -930,10 +1029,5 @@
   },
   "booking": {
     "checkAvailability": "Verificar Disponibilidad"
-  },
-  "bespokeStarting": {
-    "eyebrow": "Por dónde suele empezar la gente",
-    "heading": "Cuatro puntos de partida",
-    "lede": "La mayoría de nuestros huéspedes parte de una de estas cuatro rutas y la moldea a partir de ahí. Piénsalas como plantillas, no como un menú — cada día acaba siendo un poco distinto."
   }
 }

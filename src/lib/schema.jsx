@@ -306,46 +306,6 @@ export function tourList(t, locale) {
   });
 }
 
-/** Service node for the bespoke charter page. */
-export function bespokeService(t, locale) {
-  const canonical = absoluteUrl("/bespoke-tours", locale);
-  return doc({
-    "@type": "Service",
-    "@id": `${canonical}#service`,
-    name: "Private Bespoke Boat Charter from Split",
-    serviceType: "Private Boat Charter",
-    provider: businessRef,
-    areaServed: { "@type": "Place", name: "Split, Croatia" },
-    audience: {
-      "@type": "PeopleAudience",
-      suggestedMinAge: 0,
-      audienceType: "Couples, families, small groups",
-    },
-    description:
-      "Private, single-charter boat tours from Split — one boat, one group per day. Route, timing, and lunch shaped around each guest. Operated by the owners aboard Buenaventura, a Felix 37 speedboat.",
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Private Boat Tour Starting Points",
-      itemListElement: tours.map((tour) => ({
-        "@type": "Offer",
-        priceCurrency: "EUR",
-        priceSpecification: {
-          "@type": "PriceSpecification",
-          minPrice: tour.minPrice,
-          maxPrice: tour.maxPrice,
-          priceCurrency: "EUR",
-        },
-        url: absoluteUrl(`/tours/${tour.key}`, locale),
-        itemOffered: {
-          "@type": "TouristTrip",
-          name: t(`${tour.key}.label`),
-          image: `${SITE_URL}${tour.thumb}`,
-        },
-      })),
-    },
-  });
-}
-
 /** Product node for the boat. */
 export function boatProduct() {
   return doc({
