@@ -11,6 +11,30 @@
     "close": "Zatvori",
     "toursIndex": "Naši izleti"
   },
+  "footer": {
+    "ctaTitle": "Želite nešto posebno?",
+    "ctaButton": "KONTAKTIRAJTE NAS",
+    "ctaSub": "Javite nam se i dopustite da vaš boravak u Splitu pretvorimo u nešto uistinu posebno.",
+    "whatsappLabel": "Razgovarajte s nama na WhatsAppu",
+    "emailLabel": "Stupite u kontakt",
+    "theBoat": "Brod",
+    "faqLink": "Često pitanja",
+    "contactLink": "Kontakt",
+    "credit": "dizajn i razvoj",
+    "journalLink": "Journal",
+    "reviewsLink": "Recenzije",
+    "toursLink": "Naši izleti"
+  },
+  "common": {
+    "startingFrom": "Od",
+    "ratedOn": "Ocjena 5,0 na",
+    "swipeHint": "Povucite za više →",
+    "previous": "Prethodno",
+    "next": "Sljedeće"
+  },
+  "booking": {
+    "checkAvailability": "Provjerite dostupnost"
+  },
   "metadata": {
     "home": {
       "title": "Rebelde Boats — Privatni brodski izleti Split, Hrvatska | Otočki izleti i jednodnevni izleti",
@@ -45,27 +69,13 @@
       "description": "{intro} Privatni najam za do 12 gostiju na našem glisseru Felix 37."
     }
   },
-  "footer": {
-    "ctaTitle": "Želite nešto posebno?",
-    "ctaButton": "KONTAKTIRAJTE NAS",
-    "ctaSub": "Javite nam se i dopustite da vaš boravak u Splitu pretvorimo u nešto uistinu posebno.",
-    "whatsappLabel": "Razgovarajte s nama na WhatsAppu",
-    "emailLabel": "Stupite u kontakt",
-    "theBoat": "Brod",
-    "faqLink": "Često pitanja",
-    "contactLink": "Kontakt",
-    "credit": "dizajn i razvoj",
-    "journalLink": "Journal",
-    "reviewsLink": "Recenzije",
-    "toursLink": "Naši izleti"
-  },
   "hero": {
     "title": "Brod je naš. Kao i dan.",
     "subtitle": "Privatni izleti iz Splita, u vlasništvu i vođenju obitelji koja upravlja brodom. Jedna grupa dnevno — vaša.",
     "ariaLabel": "Privatni brodski izleti iz Splita, Hrvatska"
   },
   "gallery": {
-    "slide1": "Ne šaljemo vas sa skiperom. Idemo s vama.",
+    "slide1": "Onaj tko je vlasnik broda ujedno je i onaj koji ga vozi.",
     "slide2": "Uvala prije gužve. Hlad u pravi sat. Sitnice su zapravo sve.",
     "alt": {
       "g1": "Guests swimming in the crystal-clear Blue Lagoon near Split, Croatia",
@@ -80,14 +90,106 @@
     "desc": "Četiri su rute koje plovimo najčešće, dotjerane kroz stotine dana na moru: kad krenuti da špilja bude osvijetljena, koja se uvala isprazni do dva, gdje se ručak isplati zaobići. Peti je prazan — vaš dan, složen ispočetka.",
     "swipeHint": "Povucite za više →"
   },
+  "boat": {
+    "title": "Buenaventura — jedini brod koji imamo",
+    "desc": "Felix 37. Dvanaest gostiju, petsto konja i vlasnik koji ga sam održava. Zato je hladnjak hladan prije nego kročite na palubu, maske stvarno pristaju, a ručnici su suhi. Rezervirate Buenaventuru i dobivate Buenaventuru — a ako vaša grupa treba još jedan brod, stavit ćemo vas samo na onaj koji bismo i sami rado vozili.",
+    "cta": "Pogledajte brod",
+    "ariaLabel": "Buenaventura, naš glisser Felix 37"
+  },
+  "team": {
+    "t1": {
+      "title": "Brod ima jednog vlasnika, i obično je na njemu",
+      "desc": [
+        "Vana odgovara na vaše poruke. Čedo vodi brod, s Dinkom na palubi. Njih dvojica odrade gotovo svaki izlet koji prodamo.",
+        "Onih rijetkih dana kad nekome od nas treba odmor, brod isplovljava sa skiperom koji je Čedu naučio voziti, ili s Paulom. Ne zapošljavamo sezonsku posadu da popuni raspored — svatko tko stupi na brod netko je kome bismo povjerili vlastitu obitelj, jer nekolicina to i jest."
+      ],
+      "alt": "The Rebelde Boats family crew welcoming guests aboard in Split harbour",
+      "alt2": "Rebelde crew and guests sharing a moment on deck between islands"
+    },
+    "t2": {
+      "title": "Naučili smo gdje obala utihne",
+      "desc": [
+        "Godine na ovom moru naučile su nas više o vremenu nego o geografiji. Koja je uvala prazna u jedanaest, a puna do jedan. Kojom stranom otoka ploviti kad se digne maestral. Koja konoba još sprema ribu na stari način.",
+        "Ne morate ništa planirati. Recite nam kakav dan želite i složit ćemo ga oko vjetra, svjetla i gužve."
+      ],
+      "alt": "Rebelde Boats skipper at the helm navigating the Adriatic between Hvar and Vis"
+    },
+    "t3": {
+      "title": "Pažnja je cijela usluga",
+      "desc": [
+        "Bez fiksnog rasporeda. Bez grupnih izleta. Bez reda koji čeka iza vas.",
+        "Primjećujemo stvari. Da biste radije plivali nego hodali. Da netko od vas teže podnosi valove. Da su djeca dosta bila na suncu. Zato se dan pomiče — ostajemo dulje ondje gdje vam je lijepo i tiho izbacimo ono što ne sjeda.",
+        "More se ne drži plana, pa ni mi."
+      ],
+      "alt": "Rebelde guests on a personalised private tour along the Dalmatian coast at sunset"
+    }
+  },
+  "testimonials": {
+    "heading": "Dvjesto dana, dvjesto priča",
+    "readMore": "Pročitajte ih na TripAdvisoru",
+    "badgeNote": "200+ recenzija s pet zvjezdica",
+    "swipeHint": "Prijeđite za čitanje →"
+  },
   "toursIndex": {
     "title": "Privatna jadranska iskustva",
     "desc": "Ukrcajte se za osobniji način doživljavanja hrvatske obale. Otkrijte skrivene uvale, kristalno čiste vode, povijesne otočke gradove i tihe trenutke daleko od gužve. Svako putovanje pažljivo je prilagođeno vašem tempu i interesima — bilo da to znači plivanje u skrivenim uvalama, istraživanje šarmantnih obalnih mjesta, uživanje u lokalnim primorskim restoranima ili jednostavno opuštanje pod jadranskim suncem.",
+    "eyebrow": "Naši izleti",
+    "browseHeading": "Četiri dana na moru, četiri različita ugođaja",
     "heading": "Putovanja po mjeri. Otok po otok.",
     "intro": "Nijedno dva dana na Jadranu ne bi smjela biti ista. Odaberite svoj put — skrivene uvale, osunčane luke, tajne plaže. Svako putovanje osmišljavamo oko vas, vašeg tempa, vašeg duha.",
-    "cardCta": "Pogledajte izlet",
-    "eyebrow": "Naši izleti",
-    "browseHeading": "Četiri dana na moru, četiri različita ugođaja"
+    "cardCta": "Pogledajte izlet"
+  },
+  "facts": {
+    "private-charter": {
+      "title": "Potpuno privatno, potpuno vaše",
+      "desc": "Svaki Rebelde izlet je potpuno privatan — bez dijeljenih grupa, bez fiksnih ruta. Brod, kapetan i dan su vaši, prilagođeni vašem tempu, vašoj grupi i onome što želite otkriti."
+    },
+    "the-boat": {
+      "title": "Izgrađen za udobnost na otvorenom moru",
+      "desc": "Buenaventura je 37-stopni brod posebne izrade s motorom od 500 konjskih snaga, zasjenjenom kabinom, prekorazmjernom palubom za sunčanje, hladnjakom na brodu, kupatilom i tušem sa slatkom vodom — dizajniran da vas drži ugodnima od izlaska do dugo nakon zalaska sunca."
+    },
+    "the-coast": {
+      "title": "Preko 1.000 otoka za istraživanje",
+      "desc": "Hrvatska jadranska obala dom je više od 1.200 otoka, otočića i grebena — od kojih je većina nenaseljena. Samo iz Splita, deseci su dostupni za nekoliko sati, svaki sa svojom osobnošću, skrivenim uvalama i tajnim mjestima za kupanje."
+    },
+    "the-water": {
+      "title": "Jedna od najbistrijih voda u Europi",
+      "desc": "Jadran se dosljedno ubraja među najčišća mora u Europi, s vidljivošću koja često prelazi 30 metara. Kristalno čistine, plave špilje i zaštićene lagune čine svako zaustavljanje za kupanje kao ulazak u akvarij."
+    },
+    "local-knowledge": {
+      "title": "Domaći kapetani, insajderske rute",
+      "desc": "Naši skiperi odrasli su na ovim vodama. Znaju koje uvale opuste do poslijepodneva, koje konobe služe najsvježiju ribu i pod kojim kutom svjetlost najljepše pada na Plavu špilju. Vaš dan vode ljudi koji iskreno vole ovu obalu."
+    }
+  },
+  "factsSection": {
+    "heading": "Što Rebelde čini drugačijim"
+  },
+  "tourDetail": {
+    "overviewEyebrow": "Dan",
+    "overviewHeading": "Jadran, izvan razglednica",
+    "itineraryEyebrow": "Ruta",
+    "itineraryHeading": "Kamo vas dan vodi",
+    "galleryEyebrow": "Fotografije",
+    "galleryHeading": "Pogled na dan",
+    "includedEyebrow": "Detalji",
+    "includedHeading": "Što je uključeno",
+    "includedTitle": "Uključeno",
+    "notIncludedTitle": "Nije uključeno",
+    "whoForEyebrow": "Kome odgovara",
+    "whoForHeading": "Kome je ovaj izlet namijenjen",
+    "compareLabel": "Usporedite s",
+    "logisticsEyebrow": "Praktične informacije",
+    "logisticsHeading": "Dobro je znati",
+    "testimonialsEyebrow": "Glasovi gostiju",
+    "testimonialsHeading": "Što gosti kažu o ovom izletu",
+    "faqEyebrow": "Pitanja",
+    "faqHeading": "Česta pitanja o ovom izletu",
+    "relatedEyebrow": "Više izleta",
+    "relatedHeading": "Drugi dani koji bi vam se mogli svidjeti",
+    "readMore": "Saznajte više",
+    "ctaHeading": "Spremni za svoj dan na moru?",
+    "ctaBody": "Pošaljite nam svoje datume i veličinu grupe — javljamo se unutar nekoliko sati s dostupnošću i sljedećim koracima.",
+    "ctaButton": "Javite nam se"
   },
   "tourItems": {
     "blue-lagoon-three-islands": {
@@ -100,16 +202,6 @@
       "durationLabel": "Half day · 5–6 hours",
       "capacityLabel": "Up to 12 guests",
       "priceLabel": "From €800",
-      "gallery": [
-        "Dva borovinasta otočića iznad staklastog tirkiznog mora",
-        "Usidreni u Plavoj laguni — naše omiljeno mjesto za plivanje",
-        "Klizimo uz skrivene uvale oko drveniškog arhipelaga",
-        "Sunce igra na plitinama — voda toliko bistra da vidite svaki kamen",
-        "Privez u staroj trogirskoj luci za šetnju kroz povijest",
-        "Terakota krovovi i zvonici UNESCO-om zaštićenog starog Trogira",
-        "Šetnja kamenim uličicama dalmatinskih obalnih mjesta",
-        "Plivanje iznad šoltanskog brodoloma — trup star stoljeće odmara tik ispod površine"
-      ],
       "overview": [
         "The Blue Lagoon & Three Islands Escape is our most popular half-day trip — a relaxed Adriatic circuit through the archipelago just west of Split. It's the tour we recommend to guests who want a proper day at sea without a long drive out and back, and who value the quieter parts of Dalmatia over the busier ones.",
         "You'll swim in the famous Krknjaši lagoon, wander the stone streets of UNESCO-listed Trogir, and stop at a hidden Šolta bay for lunch or a longer swim. The pace is unhurried, the crowds are minimal, and the water rarely disappoints."
@@ -149,6 +241,16 @@
           "title": "Šolta shipwreck",
           "description": "On the way back, we anchor above a century-old wreck resting in the shallows — perfect for snorkellers curious about what's below."
         }
+      ],
+      "gallery": [
+        "Dva borovinasta otočića iznad staklastog tirkiznog mora",
+        "Usidreni u Plavoj laguni — naše omiljeno mjesto za plivanje",
+        "Klizimo uz skrivene uvale oko drveniškog arhipelaga",
+        "Sunce igra na plitinama — voda toliko bistra da vidite svaki kamen",
+        "Privez u staroj trogirskoj luci za šetnju kroz povijest",
+        "Terakota krovovi i zvonici UNESCO-om zaštićenog starog Trogira",
+        "Šetnja kamenim uličicama dalmatinskih obalnih mjesta",
+        "Plivanje iznad šoltanskog brodoloma — trup star stoljeće odmara tik ispod površine"
       ],
       "included": [
         "Private charter of Buenaventura (Felix 37 speedboat)",
@@ -201,24 +303,6 @@
       "durationLabel": "Full day · 9–10 hours",
       "capacityLabel": "Up to 12 guests",
       "priceLabel": "From €1,500",
-      "gallery": [
-        "Approaching the green shores of Biševo island",
-        "Towering cliffs guarding the entrance to the famous sea cave",
-        "Inside the Blue Cave — where sunlight turns the sea electric blue",
-        "Gliding through the long stone tunnel of the submarine pen",
-        "Squeezing through Pritiščina's dramatic rocky gateway on Vis",
-        "Stiniva cove from above — a hidden beach walled by limestone cliffs",
-        "Light pouring into a quiet cavern on the Adriatic coast",
-        "Anchoring in the turquoise lagoon of Budikovac island",
-        "Floating weightless in some of the clearest water in the Mediterranean",
-        "Sunlight dancing across glass-clear shallows",
-        "Pulling into Komiža — the old fishing town of Vis",
-        "Hvar harbour and the Pakleni archipelago seen from above",
-        "Palm fronds against the Dalmatian summer sky",
-        "Wandering the timeworn stone alleys of Vis old town",
-        "Strolling the palm-lined waterfront after a day on the water",
-        "Sailing into Hvar with the \"Fortica\" Fortress watching from above"
-      ],
       "overview": [
         "The Blue Cave & Five Islands is the tour people write home about. It's a long day on the water — usually 9 to 10 hours — reaching some of the most remote and dramatic corners of the central Adriatic. You'll cross open sea, glide into a cave lit electric-blue from below, swim in coves you'd never find without a boat, and finish the afternoon in Hvar's harbour before turning back to Split.",
         "It's built for guests who want to see the extraordinary parts of Croatia and don't mind an early start to do it. Families, small groups, couples celebrating something — this tour is our most requested for a reason."
@@ -262,6 +346,24 @@
           "title": "Pakleni Islands & Hvar",
           "description": "Late afternoon in the Pakleni archipelago — clear water, pine forests, and a look at Hvar town's harbour before we turn back toward Split."
         }
+      ],
+      "gallery": [
+        "Approaching the green shores of Biševo island",
+        "Towering cliffs guarding the entrance to the famous sea cave",
+        "Inside the Blue Cave — where sunlight turns the sea electric blue",
+        "Gliding through the long stone tunnel of the submarine pen",
+        "Squeezing through Pritiščina's dramatic rocky gateway on Vis",
+        "Stiniva cove from above — a hidden beach walled by limestone cliffs",
+        "Light pouring into a quiet cavern on the Adriatic coast",
+        "Anchoring in the turquoise lagoon of Budikovac island",
+        "Floating weightless in some of the clearest water in the Mediterranean",
+        "Sunlight dancing across glass-clear shallows",
+        "Pulling into Komiža — the old fishing town of Vis",
+        "Hvar harbour and the Pakleni archipelago seen from above",
+        "Palm fronds against the Dalmatian summer sky",
+        "Wandering the timeworn stone alleys of Vis old town",
+        "Strolling the palm-lined waterfront after a day on the water",
+        "Sailing into Hvar with the \"Fortica\" Fortress watching from above"
       ],
       "included": [
         "Private charter of Buenaventura (Felix 37 speedboat)",
@@ -314,18 +416,6 @@
       "durationLabel": "Full day · 8–10 hours",
       "capacityLabel": "Up to 12 guests",
       "priceLabel": "From €1,400",
-      "gallery": [
-        "Arriving at Hvar town beneath the watchful Spanish Fortress",
-        "Hvar's historic waterfront from the deck — a postcard come to life",
-        "Wandering Hvar's old town square in the warm afternoon light",
-        "A waterfront table with Hvar's rooftops as the view",
-        "A drink with a view at Hula Hula — the island's legendary sunset bar",
-        "The dramatic limestone arch of Red Rocks rising from turquoise water",
-        "Sailing into Palmižana — the heart of the Pakleni archipelago",
-        "Pine-fringed coves and emerald shallows of the Pakleni islands",
-        "Anchoring among the boats in a sheltered Pakleni bay",
-        "The long, low-lying shape of St. Klement seen from above"
-      ],
       "overview": [
         "The Hvar & Pakleni Islands Experience is the tour we recommend to guests who want the buzz of a lively island town paired with the calm of a private cove. Hvar is Croatia's most famous island for a reason — the harbour, the fortress views, the waterfront dining — and the Pakleni archipelago sitting right offshore is where you escape it all after lunch.",
         "It's a full day but with a gentler pace than the Blue Cave route. Less open water, more time swimming, more time exploring on foot."
@@ -365,6 +455,18 @@
           "title": "Šolta on the way back",
           "description": "Late afternoon swim on Šolta's quieter side before turning back toward Split."
         }
+      ],
+      "gallery": [
+        "Arriving at Hvar town beneath the watchful Spanish Fortress",
+        "Hvar's historic waterfront from the deck — a postcard come to life",
+        "Wandering Hvar's old town square in the warm afternoon light",
+        "A waterfront table with Hvar's rooftops as the view",
+        "A drink with a view at Hula Hula — the island's legendary sunset bar",
+        "The dramatic limestone arch of Red Rocks rising from turquoise water",
+        "Sailing into Palmižana — the heart of the Pakleni archipelago",
+        "Pine-fringed coves and emerald shallows of the Pakleni islands",
+        "Anchoring among the boats in a sheltered Pakleni bay",
+        "The long, low-lying shape of St. Klement seen from above"
       ],
       "included": [
         "Private charter of Buenaventura (Felix 37 speedboat)",
@@ -417,18 +519,6 @@
       "durationLabel": "Full day · 8–10 hours",
       "capacityLabel": "Up to 12 guests",
       "priceLabel": "From €1,400",
-      "gallery": [
-        "The iconic shape of Zlatni Rat stretching into the sea",
-        "Private swimming stops along Brač's hidden coastline",
-        "Exploring the lively waterfronts of Hvar Island",
-        "Relaxed Adriatic cruising beneath the summer sun",
-        "The iconic shape of Zlatni Rat stretching into the sea",
-        "Private swimming stops along Brač's hidden coastline",
-        "Exploring the lively waterfronts of Hvar Island",
-        "Relaxed Adriatic cruising beneath the summer sun",
-        "Exploring the lively waterfronts of Hvar Island",
-        "Relaxed Adriatic cruising beneath the summer sun"
-      ],
       "overview": [
         "The Bol, Hvar & Pakleni Coastal Journey pairs three of Dalmatia's most recognisable places in a single day: Zlatni Rat, the golden-horn beach on Brač; Hvar town; and the Pakleni archipelago. Route-wise it's the middle ground between our shorter Blue Lagoon trip and the long Blue Cave day.",
         "Good for families who want an iconic beach stop, small groups on a celebration day, and anyone who's seen Split from the land and now wants to see it from the water."
@@ -468,6 +558,18 @@
           "title": "Pakleni Islands",
           "description": "Late afternoon in the archipelago. Anchor in a sheltered bay for a final swim before turning back to Split."
         }
+      ],
+      "gallery": [
+        "The iconic shape of Zlatni Rat stretching into the sea",
+        "Private swimming stops along Brač's hidden coastline",
+        "Exploring the lively waterfronts of Hvar Island",
+        "Relaxed Adriatic cruising beneath the summer sun",
+        "The iconic shape of Zlatni Rat stretching into the sea",
+        "Private swimming stops along Brač's hidden coastline",
+        "Exploring the lively waterfronts of Hvar Island",
+        "Relaxed Adriatic cruising beneath the summer sun",
+        "Exploring the lively waterfronts of Hvar Island",
+        "Relaxed Adriatic cruising beneath the summer sun"
       ],
       "included": [
         "Private charter of Buenaventura (Felix 37 speedboat)",
@@ -521,14 +623,6 @@
       "durationLabel": "Onoliko koliko dan dopusti",
       "capacityLabel": "Do 12 gostiju",
       "priceLabel": "Od 800 €",
-      "gallery": [
-        "Brod samo za vas — bez rasporeda i bez grupe koja čeka",
-        "Sidrimo ondje gdje ima mjesta, a ne gdje piše u planu",
-        "Dugi ručkovi događaju se kad nitko ne broji sate",
-        "Kupanja koja traju onoliko koliko vi želite",
-        "Kasno svjetlo na povratku, jer nam se nije žurilo",
-        "Tihe uvale koje ne dolaze na standardne rute"
-      ],
       "overview": [
         "Ovo i nije toliko izlet koliko prazan dan s brodom i dvoje ljudi koji poznaju obalu. Odgovara gostima koji su već bili u Dalmaciji, grupama s posebnom prigodom i svima koji ne žele da im se uruči gotov itinerar.",
         "Planiramo ga zajedno, porukama, prije nego što stignete. Na sam dan stalno prilagođavamo — ostajemo dulje ondje gdje vam je lijepo, preskačemo ono što ne sjeda, mijenjamo cijeli plan ako se okrene vjetar. Ta fleksibilnost je razlog zašto vozimo samo jednu grupu dnevno."
@@ -568,6 +662,14 @@
           "title": "Dan se pomiče s vama",
           "description": "Dulje kupanje, raniji ručak, još jedna uvala, povratak prije zalaska — sve se odlučuje na brodu, i to vi, bez ikoga tko nas čeka."
         }
+      ],
+      "gallery": [
+        "Brod samo za vas — bez rasporeda i bez grupe koja čeka",
+        "Sidrimo ondje gdje ima mjesta, a ne gdje piše u planu",
+        "Dugi ručkovi događaju se kad nitko ne broji sate",
+        "Kupanja koja traju onoliko koliko vi želite",
+        "Kasno svjetlo na povratku, jer nam se nije žurilo",
+        "Tihe uvale koje ne dolaze na standardne rute"
       ],
       "included": [
         "Privatni najam Buenaventure (glisser Felix 37)",
@@ -615,13 +717,111 @@
           "body": "Pišite kad god — ali u srpnju i kolovozu bolje ranije. Čak i nekoliko dana prije, datum bi mogao biti slobodan."
         }
       ]
+    },
+    "sunset-hours": {
+      "label": "Zalazak sunca",
+      "kicker": "Dva sata, kasno svjetlo",
+      "pin": "Mirno more zapadno od Splita",
+      "thumbAlt": "Buenaventura na mirnom moru u zalazak sunca kraj splitske obale",
+      "intro": "Dva sata na mirnom večernjem moru, tempirana tako da svjetlo odradi najveći dio posla. Za prosidbe, godišnjice i posljednju večer odmora.",
+      "ctaText": "Polazimo otprilike sat i pol prije zalaska, kad se dnevni brodovi vraćaju, a more se smiri. Nema rute koje se treba držati — nađemo mirno mjesto, ugasimo motor i ostanemo dok boja ne nestane. Ponesite bocu ili nam recite pa će vas čekati hladna. Ako planirate postaviti pitanje, javite nam i mi ćemo srediti sve ostalo.",
+      "durationLabel": "2 sata · navečer",
+      "capacityLabel": "Do 12 gostiju",
+      "priceLabel": "Od 400 €",
+      "overview": [
+        "More je najljepše u dva sata prije zalaska. Vjetar padne, dnevni izleti se vraćaju kući, a površina postane staklasta — ista obala koju biste vidjeli u podne izgleda kao drugo mjesto.",
+        "Ovo je kratak, namjerno nežuran izlet bez postaja koje treba obići i bez ičega što treba stići. Većina ljudi ga rezervira s razlogom: prosidba, godišnjica, zadnja večer prije leta kući. Recite nam koji je vaš i oblikovat ćemo ta dva sata oko njega."
+      ],
+      "keyFacts": [
+        {
+          "label": "Trajanje",
+          "value": "2 sata, polazak ~90 min prije zalaska"
+        },
+        {
+          "label": "Polazak",
+          "value": "Splitska riva ili marina Zenta"
+        },
+        {
+          "label": "Veličina grupe",
+          "value": "Do 12 gostiju"
+        },
+        {
+          "label": "Cijena",
+          "value": "Od 400 € (predujam 200 €, ostatak na dan izleta)"
+        }
+      ],
+      "itinerary": [
+        {
+          "title": "Ukrcaj u zlatnom satu",
+          "description": "Polazimo dok se dnevna flota vraća. Pića su već hladna, a brod je pripremljen prije nego kročite na palubu."
+        },
+        {
+          "title": "Van, na mirno more",
+          "description": "Petnaest minuta prema zapadu, iza Marjana, tamo gdje je more te večeri najmirnije. Bez zadanog mjesta — ovisi o vjetru."
+        },
+        {
+          "title": "Motor ugašen",
+          "description": "Usidrimo se i ostanemo. Plivajte ako želite; većina ne pliva. To je dio zbog kojeg ovaj izlet postoji."
+        },
+        {
+          "title": "Povratak po mraku",
+          "description": "Vraćamo se polako, sa Splitom osvijetljenim pred nama. Na rivi ste na vrijeme za kasnu večeru."
+        }
+      ],
+      "gallery": [
+        "Isplovljavamo dok se dnevni brodovi vraćaju",
+        "Mirno večernje more — najtiši sat na Jadranu",
+        "Motor ugašen, usidreni negdje u tišini",
+        "Posljednje svjetlo na Splitskim vratima",
+        "Rashlađena pića i voće, pripremljeni prije vašeg dolaska",
+        "Natrag na rivu dok je grad još topao"
+      ],
+      "included": [
+        "Privatni najam Buenaventure (glisser Felix 37)",
+        "Gorivo i lučke pristojbe",
+        "Licencirani skiper",
+        "Rashlađeno pjenušavo vino, sokovi i svježe voće",
+        "Bluetooth zvučni sustav — pošaljite nam playlistu",
+        "Svježi ručnici",
+        "PDV"
+      ],
+      "notIncluded": [
+        "Fotograf (dostupan na zahtjev — pitajte pri rezervaciji)",
+        "Večera na kopnu (rado ćemo rezervirati stol za poslije)",
+        "Dodatna alkoholna pića osim onih uključenih",
+        "Napojnice (nisu obavezne)"
+      ],
+      "whoItsFor": {
+        "paragraph": "Za parove, male grupe koje nešto slave i sve koji su već imali svoj dan na moru i žele još jedan sat toga. Ako želite kupanje, otoke i ručak, uzmite cjelodnevni izlet — ovaj je namjerno o tome da se radi vrlo malo.",
+        "tags": [
+          "Prosidbe",
+          "Godišnjice",
+          "Zadnja večer"
+        ],
+        "compareLink": {
+          "slug": "blue-lagoon-three-islands",
+          "label": "Plava laguna i tri otoka"
+        }
+      },
+      "logistics": [
+        {
+          "title": "Vrijeme polaska",
+          "body": "Polazak se pomiče s godišnjim dobom — oko 19:30 u lipnju, bliže 17:30 u listopadu. Točno vrijeme potvrđujemo nekoliko dana prije."
+        },
+        {
+          "title": "Planirate prosidbu",
+          "body": "Recite nam i preuzet ćemo tempiranje, mjesto i to da svi ostali šute. Radili smo to i prije i dobri smo u tome da se ne otkrijemo."
+        },
+        {
+          "title": "Politika vremenskih uvjeta",
+          "body": "Večernji vjetar zna ojačati. Ako uvjeti nisu dobri, nudimo drugu večer ili puni povrat, a odluku donosimo do sredine poslijepodneva."
+        },
+        {
+          "title": "Što ponijeti",
+          "body": "Nešto lagano za obući — brzo se ohladi kad sunce zađe. Sve ostalo je na brodu."
+        }
+      ]
     }
-  },
-  "boat": {
-    "title": "Buenaventura — jedini brod koji imamo",
-    "desc": "Felix 37. Dvanaest gostiju, petsto konja i vlasnik koji ga sam održava. Zato je hladnjak hladan prije nego kročite na palubu, maske stvarno pristaju, a ručnici su suhi. Rezervirate Buenaventuru i dobivate Buenaventuru — a ako vaša grupa treba još jedan brod, stavit ćemo vas samo na onaj koji bismo i sami rado vozili.",
-    "cta": "Pogledajte brod",
-    "ariaLabel": "Buenaventura, naš glisser Felix 37"
   },
   "boatHero": {
     "title": "Brod",
@@ -682,97 +882,6 @@
     "fuelTankSize": "Fuel Tank Size",
     "cruisingSpeed": "Cruising Speed",
     "maxSpeed": "Max Speed"
-  },
-  "team": {
-    "t1": {
-      "title": "Upoznat ćete nas, a ne raspored",
-      "desc": [
-        "Osoba koja odgovori na vašu prvu poruku ista je ona koja vam na kraju dana pruži ručnik. Nema dispečera ni posade koja se izmjenjuje.",
-        "Vozimo jednu grupu dnevno. To znači da dok ste na brodu imate svu našu pažnju, a kad nešto usred dana treba promijeniti, nemamo koga pitati."
-      ],
-      "alt": "The Rebelde Boats family crew welcoming guests aboard in Split harbour",
-      "alt2": "Rebelde crew and guests sharing a moment on deck between islands"
-    },
-    "t2": {
-      "title": "Naučili smo gdje obala utihne",
-      "desc": [
-        "Godine na ovom moru naučile su nas više o vremenu nego o geografiji. Koja je uvala prazna u jedanaest, a puna do jedan. Kojom stranom otoka ploviti kad se digne maestral. Koja konoba još sprema ribu na stari način.",
-        "Ne morate ništa planirati. Recite nam kakav dan želite i složit ćemo ga oko vjetra, svjetla i gužve."
-      ],
-      "alt": "Rebelde Boats skipper at the helm navigating the Adriatic between Hvar and Vis"
-    },
-    "t3": {
-      "title": "Pažnja je cijela usluga",
-      "desc": [
-        "Bez fiksnog rasporeda. Bez grupnih izleta. Bez reda koji čeka iza vas.",
-        "Primjećujemo stvari. Da biste radije plivali nego hodali. Da netko od vas teže podnosi valove. Da su djeca dosta bila na suncu. Zato se dan pomiče — ostajemo dulje ondje gdje vam je lijepo i tiho izbacimo ono što ne sjeda.",
-        "More se ne drži plana, pa ni mi."
-      ],
-      "alt": "Rebelde guests on a personalised private tour along the Dalmatian coast at sunset"
-    }
-  },
-  "testimonials": {
-    "heading": "Dvjesto dana, dvjesto priča",
-    "readMore": "Pročitajte ih na TripAdvisoru",
-    "badgeNote": "200+ recenzija s pet zvjezdica",
-    "swipeHint": "Prijeđite za čitanje →"
-  },
-  "facts": {
-    "private-charter": {
-      "title": "Potpuno privatno, potpuno vaše",
-      "desc": "Svaki Rebelde izlet je potpuno privatan — bez dijeljenih grupa, bez fiksnih ruta. Brod, kapetan i dan su vaši, prilagođeni vašem tempu, vašoj grupi i onome što želite otkriti."
-    },
-    "the-boat": {
-      "title": "Izgrađen za udobnost na otvorenom moru",
-      "desc": "Buenaventura je 37-stopni brod posebne izrade s motorom od 500 konjskih snaga, zasjenjenom kabinom, prekorazmjernom palubom za sunčanje, hladnjakom na brodu, kupatilom i tušem sa slatkom vodom — dizajniran da vas drži ugodnima od izlaska do dugo nakon zalaska sunca."
-    },
-    "the-coast": {
-      "title": "Preko 1.000 otoka za istraživanje",
-      "desc": "Hrvatska jadranska obala dom je više od 1.200 otoka, otočića i grebena — od kojih je većina nenaseljena. Samo iz Splita, deseci su dostupni za nekoliko sati, svaki sa svojom osobnošću, skrivenim uvalama i tajnim mjestima za kupanje."
-    },
-    "the-water": {
-      "title": "Jedna od najbistrijih voda u Europi",
-      "desc": "Jadran se dosljedno ubraja među najčišća mora u Europi, s vidljivošću koja često prelazi 30 metara. Kristalno čistine, plave špilje i zaštićene lagune čine svako zaustavljanje za kupanje kao ulazak u akvarij."
-    },
-    "local-knowledge": {
-      "title": "Domaći kapetani, insajderske rute",
-      "desc": "Naši skiperi odrasli su na ovim vodama. Znaju koje uvale opuste do poslijepodneva, koje konobe služe najsvježiju ribu i pod kojim kutom svjetlost najljepše pada na Plavu špilju. Vaš dan vode ljudi koji iskreno vole ovu obalu."
-    }
-  },
-  "factsSection": {
-    "heading": "Što Rebelde čini drugačijim"
-  },
-  "tourDetail": {
-    "overviewEyebrow": "Dan",
-    "overviewHeading": "Jadran, izvan razglednica",
-    "itineraryEyebrow": "Ruta",
-    "itineraryHeading": "Kamo vas dan vodi",
-    "galleryEyebrow": "Fotografije",
-    "galleryHeading": "Pogled na dan",
-    "includedEyebrow": "Detalji",
-    "includedHeading": "Što je uključeno",
-    "includedTitle": "Uključeno",
-    "notIncludedTitle": "Nije uključeno",
-    "whoForEyebrow": "Kome odgovara",
-    "whoForHeading": "Kome je ovaj izlet namijenjen",
-    "compareLabel": "Usporedite s",
-    "logisticsEyebrow": "Praktične informacije",
-    "logisticsHeading": "Dobro je znati",
-    "testimonialsEyebrow": "Glasovi gostiju",
-    "testimonialsHeading": "Što gosti kažu o ovom izletu",
-    "faqEyebrow": "Pitanja",
-    "faqHeading": "Česta pitanja o ovom izletu",
-    "relatedEyebrow": "Više izleta",
-    "relatedHeading": "Drugi dani koji bi vam se mogli svidjeti",
-    "readMore": "Saznajte više",
-    "ctaHeading": "Spremni za svoj dan na moru?",
-    "ctaBody": "Pošaljite nam svoje datume i veličinu grupe — javljamo se unutar nekoliko sati s dostupnošću i sljedećim koracima.",
-    "ctaButton": "Javite nam se"
-  },
-  "common": {
-    "startingFrom": "Od",
-    "ratedOn": "Ocjena 5,0 na",
-    "swipeHint": "Povucite za više →"
   },
   "faqCategories": {
     "general": "Opća pitanja",
@@ -1026,8 +1135,5 @@
       "featuredArticle": "Objavljeni članak",
       "other": "Ostalo"
     }
-  },
-  "booking": {
-    "checkAvailability": "Provjerite dostupnost"
   }
 }

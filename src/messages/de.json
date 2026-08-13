@@ -11,6 +11,30 @@
     "close": "Schließen",
     "toursIndex": "Unsere Touren"
   },
+  "footer": {
+    "ctaTitle": "Etwas Besonderes erleben?",
+    "ctaButton": "KONTAKT AUFNEHMEN",
+    "ctaSub": "Melden Sie sich und lassen Sie uns Ihre Zeit in Split zu etwas wirklich Besonderem machen.",
+    "whatsappLabel": "Chatten Sie mit uns auf WhatsApp",
+    "emailLabel": "Kontakt aufnehmen",
+    "theBoat": "Das Boot",
+    "faqLink": "FAQ",
+    "contactLink": "Kontakt",
+    "credit": "Design & Entwicklung",
+    "journalLink": "Journal",
+    "reviewsLink": "Bewertungen",
+    "toursLink": "Unsere Touren"
+  },
+  "common": {
+    "startingFrom": "Ab",
+    "ratedOn": "Bewertet mit 5,0 auf",
+    "swipeHint": "Wischen zum Entdecken →",
+    "previous": "Zurück",
+    "next": "Weiter"
+  },
+  "booking": {
+    "checkAvailability": "Verfügbarkeit prüfen"
+  },
   "metadata": {
     "home": {
       "title": "Rebelde Boats — Private Bootstouren Split, Kroatien | Inselhopping & Tagesausflüge",
@@ -45,27 +69,13 @@
       "description": "{intro} Privatcharter für bis zu 12 Gäste an Bord unseres Felix 37 Speedboots."
     }
   },
-  "footer": {
-    "ctaTitle": "Etwas Besonderes erleben?",
-    "ctaButton": "KONTAKT AUFNEHMEN",
-    "ctaSub": "Melden Sie sich und lassen Sie uns Ihre Zeit in Split zu etwas wirklich Besonderem machen.",
-    "whatsappLabel": "Chatten Sie mit uns auf WhatsApp",
-    "emailLabel": "Kontakt aufnehmen",
-    "theBoat": "Das Boot",
-    "faqLink": "FAQ",
-    "contactLink": "Kontakt",
-    "credit": "Design & Entwicklung",
-    "journalLink": "Journal",
-    "reviewsLink": "Bewertungen",
-    "toursLink": "Unsere Touren"
-  },
   "hero": {
     "title": "Das Boot gehört uns. Der Tag Ihnen.",
     "subtitle": "Private Touren ab Split, geführt von der Familie, der das Boot gehört. Eine Gruppe pro Tag — Ihre.",
     "ariaLabel": "Private Bootstouren ab Split, Kroatien"
   },
   "gallery": {
-    "slide1": "Wir schicken Sie nicht mit einem Skipper los. Wir kommen mit.",
+    "slide1": "Wer das Boot besitzt, steht auch am Ruder.",
     "slide2": "Die Bucht vor dem Andrang. Der Schatten zur richtigen Stunde. Die Kleinigkeiten sind das Ganze.",
     "alt": {
       "g1": "Guests swimming in the crystal-clear Blue Lagoon near Split, Croatia",
@@ -80,14 +90,106 @@
     "desc": "Vier sind Routen, die wir am häufigsten fahren, verfeinert über Hunderte Tage auf dem Wasser: wann man ablegt, damit die Grotte leuchtet, welche Bucht sich bis zwei Uhr leert, wo sich der Umweg zum Mittagessen lohnt. Der fünfte ist leer — Ihr Tag, von Grund auf gebaut.",
     "swipeHint": "Wischen zum Entdecken →"
   },
+  "boat": {
+    "title": "Buenaventura — unser einziges Boot",
+    "desc": "Eine Felix 37. Zwölf Gäste, fünfhundert PS und ein Eigner, der sie selbst wartet. Deshalb ist der Kühlschrank kalt, bevor Sie an Bord kommen, deshalb passen die Masken wirklich und deshalb sind die Handtücher trocken. Sie buchen Buenaventura und Sie bekommen Buenaventura — und falls Ihre Gruppe ein zweites Boot braucht, setzen wir Sie nur auf eines, das wir selbst gern fahren würden.",
+    "cta": "Das Boot entdecken",
+    "ariaLabel": "Buenaventura, unser Felix 37 Speedboot"
+  },
+  "team": {
+    "t1": {
+      "title": "Das Boot hat einen Eigner, und meistens ist er an Bord",
+      "desc": [
+        "Vana beantwortet Ihre Nachrichten. Čedo führt das Boot, mit Dinko an Deck. Zusammen bestreiten die beiden fast jede Tour, die wir verkaufen.",
+        "An den seltenen Tagen, an denen einer von uns Ruhe braucht, läuft das Boot mit dem Skipper aus, der Čedo das Fahren beigebracht hat, oder mit Paulo. Wir stellen keine Saisonkräfte ein, um einen Dienstplan zu füllen — wer bei uns an Bord kommt, ist jemand, dem wir die eigene Familie anvertrauen würden, und mehrere von ihnen sind genau das."
+      ],
+      "alt": "The Rebelde Boats family crew welcoming guests aboard in Split harbour",
+      "alt2": "Rebelde crew and guests sharing a moment on deck between islands"
+    },
+    "t2": {
+      "title": "Wir wissen, wo die Küste still wird",
+      "desc": [
+        "Jahre auf diesem Wasser haben uns mehr über Timing als über Geografie beigebracht. Welche Bucht um elf leer und um eins voll ist. Welche Inselseite man nimmt, wenn der Maestral auffrischt. Welche Konoba den Fisch noch auf die alte Art zubereitet.",
+        "Sie müssen nichts davon planen. Sagen Sie uns, was für einen Tag Sie sich wünschen, und wir bauen ihn um Wind, Licht und Andrang herum."
+      ],
+      "alt": "Rebelde Boats skipper at the helm navigating the Adriatic between Hvar and Vis"
+    },
+    "t3": {
+      "title": "Aufmerksamkeit ist die ganze Leistung",
+      "desc": [
+        "Kein fester Zeitplan. Keine Gruppentour. Keine Warteschlange hinter Ihnen.",
+        "Wir merken Dinge. Dass Sie lieber schwimmen als laufen. Dass jemandem der Seegang zusetzt. Dass die Kinder genug Sonne hatten. Also verschiebt sich der Tag — wir bleiben länger, wo es Ihnen gefällt, und lassen still weg, was nicht ankommt.",
+        "Das Meer hält sich an keinen Plan, wir auch nicht."
+      ],
+      "alt": "Rebelde guests on a personalised private tour along the Dalmatian coast at sunset"
+    }
+  },
+  "testimonials": {
+    "heading": "Zweihundert Tage, zweihundert Geschichten",
+    "readMore": "Auf TripAdvisor nachlesen",
+    "badgeNote": "200+ Fünf-Sterne-Bewertungen",
+    "swipeHint": "Wischen zum Lesen →"
+  },
   "toursIndex": {
     "title": "Private Adria-Erlebnisse",
     "desc": "Gehen Sie an Bord für eine persönlichere Art, die kroatische Küste zu erleben. Entdecken Sie versteckte Buchten, kristallklares Wasser, historische Inselstädte und stille Momente fernab der Massen. Jede Reise wird sorgfältig auf Ihr Tempo und Ihre Interessen zugeschnitten.",
+    "eyebrow": "Unsere Touren",
+    "browseHeading": "Vier Tage auf See, vier verschiedene Stimmungen",
     "heading": "Maßgeschneiderte Reisen. Insel für Insel.",
     "intro": "Kein Tag auf der Adria sollte je gleich sein. Wählen Sie Ihren Weg — versteckte Buchten, sonnige Häfen, geheime Strände. Jede Reise gestalten wir um Sie, Ihr Tempo, Ihren Geist.",
-    "cardCta": "Tour ansehen",
-    "eyebrow": "Unsere Touren",
-    "browseHeading": "Vier Tage auf See, vier verschiedene Stimmungen"
+    "cardCta": "Tour ansehen"
+  },
+  "facts": {
+    "private-charter": {
+      "title": "Vollständig privat, vollständig Ihres",
+      "desc": "Jede Rebelde-Tour ist vollständig privat — keine gemeinsamen Gruppen, keine festen Routen. Das Boot, der Kapitän und der Tag gehören Ihnen allein."
+    },
+    "the-boat": {
+      "title": "Für Komfort auf hoher See gebaut",
+      "desc": "Buenaventura ist ein 37-Fuß-Motorboot mit 500-PS-Motor, überdachter Kabine, extra großem Sonnendeck, Bordkühlschrank und Dusche."
+    },
+    "the-coast": {
+      "title": "Über 1.000 Inseln zu erkunden",
+      "desc": "Kroatiens Adriaküste beherbergt mehr als 1.200 Inseln, Inselchen und Riffe — die meisten unbewohnt. Von Split aus sind Dutzende innerhalb weniger Stunden erreichbar."
+    },
+    "the-water": {
+      "title": "Eines der klarsten Gewässer Europas",
+      "desc": "Die Adria zählt zu den saubersten Meeren Europas mit einer Sichtweite von oft über 30 Metern. Kristallklare Untiefen und Blaue Grotten machen jeden Badestopp unvergesslich."
+    },
+    "local-knowledge": {
+      "title": "Einheimische Kapitäne, Insider-Routen",
+      "desc": "Unsere Skipper sind auf diesen Gewässern aufgewachsen. Sie wissen, welche Buchten sich nachmittags leeren, welche Konobas den frischesten Fisch servieren."
+    }
+  },
+  "factsSection": {
+    "heading": "Was Rebelde besonders macht"
+  },
+  "tourDetail": {
+    "overviewEyebrow": "Der Tag",
+    "overviewHeading": "Die Adria jenseits der Postkarten",
+    "itineraryEyebrow": "Route",
+    "itineraryHeading": "Wohin der Tag Sie führt",
+    "galleryEyebrow": "Fotos",
+    "galleryHeading": "Ein Blick auf den Tag",
+    "includedEyebrow": "Details",
+    "includedHeading": "Was enthalten ist",
+    "includedTitle": "Inklusive",
+    "notIncludedTitle": "Nicht inklusive",
+    "whoForEyebrow": "Passt zu",
+    "whoForHeading": "Für wen diese Tour ist",
+    "compareLabel": "Vergleichen mit",
+    "logisticsEyebrow": "Praktisches",
+    "logisticsHeading": "Gut zu wissen",
+    "testimonialsEyebrow": "Stimmen unserer Gäste",
+    "testimonialsHeading": "Was Gäste über diese Tour sagen",
+    "faqEyebrow": "Fragen",
+    "faqHeading": "Häufige Fragen zu dieser Tour",
+    "relatedEyebrow": "Weitere Touren",
+    "relatedHeading": "Andere Tage, die Ihnen gefallen könnten",
+    "readMore": "Mehr erfahren",
+    "ctaHeading": "Bereit für Ihren Tag auf See?",
+    "ctaBody": "Schicken Sie uns Ihre Daten und Gruppengröße — wir melden uns innerhalb weniger Stunden mit Verfügbarkeit und den nächsten Schritten.",
+    "ctaButton": "Kontakt aufnehmen"
   },
   "tourItems": {
     "blue-lagoon-three-islands": {
@@ -100,16 +202,6 @@
       "durationLabel": "Half day · 5–6 hours",
       "capacityLabel": "Up to 12 guests",
       "priceLabel": "From €800",
-      "gallery": [
-        "Zwei kiefernbedeckte Inselchen über glasklarem türkisfarbenem Wasser",
-        "Vor Anker in der Blauen Lagune — unser liebster Badestopp",
-        "Vorbeigleiten an versteckten Buchten rund um den Drvenik-Archipel",
-        "Sonnenlicht tanzt auf dem Flachwasser — klar genug, um jeden Stein zu zählen",
-        "Anlegen in Trogirs altem Hafen für einen Spaziergang durch die Geschichte",
-        "Terrakottadächer und Glockentürme der UNESCO-Altstadt Trogir",
-        "Durch die alten Steingassen dalmatinischer Küstendörfer schlendern",
-        "Über dem Šolta-Wrack schwimmen — ein jahrhundertealter Rumpf knapp unter der Oberfläche"
-      ],
       "overview": [
         "The Blue Lagoon & Three Islands Escape is our most popular half-day trip — a relaxed Adriatic circuit through the archipelago just west of Split. It's the tour we recommend to guests who want a proper day at sea without a long drive out and back, and who value the quieter parts of Dalmatia over the busier ones.",
         "You'll swim in the famous Krknjaši lagoon, wander the stone streets of UNESCO-listed Trogir, and stop at a hidden Šolta bay for lunch or a longer swim. The pace is unhurried, the crowds are minimal, and the water rarely disappoints."
@@ -149,6 +241,16 @@
           "title": "Šolta shipwreck",
           "description": "On the way back, we anchor above a century-old wreck resting in the shallows — perfect for snorkellers curious about what's below."
         }
+      ],
+      "gallery": [
+        "Zwei kiefernbedeckte Inselchen über glasklarem türkisfarbenem Wasser",
+        "Vor Anker in der Blauen Lagune — unser liebster Badestopp",
+        "Vorbeigleiten an versteckten Buchten rund um den Drvenik-Archipel",
+        "Sonnenlicht tanzt auf dem Flachwasser — klar genug, um jeden Stein zu zählen",
+        "Anlegen in Trogirs altem Hafen für einen Spaziergang durch die Geschichte",
+        "Terrakottadächer und Glockentürme der UNESCO-Altstadt Trogir",
+        "Durch die alten Steingassen dalmatinischer Küstendörfer schlendern",
+        "Über dem Šolta-Wrack schwimmen — ein jahrhundertealter Rumpf knapp unter der Oberfläche"
       ],
       "included": [
         "Private charter of Buenaventura (Felix 37 speedboat)",
@@ -201,24 +303,6 @@
       "durationLabel": "Full day · 9–10 hours",
       "capacityLabel": "Up to 12 guests",
       "priceLabel": "From €1,500",
-      "gallery": [
-        "Approaching the green shores of Biševo island",
-        "Towering cliffs guarding the entrance to the famous sea cave",
-        "Inside the Blue Cave — where sunlight turns the sea electric blue",
-        "Gliding through the long stone tunnel of the submarine pen",
-        "Squeezing through Pritiščina's dramatic rocky gateway on Vis",
-        "Stiniva cove from above — a hidden beach walled by limestone cliffs",
-        "Light pouring into a quiet cavern on the Adriatic coast",
-        "Anchoring in the turquoise lagoon of Budikovac island",
-        "Floating weightless in some of the clearest water in the Mediterranean",
-        "Sunlight dancing across glass-clear shallows",
-        "Pulling into Komiža — the old fishing town of Vis",
-        "Hvar harbour and the Pakleni archipelago seen from above",
-        "Palm fronds against the Dalmatian summer sky",
-        "Wandering the timeworn stone alleys of Vis old town",
-        "Strolling the palm-lined waterfront after a day on the water",
-        "Sailing into Hvar with the \"Fortica\" Fortress watching from above"
-      ],
       "overview": [
         "The Blue Cave & Five Islands is the tour people write home about. It's a long day on the water — usually 9 to 10 hours — reaching some of the most remote and dramatic corners of the central Adriatic. You'll cross open sea, glide into a cave lit electric-blue from below, swim in coves you'd never find without a boat, and finish the afternoon in Hvar's harbour before turning back to Split.",
         "It's built for guests who want to see the extraordinary parts of Croatia and don't mind an early start to do it. Families, small groups, couples celebrating something — this tour is our most requested for a reason."
@@ -262,6 +346,24 @@
           "title": "Pakleni Islands & Hvar",
           "description": "Late afternoon in the Pakleni archipelago — clear water, pine forests, and a look at Hvar town's harbour before we turn back toward Split."
         }
+      ],
+      "gallery": [
+        "Approaching the green shores of Biševo island",
+        "Towering cliffs guarding the entrance to the famous sea cave",
+        "Inside the Blue Cave — where sunlight turns the sea electric blue",
+        "Gliding through the long stone tunnel of the submarine pen",
+        "Squeezing through Pritiščina's dramatic rocky gateway on Vis",
+        "Stiniva cove from above — a hidden beach walled by limestone cliffs",
+        "Light pouring into a quiet cavern on the Adriatic coast",
+        "Anchoring in the turquoise lagoon of Budikovac island",
+        "Floating weightless in some of the clearest water in the Mediterranean",
+        "Sunlight dancing across glass-clear shallows",
+        "Pulling into Komiža — the old fishing town of Vis",
+        "Hvar harbour and the Pakleni archipelago seen from above",
+        "Palm fronds against the Dalmatian summer sky",
+        "Wandering the timeworn stone alleys of Vis old town",
+        "Strolling the palm-lined waterfront after a day on the water",
+        "Sailing into Hvar with the \"Fortica\" Fortress watching from above"
       ],
       "included": [
         "Private charter of Buenaventura (Felix 37 speedboat)",
@@ -314,18 +416,6 @@
       "durationLabel": "Full day · 8–10 hours",
       "capacityLabel": "Up to 12 guests",
       "priceLabel": "From €1,400",
-      "gallery": [
-        "Arriving at Hvar town beneath the watchful Spanish Fortress",
-        "Hvar's historic waterfront from the deck — a postcard come to life",
-        "Wandering Hvar's old town square in the warm afternoon light",
-        "A waterfront table with Hvar's rooftops as the view",
-        "A drink with a view at Hula Hula — the island's legendary sunset bar",
-        "The dramatic limestone arch of Red Rocks rising from turquoise water",
-        "Sailing into Palmižana — the heart of the Pakleni archipelago",
-        "Pine-fringed coves and emerald shallows of the Pakleni islands",
-        "Anchoring among the boats in a sheltered Pakleni bay",
-        "The long, low-lying shape of St. Klement seen from above"
-      ],
       "overview": [
         "The Hvar & Pakleni Islands Experience is the tour we recommend to guests who want the buzz of a lively island town paired with the calm of a private cove. Hvar is Croatia's most famous island for a reason — the harbour, the fortress views, the waterfront dining — and the Pakleni archipelago sitting right offshore is where you escape it all after lunch.",
         "It's a full day but with a gentler pace than the Blue Cave route. Less open water, more time swimming, more time exploring on foot."
@@ -365,6 +455,18 @@
           "title": "Šolta on the way back",
           "description": "Late afternoon swim on Šolta's quieter side before turning back toward Split."
         }
+      ],
+      "gallery": [
+        "Arriving at Hvar town beneath the watchful Spanish Fortress",
+        "Hvar's historic waterfront from the deck — a postcard come to life",
+        "Wandering Hvar's old town square in the warm afternoon light",
+        "A waterfront table with Hvar's rooftops as the view",
+        "A drink with a view at Hula Hula — the island's legendary sunset bar",
+        "The dramatic limestone arch of Red Rocks rising from turquoise water",
+        "Sailing into Palmižana — the heart of the Pakleni archipelago",
+        "Pine-fringed coves and emerald shallows of the Pakleni islands",
+        "Anchoring among the boats in a sheltered Pakleni bay",
+        "The long, low-lying shape of St. Klement seen from above"
       ],
       "included": [
         "Private charter of Buenaventura (Felix 37 speedboat)",
@@ -417,18 +519,6 @@
       "durationLabel": "Full day · 8–10 hours",
       "capacityLabel": "Up to 12 guests",
       "priceLabel": "From €1,400",
-      "gallery": [
-        "The iconic shape of Zlatni Rat stretching into the sea",
-        "Private swimming stops along Brač's hidden coastline",
-        "Exploring the lively waterfronts of Hvar Island",
-        "Relaxed Adriatic cruising beneath the summer sun",
-        "The iconic shape of Zlatni Rat stretching into the sea",
-        "Private swimming stops along Brač's hidden coastline",
-        "Exploring the lively waterfronts of Hvar Island",
-        "Relaxed Adriatic cruising beneath the summer sun",
-        "Exploring the lively waterfronts of Hvar Island",
-        "Relaxed Adriatic cruising beneath the summer sun"
-      ],
       "overview": [
         "The Bol, Hvar & Pakleni Coastal Journey pairs three of Dalmatia's most recognisable places in a single day: Zlatni Rat, the golden-horn beach on Brač; Hvar town; and the Pakleni archipelago. Route-wise it's the middle ground between our shorter Blue Lagoon trip and the long Blue Cave day.",
         "Good for families who want an iconic beach stop, small groups on a celebration day, and anyone who's seen Split from the land and now wants to see it from the water."
@@ -468,6 +558,18 @@
           "title": "Pakleni Islands",
           "description": "Late afternoon in the archipelago. Anchor in a sheltered bay for a final swim before turning back to Split."
         }
+      ],
+      "gallery": [
+        "The iconic shape of Zlatni Rat stretching into the sea",
+        "Private swimming stops along Brač's hidden coastline",
+        "Exploring the lively waterfronts of Hvar Island",
+        "Relaxed Adriatic cruising beneath the summer sun",
+        "The iconic shape of Zlatni Rat stretching into the sea",
+        "Private swimming stops along Brač's hidden coastline",
+        "Exploring the lively waterfronts of Hvar Island",
+        "Relaxed Adriatic cruising beneath the summer sun",
+        "Exploring the lively waterfronts of Hvar Island",
+        "Relaxed Adriatic cruising beneath the summer sun"
       ],
       "included": [
         "Private charter of Buenaventura (Felix 37 speedboat)",
@@ -521,14 +623,6 @@
       "durationLabel": "So lange der Tag es zulässt",
       "capacityLabel": "Bis zu 12 Gäste",
       "priceLabel": "Ab 800 €",
-      "gallery": [
-        "Das Boot für Sie allein — kein Zeitplan, keine wartende Gruppe",
-        "Wir ankern, wo Platz ist, nicht wo der Plan es vorschreibt",
-        "Lange Mittagessen gibt es, wenn niemand die Stunden zählt",
-        "Badestopps, die so lange dauern, wie Sie möchten",
-        "Spätes Licht auf dem Rückweg, weil wir es nicht eilig hatten",
-        "Stille Buchten, die es auf keine Standardroute schaffen"
-      ],
       "overview": [
         "Das ist weniger eine Tour als ein leerer Tag mit einem Boot und zwei Menschen, die diese Küste kennen. Passend für Gäste, die schon einmal in Dalmatien waren, für Gruppen mit einem besonderen Anlass und für alle, denen ein fertiger Ablaufplan zuwider ist.",
         "Wir planen ihn gemeinsam per Nachricht, bevor Sie ankommen. Am Tag selbst passen wir laufend an — bleiben länger, wo es Ihnen gefällt, lassen weg, was nicht ankommt, ändern den ganzen Plan, wenn der Wind dreht. Diese Flexibilität ist der Grund, warum wir nur eine Gruppe pro Tag nehmen."
@@ -568,6 +662,14 @@
           "title": "Der Tag bewegt sich mit Ihnen",
           "description": "Länger schwimmen, früher essen, eine Bucht mehr, vor Sonnenuntergang zurück — alles an Bord entschieden, von Ihnen, ohne dass jemand auf uns wartet."
         }
+      ],
+      "gallery": [
+        "Das Boot für Sie allein — kein Zeitplan, keine wartende Gruppe",
+        "Wir ankern, wo Platz ist, nicht wo der Plan es vorschreibt",
+        "Lange Mittagessen gibt es, wenn niemand die Stunden zählt",
+        "Badestopps, die so lange dauern, wie Sie möchten",
+        "Spätes Licht auf dem Rückweg, weil wir es nicht eilig hatten",
+        "Stille Buchten, die es auf keine Standardroute schaffen"
       ],
       "included": [
         "Privatcharter der Buenaventura (Felix 37 Speedboot)",
@@ -615,13 +717,111 @@
           "body": "Schreiben Sie jederzeit — im Juli und August aber lieber früher. Selbst wenige Tage vorher kann der Termin noch frei sein."
         }
       ]
+    },
+    "sunset-hours": {
+      "label": "Sonnenuntergangsstunden",
+      "kicker": "Zwei Stunden, spätes Licht",
+      "pin": "Das stille Wasser westlich von Split",
+      "thumbAlt": "Buenaventura auf ruhigem Wasser bei Sonnenuntergang vor der Küste von Split",
+      "intro": "Zwei Stunden auf glattem Abendwasser, so gelegt, dass das Licht die meiste Arbeit macht. Gedacht für Anträge, Jahrestage und den letzten Urlaubsabend.",
+      "ctaText": "Wir legen etwa neunzig Minuten vor Sonnenuntergang ab, wenn die Tagesboote hereinkommen und die See still wird. Es gibt keine Route einzuhalten — wir suchen eine ruhige Stelle, stellen den Motor ab und bleiben, bis die Farbe geht. Bringen Sie eine Flasche mit oder lassen Sie uns eine kalt bereitstellen. Wenn Sie vorhaben, eine Frage zu stellen, sagen Sie uns Bescheid und wir kümmern uns um alles Übrige.",
+      "durationLabel": "2 Stunden · abends",
+      "capacityLabel": "Bis zu 12 Gäste",
+      "priceLabel": "Ab 400 €",
+      "overview": [
+        "Das Meer ist in den zwei Stunden vor Sonnenuntergang am schönsten. Der Wind fällt ab, die Tagestouren fahren heim und das Wasser wird spiegelglatt — dieselbe Küste, die Sie mittags sehen würden, wirkt wie ein anderer Ort.",
+        "Das ist eine kurze, bewusst unhastige Tour ohne Stopps und ohne Programm. Die meisten buchen sie aus einem bestimmten Grund: ein Antrag, ein Jahrestag, der letzte Abend vor dem Rückflug. Sagen Sie uns welchen, und wir formen die zwei Stunden darum herum."
+      ],
+      "keyFacts": [
+        {
+          "label": "Dauer",
+          "value": "2 Stunden, Abfahrt ~90 Min. vor Sonnenuntergang"
+        },
+        {
+          "label": "Abfahrt",
+          "value": "Promenade von Split oder Marina Zenta"
+        },
+        {
+          "label": "Gruppengröße",
+          "value": "Bis zu 12 Gäste"
+        },
+        {
+          "label": "Preis",
+          "value": "Ab 400 € (Anzahlung 200 €, Rest am Tag)"
+        }
+      ],
+      "itinerary": [
+        {
+          "title": "Einschiffen zur goldenen Stunde",
+          "description": "Wir legen ab, während die Tagesflotte zurückkommt. Die Getränke sind schon kalt und das Boot ist hergerichtet, bevor Sie einsteigen."
+        },
+        {
+          "title": "Hinaus aufs stille Wasser",
+          "description": "Fünfzehn Minuten nach Westen, am Marjan vorbei, dorthin, wo die See an diesem Abend am glattesten ist. Kein fester Platz — es hängt vom Wind ab."
+        },
+        {
+          "title": "Motor aus",
+          "description": "Wir ankern und bleiben. Schwimmen Sie, wenn Sie mögen; die meisten tun es nicht. Das ist der Teil, für den es diese Tour gibt."
+        },
+        {
+          "title": "Rückkehr nach Einbruch der Dunkelheit",
+          "description": "Wir kommen langsam herein, Split beleuchtet vor uns. Sie sind rechtzeitig zum späten Abendessen an der Promenade."
+        }
+      ],
+      "gallery": [
+        "Auslaufen, während die Tagesboote hereinkommen",
+        "Glattes Abendwasser — die ruhigste Stunde an der Adria",
+        "Motor aus, vor Anker an einem stillen Ort",
+        "Das letzte Licht über dem Šolta-Kanal",
+        "Gekühlte Getränke und Obst, hergerichtet bevor Sie an Bord kommen",
+        "Zurück an der Promenade, solange die Stadt noch warm ist"
+      ],
+      "included": [
+        "Privatcharter der Buenaventura (Felix 37 Speedboot)",
+        "Treibstoff und Hafengebühren",
+        "Lizenzierter Skipper",
+        "Gekühlter Sekt, Softdrinks und frisches Obst",
+        "Bluetooth-Soundsystem — schicken Sie uns eine Playlist",
+        "Frische Handtücher",
+        "MwSt."
+      ],
+      "notIncluded": [
+        "Fotograf (auf Anfrage — bei der Buchung erwähnen)",
+        "Abendessen an Land (wir reservieren gern einen Tisch für danach)",
+        "Weitere alkoholische Getränke über das Bereitgestellte hinaus",
+        "Trinkgeld (freiwillig)"
+      ],
+      "whoItsFor": {
+        "paragraph": "Für Paare, kleine Gruppen mit einem Anlass und alle, die ihren Tag auf See schon hatten und noch eine Stunde davon möchten. Wenn Sie Schwimmen, Inseln und Mittagessen wollen, nehmen Sie eine Ganztagestour — bei dieser geht es bewusst darum, sehr wenig zu tun.",
+        "tags": [
+          "Anträge",
+          "Jahrestage",
+          "Letzter Abend"
+        ],
+        "compareLink": {
+          "slug": "blue-lagoon-three-islands",
+          "label": "Blaue Lagune & Drei Inseln"
+        }
+      },
+      "logistics": [
+        {
+          "title": "Zeiten",
+          "body": "Die Abfahrt wandert mit der Jahreszeit — gegen 19:30 Uhr im Juni, eher 17:30 Uhr im Oktober. Die genaue Zeit bestätigen wir wenige Tage vorher."
+        },
+        {
+          "title": "Einen Antrag planen",
+          "body": "Sagen Sie uns Bescheid, und wir übernehmen Timing, Ort und dafür, dass alle anderen stillhalten. Wir haben das schon gemacht und sind gut darin, nichts zu verraten."
+        },
+        {
+          "title": "Wetterregelung",
+          "body": "Abendwind kann auffrischen. Sind die Bedingungen nicht richtig, bieten wir einen anderen Abend oder volle Erstattung an, entschieden bis zum Nachmittag."
+        },
+        {
+          "title": "Was mitbringen",
+          "body": "Etwas Leichtes zum Überziehen — es kühlt schnell ab, sobald die Sonne weg ist. Alles andere ist an Bord."
+        }
+      ]
     }
-  },
-  "boat": {
-    "title": "Buenaventura — unser einziges Boot",
-    "desc": "Eine Felix 37. Zwölf Gäste, fünfhundert PS und ein Eigner, der sie selbst wartet. Deshalb ist der Kühlschrank kalt, bevor Sie an Bord kommen, deshalb passen die Masken wirklich und deshalb sind die Handtücher trocken. Sie buchen Buenaventura und Sie bekommen Buenaventura — und falls Ihre Gruppe ein zweites Boot braucht, setzen wir Sie nur auf eines, das wir selbst gern fahren würden.",
-    "cta": "Das Boot entdecken",
-    "ariaLabel": "Buenaventura, unser Felix 37 Speedboot"
   },
   "boatHero": {
     "title": "Das Boot",
@@ -682,97 +882,6 @@
     "fuelTankSize": "Fuel Tank Size",
     "cruisingSpeed": "Cruising Speed",
     "maxSpeed": "Max Speed"
-  },
-  "team": {
-    "t1": {
-      "title": "Sie treffen uns, keinen Dienstplan",
-      "desc": [
-        "Wer Ihre erste Nachricht beantwortet, reicht Ihnen am Ende des Tages das Handtuch. Es gibt keine Disposition und keine wechselnde Crew.",
-        "Wir nehmen eine Gruppe pro Tag. Das heißt: An Bord haben Sie unsere volle Aufmerksamkeit, und wenn mittendrin etwas geändert werden muss, müssen wir niemanden fragen."
-      ],
-      "alt": "The Rebelde Boats family crew welcoming guests aboard in Split harbour",
-      "alt2": "Rebelde crew and guests sharing a moment on deck between islands"
-    },
-    "t2": {
-      "title": "Wir wissen, wo die Küste still wird",
-      "desc": [
-        "Jahre auf diesem Wasser haben uns mehr über Timing als über Geografie beigebracht. Welche Bucht um elf leer und um eins voll ist. Welche Inselseite man nimmt, wenn der Maestral auffrischt. Welche Konoba den Fisch noch auf die alte Art zubereitet.",
-        "Sie müssen nichts davon planen. Sagen Sie uns, was für einen Tag Sie sich wünschen, und wir bauen ihn um Wind, Licht und Andrang herum."
-      ],
-      "alt": "Rebelde Boats skipper at the helm navigating the Adriatic between Hvar and Vis"
-    },
-    "t3": {
-      "title": "Aufmerksamkeit ist die ganze Leistung",
-      "desc": [
-        "Kein fester Zeitplan. Keine Gruppentour. Keine Warteschlange hinter Ihnen.",
-        "Wir merken Dinge. Dass Sie lieber schwimmen als laufen. Dass jemandem der Seegang zusetzt. Dass die Kinder genug Sonne hatten. Also verschiebt sich der Tag — wir bleiben länger, wo es Ihnen gefällt, und lassen still weg, was nicht ankommt.",
-        "Das Meer hält sich an keinen Plan, wir auch nicht."
-      ],
-      "alt": "Rebelde guests on a personalised private tour along the Dalmatian coast at sunset"
-    }
-  },
-  "testimonials": {
-    "heading": "Zweihundert Tage, zweihundert Geschichten",
-    "readMore": "Auf TripAdvisor nachlesen",
-    "badgeNote": "200+ Fünf-Sterne-Bewertungen",
-    "swipeHint": "Wischen zum Lesen →"
-  },
-  "facts": {
-    "private-charter": {
-      "title": "Vollständig privat, vollständig Ihres",
-      "desc": "Jede Rebelde-Tour ist vollständig privat — keine gemeinsamen Gruppen, keine festen Routen. Das Boot, der Kapitän und der Tag gehören Ihnen allein."
-    },
-    "the-boat": {
-      "title": "Für Komfort auf hoher See gebaut",
-      "desc": "Buenaventura ist ein 37-Fuß-Motorboot mit 500-PS-Motor, überdachter Kabine, extra großem Sonnendeck, Bordkühlschrank und Dusche."
-    },
-    "the-coast": {
-      "title": "Über 1.000 Inseln zu erkunden",
-      "desc": "Kroatiens Adriaküste beherbergt mehr als 1.200 Inseln, Inselchen und Riffe — die meisten unbewohnt. Von Split aus sind Dutzende innerhalb weniger Stunden erreichbar."
-    },
-    "the-water": {
-      "title": "Eines der klarsten Gewässer Europas",
-      "desc": "Die Adria zählt zu den saubersten Meeren Europas mit einer Sichtweite von oft über 30 Metern. Kristallklare Untiefen und Blaue Grotten machen jeden Badestopp unvergesslich."
-    },
-    "local-knowledge": {
-      "title": "Einheimische Kapitäne, Insider-Routen",
-      "desc": "Unsere Skipper sind auf diesen Gewässern aufgewachsen. Sie wissen, welche Buchten sich nachmittags leeren, welche Konobas den frischesten Fisch servieren."
-    }
-  },
-  "factsSection": {
-    "heading": "Was Rebelde besonders macht"
-  },
-  "tourDetail": {
-    "overviewEyebrow": "Der Tag",
-    "overviewHeading": "Die Adria jenseits der Postkarten",
-    "itineraryEyebrow": "Route",
-    "itineraryHeading": "Wohin der Tag Sie führt",
-    "galleryEyebrow": "Fotos",
-    "galleryHeading": "Ein Blick auf den Tag",
-    "includedEyebrow": "Details",
-    "includedHeading": "Was enthalten ist",
-    "includedTitle": "Inklusive",
-    "notIncludedTitle": "Nicht inklusive",
-    "whoForEyebrow": "Passt zu",
-    "whoForHeading": "Für wen diese Tour ist",
-    "compareLabel": "Vergleichen mit",
-    "logisticsEyebrow": "Praktisches",
-    "logisticsHeading": "Gut zu wissen",
-    "testimonialsEyebrow": "Stimmen unserer Gäste",
-    "testimonialsHeading": "Was Gäste über diese Tour sagen",
-    "faqEyebrow": "Fragen",
-    "faqHeading": "Häufige Fragen zu dieser Tour",
-    "relatedEyebrow": "Weitere Touren",
-    "relatedHeading": "Andere Tage, die Ihnen gefallen könnten",
-    "readMore": "Mehr erfahren",
-    "ctaHeading": "Bereit für Ihren Tag auf See?",
-    "ctaBody": "Schicken Sie uns Ihre Daten und Gruppengröße — wir melden uns innerhalb weniger Stunden mit Verfügbarkeit und den nächsten Schritten.",
-    "ctaButton": "Kontakt aufnehmen"
-  },
-  "common": {
-    "startingFrom": "Ab",
-    "ratedOn": "Bewertet mit 5,0 auf",
-    "swipeHint": "Wischen zum Entdecken →"
   },
   "faqCategories": {
     "general": "Allgemeine Fragen",
@@ -1026,8 +1135,5 @@
       "featuredArticle": "Veröffentlichter Artikel",
       "other": "Sonstiges"
     }
-  },
-  "booking": {
-    "checkAvailability": "Verfügbarkeit prüfen"
   }
 }

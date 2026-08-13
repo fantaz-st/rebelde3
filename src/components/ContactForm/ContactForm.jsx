@@ -7,6 +7,7 @@ import "react-international-phone/style.css";
 import { useTranslations } from "next-intl";
 import { sendInquiry } from "@/app/actions/sendInquiry";
 import classes from "./ContactForm.module.css";
+import { Link } from "@/i18n/navigation";
 
 const initialState = { status: "idle", errors: {}, message: "" };
 
@@ -162,7 +163,7 @@ export default function ContactForm() {
       <SubmitButton labels={{ submit: t("submitLabel"), submitting: t("submitting") }} />
 
       <p className={classes.footnote}>
-        {t("privacyNote")}{" "}<a href="/privacy-policy">{t("privacyLink")}</a>.
+        {t("privacyNote")}{" "}<Link href="/privacy-policy">{t("privacyLink")}</Link>.
       </p>
     </form>
   );

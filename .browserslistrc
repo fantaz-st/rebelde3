@@ -1,10 +1,21 @@
-# Target modern browsers that cover ~95% of users.
-# This tells SWC/Babel NOT to polyfill ES2019-2022 features
-# (Array.at, Object.fromEntries, Object.hasOwn, etc.) saving ~14KB.
+# Build target. Two jobs:
+#
+#  1. Drop polyfills for features every current browser has. The ones
+#     PageSpeed flagged (Array.at / .flat / .flatMap, Object.fromEntries,
+#     Object.hasOwn, String.trimEnd) all shipped by Safari 15.4, so that's
+#     the floor. ~14 KB of transpiled JS saved.
+#
+#  2. Not break older phones. The previous version of this file used
+#     "last 2 Safari versions", which resolves to roughly Safari 18+ — that
+#     silently drops support for every iPhone still on iOS 15, 16 or 17.
+#     Those users would get untranspiled code with no polyfills. Chrome and
+#     Edge auto-update so "last 2" is harmless there; Safari is tied to the
+#     OS, so it needs an explicit floor.
 
-last 2 Chrome versions
-last 2 Firefox versions
-last 2 Safari versions
-last 2 Edge versions
+chrome >= 100
+edge >= 100
+firefox >= 100
+safari >= 15.4
+ios_saf >= 15.4
+samsung >= 19
 not dead
-not IE 11

@@ -18,7 +18,14 @@ function TeamImage({ src, alt, className, priority = false }) {
   return (
     <div className={`${classes.imgWrap} ${className}`} data-parallax-block>
       <div className={classes.imgInner} data-parallax-inner>
-        <Image src={src} alt={alt || ""} fill sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 40vw" className={classes.img} priority={priority} />
+        <Image
+          src={src}
+          alt={alt || ""}
+          fill
+          sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 40vw"
+          className={classes.img}
+          priority={priority}
+        />
       </div>
     </div>
   );
@@ -41,9 +48,22 @@ function Item1({ item, priority }) {
   return (
     <article className={classes.item}>
       <div className={classes.grid}>
-        <TeamImage src={item.img} alt={item.alt} className={classes.item1Img1} priority={priority} />
-        <TeamText title={item.title} descs={item.descs} className={classes.item1Text} />
-        <TeamImage src={item.img2} alt={item.alt2} className={classes.item1Img2} />
+        <TeamImage
+          src={item.img}
+          alt={item.alt}
+          className={classes.item1Img1}
+          priority={priority}
+        />
+        <TeamText
+          title={item.title}
+          descs={item.descs}
+          className={classes.item1Text}
+        />
+        <TeamImage
+          src={item.img2}
+          alt={item.alt2}
+          className={classes.item1Img2}
+        />
       </div>
     </article>
   );
@@ -54,7 +74,11 @@ function Item2({ item }) {
     <article className={classes.item}>
       <div className={classes.grid}>
         <TeamImage src={item.img} alt={item.alt} className={classes.item2Img} />
-        <TeamText title={item.title} descs={item.descs} className={classes.item2Text} />
+        <TeamText
+          title={item.title}
+          descs={item.descs}
+          className={classes.item2Text}
+        />
       </div>
     </article>
   );
@@ -65,7 +89,11 @@ function Item3({ item }) {
     <article className={classes.item}>
       <div className={classes.grid}>
         <TeamImage src={item.img} alt={item.alt} className={classes.item3Img} />
-        <TeamText title={item.title} descs={item.descs} className={classes.item3Text} />
+        <TeamText
+          title={item.title}
+          descs={item.descs}
+          className={classes.item3Text}
+        />
       </div>
     </article>
   );
@@ -98,10 +126,14 @@ export default function Team() {
       const thumbEl = root.querySelector("[data-team-thumb]");
       const thumbInner = root.querySelector("[data-team-thumb-inner]");
       const thumbImg = root.querySelector("[data-team-thumb-img]");
-      const thumbImgMobile = root.querySelector("[data-team-thumb-img-mobile]") || thumbImg;
+      const thumbImgMobile =
+        root.querySelector("[data-team-thumb-img-mobile]") || thumbImg;
       if (!thumbEl || !thumbInner || !thumbImg) return;
 
-      const scroller = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot") || window;
+      const scroller =
+        window.__RBD_SCROLLER__ ||
+        document.querySelector(".scrollRoot") ||
+        window;
       const scrollerOpt = scroller === window ? undefined : scroller;
       const mm = gsap.matchMedia();
 
@@ -118,8 +150,17 @@ export default function Team() {
           },
         });
 
-        tl.fromTo(thumbInner, { clipPath: "inset(14% 37% 14% 37%)" }, { clipPath: "inset(0% 0% 0% 0%)", ease: "none" });
-        tl.fromTo(thumbImg, { scale: 1.2, transformOrigin: "center" }, { scale: 1, ease: "none" }, 0);
+        tl.fromTo(
+          thumbInner,
+          { clipPath: "inset(14% 37% 14% 37%)" },
+          { clipPath: "inset(0% 0% 0% 0%)", ease: "none" },
+        );
+        tl.fromTo(
+          thumbImg,
+          { scale: 1.2, transformOrigin: "center" },
+          { scale: 1, ease: "none" },
+          0,
+        );
 
         requestAnimationFrame(() => ScrollTrigger.refresh());
         return () => {
@@ -182,7 +223,9 @@ export default function Team() {
         <div className={classes.list}>
           {items.map((item, idx) => {
             const Layout = LAYOUTS[item.layout] || Item2;
-            return <Layout key={item.key} item={item} priority={idx === 0} />;
+            /* No `priority` here: this section is several screens down,
+               and its preload was competing with the hero image. */
+            return <Layout key={item.key} item={item} priority={false} />;
           })}
         </div>
 
@@ -195,13 +238,21 @@ export default function Team() {
               alt={thumb.alt}
               fill
               sizes="100vw"
-              quality={90}
+              quality={80}
               className={`${classes.thumbImg} ${classes.thumbImgDesktop}`}
               onLoad={() => ScrollTrigger.refresh()}
             />
             {/* Mobile — portrait crop of the same photo */}
             {thumb.imgMobile && (
-              <Image data-team-thumb-img-mobile src={thumb.imgMobile} alt={thumb.alt} fill sizes="100vw" quality={85} className={`${classes.thumbImg} ${classes.thumbImgMobile}`} />
+              <Image
+                data-team-thumb-img-mobile
+                src={thumb.imgMobile}
+                alt={thumb.alt}
+                fill
+                sizes="100vw"
+                quality={85}
+                className={`${classes.thumbImg} ${classes.thumbImgMobile}`}
+              />
             )}
           </div>
         </div>

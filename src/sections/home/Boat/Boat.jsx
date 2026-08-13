@@ -69,7 +69,7 @@ export default function Boat() {
           <div className={classes.center}>
             {images.center.map((img, idx) => (
               <div key={`center-${idx}`} className={classes.imageWrapper} style={{ ...img.position }}>
-                <Image data-zoom-type={img.type} src={img.src} alt={img.type === "main" ? "Felix 37 Buenaventura speedboat — Rebelde Boats private charter from Split" : ""} fill sizes="(max-width: 640px) 1080px, 100vw" className={classes.image} priority={img.type === "main"} />
+                <Image data-zoom-type={img.type} src={img.src} alt={img.type === "main" ? "Felix 37 Buenaventura speedboat — Rebelde Boats private charter from Split" : ""} fill sizes="(max-width: 640px) 1080px, 100vw" className={classes.image} />
               </div>
             ))}
           </div>

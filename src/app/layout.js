@@ -1,4 +1,4 @@
-import { Playfair_Display, DM_Sans } from "next/font/google";
+
 import "./styles/reset.css";
 import "./styles/globals.css";
 import "./styles/typography.css";
@@ -11,20 +11,9 @@ export const viewport = {
   themeColor: "#003357",
 };
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style:  ["normal", "italic"],
-  variable: "--font-display",
-  display: "swap",
-});
+const playfair={variable:"--font-display"};
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-body",
-  display: "swap",
-});
+const dmSans={variable:"--font-body"};
 
 export default function RootLayout({ children }) {
   return (
@@ -33,9 +22,16 @@ export default function RootLayout({ children }) {
       className={`${playfair.variable} ${dmSans.variable}`}
     >
       <head>
-        {/* Preconnect for third-party origins we always hit early */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/*
+          The two fonts.* preconnects are gone. `next/font/google` downloads
+          the fonts at build time and serves them from our own origin, so the
+          browser never contacts Google Fonts — PageSpeed was reporting them
+          as unused, and an unused preconnect holds open a connection slot
+          that a real request could have used.
+
+          Google Tag Manager is genuinely third-party and loads early enough
+          to be worth the hint.
+        */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       </head>

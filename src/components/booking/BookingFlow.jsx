@@ -3,6 +3,7 @@ import { useState } from 'react'
 import BookingCalendar from './BookingCalendar'
 import BookingForm from './BookingForm'
 import styles from './BookingFlow.module.css'
+import { Link } from "@/i18n/navigation";
 
 const DURATION_LABEL = { full: 'Full day', am: 'Half day · Morning', pm: 'Half day · Afternoon', half: 'Half day (AM or PM)' }
 
@@ -112,7 +113,7 @@ export default function BookingFlow({ tours, preselectedDate = null, preselected
               weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
             })}</strong>
           </span>
-          <a href="/availability" className={styles.changeDateLink}>Change date</a>
+          <Link href="/availability" className={styles.changeDateLink}>Change date</Link>
         </div>
       )}
 

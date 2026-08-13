@@ -64,13 +64,23 @@ export default function Loader() {
       if (wrap.dataset.playing === "1") return;
       wrap.dataset.playing = "1";
 
-      const waitImg = (img) =>
+      /**
+       * The curtain photo isn't on screen until the "reveal" label ~0.9s in,
+       * so there's no reason to hold the whole intro until it downloads.
+       * We race it against a short timeout: normally it's already cached
+       * (the hero preloads the same file), and on a slow connection the
+       * animation starts anyway instead of stalling the page.
+       */
+      const waitImg = (img, timeoutMs = 300) =>
         img.complete
           ? Promise.resolve()
-          : new Promise((res) => {
-              img.addEventListener("load", res, { once: true });
-              img.addEventListener("error", res, { once: true });
-            });
+          : Promise.race([
+              new Promise((res) => {
+                img.addEventListener("load", res, { once: true });
+                img.addEventListener("error", res, { once: true });
+              }),
+              new Promise((res) => setTimeout(res, timeoutMs)),
+            ]);
 
       const computeShift = () => (bgInner.getBoundingClientRect().height - window.innerHeight) * -1;
 
@@ -119,6 +129,20 @@ export default function Loader() {
           },
         });
 
+        /**
+         * The choreography is unchanged — it just runs faster.
+         *
+         * At timeScale 1 the intro ran ~2.7s before the page underneath
+         * became visible, and since the loader is a full-screen fixed
+         * overlay, that 2.7s *is* the Largest Contentful Paint. PageSpeed
+         * measured 2,520ms of "element render delay" against a 20ms server
+         * response: the page was ready, the animation was covering it.
+         *
+         * 1.7x brings the reveal to ~1.6s, which still reads as deliberate.
+         * Lower this number if you want it snappier still.
+         */
+        tl.timeScale(1.7);
+
         if (window.__RBD_SLOW__) tl.timeScale(0.25);
 
         tl.addLabel("in",     0);
@@ -155,7 +179,15 @@ export default function Loader() {
         <div ref={bgInnerRef} className={classes.bgInner}>
           <div className={classes.top} />
           <div className={classes.bot}>
-            <img ref={curtainRef} src="/images/hero/rebelde-boats-hero.webp" alt="" className={classes.curtain} fetchPriority="high" />
+            <img
+              ref={curtainRef}
+              src="/images/hero/rebelde-boats-hero.webp"
+              alt=""
+              width={1920}
+              height={2400}
+              className={classes.curtain}
+              fetchPriority="high"
+            />
           </div>
         </div>
       </div>

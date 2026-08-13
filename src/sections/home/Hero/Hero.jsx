@@ -63,8 +63,16 @@ export default function Hero() {
               />
             </div>
             <div ref={blurRef} className={classes.blur} aria-hidden="true">
-              {/* Blur overlay — same src hits browser cache, no second network request */}
-              <Image className={classes.img} fill alt="" sizes="100vw" quality={40}
+              {/*
+                Blur overlay. `quality` must match the layer above, because
+                next/image bakes it into the URL — /_next/image?...&q=85 and
+                &q=40 are two different requests for the same photo. This was
+                set to 40 with a comment claiming it hit cache; it didn't, and
+                the home page downloaded the hero twice. The layer is blurred
+                past recognition, so 85 costs nothing visually and saves a
+                whole image download.
+              */}
+              <Image className={classes.img} fill alt="" sizes="100vw" quality={85}
                 src="/images/hero/rebelde-boats-hero.webp" />
             </div>
             <div ref={backdropRef} className={classes.backdrop} aria-hidden="true" />

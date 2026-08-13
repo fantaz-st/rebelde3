@@ -183,7 +183,7 @@ export default function Gallery() {
               {items.map((it, i) => (
                 <div key={it.id} ref={(el) => (startItemRefs.current[i] = el)} className={`${classes.item} ${classes.start}`} role="listitem">
                   <div className={classes.itemInner}>
-                    <Image src={it.src} alt={t(`alt.${it.id}`)} className={classes.img} fill priority={i === 0} sizes="(max-width: 767px) 50vw, 30vw" />
+                    <Image src={it.src} alt={t(`alt.${it.id}`)} className={classes.img} fill sizes="(max-width: 767px) 50vw, 30vw" />
                   </div>
                 </div>
               ))}
