@@ -16,17 +16,23 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Footer() {
   const t = useTranslations("footer");
-  const wrapRef  = useRef(null);
-  const bgRef    = useRef(null);
+  const wrapRef = useRef(null);
+  const bgRef = useRef(null);
   const itemRefs = useRef([]);
 
   useGSAP(
     () => {
-      const scroller = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot") || window;
+      const scroller =
+        window.__RBD_SCROLLER__ ||
+        document.querySelector(".scrollRoot") ||
+        window;
       if (!wrapRef.current) return;
 
       if (bgRef.current) {
-        gsap.set(bgRef.current, { backgroundPosition: "0px 0px", willChange: "background-position" });
+        gsap.set(bgRef.current, {
+          backgroundPosition: "0px 0px",
+          willChange: "background-position",
+        });
         gsap.to(bgRef.current, {
           backgroundPosition: "0px -220px",
           ease: "none",
@@ -43,7 +49,12 @@ export default function Footer() {
 
       const els = itemRefs.current.filter(Boolean);
       if (els.length) {
-        horizontalLoop(els, { repeat: -1, speed: 0.8, paused: false, paddingRight: 24 });
+        horizontalLoop(els, {
+          repeat: -1,
+          speed: 0.8,
+          paused: false,
+          paddingRight: 24,
+        });
       }
     },
     { scope: wrapRef, dependencies: [items] },
@@ -57,7 +68,9 @@ export default function Footer() {
       <div className={classes.cta}>
         <div className={`container ${classes.ctaInner}`}>
           <h2 className={classes.ctaTitle}>{t("ctaTitle")}</h2>
-          <Button href="/contact" variant="white" size="lg">{t("ctaButton")}</Button>
+          <Button href="/contact" variant="white" size="lg">
+            {t("ctaButton")}
+          </Button>
           <p className={classes.ctaSub}>{t("ctaSub")}</p>
         </div>
       </div>
@@ -65,9 +78,19 @@ export default function Footer() {
       <div className={classes.railWrap} aria-hidden="true">
         <div className={classes.rail}>
           {items.map((it, i) => (
-            <div key={it.id} ref={(el) => (itemRefs.current[i] = el)} className={classes.railItem}>
+            <div
+              key={it.id}
+              ref={(el) => (itemRefs.current[i] = el)}
+              className={classes.railItem}
+            >
               <div className={classes.railItemInner}>
-                <Image src={it.src} alt={it.alt} fill sizes="(max-width: 991px) 70vw, 38vw" className={classes.railImg} />
+                <Image
+                  src={it.src}
+                  alt={it.alt}
+                  fill
+                  sizes="(max-width: 991px) 70vw, 38vw"
+                  className={classes.railImg}
+                />
               </div>
             </div>
           ))}
@@ -79,7 +102,13 @@ export default function Footer() {
           <div className={`container ${classes.topInner}`}>
             <div className={`${classes.column} ${classes.left}`}>
               <h5 className={classes.label}>{t("whatsappLabel")}</h5>
-              <a className={`${classes.link} ${classes.larger}`} target="_blank" href="https://wa.me/385953933125" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+              <a
+                className={`${classes.link} ${classes.larger}`}
+                target="_blank"
+                href="https://wa.me/385953933125"
+                rel="noopener noreferrer"
+                aria-label="Chat on WhatsApp"
+              >
                 <h4>+385 95 393 3125</h4>
               </a>
             </div>
@@ -88,12 +117,15 @@ export default function Footer() {
               <p className={`${classes.label} font-alternate`}>Rebelde Boats</p>
               <p className={classes.larger}>REBELDE d.o.o.</p>
               <p className={classes.larger}>OIB: 99723002621</p>
-              <p className={classes.larger}>Vnkovačka 45, 21000 SPLIT</p>
+              <p className={classes.larger}>Vinkovačka 45, 21000 SPLIT</p>
             </div>
 
             <div className={`${classes.column} ${classes.right}`}>
               <h5 className={classes.label}>{t("emailLabel")}</h5>
-              <a className={`${classes.link} ${classes.larger}`} href="mailto:rebeldeboats@gmail.com">
+              <a
+                className={`${classes.link} ${classes.larger}`}
+                href="mailto:rebeldeboats@gmail.com"
+              >
                 <h4>rebeldeboats@gmail.com</h4>
               </a>
             </div>
@@ -111,12 +143,24 @@ export default function Footer() {
             </div>
             <div className={`${classes.column} ${classes.center}`}>
               <div className={classes.links}>
-                <Link className={classes.botLink} href="/the-boat">{t("theBoat")}</Link>
-                <Link className={classes.botLink} href="/tours">{t("toursLink")}</Link>
-                <Link className={classes.botLink} href="/journal">{t("journalLink")}</Link>
-                <Link className={classes.botLink} href="/reviews">{t("reviewsLink")}</Link>
-                <Link className={classes.botLink} href="/faq">{t("faqLink")}</Link>
-                <Link className={classes.botLink} href="/contact">{t("contactLink")}</Link>
+                <Link className={classes.botLink} href="/the-boat">
+                  {t("theBoat")}
+                </Link>
+                <Link className={classes.botLink} href="/tours">
+                  {t("toursLink")}
+                </Link>
+                <Link className={classes.botLink} href="/journal">
+                  {t("journalLink")}
+                </Link>
+                <Link className={classes.botLink} href="/reviews">
+                  {t("reviewsLink")}
+                </Link>
+                <Link className={classes.botLink} href="/faq">
+                  {t("faqLink")}
+                </Link>
+                <Link className={classes.botLink} href="/contact">
+                  {t("contactLink")}
+                </Link>
               </div>
             </div>
             <div className={`${classes.column} ${classes.right}`}>

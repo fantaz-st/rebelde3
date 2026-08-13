@@ -1,0 +1,118 @@
+/* Route map. Everything is stroke and type — no fills, no tiles, no chrome. */
+
+.wrap {
+  margin: 0;
+  width: 100%;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* --- course ---------------------------------------------------------- */
+
+.route {
+  fill: none;
+  stroke: var(--brand-persian-blue-50, rgba(0, 51, 87, 0.5));
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 3 9;
+}
+
+.arrow,
+.arrowFill {
+  fill: var(--brand-persian-blue-60, rgba(0, 51, 87, 0.6));
+}
+
+/* --- stops ----------------------------------------------------------- */
+
+/* A soft ring so a pin sitting on the dashed line still reads cleanly. */
+.stopHalo {
+  fill: var(--bg-brown-10, #f4f0ea);
+}
+
+.stopDot {
+  fill: var(--brand-persian-blue, #003357);
+}
+
+.stopLabel {
+  font-family: var(--fonts--paragraph);
+  font-size: 20px;
+  font-weight: 500;
+  fill: var(--brand-persian-blue, #003357);
+}
+
+.stopIndex {
+  font-size: 15px;
+  font-weight: 700;
+  fill: var(--brand-persian-blue-50, rgba(0, 51, 87, 0.5));
+}
+
+/* --- home port ------------------------------------------------------- */
+
+.originRing {
+  fill: none;
+  stroke: var(--brand-persian-blue, #003357);
+  stroke-width: 2;
+}
+
+.originDot {
+  fill: var(--brand-persian-blue, #003357);
+}
+
+.originLabel {
+  font-family: var(--fonts--paragraph);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  fill: var(--brand-persian-blue, #003357);
+}
+
+.note {
+  margin: 3rem 0 0;
+  font-family: var(--fonts--paragraph);
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--brand-persian-blue-60, rgba(0, 51, 87, 0.6));
+  text-align: center;
+}
+
+/* --- dark surfaces ---------------------------------------------------- */
+/* If the map ever sits on the blue section, add `data-tone="dark"` on the
+   figure and it re-inks without touching the geometry. */
+.wrap[data-tone="dark"] .route { stroke: rgba(255, 255, 255, 0.4); }
+.wrap[data-tone="dark"] .arrow,
+.wrap[data-tone="dark"] .arrowFill { fill: rgba(255, 255, 255, 0.65); }
+.wrap[data-tone="dark"] .stopHalo { fill: var(--brand-persian-blue, #003357); }
+.wrap[data-tone="dark"] .stopDot,
+.wrap[data-tone="dark"] .originDot { fill: #fff; }
+.wrap[data-tone="dark"] .originRing { stroke: #fff; }
+.wrap[data-tone="dark"] .stopLabel,
+.wrap[data-tone="dark"] .originLabel { fill: #fff; }
+.wrap[data-tone="dark"] .stopIndex { fill: rgba(255, 255, 255, 0.55); }
+.wrap[data-tone="dark"] .note { color: rgba(255, 255, 255, 0.6); }
+
+/* --- responsive ------------------------------------------------------- */
+/* The SVG scales as one unit, so at phone width the labels would drop to
+   about 8px. Scaling the type up in viewBox units keeps them legible
+   without changing any of the geometry. */
+
+@media only screen and (max-width: 991px) {
+  .stopLabel  { font-size: 24px; }
+  .stopIndex  { font-size: 19px; }
+  .originLabel { font-size: 25px; }
+}
+
+@media only screen and (max-width: 767px) {
+  .stopLabel  { font-size: 32px; }
+  .stopIndex  { font-size: 25px; }
+  .originLabel { font-size: 33px; }
+  .stopHalo   { r: 26; }
+  .stopDot    { r: 10; }
+  .route      { stroke-width: 3; }
+}

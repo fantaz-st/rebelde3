@@ -40,10 +40,9 @@
   line-height: 1;
 }
 
-/* Mobile — above the section nav bar which is ~6.5rem tall + 1.6rem margin */
 @media (max-width: 991px) {
   .container {
-    bottom: 8.5rem; /* clears the SectionNav bottom bar */
+    bottom: 3.5rem;
     right: 1.5rem;
   }
 }
