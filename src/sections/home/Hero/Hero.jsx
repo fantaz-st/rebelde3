@@ -13,37 +13,41 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 export default function Hero() {
   const t = useTranslations("hero");
 
-  const wrapRef       = useRef(null);
+  const wrapRef = useRef(null);
   const backgroundRef = useRef(null);
-  const blurRef       = useRef(null);
-  const backdropRef   = useRef(null);
-  const textRef       = useRef(null);
+  const blurRef = useRef(null);
+  const backdropRef = useRef(null);
+  const textRef = useRef(null);
 
   useGSAP(
     () => {
-      const scroller = window.__RBD_SCROLLER__ || document.querySelector(".scrollRoot") || window;
+      const scroller =
+        window.__RBD_SCROLLER__ ||
+        document.querySelector(".scrollRoot") ||
+        window;
       if (!wrapRef.current) return;
 
       gsap.set(backgroundRef.current, { scale: 1, transformOrigin: "50% 50%" });
-      gsap.set(blurRef.current,       { autoAlpha: 0 });
-      gsap.set(backdropRef.current,   { autoAlpha: 0 });
-      gsap.set(textRef.current,       { autoAlpha: 1 });
+      gsap.set(blurRef.current, { autoAlpha: 0 });
+      gsap.set(backdropRef.current, { autoAlpha: 0 });
+      gsap.set(textRef.current, { autoAlpha: 1 });
 
-      gsap.timeline({
-        defaults: { ease: "none" },
-        scrollTrigger: {
-          trigger: wrapRef.current,
-          scroller: scroller === window ? undefined : scroller,
-          start: "top top",
-          end: "+=80%",
-          scrub: true,
-          invalidateOnRefresh: true,
-        },
-      })
+      gsap
+        .timeline({
+          defaults: { ease: "none" },
+          scrollTrigger: {
+            trigger: wrapRef.current,
+            scroller: scroller === window ? undefined : scroller,
+            start: "top top",
+            end: "+=80%",
+            scrub: true,
+            invalidateOnRefresh: true,
+          },
+        })
         .to(backgroundRef.current, { scale: 1.08 }, 0)
-        .to(blurRef.current,       { autoAlpha: 1 }, 0)
-        .to(backdropRef.current,   { autoAlpha: 1 }, 0)
-        .to(textRef.current,       { autoAlpha: 0 }, 0);
+        .to(blurRef.current, { autoAlpha: 1 }, 0)
+        .to(backdropRef.current, { autoAlpha: 1 }, 0)
+        .to(textRef.current, { autoAlpha: 0 }, 0);
     },
     { scope: wrapRef },
   );
@@ -56,33 +60,36 @@ export default function Hero() {
             <div className={classes.bgItem}>
               <Image
                 className={classes.img}
-                fill priority alt="Felix 37 Buenaventura speedboat cruising the Adriatic sea near Split, Croatia"
+                fill
+                priority
+                alt="Felix 37 Buenaventura speedboat cruising the Adriatic sea near Split, Croatia"
                 sizes="100vw"
                 quality={85}
                 src="/images/hero/rebelde-boats-hero.webp"
               />
             </div>
             <div ref={blurRef} className={classes.blur} aria-hidden="true">
-              {/*
-                Blur overlay. `quality` must match the layer above, because
-                next/image bakes it into the URL — /_next/image?...&q=85 and
-                &q=40 are two different requests for the same photo. This was
-                set to 40 with a comment claiming it hit cache; it didn't, and
-                the home page downloaded the hero twice. The layer is blurred
-                past recognition, so 85 costs nothing visually and saves a
-                whole image download.
-              */}
-              <Image className={classes.img} fill alt="" sizes="100vw" quality={85}
-                src="/images/hero/rebelde-boats-hero.webp" />
+              <Image
+                className={classes.img}
+                fill
+                alt=""
+                sizes="100vw"
+                quality={85}
+                src="/images/hero/rebelde-boats-hero.webp"
+              />
             </div>
-            <div ref={backdropRef} className={classes.backdrop} aria-hidden="true" />
+            <div
+              ref={backdropRef}
+              className={classes.backdrop}
+              aria-hidden="true"
+            />
           </div>
 
           <div className={classes.main}>
             <div className={`container grid ${classes.grid}`}>
               <div ref={textRef} className={classes.text} data-hero-content>
                 <h1 className={classes.title}>{t("title")}</h1>
-                <p className={classes.subtitle}>{t("subtitle")}</p>
+                <h4 className={classes.subtitle}>{t("subtitle")}</h4>
               </div>
             </div>
           </div>

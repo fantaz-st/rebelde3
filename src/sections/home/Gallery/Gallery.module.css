@@ -14,6 +14,25 @@
   height: 100vh;
 }
 
+/* Caption layer.
+ *
+ * `mix-blend-mode: overlay` makes the white type burn into the photographs
+ * beneath it instead of sitting flatly on top — light areas of the image
+ * push the letters brighter, dark areas let them sink in.
+ *
+ * Three things this depends on, all easy to break later:
+ *
+ *  1. The type must be white (see .heading below). Overlay against a
+ *     mid-tone photo is what produces the see-through look; a coloured
+ *     caption just muddies.
+ *  2. Nothing between .wrap and this element may create its own stacking
+ *     context — no transform, no opacity, no filter, no will-change. A
+ *     stacking context isolates the blend and the effect silently dies.
+ *     GSAP animates autoAlpha on .textInner and .textItem, which is fine:
+ *     those are INSIDE the blending element, not above it.
+ *  3. .wrap keeps `contain: paint`. That's what scopes the blend to this
+ *     section, so the caption composites against the gallery photos rather
+ *     than the hero image showing through from the -100vh overlap. */
 .stick {
   position: sticky;
   top: 0;
@@ -23,6 +42,7 @@
   pointer-events: none;
   display: grid;
   place-items: center;
+  mix-blend-mode: overlay;
 }
 
 .stickInner {
@@ -48,6 +68,8 @@
 .heading {
   margin: 0;
   max-width: 58ch;
+  /* Required by the overlay blend on .stick — see the note there. */
+  color: var(--text-white, #ffffff);
 }
 
 .main {

@@ -51,9 +51,29 @@
   --transition-base: var(--dur-base) var(--ease-expo);
   --transition-img:  var(--dur-img)  var(--ease-smooth);
   --transition-fast: var(--dur-fast) var(--ease-expo);
+  /* ── Fonts ────────────────────────────────────────────────────────────
+   * `--font-display` and `--font-body` are injected by next/font in
+   * app/layout.js. Everything downstream reads the role variables below,
+   * so re-skinning the whole type system is six lines here.
+   *
+   * To switch the display face to Forma DJR once you hold a licence:
+   * self-host the .woff2 files under /public/fonts, load them with
+   * next/font/local in layout.js, and point --fonts--h1/h2/h3 at it.
+   * Do NOT copy the @font-face URLs from the Kudanil build — see NOTES. */
+  --fonts--grotesque: var(--font-display), "Helvetica Neue", Arial, sans-serif;
+  --fonts--text: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  /* ── Fonts ── */
-  --fonts--body: var(--font-body), system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* role mapping */
+  --fonts--h1: var(--fonts--grotesque);
+  --fonts--h2: var(--fonts--grotesque);
+  --fonts--h3: var(--fonts--grotesque);
+  --fonts--h4: var(--fonts--grotesque);
+  --fonts--h5: var(--fonts--text);
+  --fonts--paragraph: var(--fonts--text);
+  --fonts--button: var(--fonts--text);
+
+  /* kept: older rules still reference this alias */
+  --fonts--body: var(--fonts--text);
 }
 
 body {

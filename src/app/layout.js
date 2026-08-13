@@ -1,4 +1,4 @@
-
+import { Archivo, DM_Sans } from "next/font/google";
 import "./styles/reset.css";
 import "./styles/globals.css";
 import "./styles/typography.css";
@@ -11,26 +11,32 @@ export const viewport = {
   themeColor: "#003357",
 };
 
-const playfair={variable:"--font-display"};
+const display = Archivo({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-display",
+  display: "swap",
+});
 
-const dmSans={variable:"--font-body"};
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-body",
+  display: "swap",
+});
 
 export default function RootLayout({ children }) {
   return (
     <html
       suppressHydrationWarning
-      className={`${playfair.variable} ${dmSans.variable}`}
+      className={`${display.variable} ${dmSans.variable}`}
     >
       <head>
         {/*
-          The two fonts.* preconnects are gone. `next/font/google` downloads
-          the fonts at build time and serves them from our own origin, so the
-          browser never contacts Google Fonts — PageSpeed was reporting them
-          as unused, and an unused preconnect holds open a connection slot
-          that a real request could have used.
-
-          Google Tag Manager is genuinely third-party and loads early enough
-          to be worth the hint.
+          No fonts.* preconnects: next/font downloads the faces at build time
+          and serves them from our own origin, so the browser never contacts
+          Google Fonts. PageSpeed was reporting them as unused, and an unused
+          preconnect holds a connection slot a real request could have used.
         */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
