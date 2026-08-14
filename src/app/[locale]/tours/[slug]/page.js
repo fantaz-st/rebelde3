@@ -68,10 +68,10 @@ export default async function TourDetailPage({ params }) {
      the same one five times. */
   const g = (i) => view.gallery?.[i]?.src;
   const leads = {
-    overview:  view.mainImg || g(0),
+    overview: view.mainImg || g(0),
     itinerary: g(1) || view.subImg,
-    included:  view.ctaImg || g(2),
-    whoFor:    view.subImg || g(3),
+    included: view.ctaImg || g(2),
+    whoFor: view.subImg || g(3),
     logistics: g(4) || view.mainImg,
   };
 

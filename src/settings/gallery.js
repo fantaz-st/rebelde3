@@ -11,22 +11,32 @@ const gallery = [
   {
     id: "g1",
     src: "/images/gallery/gallery-6.webp",
+    href: "/",
+    title: "Example",
   },
   {
     id: "g2",
     src: "/images/gallery/gallery-8.webp",
+    href: "/",
+    title: "Example",
   },
   {
     id: "g3",
     src: "/images/gallery/gallery-9.webp",
+    href: "/",
+    title: "Example",
   },
   {
     id: "g4",
     src: "/images/gallery/gallery-1.jpg",
+    href: "/",
+    title: "Example",
   },
   {
     id: "g5",
     src: "/images/gallery/gallery-10.webp",
+    href: "/",
+    title: "Example",
   },
 ];
 

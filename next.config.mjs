@@ -17,7 +17,6 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
  */
 const legacyRedirects = [
   { source: "/home", destination: "/" },
-  { source: "/gallery", destination: "/" },
   { source: "/our-boat", destination: "/the-boat" },
   { source: "/our-tours", destination: "/tours" },
   {
