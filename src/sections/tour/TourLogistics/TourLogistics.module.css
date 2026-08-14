@@ -1,12 +1,23 @@
+/* Lead image — the scrubbed clip-path reveal, one per section. */
+.lead {
+  margin-bottom: 10rem;
+}
+
+@media (max-width: 991px) {
+  .lead {
+    margin-bottom: 6rem;
+  }
+}
+
 /*
  * Tour logistics — brown-20 section, 3-col grid.
  */
 
 .wrap {
-  background-color: var(--bg-brown-20);
+  background-color: #ffffff;
   color: var(--brand-persian-blue);
-  padding-top:    14rem;
-  padding-bottom: 14rem;
+  padding-top: 10rem;
+  /* padding-bottom: 10rem; */
 }
 
 .container {
@@ -77,8 +88,8 @@
 /* ── Tablet ────────────────────────────────────── */
 @media (max-width: 991px) {
   .wrap {
-    padding-top:    9rem;
-    padding-bottom: 9rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
   .container {
     row-gap: 4rem;
@@ -99,7 +110,7 @@
 /* ── Mobile ────────────────────────────────────── */
 @media (max-width: 767px) {
   .wrap {
-    padding-top:    6rem;
+    padding-top: 6rem;
     padding-bottom: 6rem;
   }
   .container {

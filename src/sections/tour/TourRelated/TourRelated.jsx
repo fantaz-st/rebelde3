@@ -7,14 +7,16 @@ export default function TourRelated({ tour }) {
   const t = useTranslations("tourDetail");
 
   return (
-    <TourSlider
-      headingId="tour-related-heading"
-      eyebrow={t("relatedEyebrow")}
-      heading={t("relatedHeading")}
-      keys={tour.relatedTourKeys}
-      exclude={tour.key}
-      align="start"
-      tone="plain"
-    />
+    <div style={{ backgroundColor: "#ffffff" }}>
+      <TourSlider
+        headingId="tour-related-heading"
+        eyebrow={t("relatedEyebrow")}
+        heading={t("relatedHeading")}
+        keys={tour.relatedTourKeys}
+        exclude={tour.key}
+        align="start"
+        tone="plain"
+      />
+    </div>
   );
 }

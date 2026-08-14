@@ -23,7 +23,6 @@ export default async function TourFaq({ tour, locale }) {
     <section className={classes.wrap} aria-label={td("faqHeading")}>
       <div className={`container grid ${classes.container}`}>
         <div className={classes.head}>
-          <p className={classes.eyebrow}>{td("faqEyebrow")}</p>
           <h2 className={classes.heading}>{td("faqHeading")}</h2>
         </div>
 

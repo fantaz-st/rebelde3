@@ -15,7 +15,10 @@ export default function TourTestimonials({ tour }) {
   const t = useTranslations("tourDetail");
 
   const slug = (s) =>
-    s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    s
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
   const tourWords = tour.key.split("-").filter((w) => w.length > 3);
 
   const matches = testimonials
@@ -32,7 +35,6 @@ export default function TourTestimonials({ tour }) {
     <section className={classes.wrap} aria-label={t("testimonialsEyebrow")}>
       <div className={`container grid ${classes.container}`}>
         <div className={classes.head}>
-          <p className={classes.eyebrow}>{t("testimonialsEyebrow")}</p>
           <h2 className={classes.heading}>{t("testimonialsHeading")}</h2>
         </div>
 
@@ -42,17 +44,11 @@ export default function TourTestimonials({ tour }) {
               <div className={classes.stars} aria-label="5 out of 5 stars">
                 <span aria-hidden="true">★★★★★</span>
               </div>
-              {r.title && (
-                <h3 className={classes.quoteTitle}>{r.title}</h3>
-              )}
-              <blockquote className={classes.quoteBody}>
-                {r.text}
-              </blockquote>
+              {r.title && <h3 className={classes.quoteTitle}>{r.title}</h3>}
+              <blockquote className={classes.quoteBody}>{r.text}</blockquote>
               <footer className={classes.quoteFooter}>
                 <cite className={classes.quoteAuthor}>— {r.name}</cite>
-                {r.tour && (
-                  <span className={classes.quoteTour}>{r.tour}</span>
-                )}
+                {r.tour && <span className={classes.quoteTour}>{r.tour}</span>}
               </footer>
             </li>
           ))}

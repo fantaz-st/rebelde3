@@ -28,7 +28,7 @@ export default function JournalGrid({ posts }) {
                         alt={post.hero.alt ?? ""}
                         fill
                         sizes="(max-width: 767px) 100vw, (max-width: 991px) 45vw, 30vw"
-                        quality={80}
+                        quality={85}
                         className={classes.imgEl}
                       />
                     ) : null}

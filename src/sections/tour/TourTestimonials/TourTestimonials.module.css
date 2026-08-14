@@ -5,8 +5,8 @@
 .wrap {
   background-color: #ffffff;
   color: var(--brand-persian-blue);
-  padding-top: 16rem;
-  padding-bottom: 16rem;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
 }
 
 .container {
@@ -115,8 +115,8 @@
 /* ── Tablet ────────────────────────────────────── */
 @media (max-width: 991px) {
   .wrap {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
   .container {
     row-gap: 5rem;

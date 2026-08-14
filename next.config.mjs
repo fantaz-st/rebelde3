@@ -20,7 +20,10 @@ const legacyRedirects = [
   { source: "/gallery", destination: "/" },
   { source: "/our-boat", destination: "/the-boat" },
   { source: "/our-tours", destination: "/tours" },
-  { source: "/our-tours/three-islands-tour", destination: "/tours/blue-lagoon-three-islands" },
+  {
+    source: "/our-tours/three-islands-tour",
+    destination: "/tours/blue-lagoon-three-islands",
+  },
   { source: "/bespoke-tours", destination: "/tours/bespoke-tour" },
 ];
 
@@ -29,8 +32,8 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
-    imageSizes:  [16, 32, 48, 64, 96, 128, 256, 384],
-    qualities:[40,75,85,100],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    qualities: [40, 75, 85, 100],
   },
   compress: true,
 

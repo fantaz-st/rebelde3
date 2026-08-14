@@ -1,0 +1,72 @@
+.frame {
+  position: relative;
+  width: 100%;
+  height: var(--reveal-height, 100vh);
+  overflow: hidden;
+}
+
+.panel {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  /* Starting state for browsers that get the scrub. GSAP overwrites this on
+     the first tick; without it the image flashes full-bleed before the
+     timeline attaches. Below 992px the media query resets it. */
+  clip-path: inset(14% 37% 14% 37% round 8rem);
+  will-change: clip-path;
+}
+
+.img {
+  object-fit: cover;
+}
+
+/* No scrub on tablet and phone — show the image as-is. */
+@media (max-width: 991px) {
+  .panel {
+    clip-path: none;
+    will-change: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    clip-path: none !important;
+  }
+}
+
+/* ── Overlaid title ────────────────────────────────────── */
+
+.title {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 0 4rem;
+  pointer-events: none;
+  /* GSAP animates this in; without the initial 0 it flashes before the
+     timeline attaches. Reset below 992px, where there is no scrub. */
+  opacity: 0;
+  visibility: hidden;
+}
+
+.titleText {
+  margin: 0;
+  color: var(--text-white);
+  text-align: center;
+  text-wrap: balance;
+  text-shadow: 0 0.2rem 4rem rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 991px) {
+  .title {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}

@@ -2,22 +2,35 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import RevealImage from "@/components/RevealImage/RevealImage";
 import classes from "./TourOverview.module.css";
 
-export default function TourOverview({ tour }) {
+export default function TourOverview({ tour, lead }) {
   const t = useTranslations("tourDetail");
 
   return (
-    <section className={classes.wrap} aria-label={t("overviewEyebrow")}>
-      <div className={`container grid ${classes.container}`}>
-        <div className={classes.head}>
-          <p className={classes.eyebrow}>{t("overviewEyebrow")}</p>
-          <h2 className={classes.heading}>{t("overviewHeading")}</h2>
-        </div>
+    <section
+      id="overview"
+      className={classes.wrap}
+      aria-label={t("overviewEyebrow")}
+    >
+      {lead && (
+        <RevealImage
+          src={lead}
+          alt=""
+          title={t("overviewHeading")}
+          height="62vh"
+          sizes="100vw"
+          className={classes.lead}
+        />
+      )}
 
+      <div className={`container grid ${classes.container}`}>
         <div className={classes.body}>
           {tour.overview.map((para, i) => (
-            <p key={i} className={classes.para}>{para}</p>
+            <p key={i} className={classes.para}>
+              {para}
+            </p>
           ))}
         </div>
 
@@ -30,7 +43,7 @@ export default function TourOverview({ tour }) {
                   alt=""
                   fill
                   sizes="(max-width: 991px) 100vw, 30vw"
-                  quality={80}
+                  quality={85}
                   className={classes.subImgEl}
                 />
               </div>

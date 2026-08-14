@@ -1,3 +1,14 @@
+/* Lead image — the scrubbed clip-path reveal, one per section. */
+.lead {
+  margin-bottom: 10rem;
+}
+
+@media (max-width: 991px) {
+  .lead {
+    margin-bottom: 6rem;
+  }
+}
+
 /*
  * Tour who-for — cream section. Head + body split (like Kudanil head-body pattern).
  * Head at cols 3–7 (sticky). Body (para + tags + compare) at cols 9–13.
@@ -6,8 +17,8 @@
 .wrap {
   background-color: #ffffff;
   color: var(--brand-persian-blue);
-  padding-top: 16rem;
-  padding-bottom: 16rem;
+  padding-top: 10rem;
+  /* padding-bottom: 10rem; */
 }
 
 .container {
@@ -126,8 +137,8 @@
 /* ── Tablet ────────────────────────────────────── */
 @media (max-width: 991px) {
   .wrap {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
   .head {
     grid-column: 2 / -2;

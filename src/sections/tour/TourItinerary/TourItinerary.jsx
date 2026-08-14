@@ -1,19 +1,30 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import RevealImage from "@/components/RevealImage/RevealImage";
 import classes from "./TourItinerary.module.css";
 
-export default function TourItinerary({ tour }) {
+export default function TourItinerary({ tour, lead }) {
   const t = useTranslations("tourDetail");
 
   return (
-    <section className={classes.wrap} aria-label={t("itineraryEyebrow")}>
-      <div className={`container grid ${classes.container}`}>
-        <div className={classes.head}>
-          <p className={classes.eyebrow}>{t("itineraryEyebrow")}</p>
-          <h2 className={classes.heading}>{t("itineraryHeading")}</h2>
-        </div>
+    <section
+      id="itinerary"
+      className={classes.wrap}
+      aria-label={t("itineraryEyebrow")}
+    >
+      {lead && (
+        <RevealImage
+          src={lead}
+          alt=""
+          title={t("itineraryHeading")}
+          height="62vh"
+          sizes="100vw"
+          className={classes.lead}
+        />
+      )}
 
+      <div className={`container grid ${classes.container}`}>
         <ol className={classes.stops}>
           {tour.itinerary.map((stop, i) => (
             <li key={i} className={classes.stop}>

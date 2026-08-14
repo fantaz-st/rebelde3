@@ -1,3 +1,14 @@
+/* Lead image — the scrubbed clip-path reveal, one per section. */
+.lead {
+  margin-bottom: 10rem;
+}
+
+@media (max-width: 991px) {
+  .lead {
+    margin-bottom: 6rem;
+  }
+}
+
 /*
  * Tour overview — cream section.
  *   Head (eyebrow + heading):    cols 5/-5 editorial-tight
@@ -8,8 +19,8 @@
 .wrap {
   background-color: #ffffff;
   color: var(--brand-persian-blue);
-  padding-top: 18rem;
-  padding-bottom: 16rem;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
 }
 
 .container {
@@ -134,8 +145,8 @@
 /* ── Tablet ────────────────────────────────────── */
 @media (max-width: 991px) {
   .wrap {
-    padding-top: 12rem;
-    padding-bottom: 10rem;
+    padding-top: 7rem;
+    padding-bottom: 6rem;
   }
   .container {
     row-gap: 5rem;

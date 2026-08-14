@@ -21,7 +21,7 @@ export default function ToursGrid() {
                   alt={tour.thumbAlt || tour.label}
                   fill
                   sizes="(max-width: 991px) 100vw, 50vw"
-                  quality={80}
+                  quality={85}
                 />
               </div>
               <div data-el="content">
