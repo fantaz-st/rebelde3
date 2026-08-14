@@ -4,7 +4,6 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useTranslations } from "next-intl";
 import items from "@/settings/gallery";
 import classes from "./Gallery.module.css";
 import Image from "next/image";
@@ -12,8 +11,6 @@ import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Gallery() {
-  const t = useTranslations("gallery");
-
   const wrapRef = useRef(null);
   const stageRef = useRef(null);
   const stickRef = useRef(null);
@@ -166,10 +163,10 @@ export default function Gallery() {
           <div className="container">
             <div className={classes.textInner} ref={textInnerRef}>
               <div className={classes.textItem} ref={(el) => (textItemRefs.current[0] = el)}>
-                <h2 className={classes.heading}>{t("slide1")}</h2>
+                <h2 className={classes.heading}>{"The person who owns the boat is the person driving it."}</h2>
               </div>
               <div className={classes.textItem} ref={(el) => (textItemRefs.current[1] = el)}>
-                <h2 className={classes.heading}>{t("slide2")}</h2>
+                <h2 className={classes.heading}>{"The cove before the crowd. The shade at the right hour. The small things are the whole thing."}</h2>
               </div>
             </div>
           </div>
@@ -183,7 +180,7 @@ export default function Gallery() {
               {items.map((it, i) => (
                 <div key={it.id} ref={(el) => (startItemRefs.current[i] = el)} className={`${classes.item} ${classes.start}`} role="listitem">
                   <div className={classes.itemInner}>
-                    <Image src={it.src} alt={t(`alt.${it.id}`)} className={classes.img} fill sizes="(max-width: 767px) 50vw, 30vw" />
+                    <Image src={it.src} alt={it.alt} className={classes.img} fill sizes="(max-width: 767px) 50vw, 30vw" />
                   </div>
                 </div>
               ))}

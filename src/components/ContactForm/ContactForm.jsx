@@ -4,10 +4,9 @@ import { useActionState, useEffect, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
-import { useTranslations } from "next-intl";
 import { sendInquiry } from "@/app/actions/sendInquiry";
 import classes from "./ContactForm.module.css";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 
 const initialState = { status: "idle", errors: {}, message: "" };
 
@@ -21,22 +20,21 @@ function SubmitButton({ labels }) {
 }
 
 export default function ContactForm() {
-  const t = useTranslations("contact");
 
   const interestedInOptions = [
-    { value: "general", label: t("interestedIn.general") },
-    { value: "booking", label: t("interestedIn.booking") },
-    { value: "press",   label: t("interestedIn.press") },
-    { value: "other",   label: t("interestedIn.other") },
+    { value: "general", label: "General inquiry" },
+    { value: "booking", label: "Booking" },
+    { value: "press",   label: "Press / Media" },
+    { value: "other",   label: "Other" },
   ];
 
   const referralSources = [
-    { value: "personal-contact",   label: t("referralSources.personalContact") },
-    { value: "facebook-instagram", label: t("referralSources.facebookInstagram") },
-    { value: "travel-agency",      label: t("referralSources.travelAgency") },
-    { value: "search-engine",      label: t("referralSources.searchEngine") },
-    { value: "featured-article",   label: t("referralSources.featuredArticle") },
-    { value: "other",              label: t("referralSources.other") },
+    { value: "personal-contact",   label: "Personal contact" },
+    { value: "facebook-instagram", label: "Facebook / Instagram" },
+    { value: "travel-agency",      label: "Travel agency" },
+    { value: "search-engine",      label: "Search engine" },
+    { value: "featured-article",   label: "Featured article" },
+    { value: "other",              label: "Other" },
   ];
 
   const [state, formAction] = useActionState(sendInquiry, initialState);
@@ -73,7 +71,7 @@ export default function ContactForm() {
   if (state.status === "success") {
     return (
       <div className={classes.successBox} role="status">
-        <h2 className={classes.successTitle}>{t("successTitle")}</h2>
+        <h2 className={classes.successTitle}>{"Thank you!"}</h2>
         <p className={classes.successText}>{state.message}</p>
       </div>
     );
@@ -88,19 +86,19 @@ export default function ContactForm() {
 
       <div className={classes.grid}>
         <div className={classes.field}>
-          <input type="text" name="name" id="name" placeholder={t("namePlaceholder")} required autoComplete="name" maxLength={256} className={classes.input} aria-invalid={!!state.errors?.name} />
+          <input type="text" name="name" id="name" placeholder={"Name*"} required autoComplete="name" maxLength={256} className={classes.input} aria-invalid={!!state.errors?.name} />
           <span className={classes.line} aria-hidden="true"><span className={classes.lineInner} /></span>
           {state.errors?.name && <span className={classes.error}>{state.errors.name}</span>}
         </div>
 
         <div className={classes.field}>
-          <input type="email" name="email" id="email" placeholder={t("emailPlaceholder")} required autoComplete="email" maxLength={256} className={classes.input} aria-invalid={!!state.errors?.email} />
+          <input type="email" name="email" id="email" placeholder={"Email*"} required autoComplete="email" maxLength={256} className={classes.input} aria-invalid={!!state.errors?.email} />
           <span className={classes.line} aria-hidden="true"><span className={classes.lineInner} /></span>
           {state.errors?.email && <span className={classes.error}>{state.errors.email}</span>}
         </div>
 
         <div className={`${classes.field} ${classes.fieldPhone}`} data-lenis-prevent>
-          <PhoneInput defaultCountry="hr" value={phone} onChange={(value) => setPhone(value)} placeholder={t("phonePlaceholder")} inputProps={{ autoComplete: "tel", maxLength: 30 }} className={classes.phoneInput} />
+          <PhoneInput defaultCountry="hr" value={phone} onChange={(value) => setPhone(value)} placeholder={"Phone number"} inputProps={{ autoComplete: "tel", maxLength: 30 }} className={classes.phoneInput} />
           <input type="hidden" name="phone" value={phone} />
           <span className={classes.line} aria-hidden="true"><span className={classes.lineInner} /></span>
         </div>
@@ -108,7 +106,7 @@ export default function ContactForm() {
         <div className={classes.field} ref={dropdownRef}>
           <button type="button" className={`${classes.input} ${classes.dropdownToggle}`} onClick={() => setDropdownOpen((v) => !v)} aria-haspopup="listbox" aria-expanded={dropdownOpen}>
             <span className={interestedIn ? classes.dropdownValue : classes.dropdownPlaceholder}>
-              {interestedInLabel || t("interestedInPlaceholder")}
+              {interestedInLabel || "You're interested in..."}
             </span>
             <svg className={`${classes.dropdownIcon} ${dropdownOpen ? classes.dropdownIconOpen : ""}`} viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="m17.422 8.452 1.06 1.061-5.777 5.779a.995.995 0 0 1-1.413 0l-5.78-5.779 1.06-1.06 5.425 5.424z" fill="currentColor" />
@@ -131,13 +129,13 @@ export default function ContactForm() {
       </div>
 
       <div className={`${classes.field} ${classes.fieldFull} ${classes.fieldTextarea}`}>
-        <textarea name="message" id="message" placeholder={t("messagePlaceholder")} maxLength={5000} rows={6} required className={`${classes.input} ${classes.textarea}`} aria-invalid={!!state.errors?.message} />
+        <textarea name="message" id="message" placeholder={"Your message\nWhen you prefer to travel\nNumber of guests\nRegions you're curious about\nAny specific interests or themes"} maxLength={5000} rows={6} required className={`${classes.input} ${classes.textarea}`} aria-invalid={!!state.errors?.message} />
         <span className={classes.line} aria-hidden="true"><span className={classes.lineInner} /></span>
         {state.errors?.message && <span className={classes.error}>{state.errors.message}</span>}
       </div>
 
       <div className={classes.referralBlock}>
-        <p className={classes.referralLabel}>{t("referralLabel")}</p>
+        <p className={classes.referralLabel}>{"How did you hear about us?"}</p>
         <div className={classes.referralGrid}>
           {referralSources.map((opt) => {
             const checked = referrals.includes(opt.value);
@@ -160,10 +158,10 @@ export default function ContactForm() {
         <p className={classes.formError} role="alert">{state.message}</p>
       )}
 
-      <SubmitButton labels={{ submit: t("submitLabel"), submitting: t("submitting") }} />
+      <SubmitButton labels={{ submit: "Submit", submitting: "Sending..." }} />
 
       <p className={classes.footnote}>
-        {t("privacyNote")}{" "}<Link href="/privacy-policy">{t("privacyLink")}</Link>.
+        {"For more details about how we use your information, view our"}{" "}<Link href="/privacy-policy">{"Privacy Policy"}</Link>.
       </p>
     </form>
   );

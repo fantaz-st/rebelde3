@@ -1,12 +1,11 @@
 "use client";
 
 import { useRef } from "react";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useTranslations } from "next-intl";
 import classes from "./Footer.module.css";
 import horizontalLoop from "@/helpers/horizontalHelper";
 import Button from "../Button/Button";
@@ -15,7 +14,6 @@ import items from "../../settings/footer-marquee";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Footer() {
-  const t = useTranslations("footer");
   const wrapRef = useRef(null);
   const bgRef = useRef(null);
   const itemRefs = useRef([]);
@@ -67,11 +65,11 @@ export default function Footer() {
 
       <div className={classes.cta}>
         <div className={`container ${classes.ctaInner}`}>
-          <h2 className={classes.ctaTitle}>{t("ctaTitle")}</h2>
+          <h2 className={classes.ctaTitle}>{"Want to make it special?"}</h2>
           <Button href="/contact" variant="white" size="lg">
-            {t("ctaButton")}
+            {"GET IN TOUCH"}
           </Button>
-          <p className={classes.ctaSub}>{t("ctaSub")}</p>
+          <p className={classes.ctaSub}>{"Reach out and let us turn your time in Split into something truly special."}</p>
         </div>
       </div>
 
@@ -101,7 +99,7 @@ export default function Footer() {
         <div className={classes.top}>
           <div className={`container ${classes.topInner}`}>
             <div className={`${classes.column} ${classes.left}`}>
-              <h5 className={classes.label}>{t("whatsappLabel")}</h5>
+              <h5 className={classes.label}>{"Chat with us on WhatsApp"}</h5>
               <a
                 className={`${classes.link} ${classes.larger}`}
                 target="_blank"
@@ -121,7 +119,7 @@ export default function Footer() {
             </div>
 
             <div className={`${classes.column} ${classes.right}`}>
-              <h5 className={classes.label}>{t("emailLabel")}</h5>
+              <h5 className={classes.label}>{"Get in touch"}</h5>
               <a
                 className={`${classes.link} ${classes.larger}`}
                 href="mailto:rebeldeboats@gmail.com"
@@ -144,28 +142,28 @@ export default function Footer() {
             <div className={`${classes.column} ${classes.center}`}>
               <div className={classes.links}>
                 <Link className={classes.botLink} href="/the-boat">
-                  {t("theBoat")}
+                  {"The Boat"}
                 </Link>
                 <Link className={classes.botLink} href="/tours">
-                  {t("toursLink")}
+                  {"Our Tours"}
                 </Link>
                 <Link className={classes.botLink} href="/journal">
-                  {t("journalLink")}
+                  {"Journal"}
                 </Link>
                 <Link className={classes.botLink} href="/reviews">
-                  {t("reviewsLink")}
+                  {"Reviews"}
                 </Link>
                 <Link className={classes.botLink} href="/faq">
-                  {t("faqLink")}
+                  {"FAQ-s"}
                 </Link>
                 <Link className={classes.botLink} href="/contact">
-                  {t("contactLink")}
+                  {"Contact"}
                 </Link>
               </div>
             </div>
             <div className={`${classes.column} ${classes.right}`}>
               <div className={classes.columnInner}>
-                {t("credit")} <a href="mailto:cbabic.st@gmail.com">fantaz</a>
+                {"designed & developed by"} <a href="mailto:cbabic.st@gmail.com">fantaz</a>
               </div>
             </div>
           </div>

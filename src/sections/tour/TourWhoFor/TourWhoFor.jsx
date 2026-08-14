@@ -1,12 +1,10 @@
 "use client";
 
-import { Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
+import Link from "next/link";
 import RevealImage from "@/components/RevealImage/RevealImage";
 import classes from "./TourWhoFor.module.css";
 
 export default function TourWhoFor({ tour, lead }) {
-  const t = useTranslations("tourDetail");
   const w = tour.whoItsFor;
   if (!w) return null;
 
@@ -14,13 +12,13 @@ export default function TourWhoFor({ tour, lead }) {
     <section
       id="who-for"
       className={classes.wrap}
-      aria-label={t("whoForHeading")}
+      aria-label={"Who this tour suits"}
     >
       {lead && (
         <RevealImage
           src={lead}
           alt=""
-          title={t("whoForHeading")}
+          title={"Who this tour suits"}
           height="62vh"
           sizes="100vw"
           className={classes.lead}
@@ -43,7 +41,7 @@ export default function TourWhoFor({ tour, lead }) {
 
           {w.compareLink && (
             <p className={classes.compare}>
-              <span className={classes.compareLabel}>{t("compareLabel")}</span>
+              <span className={classes.compareLabel}>{"Compare with"}</span>
               <Link
                 href={`/tours/${w.compareLink.slug}`}
                 className={classes.compareLink}

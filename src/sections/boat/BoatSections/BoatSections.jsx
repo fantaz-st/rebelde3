@@ -1,43 +1,35 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import SectionList from "@/components/SectionList/SectionList";
 import BoatSpecs from "@/sections/boat/BoatSpecs/BoatSpecs";
 import rawItems from "@/settings/boatSections";
 
 export default function BoatSections() {
-  const t  = useTranslations("boatSectionItems");
-  const tn = useTranslations("boatSections");
-
   // Normalise boatSections.js shape → SectionItem shape
   const items = rawItems.map((it) => ({
     key:      it.key,
     hero:     it.heroImg,
-    label:    t(`${it.key}.label`),
-    intro:    t(`${it.key}.intro`),
-    subText:  t(`${it.key}.subText`),
+    label:    it.label,
+    intro:    it.intro,
+    subText:  it.subText,
     imgLarge: it.imgLarge,
     imgSmall: it.imgSmall,
     ctaImg:   it.ctaImg,
-    ctaText:  t(`${it.key}.ctaText`),
-    // image paths from settings, captions from messages, matched by index
-    gallery:  it.gallery.map((src, i) => ({
-      src,
-      caption: t.raw(`${it.key}.gallery`)?.[i] ?? "",
-    })),
+    ctaText:  it.ctaText,
+    gallery:  it.gallery,
   }));
 
   const navSections = [
-    { id: "the-boat",       label: tn("sectionNav.theBoat") },
-    { id: "comfort-deck",   label: tn("sectionNav.comfortDeck") },
-    { id: "specifications", label: tn("sectionNav.specifications") },
+    { id: "the-boat",       label: "The Boat" },
+    { id: "comfort-deck",   label: "Comfort & Deck" },
+    { id: "specifications", label: "Specifications" },
   ];
 
   return (
     <SectionList
       items={items}
       navSections={navSections}
-      ctaLabel={tn("checkAvailability")}
+      ctaLabel={"Check Availability"}
       footer={
         <div id="specifications">
           <BoatSpecs />

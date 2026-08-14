@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getFaq } from "@/settings/faqs";
 import classes from "./BespokeFaq.module.css";
 
 const faqIds = [
@@ -10,17 +10,9 @@ const faqIds = [
   "general-q1",
 ];
 
-export default async function BespokeFaq({ locale }) {
-  const t = await getTranslations({ locale, namespace: "faq" });
-
+export default async function BespokeFaq() {
   const items = faqIds
-    .map((id) => {
-      try {
-        return { id, question: t(`${id}.question`), answer: t(`${id}.answer`) };
-      } catch {
-        return null;
-      }
-    })
+    .map(getFaq)
     .filter(Boolean);
 
   if (items.length === 0) return null;

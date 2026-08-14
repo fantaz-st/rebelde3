@@ -1,4 +1,4 @@
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import classes from "./BespokeCta.module.css";
 
 export default function BespokeCta() {

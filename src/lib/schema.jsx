@@ -22,42 +22,18 @@ export const BUSINESS_EMAIL = "info@rebelde.hr";
 export const REVIEW_COUNT = 220;
 export const RATING_VALUE = "5.0";
 
-export const LOCALES = ["en", "hr", "de", "es", "it", "fr"];
-
-export const OG_LOCALES = {
-  en: "en_US",
-  hr: "hr_HR",
-  de: "de_DE",
-  es: "es_ES",
-  it: "it_IT",
-  fr: "fr_FR",
-};
-
 export const businessRef = { "@id": BUSINESS_ID };
 
 // ── URL helpers ────────────────────────────────────────────
 
-/** "" for English (root), "/de" etc. for prefixed locales. */
-export const localePrefix = (locale) => (locale === "en" ? "" : `/${locale}`);
-
-export const absoluteUrl = (path = "", locale = "en") =>
-  `${SITE_URL}${localePrefix(locale)}${path === "/" ? "" : path}`;
-
-/** hreflang map for `alternates.languages`, x-default pointing at English. */
-export function languageAlternates(path = "") {
-  const clean = path === "/" ? "" : path;
-  return Object.fromEntries([
-    ["x-default", `${SITE_URL}${clean}`],
-    ...LOCALES.map((l) => [l, `${SITE_URL}${localePrefix(l)}${clean}`]),
-  ]);
-}
+export const absoluteUrl = (path = "") =>
+  `${SITE_URL}${path === "/" ? "" : path}`;
 
 /**
  * Standard page metadata. Every page calls this so canonical + hreflang +
  * OG are consistent and never drift between routes.
  */
 export function pageMetadata({
-  locale,
   path = "",
   title,
   description,
@@ -65,15 +41,15 @@ export function pageMetadata({
   type = "website",
   imageAlt = `${SITE_NAME} — private boat tours from Split, Croatia`,
 }) {
-  const canonical = absoluteUrl(path, locale);
+  const canonical = absoluteUrl(path);
   return {
     title,
     description,
-    alternates: { canonical, languages: languageAlternates(path) },
+    alternates: { canonical },
     openGraph: {
       type,
       siteName: SITE_NAME,
-      locale: OG_LOCALES[locale],
+      locale: "en_US",
       url: canonical,
       title,
       description,
@@ -117,7 +93,7 @@ const SAME_AS = [
  * `t` is a translator scoped to the `tourItems` namespace, so the offer
  * catalogue is described in the visitor's language rather than always English.
  */
-export function siteGraph(t) {
+export function siteGraph() {
   const businessNode = {
     "@type": ["LocalBusiness", "TouristInformationCenter"],
     "@id": BUSINESS_ID,
@@ -182,14 +158,15 @@ export function siteGraph(t) {
         },
         itemOffered: {
           "@type": "TouristTrip",
-          name: t(`${tour.key}.label`),
-          description: t(`${tour.key}.intro`),
+          name: tour.label,
+          description: tour.intro,
           image: `${SITE_URL}${tour.hero}`,
           touristType: tour.touristType,
           provider: businessRef,
-          itinerary: t
-            .raw(`${tour.key}.itinerary`)
-            .map((stop) => ({ "@type": "Place", name: stop.title })),
+          itinerary: (tour.itinerary ?? []).map((stop) => ({
+            "@type": "Place",
+            name: stop.title,
+          })),
         },
       })),
     },
@@ -202,7 +179,7 @@ export function siteGraph(t) {
     url: SITE_URL,
     name: SITE_NAME,
     publisher: { "@id": ORG_ID },
-    inLanguage: LOCALES,
+    inLanguage: "en",
   };
 
   const orgNode = {
@@ -224,7 +201,7 @@ export function siteGraph(t) {
 
 // ── Per-page builders ──────────────────────────────────────
 
-export function breadcrumb(crumbs = [], locale = "en", homeLabel = "Home") {
+export function breadcrumb(crumbs = [], homeLabel = "Home") {
   const items = [{ name: homeLabel, url: "/" }, ...crumbs];
   return doc({
     "@type": "BreadcrumbList",
@@ -232,7 +209,7 @@ export function breadcrumb(crumbs = [], locale = "en", homeLabel = "Home") {
       "@type": "ListItem",
       position: i + 1,
       name: c.name,
-      item: absoluteUrl(c.url, locale),
+      item: absoluteUrl(c.url),
     })),
   });
 }
@@ -243,39 +220,34 @@ export function breadcrumb(crumbs = [], locale = "en", homeLabel = "Home") {
  *
  * `t` is scoped to the `faq` namespace. Ids that have no message are skipped.
  */
-export function faqPage(ids, t) {
-  const mainEntity = ids
-    .map((id) => {
-      try {
-        return {
-          "@type": "Question",
-          name: t(`${id}.question`),
-          acceptedAnswer: { "@type": "Answer", text: t(`${id}.answer`) },
-        };
-      } catch {
-        return null;
-      }
-    })
-    .filter(Boolean);
+export function faqPage(questions) {
+  const mainEntity = questions
+    .filter(Boolean)
+    .map((q) => ({
+      "@type": "Question",
+      name: q.question,
+      acceptedAnswer: { "@type": "Answer", text: q.answer },
+    }));
 
   if (mainEntity.length === 0) return null;
   return doc({ "@type": "FAQPage", mainEntity });
 }
 
-/** TouristTrip + Offer for a single tour detail page. `t` is scoped to `tourItems`. */
-export function tourTrip(tour, t, locale) {
-  const canonical = absoluteUrl(`/tours/${tour.key}`, locale);
+/** TouristTrip + Offer for a single tour detail page. */
+export function tourTrip(tour) {
+  const canonical = absoluteUrl(`/tours/${tour.key}`);
   return doc({
     "@type": "TouristTrip",
     "@id": `${canonical}#trip`,
-    name: t(`${tour.key}.label`),
-    description: t(`${tour.key}.intro`),
+    name: tour.label,
+    description: tour.intro,
     image: `${SITE_URL}${tour.hero}`,
     touristType: tour.touristType,
     provider: businessRef,
-    itinerary: t
-      .raw(`${tour.key}.itinerary`)
-      .map((stop) => ({ "@type": "Place", name: stop.title })),
+    itinerary: (tour.itinerary ?? []).map((stop) => ({
+      "@type": "Place",
+      name: stop.title,
+    })),
     offers: {
       "@type": "Offer",
       priceCurrency: "EUR",
@@ -292,16 +264,16 @@ export function tourTrip(tour, t, locale) {
   });
 }
 
-/** ItemList for the /tours index. `t` is scoped to `tourItems`. */
-export function tourList(t, locale) {
+/** ItemList for the /tours index. */
+export function tourList() {
   return doc({
     "@type": "ItemList",
-    "@id": `${absoluteUrl("/tours", locale)}#list`,
+    "@id": `${absoluteUrl("/tours")}#list`,
     itemListElement: tours.map((tour, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: absoluteUrl(`/tours/${tour.key}`, locale),
-      name: t(`${tour.key}.label`),
+      url: absoluteUrl(`/tours/${tour.key}`),
+      name: tour.label,
     })),
   });
 }
@@ -336,21 +308,21 @@ export function boatProduct() {
 }
 
 /** ContactPage node. */
-export function contactPage({ locale, title, description }) {
+export function contactPage({ title, description }) {
   return doc({
     "@type": "ContactPage",
-    url: absoluteUrl("/contact", locale),
+    url: absoluteUrl("/contact"),
     name: title,
     description,
-    inLanguage: locale,
+    inLanguage: "en",
     isPartOf: { "@id": WEBSITE_ID },
     mainEntity: businessRef,
   });
 }
 
 /** ReviewPage node with every testimonial as an individual Review. */
-export function reviewPage({ locale, totalReviews, averageRating }) {
-  const canonical = absoluteUrl("/reviews", locale);
+export function reviewPage({ totalReviews, averageRating }) {
+  const canonical = absoluteUrl("/reviews");
   return doc({
     "@type": "ReviewPage",
     "@id": `${canonical}#reviewpage`,
@@ -358,7 +330,7 @@ export function reviewPage({ locale, totalReviews, averageRating }) {
     name: `${SITE_NAME} — Guest Reviews`,
     description:
       "Guest reviews of Rebelde Boats private boat tours from Split, Croatia, collected across TripAdvisor, Google, and GetYourGuide.",
-    inLanguage: locale,
+    inLanguage: "en",
     isPartOf: { "@id": WEBSITE_ID },
     about: businessRef,
     mainEntity: {

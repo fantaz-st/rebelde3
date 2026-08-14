@@ -1,23 +1,21 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import RevealImage from "@/components/RevealImage/RevealImage";
 import classes from "./TourIncluded.module.css";
 
 export default function TourIncluded({ tour, lead }) {
-  const t = useTranslations("tourDetail");
 
   return (
     <section
       id="included"
       className={classes.wrap}
-      aria-label={t("includedHeading")}
+      aria-label={"What's included"}
     >
       {lead && (
         <RevealImage
           src={lead}
           alt=""
-          title={t("includedHeading")}
+          title={"What's included"}
           height="62vh"
           sizes="100vw"
           className={classes.lead}
@@ -27,7 +25,7 @@ export default function TourIncluded({ tour, lead }) {
       <div className={`container grid ${classes.container}`}>
         <div className={classes.columns}>
           <div className={classes.column}>
-            <h3 className={classes.columnTitle}>{t("includedTitle")}</h3>
+            <h3 className={classes.columnTitle}>{"Included"}</h3>
             <ul className={classes.list}>
               {tour.included.map((it, i) => (
                 <li key={i} className={classes.item}>
@@ -41,7 +39,7 @@ export default function TourIncluded({ tour, lead }) {
           </div>
 
           <div className={`${classes.column} ${classes.columnNot}`}>
-            <h3 className={classes.columnTitle}>{t("notIncludedTitle")}</h3>
+            <h3 className={classes.columnTitle}>{"Not included"}</h3>
             <ul className={classes.list}>
               {tour.notIncluded.map((it, i) => (
                 <li key={i} className={classes.item}>

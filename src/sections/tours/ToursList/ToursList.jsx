@@ -1,17 +1,15 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import TourSlider from "@/components/TourSlider/TourSlider";
 
 export default function ToursList() {
-  const t = useTranslations("toursIndex");
 
   return (
     <TourSlider
       headingId="tours-list-heading"
-      eyebrow={t("eyebrow")}
-      heading={t("browseHeading")}
-      lede={t("intro")}
+      eyebrow={"Our tours"}
+      heading={"Four days at sea, four different moods"}
+      lede={"No two days on the Adriatic should ever be the same. Choose your path — hidden coves, sunlit harbours, secret beaches. We design each journey around you, your pace, your spirit."}
       align="start"
     />
   );

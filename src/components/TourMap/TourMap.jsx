@@ -1,15 +1,13 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { ORIGIN, getRoute } from "@/settings/routes";
 import classes from "./TourMap.module.css";
 
 /**
  * A minimal route map, drawn as inline SVG.
  *
- * Inline rather than a .png/.svg file for two reasons: the labels come from
- * the message files, so the map reads in all six languages from one
- * component, and it inherits brand colour from CSS instead of being baked
+ * Inline rather than a .png/.svg file so it inherits brand colour from CSS
+ * instead of being baked
  * into an export. It still costs nothing at runtime — no map library, no
  * tiles, no API key, no network request.
  *
@@ -91,21 +89,15 @@ function arrows(pts) {
 }
 
 export default function TourMap({ tour }) {
-  const t = useTranslations("tourDetail");
-  const ti = useTranslations("tourItems");
-
   const route = getRoute(tour.key);
   if (!route) return null;
 
-  let labels = [];
-  try {
-    labels = ti.raw(`${tour.key}.mapStops`) || [];
-  } catch {
-    return null;
-  }
-  if (labels.length !== route.stops.length) return null;
+  // Stop names live on the route itself. A route whose stops are unnamed
+  // renders nothing rather than a map with blank labels.
+  const labels = route.stops.map((s) => s.name);
+  if (labels.some((l) => !l)) return null;
 
-  const originLabel = t("mapOrigin");
+  const originLabel = "Split";
 
   // Out from Split, round the stops, back to Split.
   const points = project([ORIGIN, ...route.stops, ORIGIN]);
@@ -183,7 +175,7 @@ export default function TourMap({ tour }) {
         </g>
       </svg>
 
-      <figcaption className={classes.note}>{t("mapNote")}</figcaption>
+      <figcaption className={classes.note}>{"Indicative route — the exact order of stops changes with the wind and the day."}</figcaption>
     </figure>
   );
 }

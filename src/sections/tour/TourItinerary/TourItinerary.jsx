@@ -1,23 +1,21 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import RevealImage from "@/components/RevealImage/RevealImage";
 import classes from "./TourItinerary.module.css";
 
 export default function TourItinerary({ tour, lead }) {
-  const t = useTranslations("tourDetail");
 
   return (
     <section
       id="itinerary"
       className={classes.wrap}
-      aria-label={t("itineraryEyebrow")}
+      aria-label={"Route"}
     >
       {lead && (
         <RevealImage
           src={lead}
           alt=""
-          title={t("itineraryHeading")}
+          title={"Where the day takes you"}
           height="62vh"
           sizes="100vw"
           className={classes.lead}

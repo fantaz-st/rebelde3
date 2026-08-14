@@ -5,8 +5,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import classes from "./ToursHero.module.css";
 import items from "@/settings/tours";
 import useParallaxImage from "@/hooks/useParallaxImage";
@@ -21,8 +20,6 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
  * crawlable, shareable, and locale-aware.
  */
 export default function ToursHero() {
-  const t = useTranslations("toursIndex");
-  const ti = useTranslations("tourItems");
   const wrapRef = useRef(null);
 
   useParallaxImage(wrapRef, {
@@ -37,16 +34,16 @@ export default function ToursHero() {
     <section className={classes.wrap} ref={wrapRef}>
       <div className={`container grid ${classes.grid}`}>
         <div className={classes.content}>
-          <h1 className={classes.title}>{t("title")}</h1>
-          <p className={classes.desc}>{t("desc")}</p>
+          <h1 className={classes.title}>{"Private Adriatic Experiences"}</h1>
+          <p className={classes.desc}>{"Step aboard for a more personal way to experience the Croatian coast. Discover hidden bays, crystal-clear waters, historic island towns, and quiet moments far from the crowds. Each journey is carefully tailored around your pace and interests — whether that means swimming in secluded coves, exploring charming coastal villages, enjoying local seaside restaurants, or simply relaxing under the Adriatic sun. Every voyage is designed to feel effortless, authentic, and entirely your own."}</p>
 
           <ul className={classes.list}>
             {items.map((item) => (
               <li key={item.key} className={classes.listItem}>
                 <Link href={`/tours/${item.key}`} className={classes.link}>
                   <span className={classes.flip}>
-                    <span className={classes.flipTop}>{ti(`${item.key}.label`)}</span>
-                    <span className={classes.flipBottom}>{ti(`${item.key}.label`)}</span>
+                    <span className={classes.flipTop}>{item.label}</span>
+                    <span className={classes.flipBottom}>{item.label}</span>
                   </span>
                 </Link>
               </li>

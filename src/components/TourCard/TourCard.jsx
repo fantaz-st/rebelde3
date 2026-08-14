@@ -1,26 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import classes from "./TourCard.module.css";
 
 /**
  * Takes a single `tour` object built by `buildTourCard()` — struct fields from
  * settings/tours.js merged with translated copy from `tourItems`.
  *
- * The price is formatted with the visitor's locale, so a German visitor sees
- * "Ab 1.400 €" rather than "Starting from €1,400".
+ * Price formatting is pinned to en-GB — the site is English-only.
  */
 export default function TourCard({ tour }) {
-  const locale = useLocale();
-  const t = useTranslations("common");
 
   const { href, thumb, thumbAlt, kicker, pin, label, depositEur, restEur } = tour;
 
   const cents = depositEur && restEur ? depositEur + restEur : depositEur;
   const price = cents
-    ? `${t("startingFrom")} ${new Intl.NumberFormat(locale, {
+    ? `Starting from ${new Intl.NumberFormat("en-GB", {
         style: "currency",
         currency: "EUR",
         maximumFractionDigits: 0,

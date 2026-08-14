@@ -5,16 +5,12 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useTranslations } from "next-intl";
 import classes from "./Facts.module.css";
 import items from "@/settings/facts";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Facts() {
-  const t = useTranslations("facts");
-  const ft = useTranslations("factsSection");
-
   const wrapRef = useRef(null);
   const itemRefs = useRef([]);
   const thumbItemRefs = useRef([]);
@@ -22,14 +18,6 @@ export default function Facts() {
   const txtRefs = useRef([]);
   const tlRef = useRef(null);
   const [openIndex, setOpenIndex] = useState(0);
-
-  // Message keys match settings keys one-to-one now — the hyphen/camelCase
-  // mapping that used to sit here is gone.
-  const translated = items.map((item) => ({
-    ...item,
-    title: t(`${item.key}.title`),
-    desc:  t(`${item.key}.desc`),
-  }));
 
   useGSAP(
     () => {
@@ -121,11 +109,11 @@ export default function Facts() {
           <div className={classes.main}>
             <div className={classes.mainInner}>
               <div className={classes.title}>
-                <h2 className={classes.titleHeading}>{ft("heading")}</h2>
+                <h2 className={classes.titleHeading}>{"What Makes Rebelde Different"}</h2>
               </div>
 
               <ul className={classes.list}>
-                {translated.map((item, idx) => {
+                {items.map((item, idx) => {
                   const isOpen = idx === openIndex;
                   return (
                     <li
@@ -153,7 +141,7 @@ export default function Facts() {
           <div className={classes.thumb}>
             <div className={classes.thumbCms}>
               <div className={classes.thumbList}>
-                {translated.map((item, idx) => (
+                {items.map((item, idx) => (
                   <div key={item.key} ref={(el) => (thumbItemRefs.current[idx] = el)} className={classes.thumbItem}>
                     <div ref={(el) => (thumbImgRefs.current[idx] = el)} className={classes.thumbItemImg}>
                       <Image src={item.img} alt="" fill sizes="(max-width: 991px) 60vw, 45vw" className={classes.img} priority={idx === 0} />
@@ -162,7 +150,7 @@ export default function Facts() {
                 ))}
               </div>
               <div className={classes.thumbTxt}>
-                {translated.map((item, idx) => (
+                {items.map((item, idx) => (
                   <div key={item.key} ref={(el) => (txtRefs.current[idx] = el)} className={classes.thumbTxtInner}>
                     <p>{item.desc}</p>
                   </div>

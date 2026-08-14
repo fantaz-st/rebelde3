@@ -5,7 +5,6 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useTranslations } from "next-intl";
 import classes from "./BoatHero.module.css";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -15,7 +14,6 @@ const WHITE = "#ffffff";
 const CREAM = "#f2ebe3";
 
 export default function BoatHero() {
-  const t = useTranslations("boatHero");
 
   const wrapRef = useRef(null);
   const gridRef = useRef(null);
@@ -165,14 +163,14 @@ export default function BoatHero() {
 
         {/* Text: cols 11–16, starts white, tweens to navy */}
         <div ref={textRef} className={classes.text}>
-          <h1 className={classes.title}>{t("title")}</h1>
-          <p className={classes.desc}>{t("desc")}</p>
+          <h1 className={classes.title}>{"The Boat"}</h1>
+          <p className={classes.desc}>{"Meet Buenaventura — our Felix 37, custom-built for the Adriatic. Fast enough to reach the outer islands in comfort, spacious enough to make the journey the best part of the day."}</p>
         </div>
       </div>
 
       {/* Sub text — always navy, gets parallax on desktop */}
       <div ref={subRef} className={classes.sub}>
-        <p className={classes.subText}>{t("sub")}</p>
+        <p className={classes.subText}>{"From the shaded helm to the extra-large sundeck, every detail is built around one idea: that a day on the water should feel effortless from the first dock line to the last sunset."}</p>
       </div>
     </section>
   );

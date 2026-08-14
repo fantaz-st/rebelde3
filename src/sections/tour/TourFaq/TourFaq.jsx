@@ -1,29 +1,20 @@
-import { getTranslations } from "next-intl/server";
+import { getFaq } from "@/settings/faqs";
 import classes from "./TourFaq.module.css";
 
-export default async function TourFaq({ tour, locale }) {
+export default async function TourFaq({ tour }) {
   if (!tour.faqIds || tour.faqIds.length === 0) return null;
 
-  const t = await getTranslations({ locale, namespace: "faq" });
-  const td = await getTranslations({ locale, namespace: "tourDetail" });
-
   const items = tour.faqIds
-    .map((id) => {
-      try {
-        return { id, question: t(`${id}.question`), answer: t(`${id}.answer`) };
-      } catch {
-        return null;
-      }
-    })
+    .map(getFaq)
     .filter(Boolean);
 
   if (items.length === 0) return null;
 
   return (
-    <section className={classes.wrap} aria-label={td("faqHeading")}>
+    <section className={classes.wrap} aria-label={"Common questions about this tour"}>
       <div className={`container grid ${classes.container}`}>
         <div className={classes.head}>
-          <h2 className={classes.heading}>{td("faqHeading")}</h2>
+          <h2 className={classes.heading}>{"Common questions about this tour"}</h2>
         </div>
 
         <dl className={classes.list}>

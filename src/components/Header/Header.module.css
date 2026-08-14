@@ -69,7 +69,7 @@
   pointer-events: none;
 }
 
-/* Right-side action group: lang switcher + contact button + hamburger */
+/* Right-side action group: contact button + hamburger */
 .actions {
   display: flex;
   align-items: center;
@@ -184,14 +184,6 @@
 .navList a:hover,
 .navList a:focus {
   opacity: 0.6;
-}
-
-/* Language switcher inside the full-screen menu — bottom centre */
-.menuFooter {
-  position: absolute;
-  bottom: 4rem;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 /* ── Tablet (≤ 991px): hide contact button ── */

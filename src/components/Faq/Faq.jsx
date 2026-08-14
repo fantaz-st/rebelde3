@@ -1,31 +1,15 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { useRef } from "react";
 import classes from "./Faq.module.css";
 import faqs from "@/settings/faqs";
 import SectionNav from "@/components/SectionNav/SectionNav";
 
 export default function Faq() {
-  const t  = useTranslations("faq");
-  const tc = useTranslations("faqCategories");
-
   const contentRef = useRef(null);
 
-  // settings/faqs.js is ids only now — every string comes from messages,
-  // so /hr/faq, /de/faq etc. render translated copy instead of English.
-  const translatedFaqs = faqs.map((section) => ({
-    id: section.id,
-    title: tc(section.id),
-    qa: section.qa.map((id) => ({
-      id,
-      question: t(`${id}.question`),
-      answer:   t(`${id}.answer`),
-    })),
-  }));
-
-  const sections = translatedFaqs.map((s) => ({ id: s.id, label: s.title }));
+  const sections = faqs.map((s) => ({ id: s.id, label: s.title }));
 
   return (
     <section className={classes.wrap}>
@@ -34,11 +18,11 @@ export default function Faq() {
           H1 upgraded from bare "FAQ" to a descriptive, keyword-rich heading.
           Pulls from faq.heading translation key with a sensible fallback.
         */}
-        <h1 className={classes.title}>{t("heading")}</h1>
+        <h1 className={classes.title}>{"Private Boat Tours from Split — Frequently Asked Questions"}</h1>
         <p className={classes.subtitle}>
-          {t("subtitle")}{" "}
-          <Link href="/contact" className={classes.subtitleLink}>{t("subtitleLink")}</Link>
-          {t("subtitleSuffix")}
+          {"Everything you might want to know before stepping aboard. Can't find your answer?"}{" "}
+          <Link href="/contact" className={classes.subtitleLink}>{"Reach out"}</Link>
+          {" and we'll help."}
         </p>
       </div>
 
@@ -51,7 +35,7 @@ export default function Faq() {
         />
 
         <div className={classes.content} ref={contentRef}>
-          {translatedFaqs.map((section) => (
+          {faqs.map((section) => (
             <div
               key={section.id}
               id={section.id}

@@ -1,24 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 import RevealImage from "@/components/RevealImage/RevealImage";
 import classes from "./TourOverview.module.css";
 
 export default function TourOverview({ tour, lead }) {
-  const t = useTranslations("tourDetail");
 
   return (
     <section
       id="overview"
       className={classes.wrap}
-      aria-label={t("overviewEyebrow")}
+      aria-label={"The day"}
     >
       {lead && (
         <RevealImage
           src={lead}
           alt=""
-          title={t("overviewHeading")}
+          title={"The Adriatic, beyond the postcards"}
           height="62vh"
           sizes="100vw"
           className={classes.lead}

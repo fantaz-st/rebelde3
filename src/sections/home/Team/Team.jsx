@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import { useTranslations } from "next-intl";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -104,7 +103,6 @@ const LAYOUTS = { double: Item1, left: Item2, right: Item3 };
 // ─────────────────────────────────────────────────────────────
 
 export default function Team() {
-  const t = useTranslations("team");
   const wrapRef = useRef(null);
 
   useParallaxImage(wrapRef, {
@@ -200,16 +198,8 @@ export default function Team() {
     { scope: wrapRef },
   );
 
-  // `t.raw` returns the array straight from messages — no more desc0/desc1
-  // index juggling, and settings/team.js no longer carries a parallel copy
-  // of the English text just to count paragraphs.
-  const items = rawItems.map((item) => ({
-    ...item,
-    title: t(`${item.key}.title`),
-    descs: t.raw(`${item.key}.desc`),
-    alt: t(`${item.key}.alt`),
-    alt2: item.img2 ? t(`${item.key}.alt2`) : undefined,
-  }));
+  // `desc` is an array of paragraphs on each settings entry.
+  const items = rawItems.map((item) => ({ ...item, descs: item.desc }));
 
   return (
     <div className={classes.wrap} ref={wrapRef}>

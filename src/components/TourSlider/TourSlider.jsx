@@ -2,7 +2,6 @@
 
 import { useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useTranslations } from "next-intl";
 import "swiper/css";
 
 import tours, { getTour } from "@/settings/tours";
@@ -36,15 +35,12 @@ export default function TourSlider({
   pullUp = false,
   headingId,
 }) {
-  const t = useTranslations("common");
-  const ti = useTranslations("tourItems");
-
   const cards = useMemo(() => {
     const source = keys ? keys.map(getTour).filter(Boolean) : tours;
     return source
       .filter((tour) => tour.key !== exclude)
-      .map((tour) => buildTourCard(tour, ti));
-  }, [keys, exclude, ti]);
+      .map((tour) => buildTourCard(tour));
+  }, [keys, exclude]);
 
   if (cards.length === 0) return null;
 
@@ -85,7 +81,7 @@ export default function TourSlider({
           {/* Mobile-only lead-in slide — hidden at desktop where all cards fit. */}
           <SwiperSlide className={classes.nullSlide} aria-hidden="true">
             <div className={classes.inner}>
-              <p className={classes.swipeHint}>{t("swipeHint")}</p>
+              <p className={classes.swipeHint}>{"Swipe to explore →"}</p>
             </div>
           </SwiperSlide>
 

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import BookingCalendar from './BookingCalendar'
 import BookingForm from './BookingForm'
 import styles from './BookingFlow.module.css'
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 
 const DURATION_LABEL = { full: 'Full day', am: 'Half day · Morning', pm: 'Half day · Afternoon', half: 'Half day (AM or PM)' }
 

@@ -5,13 +5,11 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useTranslations } from "next-intl";
 import classes from "./Hero.module.css";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Hero() {
-  const t = useTranslations("hero");
 
   const wrapRef = useRef(null);
   const backgroundRef = useRef(null);
@@ -54,7 +52,7 @@ export default function Hero() {
 
   return (
     <div className={classes.wrap} ref={wrapRef}>
-      <section className={classes.hero} data-hero aria-label={t("ariaLabel")}>
+      <section className={classes.hero} data-hero aria-label={"Private boat tours from Split, Croatia"}>
         <div className={classes.inner}>
           <div ref={backgroundRef} className={classes.bg}>
             <div className={classes.bgItem}>
@@ -88,8 +86,8 @@ export default function Hero() {
           <div className={classes.main}>
             <div className={`container grid ${classes.grid}`}>
               <div ref={textRef} className={classes.text} data-hero-content>
-                <h1 className={classes.title}>{t("title")}</h1>
-                <h4 className={classes.subtitle}>{t("subtitle")}</h4>
+                <h1 className={classes.title}>{"Rules are for ferries."}</h1>
+                <h4 className={classes.subtitle}>{"Private tours from Split. One boat, one group a day, and a route we'll change halfway through if you want."}</h4>
               </div>
             </div>
           </div>

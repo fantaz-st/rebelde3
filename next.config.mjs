@@ -1,7 +1,3 @@
-import createNextIntlPlugin from "next-intl/plugin";
-
-const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
-
 /**
  * Legacy URLs, 301'd.
  *
@@ -16,6 +12,9 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
  * which passes ranking signal to the destination.
  */
 const legacyRedirects = [
+  // The five extra languages, retired. Path-preserving so /de/tours/blue-cave
+  // lands on /tours/blue-cave rather than dumping every URL on the homepage.
+  { source: "/:locale(hr|de|es|it|fr)/:path*", destination: "/:path*" },
   { source: "/home", destination: "/" },
   { source: "/our-boat", destination: "/the-boat" },
   { source: "/our-tours", destination: "/tours" },
@@ -41,4 +40,4 @@ const nextConfig = {
   },
 };
 
-export default withNextIntl(nextConfig);
+export default nextConfig;

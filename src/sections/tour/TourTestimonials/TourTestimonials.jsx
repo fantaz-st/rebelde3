@@ -1,7 +1,6 @@
 "use client";
 
 import testimonials from "@/settings/testimonials";
-import { useTranslations } from "next-intl";
 import classes from "./TourTestimonials.module.css";
 
 /**
@@ -12,7 +11,6 @@ import classes from "./TourTestimonials.module.css";
  * non-English locale once the label started coming from messages.
  */
 export default function TourTestimonials({ tour }) {
-  const t = useTranslations("tourDetail");
 
   const slug = (s) =>
     s
@@ -32,10 +30,10 @@ export default function TourTestimonials({ tour }) {
   if (matches.length === 0) return null;
 
   return (
-    <section className={classes.wrap} aria-label={t("testimonialsEyebrow")}>
+    <section className={classes.wrap} aria-label={"Guest voices"}>
       <div className={`container grid ${classes.container}`}>
         <div className={classes.head}>
-          <h2 className={classes.heading}>{t("testimonialsHeading")}</h2>
+          <h2 className={classes.heading}>{"What guests say about this tour"}</h2>
         </div>
 
         <ul className={classes.quotes}>

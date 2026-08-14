@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import SectionNav from "@/components/SectionNav/SectionNav";
 
 /**
@@ -12,14 +11,13 @@ import SectionNav from "@/components/SectionNav/SectionNav";
  * and the page from drifting apart in six languages.
  */
 export default function TourNav() {
-  const t = useTranslations("tourDetail");
 
   const sections = [
-    { id: "overview", label: t("overviewEyebrow") },
-    { id: "itinerary", label: t("itineraryEyebrow") },
-    { id: "included", label: t("includedEyebrow") },
-    { id: "who-for", label: t("whoForEyebrow") },
-    { id: "logistics", label: t("logisticsEyebrow") },
+    { id: "overview", label: "The day" },
+    { id: "itinerary", label: "Route" },
+    { id: "included", label: "Details" },
+    { id: "who-for", label: "Fit" },
+    { id: "logistics", label: "Practicalities" },
   ];
 
   return <SectionNav sections={sections} variant="overlay" color="blue" />;

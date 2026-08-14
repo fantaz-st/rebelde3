@@ -1,15 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState, useLayoutEffect } from "react";
-import { Link, usePathname } from "@/i18n/navigation";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
 import { CustomEase } from "gsap/CustomEase";
-import { useTranslations } from "next-intl";
 import classes from "./Header.module.css";
 import AnimatedLink from "../AnimatedLink/AnimatedLink";
 import Logo from "../Logo/Logo";
 import Button from "../Button/Button";
-import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 
 /**
  * Routes that sit on a light background and therefore need the white header.
@@ -20,7 +19,6 @@ import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 const WHITE_HEADER_ROUTES = ["/", "/the-boat", "/contact"];
 
 export default function Header({ variant }) {
-  const t = useTranslations("nav");
   const pathname = usePathname();
   const SHADOW_THRESHOLD = 300;
 
@@ -28,12 +26,12 @@ export default function Header({ variant }) {
     variant ?? (WHITE_HEADER_ROUTES.includes(pathname) ? "white" : "blue");
 
   const pageLinks = [
-    { href: "/", label: t("home") },
-    { href: "/the-boat", label: t("theBoat") },
-    { href: "/tours", label: t("toursIndex") },
-    { href: "/journal", label: t("journal") },
-    { href: "/faq", label: t("faq") },
-    { href: "/contact", label: t("contact") },
+    { href: "/", label: "Home" },
+    { href: "/the-boat", label: "The Boat" },
+    { href: "/tours", label: "Our Tours" },
+    { href: "/journal", label: "Journal" },
+    { href: "/faq", label: "FAQ-s" },
+    { href: "/contact", label: "Contact" },
   ];
 
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
@@ -147,17 +145,15 @@ export default function Header({ variant }) {
             ))}
           </nav>
 
-          {/* Right side: lang switcher + contact button + hamburger — all in one flex group */}
+          {/* Right side: contact button + hamburger — all in one flex group */}
           <div className={classes.actions}>
-            <LanguageSwitcher isDarkUi={isDarkUi} />
-
             <div className={classes.contactBtnWrap}>
               <Button
                 href="/contact"
                 variant={isDarkUi ? "blue" : "white"}
                 size="sm"
               >
-                {t("getInTouch")}
+                {"GET IN TOUCH"}
               </Button>
             </div>
 
@@ -190,7 +186,7 @@ export default function Header({ variant }) {
         onClick={() => setIsMenuOpen(false)}
       />
 
-      {/* Full-screen menu panel — ONE language switcher at the bottom, no duplicate */}
+      {/* Full-screen menu panel */}
       <div
         ref={panelRef}
         className={`${classes.menu} ${isMenuOpen ? classes.menuOpen : ""}`}

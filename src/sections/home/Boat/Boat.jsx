@@ -4,7 +4,6 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useTranslations } from "next-intl";
 import classes from "./Boat.module.css";
 import Button from "@/components/Button/Button";
 import Image from "next/image";
@@ -18,7 +17,6 @@ gsap.registerPlugin(ScrollTrigger, CustomEase, useGSAP);
 CustomEase.create("slowStart", "M0,0 C0,0 0.226,-0.006 0.549,0.145 0.754,0.242 1,1.019 1,1.019");
 
 export default function Boat() {
-  const t = useTranslations("boat");
 
   const sectionRef = useRef(null);
   const gridRef    = useRef(null);
@@ -56,7 +54,7 @@ export default function Boat() {
   );
 
   return (
-    <section className={classes.section} id="boat" ref={sectionRef} aria-label={t("ariaLabel")}>
+    <section className={classes.section} id="boat" ref={sectionRef} aria-label={"Buenaventura, our Felix 37 speedboat"}>
       <div className={classes.inner}>
         <div ref={gridRef} className={classes.grid} data-scale aria-hidden="true">
           <div className={classes.top}>
@@ -86,9 +84,9 @@ export default function Boat() {
 
         <div className={`grid ${classes.overlay}`}>
           <div ref={textRef} className={classes.text}>
-            <h2 className={classes.title}>{t("title")}</h2>
-            <p className={classes.desc}>{t("desc")}</p>
-            <Button href="/the-boat">{t("cta")}</Button>
+            <h2 className={classes.title}>{"Buenaventura — The Only Boat We Own"}</h2>
+            <p className={classes.desc}>{"A Felix 37. Twelve guests, five hundred horses, and one owner who maintains her himself. That's why the fridge is cold before you step aboard, the masks actually fit, and the towels are dry. Book Buenaventura and you get Buenaventura — and if your group needs a second boat, we'll only put you on one we'd happily skipper ourselves."}</p>
+            <Button href="/the-boat">{"Explore the boat"}</Button>
           </div>
         </div>
       </div>
