@@ -29,17 +29,50 @@
   color: var(--brand-persian-blue);
 }
 
-.swiper {
-  margin-top: 6rem;
+.rail {
+  margin: 6rem 0 0;
   grid-area: 2 / 2 / 3 / -2;
   width: 100%;
-  padding: 0 1rem;
   height: 50rem;
+  padding: 0 1rem 3.2rem;
+  list-style: none;
+
+  display: flex;
+  gap: 1.6rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 1rem;
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--brand-persian-blue) var(--brand-persian-blue-12);
+}
+
+/* WebKit — same 4px bar the Swiper scrollbar module used to draw. */
+.rail::-webkit-scrollbar {
+  height: 4px;
+}
+
+.rail::-webkit-scrollbar-track {
+  background: var(--brand-persian-blue-12);
+  border-radius: 2px;
+}
+
+.rail::-webkit-scrollbar-thumb {
+  background: var(--brand-persian-blue);
+  border-radius: 2px;
+}
+
+.rail:focus-visible {
+  outline: 2px solid var(--brand-persian-blue);
+  outline-offset: 4px;
 }
 
 .slide {
+  flex: 0 0 calc((100% - 3 * 1.6rem) / 4);
+  scroll-snap-align: start;
   border-radius: var(--radius-sm);
-  flex: none;
   height: 100%;
   position: relative;
   overflow: hidden;
@@ -47,6 +80,7 @@
 
 .nullSlide {
   display: none;
+  scroll-snap-align: start;
 }
 
 .nullSlide .inner {
@@ -102,12 +136,18 @@
     margin-bottom: 4rem;
   }
 
-  .swiper {
+  .rail {
     height: 44rem;
+    gap: 1.2rem;
+  }
+
+  .slide {
+    flex-basis: calc((100% - 1.2rem) / 1.2);
   }
 
   .nullSlide {
     display: block;
+    flex: 0 0 calc((100% - 1.2rem) / 1.2);
   }
 }
 
@@ -121,49 +161,20 @@
     grid-column: 1 / -1;
   }
 
-  .swiper {
+  .rail {
     grid-column: 1 / -1;
     height: 45rem;
+    gap: 1.2rem;
+  }
+
+  .slide {
+    flex-basis: calc((100% - 1.2rem) / 1.2);
   }
 
   .nullSlide {
     display: block;
+    flex: 0 0 calc((100% - 1.2rem) / 1.2);
   }
 }
 
-/* ── Scrollbar ── */
-.scrollbar {
-  grid-area: 3 / 2 / 4 / -2;
-  height: 4px;
-  margin-top: 3.2rem;
-  background: var(--brand-persian-blue-12);
-  border-radius: 2px;
-  position: relative;
-  cursor: pointer;
-}
 
-/* Swiper injects .swiper-scrollbar-drag into our custom el */
-.scrollbar :global(.swiper-scrollbar-drag) {
-  height: 100%;
-  background: var(--brand-persian-blue);
-  border-radius: 2px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition:
-    height 0.2s ease,
-    top 0.2s ease;
-}
-
-/* Thicker on hover/drag for easier grabbing */
-.scrollbar:hover,
-.scrollbar:active {
-  height: 6px;
-  margin-top: calc(3.2rem - 1px);
-}
-
-@media (max-width: 767px) {
-  .scrollbar {
-    grid-column: 1 / -1;
-  }
-}

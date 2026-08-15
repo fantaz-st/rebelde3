@@ -7,12 +7,13 @@ import SmoothScroll from "./SmoothScroll";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton/WhatsAppButton";
+import BackToTop from "@/components/BackToTop/BackToTop";
+import ScrollIndicator from "@/components/ScrollIndicator/ScrollIndicator";
 
 import "./styles/reset.css";
 import "./styles/globals.css";
 import "./styles/typography.css";
 import "./styles/grid.css";
-import "./styles/swiper.css";
 
 /**
  * The one and only layout.
@@ -110,6 +111,8 @@ gtag('config', 'AW-17322617143');`}
           </SmoothScroll>
 
           <WhatsAppButton />
+          <BackToTop />
+          <ScrollIndicator />
       </body>
     </html>
   );

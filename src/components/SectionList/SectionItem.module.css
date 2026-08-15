@@ -83,7 +83,7 @@
   object-fit: cover;
 }
 
-/* ── Gallery swiper ── */
+/* ── Gallery rail ── */
 .exploreWrap {
   margin-top: 10rem;
   padding-bottom: 12rem;
@@ -147,15 +147,33 @@
   );
 }
 
-.swiper {
-  padding-left: 4rem !important;
-  padding-right: 10rem !important;
+.rail {
   width: 100%;
+  margin: 0;
+  padding: 0 10rem 0 4rem;
+  list-style: none;
+
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline-start: 4rem;
+  scrollbar-width: none;
+}
+
+.rail::-webkit-scrollbar {
+  display: none;
+}
+
+.rail:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
 }
 
 .slide {
-  width: 38rem !important;
-  flex: none;
+  flex: 0 0 38rem;
+  scroll-snap-align: start;
 }
 
 .slideLink {
@@ -214,7 +232,11 @@
     padding-left: 0;
   }
   .slide {
-    width: 30rem !important;
+    flex-basis: 30rem;
+  }
+
+  .rail {
+    gap: 1.2rem;
   }
   .slideImg {
     height: 22rem;
@@ -263,13 +285,14 @@
     mask: none;
   }
 
-  .swiper {
-    padding-left: var(--container--padding) !important;
-    padding-right: var(--container--padding) !important;
+  .rail {
+    padding-left: var(--container--padding);
+    padding-right: var(--container--padding);
+    scroll-padding-inline-start: var(--container--padding);
   }
 
   .slide {
-    width: 45vw !important;
+    flex-basis: 45vw;
   }
   .slideImg {
     height: 28vw;

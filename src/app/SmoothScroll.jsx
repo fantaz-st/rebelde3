@@ -26,6 +26,11 @@ export default function SmoothScroll({ children }) {
       smoothTouch: false,
     });
 
+    // Anything that wants to *drive* the scroll (Back to top) needs the
+    // instance, not just the element — a raw scrollTo would fight Lenis's
+    // own rAF loop and stutter.
+    window.__RBD_LENIS__ = lenis;
+
     const onLenisScroll = () => ScrollTrigger.update();
     lenis.on("scroll", onLenisScroll);
 
@@ -45,6 +50,7 @@ export default function SmoothScroll({ children }) {
       lenis.off("scroll", onLenisScroll);
       lenis.destroy();
       if (window.__RBD_SCROLLER__ === scroller) delete window.__RBD_SCROLLER__;
+      if (window.__RBD_LENIS__ === lenis) delete window.__RBD_LENIS__;
     };
   }, []);
 

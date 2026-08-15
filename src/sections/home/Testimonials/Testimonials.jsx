@@ -1,10 +1,4 @@
-"use client";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Scrollbar } from "swiper/modules";
 import TestimonialCard from "@/components/TestimonialCard/TestimonialCard";
-import "swiper/css";
-import "swiper/css/scrollbar";
 import classes from "./Testimonials.module.css";
 import items from "@/settings/testimonials";
 import Button from "@/components/Button/Button";
@@ -30,40 +24,31 @@ export default function Testimonials() {
           </div>
         </header>
 
-        <Swiper
-          className={classes.swiper}
-          modules={[Scrollbar]}
-          slidesPerView={1.2}
-          spaceBetween={12}
-          breakpoints={{ 992: { slidesPerView: 4, spaceBetween: 16 } }}
-          speed={450}
-          scrollbar={{ draggable: true, el: `.${classes.scrollbar}` }}
-          a11y={{ enabled: true }}
+        {/* Scroll-snap rail. The scrollbar is the browser's own, styled to
+            match — dragging it is native behaviour, not a Swiper module. */}
+        <ul
+          className={classes.rail}
+          tabIndex={0}
+          role="group"
+          aria-label="Guest reviews"
         >
-          <SwiperSlide
-            key="null-tour-slide"
-            className={classes.nullSlide}
-            aria-hidden="true"
-          >
+          <li className={classes.nullSlide} aria-hidden="true">
             <div className={classes.inner}>
               <p className={classes.swipeHint}>Swipe to read reviews →</p>
             </div>
-          </SwiperSlide>
+          </li>
 
           {items.map((test) => (
-            <SwiperSlide key={test.id} className={classes.slide}>
+            <li key={test.id} className={classes.slide}>
               <TestimonialCard
                 title={test.title}
                 text={test.text}
                 name={test.name}
                 tour={test.tour}
               />
-            </SwiperSlide>
+            </li>
           ))}
-        </Swiper>
-
-        {/* Scrollbar renders outside swiper so it's not clipped */}
-        <div className={classes.scrollbar} />
+        </ul>
       </div>
       <div className={classes.ctaInner}>
         <Button

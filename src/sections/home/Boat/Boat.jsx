@@ -8,7 +8,7 @@ import classes from "./Boat.module.css";
 import Button from "@/components/Button/Button";
 import Image from "next/image";
 import images from "@/settings/boatImages";
-import { CustomEase } from "gsap/all";
+import { CustomEase } from "gsap/CustomEase";
 
 gsap.registerPlugin(ScrollTrigger, CustomEase, useGSAP);
 

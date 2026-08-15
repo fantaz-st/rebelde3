@@ -2,12 +2,10 @@
 
 import Image from "next/image";
 import { useRef, useEffect } from "react";
+import { useRailNav } from "@/hooks/useRailNav";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-import "swiper/css";
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import Button from "@/components/Button/Button";
@@ -22,8 +20,7 @@ export default function SectionItem({ item, index, isLast, ctaLabel = "Check Ava
   const heroRef    = useRef(null);
   const heroImgRef = useRef(null);
   const heroTxtRef = useRef(null);
-  const prevRef    = useRef(null);
-  const nextRef    = useRef(null);
+  const { railRef, atStart, atEnd, scrollPrev, scrollNext } = useRailNav();
   const galleryRef = useRef(null);
 
   const galleryGroup = `gallery-${item.key}`;
@@ -79,15 +76,6 @@ export default function SectionItem({ item, index, isLast, ctaLabel = "Check Ava
     return () => { Fancybox.unbind(container); Fancybox.close(); };
   }, [item.key, galleryGroup]);
 
-  const wireSwiperNav = (swiper) => {
-    if (typeof swiper.params.navigation === "boolean") return;
-    swiper.params.navigation.prevEl = prevRef.current;
-    swiper.params.navigation.nextEl = nextRef.current;
-    swiper.navigation.destroy();
-    swiper.navigation.init();
-    swiper.navigation.update();
-  };
-
   return (
     <section id={item.key} className={classes.item} ref={rootRef}>
 
@@ -124,16 +112,28 @@ export default function SectionItem({ item, index, isLast, ctaLabel = "Check Ava
         </div>
       </div>
 
-      {/* ── Gallery swiper ── */}
+      {/* ── Gallery rail ── */}
       <div className={`container ${classes.exploreWrap}`}>
         <div className={classes.exploreControl}>
-          <button ref={prevRef} type="button" className={classes.exploreBtn} aria-label="Previous">
+          <button
+            type="button"
+            onClick={scrollPrev}
+            disabled={atStart}
+            className={classes.exploreBtn}
+            aria-label="Previous"
+          >
             <svg viewBox="0 0 18 18" fill="none" width="18" height="18" aria-hidden="true">
               <path d="M7.875 3.938 2.813 9l5.062 5.063M15.188 9H3.5"
                 stroke="currentColor" strokeWidth="1.3" strokeLinecap="square" strokeLinejoin="round" />
             </svg>
           </button>
-          <button ref={nextRef} type="button" className={classes.exploreBtn} aria-label="Next">
+          <button
+            type="button"
+            onClick={scrollNext}
+            disabled={atEnd}
+            className={classes.exploreBtn}
+            aria-label="Next"
+          >
             <svg viewBox="0 0 18 18" fill="none" width="18" height="18" aria-hidden="true">
               <path d="M11 3.938 16.063 9 11 14.063M15.188 9H3.5"
                 stroke="currentColor" strokeWidth="1.3" strokeLinecap="square" strokeLinejoin="round" />
@@ -142,23 +142,15 @@ export default function SectionItem({ item, index, isLast, ctaLabel = "Check Ava
         </div>
 
         <div className={classes.exploreMain} ref={galleryRef}>
-          <Swiper
-            modules={[Navigation]}
-            slidesPerView="auto"
-            speed={450}
-            navigation={{ disabledClass: classes.navDisabled }}
-            onBeforeInit={(s) => {
-              if (typeof s.params.navigation !== "boolean") {
-                s.params.navigation.prevEl = prevRef.current;
-                s.params.navigation.nextEl = nextRef.current;
-              }
-            }}
-            onInit={wireSwiperNav}
-            className={classes.swiper}
-            breakpoints={{ 320: { spaceBetween: 12 }, 768: { spaceBetween: 20 } }}
+          <ul
+            ref={railRef}
+            className={classes.rail}
+            tabIndex={0}
+            role="group"
+            aria-label="Gallery"
           >
             {item.gallery.map((g, i) => (
-              <SwiperSlide key={i} className={classes.slide}>
+              <li key={i} className={classes.slide}>
                 <a href={g.src} data-fancybox={galleryGroup} data-caption={g.caption}
                   className={classes.slideLink} aria-label={g.caption}>
                   <div className={classes.slideImg}>
@@ -167,9 +159,9 @@ export default function SectionItem({ item, index, isLast, ctaLabel = "Check Ava
                   </div>
                   <div className={classes.slideCap}>{g.caption}</div>
                 </a>
-              </SwiperSlide>
+              </li>
             ))}
-          </Swiper>
+          </ul>
         </div>
       </div>
 

@@ -72,19 +72,40 @@
   color: var(--brand-persian-blue);
 }
 
-/* ── Swiper ────────────────────────────────────── */
+/* ── Rail ──────────────────────────────────────── */
 
-.swiper {
-  margin-top: 6rem;
+/* Native scroll-snap rail. --card-count is set inline by the component and
+   caps at 4, so a two-tour rail doesn't stretch its cards across the row. */
+.rail {
+  margin: 6rem 0 0;
   grid-area: 2 / 2 / 3 / -2;
   width: 100%;
-  padding: 0 1rem;
   height: 50rem;
+  padding: 0 1rem;
+  list-style: none;
+
+  display: flex;
+  gap: 1.6rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain; /* don't hand the gesture to iOS back-swipe */
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 1rem;
+  scrollbar-width: none;
+}
+
+.rail::-webkit-scrollbar {
+  display: none;
+}
+
+.rail:focus-visible {
+  outline: 2px solid var(--brand-persian-blue);
+  outline-offset: 4px;
 }
 
 .slide {
+  flex: 0 0 calc((100% - (var(--card-count) - 1) * 1.6rem) / var(--card-count));
+  scroll-snap-align: start;
   border-radius: var(--radius-sm);
-  flex: none;
   height: 100%;
   position: relative;
   overflow: hidden;
@@ -92,6 +113,7 @@
 
 .nullSlide {
   display: none;
+  scroll-snap-align: start;
 }
 
 .nullSlide .inner {
@@ -127,12 +149,19 @@
     grid-column: 2 / -2;
   }
 
-  .swiper {
+  .rail {
     height: 44rem;
+    gap: 1.2rem;
+  }
+
+  /* 2.2 cards in view — the sliver of the third is what signals "scrollable". */
+  .slide {
+    flex-basis: calc((100% - 2 * 1.2rem) / 2.2);
   }
 
   .nullSlide {
     display: block;
+    flex: 0 0 calc((100% - 2 * 1.2rem) / 2.2);
   }
 }
 
@@ -149,12 +178,18 @@
     grid-column: 1 / -1;
   }
 
-  .swiper {
+  .rail {
     grid-column: 1 / -1;
     height: 41.4rem;
+    gap: 1.2rem;
+  }
+
+  .slide {
+    flex-basis: calc((100% - 1.2rem) / 1.2);
   }
 
   .nullSlide {
     display: block;
+    flex: 0 0 calc((100% - 1.2rem) / 1.2);
   }
 }
