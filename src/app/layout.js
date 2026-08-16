@@ -1,7 +1,13 @@
 import { Archivo, DM_Sans } from "next/font/google";
 import Script from "next/script";
 
-import { JsonLd, siteGraph, pageMetadata, SITE_NAME, SITE_URL } from "@/lib/schema";
+import {
+  JsonLd,
+  siteGraph,
+  pageMetadata,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/schema";
 
 import SmoothScroll from "./SmoothScroll";
 import Header from "@/components/Header/Header";
@@ -47,10 +53,16 @@ export function generateMetadata() {
     metadataBase: new URL(SITE_URL),
     ...pageMetadata({
       path: "",
-      title: "Rebelde Boats — Private Boat Tours Split, Croatia | Island Hopping & Day Trips",
-      description: "Private boat tours from Split, Croatia. Hvar, the Blue Cave, the Blue Lagoon and Vis aboard a 12-guest Felix 37 speedboat.",
+      title:
+        "Rebelde Boats — Private Boat Tours Split, Croatia | Island Hopping & Day Trips",
+      description:
+        "Private boat tours from Split, Croatia. Hvar, the Blue Cave, the Blue Lagoon and Vis aboard a 12-guest Felix 37 speedboat.",
     }),
-    title: { default: "Rebelde Boats — Private Boat Tours Split, Croatia | Island Hopping & Day Trips", template: `%s | ${SITE_NAME}` },
+    title: {
+      default:
+        "Rebelde Boats — Private Boat Tours Split, Croatia | Island Hopping & Day Trips",
+      template: `%s | ${SITE_NAME}`,
+    },
     authors: [{ name: SITE_NAME, url: SITE_URL }],
     creator: SITE_NAME,
     publisher: SITE_NAME,
@@ -80,6 +92,7 @@ export default function RootLayout({ children }) {
     <html
       suppressHydrationWarning
       className={`${display.variable} ${dmSans.variable}`}
+      hrefLang="en"
     >
       <head>
         {/*
@@ -91,28 +104,28 @@ export default function RootLayout({ children }) {
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       </head>
       <body>
-          <Script
-            src="https://www.googletagmanager.com/gtag/js?id=AW-17322617143"
-            strategy="afterInteractive"
-          />
-          <Script id="google-ads" strategy="afterInteractive">
-            {`window.dataLayer = window.dataLayer || [];
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17322617143"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'AW-17322617143');`}
-          </Script>
+        </Script>
 
-          <JsonLd data={siteGraph()} id="site-jsonld" />
+        <JsonLd data={siteGraph()} id="site-jsonld" />
 
-          <SmoothScroll>
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </SmoothScroll>
+        <SmoothScroll>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </SmoothScroll>
 
-          <WhatsAppButton />
-          <BackToTop />
-          <ScrollIndicator />
+        <WhatsAppButton />
+        <BackToTop />
+        <ScrollIndicator />
       </body>
     </html>
   );

@@ -80,8 +80,9 @@ export default function GallerySlider({
         <ul
           ref={railRef}
           className={classes.rail}
+          // No explicit role: it would override the <ul>'s implicit
+          // role="list" and orphan the <li> children in the a11y tree.
           tabIndex={0}
-          role="group"
           aria-label="Gallery"
         >
           {images.map((g, i) => (

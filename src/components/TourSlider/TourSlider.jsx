@@ -67,8 +67,9 @@ export default function TourSlider({
           className={classes.rail}
           // A scrollable region needs a name and keyboard focus to be usable
           // without a mouse — Swiper's a11y module used to do this for us.
+          // No explicit role: it would override the <ul>'s implicit
+          // role="list" and orphan the <li> children in the a11y tree.
           tabIndex={0}
-          role="group"
           aria-label="Tours"
           style={{ "--card-count": Math.min(cards.length, 4) }}
         >

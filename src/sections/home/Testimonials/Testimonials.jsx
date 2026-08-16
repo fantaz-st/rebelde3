@@ -28,8 +28,9 @@ export default function Testimonials() {
             match — dragging it is native behaviour, not a Swiper module. */}
         <ul
           className={classes.rail}
+          // No explicit role: it would override the <ul>'s implicit
+          // role="list" and orphan the <li> children in the a11y tree.
           tabIndex={0}
-          role="group"
           aria-label="Guest reviews"
         >
           <li className={classes.nullSlide} aria-hidden="true">
