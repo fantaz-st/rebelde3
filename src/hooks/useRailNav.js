@@ -14,8 +14,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
  *   <ul ref={railRef}> … </ul>
  *   <button onClick={scrollPrev} disabled={atStart}>
  */
-export function useRailNav() {
-  const railRef = useRef(null);
+export function useRailNav(externalRef) {
+  const internalRef = useRef(null);
+  const railRef = externalRef ?? internalRef;
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
 

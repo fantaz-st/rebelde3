@@ -1,4 +1,5 @@
 import TestimonialCard from "@/components/TestimonialCard/TestimonialCard";
+import Rail from "@/components/Rail/Rail";
 import classes from "./Testimonials.module.css";
 import items from "@/settings/testimonials";
 import Button from "@/components/Button/Button";
@@ -26,12 +27,13 @@ export default function Testimonials() {
 
         {/* Scroll-snap rail. The scrollbar is the browser's own, styled to
             match — dragging it is native behaviour, not a Swiper module. */}
-        <ul
+        <Rail
+          arrows
+          wrapClassName={classes.railWrap}
+          prevLabel="Previous reviews"
+          nextLabel="More reviews"
           className={classes.rail}
-          // No explicit role: it would override the <ul>'s implicit
-          // role="list" and orphan the <li> children in the a11y tree.
-          tabIndex={0}
-          aria-label="Guest reviews"
+          ariaLabel="Guest reviews"
         >
           <li className={classes.nullSlide} aria-hidden="true">
             <div className={classes.inner}>
@@ -49,7 +51,7 @@ export default function Testimonials() {
               />
             </li>
           ))}
-        </ul>
+        </Rail>
       </div>
       <div className={classes.ctaInner}>
         <Button

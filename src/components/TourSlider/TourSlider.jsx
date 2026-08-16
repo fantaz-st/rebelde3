@@ -1,6 +1,7 @@
 import tours, { getTour } from "@/settings/tours";
 import { buildTourCard } from "@/lib/tourView";
 import TourCard from "@/components/TourCard/TourCard";
+import Rail from "@/components/Rail/Rail";
 import classes from "./TourSlider.module.css";
 
 /**
@@ -63,14 +64,13 @@ export default function TourSlider({
           </header>
         )}
 
-        <ul
+        <Rail
+          arrows
+          wrapClassName={classes.railWrap}
+          prevLabel="Previous tours"
+          nextLabel="More tours"
           className={classes.rail}
-          // A scrollable region needs a name and keyboard focus to be usable
-          // without a mouse — Swiper's a11y module used to do this for us.
-          // No explicit role: it would override the <ul>'s implicit
-          // role="list" and orphan the <li> children in the a11y tree.
-          tabIndex={0}
-          aria-label="Tours"
+          ariaLabel="Tours"
           style={{ "--card-count": Math.min(cards.length, 4) }}
         >
           {/* Mobile-only lead-in — hidden at desktop where all cards fit. */}
@@ -85,7 +85,7 @@ export default function TourSlider({
               <TourCard tour={tour} />
             </li>
           ))}
-        </ul>
+        </Rail>
       </div>
     </section>
   );

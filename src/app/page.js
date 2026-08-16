@@ -8,12 +8,15 @@ import Tours from "@/sections/home/Tours/Tours";
 import Boat from "@/sections/home/Boat/Boat";
 import Team from "@/sections/home/Team/Team";
 import Testimonials from "@/sections/home/Testimonials/Testimonials";
+import ScrollIndicator from "@/components/ScrollIndicator/ScrollIndicator";
 
 export async function generateMetadata() {
   return pageMetadata({
     path: "",
-    title: "Rebelde Boats — Private Boat Tours Split, Croatia | Island Hopping & Day Trips",
-    description: "Private boat tours from Split, Croatia — Hvar, the Blue Cave, the Blue Lagoon and Vis, aboard a 12-guest Felix 37 speedboat.",
+    title:
+      "Rebelde Boats — Private Boat Tours Split, Croatia | Island Hopping & Day Trips",
+    description:
+      "Private boat tours from Split, Croatia — Hvar, the Blue Cave, the Blue Lagoon and Vis, aboard a 12-guest Felix 37 speedboat.",
   });
 }
 
@@ -30,6 +33,7 @@ export default function Home() {
             <Boat />
             <Team />
             <Testimonials />
+            <ScrollIndicator />
           </div>
         </div>
       </div>

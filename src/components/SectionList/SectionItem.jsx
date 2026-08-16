@@ -11,6 +11,7 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import Button from "@/components/Button/Button";
 import useParallaxImage from "@/hooks/useParallaxImage";
 import SectionContentGrid from "./SectionContentGrid";
+import Rail from "@/components/Rail/Rail";
 import classes from "./SectionItem.module.css";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -142,13 +143,10 @@ export default function SectionItem({ item, index, isLast, ctaLabel = "Check Ava
         </div>
 
         <div className={classes.exploreMain} ref={galleryRef}>
-          <ul
-            ref={railRef}
+          <Rail
+            railRef={railRef}
             className={classes.rail}
-            // No explicit role: it would override the <ul>'s implicit
-            // role="list" and orphan the <li> children in the a11y tree.
-            tabIndex={0}
-            aria-label="Gallery"
+            ariaLabel="Gallery"
           >
             {item.gallery.map((g, i) => (
               <li key={i} className={classes.slide}>
@@ -162,7 +160,7 @@ export default function SectionItem({ item, index, isLast, ctaLabel = "Check Ava
                 </a>
               </li>
             ))}
-          </ul>
+          </Rail>
         </div>
       </div>
 

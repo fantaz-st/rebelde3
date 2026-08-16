@@ -1,0 +1,63 @@
+/* A real box, not display:contents — it occupies the grid slot the rail used
+   to hold, and stacks the rail above its buttons. min-width:0 lets the rail
+   inside actually scroll rather than stretching the grid column. */
+.wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding: 2rem 1rem 0;
+}
+
+/* Colour is stated, not inherited. currentColor here picked up white from the
+   body and drew a white border on a white section — the buttons were rendering
+   at full size and were simply invisible. Set --rail-arrow on the wrapper to
+   flip them for a dark background. */
+.btn {
+  --arrow: var(--rail-arrow, var(--brand-persian-blue, #003357));
+
+  width: 4.4rem;
+  height: 4.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: 1px solid var(--arrow);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--arrow);
+  cursor: pointer;
+  transition:
+    opacity 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--arrow);
+  color: #fff;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--arrow);
+  outline-offset: 3px;
+}
+
+/* Disabled doubles as a position indicator — you can see you're at an end. */
+.btn:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+@media (max-width: 767px) {
+  .nav {
+    justify-content: center;
+    padding-top: 1.6rem;
+  }
+}

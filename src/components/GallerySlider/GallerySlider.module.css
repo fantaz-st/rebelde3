@@ -158,3 +158,10 @@
     height: 19rem;
   }
 }
+
+
+/* Safari ignores dragstart prevention for links and images unless told here. */
+.rail a,
+.rail img {
+  -webkit-user-drag: none;
+}

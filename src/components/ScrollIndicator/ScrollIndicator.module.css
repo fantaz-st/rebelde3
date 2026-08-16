@@ -68,7 +68,6 @@
 @media (max-width: 991px) {
   .wrap {
     bottom: 2rem;
-    left: 2rem;
   }
 
   .track {
@@ -89,3 +88,4 @@
     transition: opacity 0.4s ease-in-out;
   }
 }
+

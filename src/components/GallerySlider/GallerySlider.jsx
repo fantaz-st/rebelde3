@@ -6,6 +6,7 @@ import { useRailNav } from "@/hooks/useRailNav";
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
+import Rail from "@/components/Rail/Rail";
 import classes from "./GallerySlider.module.css";
 
 /**
@@ -77,13 +78,10 @@ export default function GallerySlider({
       </div>
 
       <div className={classes.main} ref={galleryRef}>
-        <ul
-          ref={railRef}
+        <Rail
+          railRef={railRef}
           className={classes.rail}
-          // No explicit role: it would override the <ul>'s implicit
-          // role="list" and orphan the <li> children in the a11y tree.
-          tabIndex={0}
-          aria-label="Gallery"
+          ariaLabel="Gallery"
         >
           {images.map((g, i) => (
             <li key={i} className={classes.slide}>
@@ -107,7 +105,7 @@ export default function GallerySlider({
               </a>
             </li>
           ))}
-        </ul>
+        </Rail>
       </div>
     </div>
   );

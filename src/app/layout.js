@@ -90,9 +90,11 @@ export function generateMetadata() {
 export default function RootLayout({ children }) {
   return (
     <html
+      // Hardcoded now the site is single-language. If a locale ever comes
+      // back, this becomes lang={locale} again.
+      lang="en"
       suppressHydrationWarning
       className={`${display.variable} ${dmSans.variable}`}
-      hrefLang="en"
     >
       <head>
         {/*
@@ -125,7 +127,7 @@ gtag('config', 'AW-17322617143');`}
 
         <WhatsAppButton />
         <BackToTop />
-        <ScrollIndicator />
+        {/* <ScrollIndicator /> */}
       </body>
     </html>
   );
