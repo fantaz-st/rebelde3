@@ -1,10 +1,21 @@
+import { pageMetadata } from "@/lib/schema";
 import { supabase } from '@/lib/supabase'
 import AvailabilityView from './AvailabilityView'
 import styles from './availability.module.css'
 
 export const revalidate = 300
 
-export const metadata = { title: 'Availability — Rebelde Boats' }
+export const metadata = {
+  ...pageMetadata({
+    path: "/availability",
+    title: "Availability",
+    description:
+      "Live availability calendar for private boat tours with Rebelde Boats, Split.",
+  }),
+  // A booking utility page: useful to guests, not a search result. robots.txt
+  // blocks crawling, which does not prevent indexing on its own.
+  robots: { index: false, follow: true },
+};
 
 export default async function AvailabilityPage() {
   const today = new Date().toISOString().slice(0, 10)

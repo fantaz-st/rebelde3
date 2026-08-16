@@ -5,6 +5,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { HERO_SRC, HERO_QUALITY, HERO_SIZES } from "@/lib/heroImage";
 import classes from "./Hero.module.css";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -61,9 +62,9 @@ export default function Hero() {
                 fill
                 priority
                 alt="Felix 37 Buenaventura speedboat cruising the Adriatic sea near Split, Croatia"
-                sizes="100vw"
-                quality={85}
-                src="/images/hero/rebelde-boats-hero.webp"
+                sizes={HERO_SIZES}
+                quality={HERO_QUALITY}
+                src={HERO_SRC}
               />
             </div>
             <div ref={blurRef} className={classes.blur} aria-hidden="true">
@@ -71,9 +72,9 @@ export default function Hero() {
                 className={classes.img}
                 fill
                 alt=""
-                sizes="100vw"
-                quality={85}
-                src="/images/hero/rebelde-boats-hero.webp"
+                sizes={HERO_SIZES}
+                quality={HERO_QUALITY}
+                src={HERO_SRC}
               />
             </div>
             <div

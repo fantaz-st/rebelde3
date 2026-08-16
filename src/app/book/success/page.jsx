@@ -4,6 +4,9 @@ import styles from "./success.module.css";
 import Link from "next/link";
 
 export const metadata = {
+  // Transactional pages: nothing to rank for, and /book/success carries
+  // booking context that should never surface in search results.
+  robots: { index: false, follow: false },
   title: "Booking Confirmed — Rebelde Boats",
 };
 

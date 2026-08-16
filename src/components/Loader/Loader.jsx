@@ -4,6 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { HERO_FALLBACK, HERO_SRCSET, HERO_SIZES } from "@/lib/heroImage";
 import classes from "./Loader.module.css";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -181,7 +182,9 @@ export default function Loader() {
           <div className={classes.bot}>
             <img
               ref={curtainRef}
-              src="/images/hero/rebelde-boats-hero.webp"
+              src={HERO_FALLBACK}
+              srcSet={HERO_SRCSET}
+              sizes={HERO_SIZES}
               alt=""
               width={1920}
               height={2400}

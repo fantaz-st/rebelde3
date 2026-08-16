@@ -72,7 +72,7 @@ const tours = [
       "hvar-pakleni-islands",
       "bol-hvar-pakleni"
     ],
-    "label": "Blue Lagoon & Three Islands Escape",
+    "label": "Blue Lagoon & Three Islands",
     "kicker": "Half day, close and popular!",
     "pin": "Blue lagoon Krknjaši, Borkko beach bar Šolta and Trogir",
     "intro": "A relaxed Adriatic journey through crystal-clear lagoons, secluded bays, and charming island villages just beyond the Split coastline.",
@@ -259,7 +259,7 @@ const tours = [
       "bol-hvar-pakleni",
       "blue-lagoon-three-islands"
     ],
-    "label": "Blue Cave & Five Islands Expedition",
+    "label": "Blue Cave & Five Islands",
     "kicker": "Full day — 5 islands!",
     "pin": "Blue Cave Biševo, Stiniva cove Vis, Komiža Vis, Budikovac, Pakleni islands and Hvar town",
     "intro": "An unforgettable full-day Adriatic adventure combining dramatic coastal scenery, hidden caves, remote islands, and some of Croatia's clearest waters.",
@@ -424,7 +424,7 @@ const tours = [
       "blue-cave-five-islands",
       "blue-lagoon-three-islands"
     ],
-    "label": "Hvar & Pakleni Islands Experience",
+    "label": "Hvar & Pakleni Islands",
     "kicker": "Most sought after!",
     "pin": "Island Hvar, Pakleni islands, island Šolta",
     "intro": "A timeless journey to Croatia's most iconic island, paired with the hidden coves and crystal lagoons of the Pakleni archipelago.",
@@ -585,7 +585,7 @@ const tours = [
       "blue-cave-five-islands",
       "blue-lagoon-three-islands"
     ],
-    "label": "Bol, Hvar & Pakleni islands Coastal Journey",
+    "label": "Bol, Hvar & Pakleni Islands",
     "kicker": "Really popular!",
     "pin": "Island Brač, Island Hvar, Pakleni islands, Island Šolta",
     "intro": "A refined island-hopping experience combining the elegance of Hvar with the natural beauty of Croatia's most iconic beach.",

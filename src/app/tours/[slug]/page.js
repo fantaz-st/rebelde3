@@ -34,7 +34,9 @@ export async function generateMetadata({ params }) {
 
   return pageMetadata({
     path: `/tours/${slug}`,
-    title: `${tour.label} — Private Boat Tour from Split`,
+    // The layout template appends " | Rebelde Boats", so this stays short:
+    // full titles were running to 90 characters and truncating in results.
+    title: `${tour.label} — Private Tour from Split`,
     description: tour.intro,
     image: `${SITE_URL}${tour.hero || tour.thumb}`,
     imageAlt: tour.thumbAlt,

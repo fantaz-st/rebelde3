@@ -1,31 +1,10 @@
-/*
- * Journal post layout — mirrors Kudanil's .journal-content.
- *
- * Kudanil recipe (desktop):
- *   section padding:    32rem top / 18rem bottom
- *   3-row grid:         title (row 1), body (row 2), nav (row 3)
- *   all rows span:      grid-column: 5 / -5   (cols 5–11 of 16, tight inset)
- *   title margin-btm:   8rem
- *   body margin-btm:    18rem
- *   h2:                 4.4rem,  margin: 8rem 0 2.4rem
- *   h3:                 3.6rem,  margin: 2.4rem 0
- *   h4:                 2.4rem,  margin: 2.4rem 0
- *   p:                  margin: 2.4rem 0
- *   figure:             margin: 8rem 0
- *   blockquote:         left border persian-blue, tinted bg, padding 2/2/2/4rem
- *   ul/ol:              gap 0.8rem, margin: 2.4rem 0
- *
- * Tablet: title cols 2/-2, sizes reduce
- * Mobile: single column, full width, reduced padding
- */
-
 .wrap {
   background-color: #ffffff;
   color: var(--brand-persian-blue);
 }
 
 .container {
-  padding-top: 32rem;
+  padding-top: 16rem;
   padding-bottom: 18rem;
   grid-template-rows: auto auto auto;
   grid-row-gap: 0;

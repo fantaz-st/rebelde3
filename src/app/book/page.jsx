@@ -3,6 +3,9 @@ import BookingFlow from '@/components/booking/BookingFlow'
 import styles from './book.module.css'
 
 export const metadata = {
+  // Transactional pages: nothing to rank for, and /book/success carries
+  // booking context that should never surface in search results.
+  robots: { index: false, follow: false },
   title: 'Book a Tour — Rebelde Boats',
   description:
     'Reserve your private boat tour along the Dalmatian coast. Pay a deposit to secure your date.',
