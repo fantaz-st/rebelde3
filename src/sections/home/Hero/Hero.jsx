@@ -88,7 +88,7 @@ export default function Hero() {
             <div className={`container grid ${classes.grid}`}>
               <div ref={textRef} className={classes.text} data-hero-content>
                 <h1 className={classes.title}>{"Rules are for ferries."}</h1>
-                <h4 className={classes.subtitle}>{"Private tours from Split. One boat, one group a day, and a route we'll change halfway through if you want."}</h4>
+                <p className={classes.subtitle}>{"Private tours from Split. One boat, one group a day, and a route we'll change halfway through if you want."}</p>
               </div>
             </div>
           </div>

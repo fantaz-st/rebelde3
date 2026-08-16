@@ -86,9 +86,16 @@
   margin: 0 0 4rem;
 }
 
+/* Was an <h4> purely for its typography — now a <p>, so the type it was
+   inheriting from the bare h4 rule is stated here instead. */
 .subtitle {
   margin: 0;
   margin-inline: auto;
+  font-family: var(--fonts--paragraph);
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
 }
 
 .innerEmptyBlock {

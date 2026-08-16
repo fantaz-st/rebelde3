@@ -38,7 +38,7 @@ export default function TourCard({ tour }) {
       {price && <span className={classes.depositPill}>{price}</span>}
 
       <div className={classes.bottom}>
-        <h4 className={classes.title}>{label}</h4>
+        <h3 className={classes.title}>{label}</h3>
 
         {kicker && <p className={classes.kicker}>{kicker}</p>}
 

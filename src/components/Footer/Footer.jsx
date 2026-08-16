@@ -99,7 +99,7 @@ export default function Footer() {
         <div className={classes.top}>
           <div className={`container ${classes.topInner}`}>
             <div className={`${classes.column} ${classes.left}`}>
-              <h5 className={classes.label}>{"Chat with us on WhatsApp"}</h5>
+              <h3 className={classes.label}>{"Chat with us on WhatsApp"}</h3>
               <a
                 className={`${classes.link} ${classes.larger}`}
                 target="_blank"
@@ -119,7 +119,7 @@ export default function Footer() {
             </div>
 
             <div className={`${classes.column} ${classes.right}`}>
-              <h5 className={classes.label}>{"Get in touch"}</h5>
+              <h3 className={classes.label}>{"Get in touch"}</h3>
               <a
                 className={`${classes.link} ${classes.larger}`}
                 href="mailto:rebeldeboats@gmail.com"
