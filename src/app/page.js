@@ -1,14 +1,12 @@
 import { pageMetadata } from "@/lib/schema";
 
 import classes from "./page.module.css";
-import Loader from "@/components/Loader/Loader";
-import Hero from "@/sections/home/Hero/Hero";
+import GridHero from "@/sections/home/GridHero/GridHero";
 import Gallery from "@/sections/home/Gallery/Gallery";
 import Tours from "@/sections/home/Tours/Tours";
 import Boat from "@/sections/home/Boat/Boat";
 import Team from "@/sections/home/Team/Team";
 import Testimonials from "@/sections/home/Testimonials/Testimonials";
-import ScrollIndicator from "@/components/ScrollIndicator/ScrollIndicator";
 
 export async function generateMetadata() {
   return pageMetadata({
@@ -26,14 +24,14 @@ export default function Home() {
       <div className={classes.bodyInner}>
         <div className={classes.mainInner}>
           <div className={classes.mainContent} data-home>
-            <Loader />
-            <Hero />
+            {/* <Loader /> */}
+            {/* <Hero /> */}
+            <GridHero />
             <Gallery />
             <Tours />
             <Boat />
             <Team />
             <Testimonials />
-            <ScrollIndicator />
           </div>
         </div>
       </div>

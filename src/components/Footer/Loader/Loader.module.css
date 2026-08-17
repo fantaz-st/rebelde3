@@ -1,0 +1,134 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 1;
+  visibility: visible;
+  isolation: isolate;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+}
+
+.bgMain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-color: #0367e2;
+  will-change: opacity, transform;
+  transform: translateZ(0);
+}
+
+.bgInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.top {
+  flex: none;
+  height: 70vh;
+  background-color: #0367e2;
+}
+
+.bot {
+  flex: none;
+  overflow: hidden;
+}
+
+.curtain {
+  width: 100%;
+  height: auto;
+  display: block;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* ── Logo ── */
+.logo {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  will-change: opacity, transform;
+  opacity: 0;
+  transform: translateZ(0);
+}
+
+.logoClip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.logoLayer {
+  grid-area: 1 / 1;
+  will-change: transform, clip-path;
+  transform: translateZ(0);
+}
+
+.logoBack {
+  opacity: 0.45;
+}
+
+.logoFront {
+  position: relative;
+  z-index: 2;
+}
+
+.logoSvg {
+  display: block;
+  width: 22rem;
+  height: auto;
+  fill: #fff;
+}
+
+.noise {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  opacity: 0;
+  mix-blend-mode: overlay;
+  filter: invert() contrast(200%) brightness(90%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  background-position: 0 0;
+  background-size: auto;
+  pointer-events: none;
+  will-change: opacity;
+  transform: translateZ(0);
+}
+
+@media (max-width: 768px) {
+  .top {
+    height: 90svh;
+  }
+
+  .bot {
+    height: 100svh;
+  }
+
+  .curtain {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+  }
+
+  .logoSvg {
+    width: 16rem;
+  }
+}

@@ -1,0 +1,199 @@
+/* The hero. A wall of images assembles, zooms 6x into its centre tile, and
+   stays there — that tile is the hero photograph. Sticky layout carried over
+   from the hero this replaces, so the Gallery still scrolls over a blurred
+   backdrop exactly as before. */
+
+/* Hide the header for the duration of the intro.
+   Structural, not class-based: [data-intro] is in the server-rendered HTML,
+   so this applies to the very first painted frame. The old html.is-loading
+   class is added by JS after hydration, which is why the header appeared,
+   vanished, then came back. GridHero removes the attribute when the intro
+   ends and the header transitions back in. */
+:global(html:has([data-home] [data-intro])) :global([data-header]) {
+  transform: translateY(-110%);
+  pointer-events: none;
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+}
+
+.inner {
+  contain: paint;
+  width: 100%;
+  height: 100%;
+  position: sticky;
+  top: 0;
+  margin-bottom: -300vh;
+  overflow: hidden;
+  background: var(--brand-persian-blue, #003357);
+}
+
+/* 5 x 5 of the viewport, so every tile shares the viewport's aspect ratio:
+   landscape sources on desktop, portrait on phones. */
+.grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.6rem;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.col {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  will-change: transform;
+}
+
+.item {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  will-change: transform;
+}
+
+/* The off-screen start state lives HERE, not only in gsap.set(). Anything set
+   solely in JS paints in its natural position first and jumps once hydration
+   runs — which showed the assembled grid for a beat before the animation. */
+.colOdd { transform: translateY(100%); }
+.colEven { transform: translateY(0); }
+.colOdd .item { transform: translateY(520%); }
+.colEven .item { transform: translateY(-520%); }
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Blur and darken fade in on scroll over the settled hero. */
+.blur {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.blur .img {
+  transform: scale(1.05);
+  filter: blur(18px);
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  width: 100%;
+  height: 200%;
+  background-image: linear-gradient(0deg, var(--overlay-dark-55), rgba(0, 0, 0, 0) 55%);
+  opacity: 0;
+}
+
+.main {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  height: 100vh;
+}
+
+.textGrid {
+  height: 100%;
+  align-items: center;
+}
+
+.text {
+  grid-column: 5 / -5;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+.title {
+  margin: 0 0 4rem;
+}
+
+.subtitle {
+  margin: 0;
+  margin-inline: auto;
+  font-family: var(--fonts--paragraph);
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.innerEmptyBlock { height: 120vh; }
+.outerEmptyBlock { height: 100vh; }
+
+/* ── Per-line reveal (hooks/useLineReveal.js) ───────────────────────────
+   One mask per line, so translateY(110%) always clears it at any width or
+   font size. Hidden by default so the copy stays out of sight if JS fails. */
+/* Hidden until useLineReveal has split the copy into per-line masks. Without
+   this the unsplit text paints for a frame, then disappears as the effect
+   runs — a flash of the very thing that is meant to animate in. */
+.title,
+.subtitle {
+  visibility: hidden;
+}
+
+.title :global(.lr-mask),
+.subtitle :global(.lr-mask) {
+  display: block;
+  overflow: hidden;
+}
+
+.title :global(.lr-line),
+.subtitle :global(.lr-line) {
+  display: block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+
+@media (max-width: 767px) {
+  .hero { height: 100svh; }
+  .inner { margin-bottom: -300svh; }
+  .main { height: 100svh; }
+  .text { grid-column: 1 / -1; }
+  .title { margin-bottom: 2.8rem; }
+  .innerEmptyBlock { height: 120svh; }
+  .outerEmptyBlock { height: 50svh; }
+  .grid, .col { gap: 0.4rem; }
+  .grid { padding: 0.4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .colOdd, .colEven,
+  .colOdd .item, .colEven .item {
+    transform: none;
+  }
+
+  .title :global(.lr-line),
+  .subtitle :global(.lr-line) {
+    transform: none;
+    transition: none !important;
+  }
+}
