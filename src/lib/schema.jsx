@@ -4,7 +4,8 @@
  * Pages import builders instead of hand-rolling schema objects, so the
  * business identity, IDs, and pricing are defined exactly once.
  *
- * ★ TODO (quarterly): refresh REVIEW_COUNT / RATING_VALUE.
+ * ★ TODO (quarterly): refresh the counts in settings/reviews-meta.js, which is
+ *   now the single source for the rating shown on /reviews.
  */
 
 import tours from "@/settings/tours";
@@ -17,12 +18,21 @@ export const WEBSITE_ID = `${SITE_URL}/#website`;
 export const ORG_ID = `${SITE_URL}/#organization`;
 
 export const BUSINESS_TELEPHONE = "+385953933125";
-export const BUSINESS_EMAIL = "info@rebelde.hr";
+export const BUSINESS_EMAIL = "rebeldeboats@gmail.com";
 
-export const REVIEW_COUNT = 220;
+// Kept as exports for now, but nothing reads them: the rating on /reviews is
+// computed from settings/reviews-meta.js instead. Delete once you have
+// confirmed Search Console is clean.
+export const REVIEW_COUNT = 288;
 export const RATING_VALUE = "5.0";
 
 export const businessRef = { "@id": BUSINESS_ID };
+
+export const reviewedItem = {
+  "@type": "LocalBusiness",
+  "@id": BUSINESS_ID,
+  name: SITE_NAME,
+};
 
 // ── URL helpers ────────────────────────────────────────────
 
@@ -55,7 +65,12 @@ export function pageMetadata({
       description,
       images: [{ url: image, width: 1200, height: 630, alt: imageAlt }],
     },
-    twitter: { card: "summary_large_image", title, description, images: [image] },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
   };
 }
 
@@ -87,12 +102,6 @@ const SAME_AS = [
   "https://maps.app.goo.gl/Nxsof1ARrP7Stw9a9",
 ];
 
-/**
- * The site-wide Organization + WebSite + LocalBusiness graph.
- *
- * `t` is a translator scoped to the `tourItems` namespace, so the offer
- * catalogue is described in the visitor's language rather than always English.
- */
 export function siteGraph() {
   const businessNode = {
     "@type": ["LocalBusiness", "TouristInformationCenter"],
@@ -125,25 +134,6 @@ export function siteGraph() {
       "Blue Cave, Biševo, Croatia",
       "Split, Croatia",
     ].map((name) => ({ "@type": "Place", name })),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: RATING_VALUE,
-      reviewCount: REVIEW_COUNT,
-      bestRating: "5",
-      worstRating: "1",
-    },
-    review: testimonials.slice(0, 8).map((r) => ({
-      "@type": "Review",
-      author: { "@type": "Person", name: r.name },
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: "5",
-        bestRating: "5",
-        worstRating: "1",
-      },
-      itemReviewed: businessRef,
-      name: r.tour,
-    })),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Private Boat Tours from Split",
@@ -214,26 +204,17 @@ export function breadcrumb(crumbs = [], homeLabel = "Home") {
   });
 }
 
-/**
- * FAQPage node built from translated strings, so /de/faq emits German
- * questions rather than English ones.
- *
- * `t` is scoped to the `faq` namespace. Ids that have no message are skipped.
- */
 export function faqPage(questions) {
-  const mainEntity = questions
-    .filter(Boolean)
-    .map((q) => ({
-      "@type": "Question",
-      name: q.question,
-      acceptedAnswer: { "@type": "Answer", text: q.answer },
-    }));
+  const mainEntity = questions.filter(Boolean).map((q) => ({
+    "@type": "Question",
+    name: q.question,
+    acceptedAnswer: { "@type": "Answer", text: q.answer },
+  }));
 
   if (mainEntity.length === 0) return null;
   return doc({ "@type": "FAQPage", mainEntity });
 }
 
-/** TouristTrip + Offer for a single tour detail page. */
 export function tourTrip(tour) {
   const canonical = absoluteUrl(`/tours/${tour.key}`);
   return doc({
@@ -338,23 +319,25 @@ export function reviewPage({ totalReviews, averageRating }) {
       "@id": BUSINESS_ID,
       aggregateRating: {
         "@type": "AggregateRating",
-        ratingValue: averageRating.toFixed(1),
+        ratingValue: Number(averageRating.toFixed(1)),
         reviewCount: totalReviews,
-        bestRating: "5",
-        worstRating: "1",
+        bestRating: 5,
+        worstRating: 1,
       },
       review: testimonials.map((r) => ({
         "@type": "Review",
         author: { "@type": "Person", name: r.name },
         reviewRating: {
           "@type": "Rating",
-          ratingValue: "5",
-          bestRating: "5",
-          worstRating: "1",
+          // Numbers, not strings — the validator is stricter about
+          // ratingValue than about the bestRating/worstRating bounds.
+          ratingValue: 5,
+          bestRating: 5,
+          worstRating: 1,
         },
         name: r.title,
         reviewBody: r.text,
-        itemReviewed: businessRef,
+        itemReviewed: reviewedItem,
         ...(r.tour && { positiveNotes: r.tour }),
       })),
     },
