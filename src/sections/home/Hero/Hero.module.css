@@ -57,9 +57,14 @@
   opacity: 0;
 }
 
+/* The heavy lifting is done by upscaling a 64px source (see Hero.jsx), so the
+   filter radius here only has to smooth the interpolation. blur(18px) across a
+   full-viewport, full-resolution image is per-frame GPU work on a surface the
+   size of the screen, and it sits behind the Gallery for its whole scroll. */
 .blur .img {
   transform: scale(1.05);
-  filter: blur(18px);
+  filter: blur(6px);
+  will-change: opacity;
 }
 
 .main {

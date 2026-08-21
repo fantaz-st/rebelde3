@@ -68,12 +68,22 @@ export default function Hero() {
               />
             </div>
             <div ref={blurRef} className={classes.blur} aria-hidden="true">
+              {/*
+                A 64px-wide source stretched over the viewport. Upscaling IS
+                the blur, so the browser composites a tiny texture instead of
+                running a large-radius filter over a full-resolution image
+                every frame — which is what phone GPUs choke on. A small
+                residual filter only smooths the upscale.
+
+                It also means this layer costs a couple of kB rather than
+                re-using the full hero download.
+              */}
               <Image
                 className={classes.img}
                 fill
                 alt=""
-                sizes={HERO_SIZES}
-                quality={HERO_QUALITY}
+                sizes="64px"
+                quality={40}
                 src={HERO_SRC}
               />
             </div>

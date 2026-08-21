@@ -45,7 +45,7 @@ export default function Gallery() {
           scroller: scrollerOpt,
           start: "top top",
           end: () => `+=${stage.offsetHeight}`,
-          scrub: true,
+          scrub: 0.5,
           invalidateOnRefresh: true,
         },
       });
@@ -73,7 +73,7 @@ export default function Gallery() {
             scroller: scrollerOpt,
             start: "bottom-=1.5vh 50%",
             end: "bottom-=1vh 50%",
-            scrub: true,
+            scrub: 0.5,
             invalidateOnRefresh: true,
           },
         })
@@ -117,7 +117,7 @@ export default function Gallery() {
             scroller: scrollerOpt,
             start: "top 90%",
             end: "top 20%",
-            scrub: true,
+            scrub: 0.5,
             invalidateOnRefresh: true,
             onRefresh: () => setImageFlip(),
           },
@@ -151,12 +151,13 @@ export default function Gallery() {
 
           if (img) {
             gsap.to(img, {
+              force3D: true,
               scrollTrigger: {
                 trigger: startEl,
                 scroller: scrollerOpt,
                 start: "top 90%",
                 end: "top top",
-                scrub: true,
+                scrub: 0.5,
                 invalidateOnRefresh: true,
               },
               yPercent: randY,
@@ -165,13 +166,20 @@ export default function Gallery() {
           }
 
           if (inner) {
+            // The 1.2 starting scale used to live in CSS as the `scale`
+            // property, which composes with transform rather than being read
+            // from it — GSAP saw scale 1 and animated 1 -> 1. Setting it here
+            // means the tween actually does something.
+            gsap.set(inner, { scale: 1.2 });
+
             gsap.to(inner, {
+              force3D: true,
               scrollTrigger: {
                 trigger: startEl,
                 scroller: scrollerOpt,
                 start: "top bottom+=10%",
                 end: "top top",
-                scrub: true,
+                scrub: 0.5,
                 invalidateOnRefresh: true,
               },
               yPercent: -randY,

@@ -119,11 +119,23 @@
   position: relative;
 }
 
+/* Both of these are transformed every frame while scrubbing, so both are
+   promoted to their own compositor layer. Without it the browser re-rasterises
+   the image at each step instead of transforming a cached texture — which is
+   the stutter, and it is worst on phones.
+
+   Safe with the mix-blend caption above: the rule against stacking contexts
+   applies to ANCESTORS of .stick, and these are in a different subtree.
+
+   `scale` is no longer set here. GSAP writes the whole transform, and a CSS
+   `scale` property composes with it rather than being read by it — so the
+   tween thought it was animating 1 -> 1 while CSS held it at 1.2. */
 .itemInner {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  scale: 1.2;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .img {
@@ -131,6 +143,8 @@
   height: 100%;
   display: block;
   object-fit: cover;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .endList {
