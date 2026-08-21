@@ -119,6 +119,43 @@
   color: var(--brand-persian-blue);
 }
 
+/* The award sits in the same row as the platform logos but is a link, so it
+   needs the anchor resets the divs beside it don't. */
+.award {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+.award:hover,
+.award:focus-visible {
+  opacity: 0.75;
+}
+
+.award img {
+  width: 9.6rem;
+  height: auto;
+}
+
+.ranking {
+  margin: 2.4rem 0 0;
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+  color: var(--brand-persian-blue-60);
+}
+
+@media (max-width: 767px) {
+  .platforms {
+    flex-wrap: wrap;
+    gap: 2.4rem 1.6rem;
+  }
+
+  .award img {
+    width: 8rem;
+  }
+}
+
 .ctaInner {
   width: 100%;
   display: flex;

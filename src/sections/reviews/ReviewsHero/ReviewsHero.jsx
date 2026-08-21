@@ -81,6 +81,28 @@ export default function ReviewsHero() {
               </li>
             ))}
           </ul>
+
+          {/* Award + ranking. Both are Tripadvisor's assertions rather than
+              ours, which is what makes them worth more than the star count
+              directly above. */}
+          <a
+            className={classes.award}
+            href="https://www.tripadvisor.com/Attraction_Review-g295370-d28042808-Reviews-Rebelde_Boats-Split_Split_Dalmatia_County_Dalmatia.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/images/logos/travelers-choice-2026.svg"
+              alt="Tripadvisor Travellers' Choice 2026 award"
+              width={80}
+              height={80}
+              className={classes.awardImg}
+            />
+            <span className={classes.awardText}>
+              <strong>Travellers&rsquo; Choice 2026</strong>
+              <span>#20 of 398 boat tours in Split</span>
+            </span>
+          </a>
         </div>
 
       </div>
