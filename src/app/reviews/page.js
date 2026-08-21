@@ -1,5 +1,4 @@
 import { breadcrumb, JsonLd, reviewPage, pageMetadata } from "@/lib/schema";
-import { totalReviews, averageRating } from "@/settings/reviews-meta";
 
 import ReviewsHero from "@/sections/reviews/ReviewsHero/ReviewsHero";
 import ReviewsWall from "@/sections/reviews/ReviewsWall/ReviewsWall";
@@ -18,7 +17,7 @@ export default async function ReviewsPage({ params }) {
   return (
     <>
       <JsonLd
-        data={reviewPage({ totalReviews, averageRating })}
+        data={reviewPage()}
         id="reviewpage-jsonld"
       />
       <JsonLd

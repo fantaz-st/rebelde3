@@ -1,13 +1,3 @@
-/**
- * Structured data — every JSON-LD graph the site emits lives here.
- *
- * Pages import builders instead of hand-rolling schema objects, so the
- * business identity, IDs, and pricing are defined exactly once.
- *
- * ★ TODO (quarterly): refresh the counts in settings/reviews-meta.js, which is
- *   now the single source for the rating shown on /reviews.
- */
-
 import tours from "@/settings/tours";
 import testimonials from "@/settings/testimonials";
 
@@ -20,29 +10,13 @@ export const ORG_ID = `${SITE_URL}/#organization`;
 export const BUSINESS_TELEPHONE = "+385953933125";
 export const BUSINESS_EMAIL = "rebeldeboats@gmail.com";
 
-// Kept as exports for now, but nothing reads them: the rating on /reviews is
-// computed from settings/reviews-meta.js instead. Delete once you have
-// confirmed Search Console is clean.
-export const REVIEW_COUNT = 288;
-export const RATING_VALUE = "5.0";
-
 export const businessRef = { "@id": BUSINESS_ID };
-
-export const reviewedItem = {
-  "@type": "LocalBusiness",
-  "@id": BUSINESS_ID,
-  name: SITE_NAME,
-};
 
 // ── URL helpers ────────────────────────────────────────────
 
 export const absoluteUrl = (path = "") =>
   `${SITE_URL}${path === "/" ? "" : path}`;
 
-/**
- * Standard page metadata. Every page calls this so canonical + hreflang +
- * OG are consistent and never drift between routes.
- */
 export function pageMetadata({
   path = "",
   title,
@@ -301,8 +275,24 @@ export function contactPage({ title, description }) {
   });
 }
 
-/** ReviewPage node with every testimonial as an individual Review. */
-export function reviewPage({ totalReviews, averageRating }) {
+/**
+ * ReviewPage node for /reviews.
+ *
+ * Deliberately carries NO aggregateRating and NO review entries.
+ *
+ * Google does not show review snippets for "self-serving" reviews — reviews
+ * about a business, published on that business's own site — for LocalBusiness
+ * or Organization types. Their docs are explicit that those types are for
+ * sites capturing reviews about OTHER businesses. On top of that, the
+ * guidelines say not to aggregate ratings from other websites, and our counts
+ * come from Tripadvisor, Google and GetYourGuide.
+ *
+ * So the markup could never earn stars, and it put 15 invalid items into
+ * Search Console. The reviews themselves still render on the page for readers;
+ * only the structured data is gone. Our stars in search come from the Google
+ * Business Profile, which this has no bearing on.
+ */
+export function reviewPage() {
   const canonical = absoluteUrl("/reviews");
   return doc({
     "@type": "ReviewPage",
@@ -314,32 +304,6 @@ export function reviewPage({ totalReviews, averageRating }) {
     inLanguage: "en",
     isPartOf: { "@id": WEBSITE_ID },
     about: businessRef,
-    mainEntity: {
-      "@type": "LocalBusiness",
-      "@id": BUSINESS_ID,
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: Number(averageRating.toFixed(1)),
-        reviewCount: totalReviews,
-        bestRating: 5,
-        worstRating: 1,
-      },
-      review: testimonials.map((r) => ({
-        "@type": "Review",
-        author: { "@type": "Person", name: r.name },
-        reviewRating: {
-          "@type": "Rating",
-          // Numbers, not strings — the validator is stricter about
-          // ratingValue than about the bestRating/worstRating bounds.
-          ratingValue: 5,
-          bestRating: 5,
-          worstRating: 1,
-        },
-        name: r.title,
-        reviewBody: r.text,
-        itemReviewed: reviewedItem,
-        ...(r.tour && { positiveNotes: r.tour }),
-      })),
-    },
+    mainEntity: businessRef,
   });
 }
